@@ -2,12 +2,13 @@
 import type { Project, LinkItem } from './types';
 
 export const projectsData: Project[] = [
+  // Proyectos IA Recientes y Destacados
   {
     id: 'proj-quiz-ai',
     name: 'Creador de Quizzes con IA',
     url: 'https://9000-idx-studio-1746296464496.cluster-pgviq6mvsncnqxx6kr7pbz65v6.cloudworkstations.dev/',
     description: 'Herramienta inteligente para generar cuestionarios y evaluaciones personalizadas mediante IA, facilitando la creación de contenido educativo y de capacitación.',
-    thumbnailUrl: 'https://i.imgur.com/WWn1NuN.png',
+    thumbnailUrl: 'https://i.imgur.com/0NciRLC.png',
     dataAiHint: 'ai quiz generator',
     tags: ['AI', 'EdTech', 'Firebase', 'Generative AI'],
   },
@@ -16,7 +17,7 @@ export const projectsData: Project[] = [
     name: 'NEGOTIA',
     url: 'https://9000-idx-studio-1745689952822.cluster-ux5mmlia3zhhask7riihruxydo.cloudworkstations.dev/',
     description: 'Deal Smarter, Not Harder. Plataforma de negociación asistida por IA diseñada para facilitar acuerdos beneficiosos para todas las partes (Win-Win Outcomes).',
-    thumbnailUrl: 'https://i.imgur.com/vPDD7E4.png', 
+    thumbnailUrl: 'https://i.imgur.com/wIwB6qu.png', 
     dataAiHint: 'ai negotiation platform',
     tags: ['AI', 'Negotiation', 'SaaS', 'B2B'],
   },
@@ -25,27 +26,56 @@ export const projectsData: Project[] = [
     name: 'Bless Contigo',
     url: 'https://9000-firebase-studio-1747186834705.cluster-hf4yr35cmnbd4vhbxvfvc6cp5q.cloudworkstations.dev/',
     description: 'Plataforma comunitaria diseñada para conectar y ofrecer recursos de apoyo, fomentando la colaboración y el bienestar colectivo.',
-    thumbnailUrl: 'https://i.imgur.com/yQ7eV2p.png',
+    thumbnailUrl: 'https://i.imgur.com/2GnmZm2.png',
     dataAiHint: 'community platform',
     tags: ['Community', 'Platform', 'Firebase', 'Social Impact'],
-  },
-  {
-    id: 'proj-imagine-motiva',
-    name: 'Imagine Motiva (Establishment Labs)',
-    url: '', // Empty URL for conceptual project
-    description: 'Colaboración en el desarrollo de soluciones digitales innovadoras para Establishment Labs, una empresa global de tecnología médica, enfocadas en mejorar la experiencia del usuario y la eficiencia operativa.',
-    thumbnailUrl: 'https://i.imgur.com/Ro96ojX.png',
-    dataAiHint: 'medtech solution',
-    tags: ['MedTech', 'UX/UI', 'Digital Transformation', 'Enterprise'],
   },
   {
     id: 'proj-agroia',
     name: 'Agroia',
     url: 'https://9000-idx-studio-1745949441464.cluster-pgviq6mvsncnqxx6kr7pbz65v6.cloudworkstations.dev/',
     description: 'Plataforma digital inteligente para el sector agrícola, utilizando IA para conectar productores con mercados, optimizar recursos y facilitar el acceso a tecnologías avanzadas.',
-    thumbnailUrl: 'https://i.imgur.com/eJkSQ6Z.png',
+    thumbnailUrl: 'https://i.imgur.com/h53YbVW.png',
     dataAiHint: 'agritech platform',
     tags: ['AgriTech', 'AI', 'E-commerce', 'Platform', 'Firebase'],
+  },
+
+  // Colaboraciones de Impacto
+  {
+    id: 'proj-imagine-motiva',
+    name: 'Imagine Motiva (Establishment Labs)',
+    url: 'https://motiva.health/motivaImagine/', 
+    description: 'Colaboración en el desarrollo de soluciones digitales innovadoras para Establishment Labs, una empresa global de tecnología médica, enfocadas en la visualización avanzada y personalización de implantes mamarios.',
+    thumbnailUrl: 'https://i.imgur.com/8m70722.png',
+    dataAiHint: 'medtech visualization',
+    tags: ['MedTech', 'UX/UI', '3D Visualization', 'Enterprise', 'Collaboration'],
+  },
+  {
+    id: 'proj-agro-y-mas',
+    name: 'Agro Y Más',
+    url: 'https://agroymas.com/',
+    description: 'Colaboración en la plataforma digital para el sector agrícola, enfocada en conectar a productores con información relevante, mercados y soluciones financieras.',
+    thumbnailUrl: 'https://i.imgur.com/McB2HN9.png',
+    dataAiHint: 'agritech news finance',
+    tags: ['AgriTech', 'Platform', 'FinTech', 'Content', 'Collaboration'],
+  },
+  {
+    id: 'proj-epa-en-linea',
+    name: 'EPA en Línea (Costa Rica)',
+    url: 'https://cr.epaenlinea.com',
+    description: 'Participación en el desarrollo y mejora de la plataforma de e-commerce para Ferretería EPA en Costa Rica, optimizando la experiencia de compra en línea.',
+    thumbnailUrl: 'https://i.imgur.com/XNbjFzv.png',
+    dataAiHint: 'hardware ecommerce retail',
+    tags: ['E-commerce', 'Retail', 'Web Development', 'Collaboration'],
+  },
+  {
+    id: 'proj-kohls',
+    name: "Kohl's E-commerce",
+    url: 'https://www.kohls.com',
+    description: 'Colaboración en proyectos de desarrollo para la plataforma de e-commerce de Kohl’s, una de las principales cadenas de tiendas departamentales en EE. UU.',
+    thumbnailUrl: 'https://i.imgur.com/Ud4Q2jt.png',
+    dataAiHint: 'department store ecommerce',
+    tags: ['E-commerce', 'Retail', 'Enterprise', 'Collaboration'],
   },
 ];
 
