@@ -17,7 +17,7 @@ export const projectsData: Project[] = [
     name: 'NEGOTIA',
     url: 'https://9000-idx-studio-1745689952822.cluster-ux5mmlia3zhhask7riihruxydo.cloudworkstations.dev/',
     description: 'Deal Smarter, Not Harder. Plataforma de negociación asistida por IA diseñada para facilitar acuerdos beneficiosos para todas las partes (Win-Win Outcomes).',
-    thumbnailUrl: 'https://i.imgur.com/wIwB6qu.png', 
+    thumbnailUrl: 'https://i.imgur.com/wIwB6qu.png',
     dataAiHint: 'ai negotiation platform',
     tags: ['AI', 'Negotiation', 'SaaS', 'B2B'],
   },
@@ -44,9 +44,9 @@ export const projectsData: Project[] = [
   {
     id: 'proj-imagine-motiva',
     name: 'Imagine Motiva (Establishment Labs)',
-    url: 'https://motiva.health/motivaImagine/', 
+    url: 'https://motiva.health/motivaImagine/',
     description: 'Colaboración en el desarrollo de soluciones digitales innovadoras para Establishment Labs, una empresa global de tecnología médica, enfocadas en la visualización avanzada y personalización de implantes mamarios.',
-    thumbnailUrl: 'https://i.imgur.com/8m70722.png', // Corrected from Ro96ojX based on last update with all images
+    thumbnailUrl: 'https://i.imgur.com/8m70722.png',
     dataAiHint: 'medtech visualization',
     tags: ['MedTech', 'UX/UI', '3D Visualization', 'Enterprise', 'Collaboration'],
   },
@@ -72,7 +72,7 @@ export const projectsData: Project[] = [
     id: 'proj-kohls',
     name: "Kohl's E-commerce",
     url: 'https://www.kohls.com',
-    description: 'Participación en iniciativas de desarrollo para la robusta plataforma de e-commerce de Kohl’s, una destacada cadena de tiendas departamentales en Estados Unidos.',
+    description: 'Colaboración relacionada con la plataforma de e-commerce de Kohl’s, una destacada cadena de tiendas departamentales en Estados Unidos.',
     thumbnailUrl: 'https://i.imgur.com/Ud4Q2jt.png',
     dataAiHint: 'department store ecommerce',
     tags: ['E-commerce', 'Retail', 'Enterprise', 'Collaboration'],
@@ -122,6 +122,3 @@ export const navLinksData = [
   { href: '#documents', label: 'Resources' },
   { href: '#contact', label: 'Contact' },
 ];
-
-// Note: I corrected the Motiva thumbnail URL back to https://i.imgur.com/8m70722.png as per the previous list of image URLs you provided for collaborations.
-// If https://i.imgur.com/Ro96ojX.png was the intended one for Motiva, please let me know.
