@@ -7,7 +7,7 @@ export const projectsData: Project[] = [
     name: 'Creador de Quizzes con IA',
     url: 'https://9000-idx-studio-1746296464496.cluster-pgviq6mvsncnqxx6kr7pbz65v6.cloudworkstations.dev/',
     description: 'Herramienta inteligente para generar cuestionarios y evaluaciones personalizadas mediante IA, facilitando la creación de contenido educativo y de capacitación.',
-    thumbnailUrl: 'https://placehold.co/600x400.png',
+    thumbnailUrl: 'https://i.imgur.com/WWn1NuN.png',
     dataAiHint: 'ai quiz generator',
     tags: ['AI', 'EdTech', 'Firebase', 'Generative AI'],
   },
@@ -16,7 +16,7 @@ export const projectsData: Project[] = [
     name: 'NEGOTIA',
     url: 'https://9000-idx-studio-1745689952822.cluster-ux5mmlia3zhhask7riihruxydo.cloudworkstations.dev/',
     description: 'Deal Smarter, Not Harder. Plataforma de negociación asistida por IA diseñada para facilitar acuerdos beneficiosos para todas las partes (Win-Win Outcomes).',
-    thumbnailUrl: 'https://firebasestorage.googleapis.com/v0/b/your-project-id.appspot.com/o/negotia-screenshot.png?alt=media&token=REPLACE_WITH_YOUR_TOKEN', // Asegúrate de reemplazar esto con la URL real de tu imagen.
+    thumbnailUrl: 'https://i.imgur.com/vPDD7E4.png', 
     dataAiHint: 'ai negotiation platform',
     tags: ['AI', 'Negotiation', 'SaaS', 'B2B'],
   },
@@ -25,16 +25,16 @@ export const projectsData: Project[] = [
     name: 'Bless Contigo',
     url: 'https://9000-firebase-studio-1747186834705.cluster-hf4yr35cmnbd4vhbxvfvc6cp5q.cloudworkstations.dev/',
     description: 'Plataforma comunitaria diseñada para conectar y ofrecer recursos de apoyo, fomentando la colaboración y el bienestar colectivo.',
-    thumbnailUrl: 'https://placehold.co/600x400.png',
+    thumbnailUrl: 'https://i.imgur.com/yQ7eV2p.png',
     dataAiHint: 'community platform',
     tags: ['Community', 'Platform', 'Firebase', 'Social Impact'],
   },
   {
     id: 'proj-imagine-motiva',
     name: 'Imagine Motiva (Establishment Labs)',
-    url: '', // Empty URL for conceptual project, "Visit Site" will be disabled
+    url: '', // Empty URL for conceptual project
     description: 'Colaboración en el desarrollo de soluciones digitales innovadoras para Establishment Labs, una empresa global de tecnología médica, enfocadas en mejorar la experiencia del usuario y la eficiencia operativa.',
-    thumbnailUrl: 'https://placehold.co/600x400.png',
+    thumbnailUrl: 'https://i.imgur.com/Ro96ojX.png',
     dataAiHint: 'medtech solution',
     tags: ['MedTech', 'UX/UI', 'Digital Transformation', 'Enterprise'],
   },
@@ -43,7 +43,7 @@ export const projectsData: Project[] = [
     name: 'Agroia',
     url: 'https://9000-idx-studio-1745949441464.cluster-pgviq6mvsncnqxx6kr7pbz65v6.cloudworkstations.dev/',
     description: 'Plataforma digital inteligente para el sector agrícola, utilizando IA para conectar productores con mercados, optimizar recursos y facilitar el acceso a tecnologías avanzadas.',
-    thumbnailUrl: 'https://placehold.co/600x400.png',
+    thumbnailUrl: 'https://i.imgur.com/eJkSQ6Z.png',
     dataAiHint: 'agritech platform',
     tags: ['AgriTech', 'AI', 'E-commerce', 'Platform', 'Firebase'],
   },
@@ -92,3 +92,4 @@ export const navLinksData = [
   { href: '#documents', label: 'Resources' },
   { href: '#contact', label: 'Contact' },
 ];
+
