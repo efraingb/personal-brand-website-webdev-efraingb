@@ -84,11 +84,17 @@ const verifyProjectStatusFlow = ai.defineFlow(
     outputSchema: VerifyProjectStatusOutputSchema,
   },
   async input => {
-    const {output} = await verifyProjectStatusPrompt(input);
-    if (!output) {
-      console.error('verifyProjectStatusPrompt did not return a valid output. Input was:', input);
-      return { isActive: false }; // Fallback if LLM fails to construct output
+    try {
+      const {output} = await verifyProjectStatusPrompt(input);
+      if (!output) {
+        console.error('[verifyProjectStatusFlow] verifyProjectStatusPrompt did not return a valid output. Input was:', input);
+        return { isActive: false }; // Fallback if LLM fails to construct output
+      }
+      return output;
+    } catch (error) {
+      console.error(`[verifyProjectStatusFlow] Error calling verifyProjectStatusPrompt for URL ${input.url}:`, error);
+      // Return a default "offline" status if the LLM call fails (e.g., 503 error)
+      return { isActive: false };
     }
-    return output;
   }
 );
