@@ -1,10 +1,11 @@
+
 // src/components/project-modal.tsx
 "use client";
 
 import type { Project } from "@/lib/types";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import Image from "next/image";
-import { WifiOff, AlertTriangle, ExternalLink as ExternalLinkIcon, Loader2, Sparkles, Info } from "lucide-react"; 
+import { WifiOff, AlertTriangle, ExternalLink as ExternalLinkIcon, Loader2, Sparkles, Info, Rocket } from "lucide-react"; 
 import { Button } from "./ui/button";
 
 interface ProjectModalProps {
@@ -19,70 +20,71 @@ export default function ProjectModal({ project, isActive, isOpen, onClose }: Pro
 
   const isConceptualOrNoUrl = !project.url || project.url.trim() === '' || project.url === '#';
   const isCloudWorkstation = project.url?.includes('cloudworkstations.dev');
-  const showIframe = isActive === true && !isConceptualOrNoUrl && !isCloudWorkstation;
-  const showFallback = !showIframe; 
 
-  let fallbackIcon = <Info className="h-12 w-12 text-accent mb-4" />;
-  let fallbackTitle = "Project Details";
-  let fallbackDescription = "Further details for this project are shown below.";
+  let displayIcon = <Info className="h-10 w-10 text-accent mb-3" />;
+  let messageTitle = project.name; // Default to project name, can be overridden
+  let messageDescription: React.ReactNode = project.description;
+  let buttonText = "Visit Site";
+  let buttonEnabled = true;
 
-  if (isCloudWorkstation) {
-    fallbackIcon = <Sparkles className="h-12 w-12 text-accent mb-4" />;
-    fallbackTitle = "Cloud Workspace Project";
-    fallbackDescription = "This project runs in a dedicated cloud workspace. For the best experience, please open it directly using the button below.";
-  } else if (isConceptualOrNoUrl) {
-    fallbackIcon = <AlertTriangle className="h-12 w-12 text-amber-500 mb-4" />;
-    fallbackTitle = "Conceptual Project";
-    fallbackDescription = "This project is a conceptual piece or a visual showcase. The thumbnail provides a glimpse of its design. For more details, please refer to external links if available.";
-  } else if (isActive === null) {
-    fallbackIcon = <Loader2 className="h-12 w-12 text-primary animate-spin mb-4" />;
-    fallbackTitle = "Verifying Status...";
-    fallbackDescription = "Just a moment, we're checking the live status of this project. This may take a few seconds.";
+  if (isConceptualOrNoUrl) {
+    displayIcon = <AlertTriangle className="h-10 w-10 text-amber-500 mb-3" />;
+    messageTitle = "Conceptual Project";
+    messageDescription = "This is a conceptual piece or a visual showcase. The thumbnail provides a glimpse of its design.";
+    buttonText = "Details (If Available)";
+    buttonEnabled = false; // Or true if a generic info link might exist
+  } else if (isLoading) {
+    displayIcon = <Loader2 className="h-10 w-10 text-primary animate-spin mb-3" />;
+    messageTitle = "Checking Status...";
+    messageDescription = "We're currently verifying the live status of this project. This might take a moment.";
+    buttonEnabled = false;
+  } else if (isActive === true) {
+    if (isCloudWorkstation) {
+      displayIcon = <Rocket className="h-10 w-10 text-accent mb-3" />; // Changed from Sparkles for variety
+      messageTitle = "Active Project";
+      messageDescription = "This project is currently active. Click the button below to explore it live.";
+      buttonText = "Open Project";
+    } else { // Other public, active projects
+      displayIcon = <Rocket className="h-10 w-10 text-green-500 mb-3" />;
+      messageTitle = "Project Online";
+      messageDescription = "This project is live and accessible. Click below to visit the site.";
+    }
   } else if (isActive === false) {
-    fallbackIcon = <WifiOff className="h-12 w-12 text-destructive mb-4" />;
-    fallbackTitle = "Project Offline";
-    fallbackDescription = (
+    displayIcon = <WifiOff className="h-10 w-10 text-destructive mb-3" />;
+    messageTitle = "Project Offline";
+    messageDescription = (
       <>
-        We couldn't load a live preview as this project at{' '}
-        <code className="text-sm bg-muted/70 px-1.5 py-0.5 rounded-sm font-mono shadow-sm">
-          {project.url}
-        </code>{' '}
-        seems to be offline or inaccessible right now. You can try visiting the site directly.
+        This project at <code className="text-sm bg-muted/70 px-1.5 py-0.5 rounded-sm font-mono shadow-sm">{project.url}</code> currently appears to be offline or inaccessible. You can still try visiting the site directly.
       </>
     );
+    buttonText = "Attempt to Visit";
+  } else { // isActive is null (initial state for projects that are checked)
+     displayIcon = <Loader2 className="h-10 w-10 text-primary animate-spin mb-3" />;
+     messageTitle = "Verifying Status...";
+     messageDescription = "Just a moment, we're checking the live status of this project.";
+     buttonEnabled = false;
   }
 
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-3xl w-[90vw] h-[80vh] p-0 flex flex-col bg-card text-card-foreground rounded-lg shadow-2xl">
-        <DialogHeader className="p-6 pb-2 border-b border-border/50">
-          <DialogTitle className="text-2xl font-semibold">{project.name}</DialogTitle>
-          {project.description && <DialogDescription className="text-sm text-muted-foreground mt-1">{project.description}</DialogDescription>}
+      <DialogContent className="max-w-2xl w-[90vw] sm:w-[70vw] md:w-[60vw] lg:max-w-xl p-0 flex flex-col bg-card text-card-foreground rounded-lg shadow-2xl max-h-[85vh]">
+        <DialogHeader className="p-6 pb-3 border-b border-border/50">
+          <DialogTitle className="text-xl sm:text-2xl font-semibold">{project.name}</DialogTitle>
+          {project.description && <DialogDescription className="text-sm text-muted-foreground mt-1 leading-relaxed">{project.description}</DialogDescription>}
         </DialogHeader>
         
-        <div className="flex-grow overflow-auto">
-          {showIframe && (
-            <iframe
-              src={project.url}
-              title={project.name}
-              className="w-full h-full border-0 rounded-b-md shadow-inner bg-white" // Added bg-white and rounded-b-md
-              allowFullScreen
-              sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
-            />
-          )}
-
-          {showFallback && (
-            <div className="w-full h-full flex flex-col items-center justify-center bg-muted/30 p-6 sm:p-8 text-center rounded-b-md">
-              {fallbackIcon}
-              <h3 className="text-xl sm:text-2xl font-semibold text-primary mb-3">
-                {fallbackTitle}
+        <div className="flex-grow overflow-y-auto p-6 text-center">
+            <div className="flex flex-col items-center justify-center">
+              {displayIcon}
+              <h3 className="text-lg sm:text-xl font-semibold text-primary mb-2">
+                {messageTitle}
               </h3>
-              <div className="text-sm sm:text-base text-foreground/80 mb-6 max-w-md mx-auto leading-relaxed">
-                {fallbackDescription}
+              <div className="text-sm text-foreground/80 mb-5 max-w-md mx-auto leading-relaxed">
+                {messageDescription}
               </div>
               
-              <div className="relative w-full max-w-xs sm:max-w-md aspect-[16/10] rounded-lg overflow-hidden shadow-xl my-4">
+              <div className="relative w-full max-w-md aspect-[16/10] rounded-lg overflow-hidden shadow-xl my-4 border border-border/30">
                 <Image
                   src={project.thumbnailUrl}
                   alt={`${project.name} thumbnail`}
@@ -93,18 +95,35 @@ export default function ProjectModal({ project, isActive, isOpen, onClose }: Pro
                 />
               </div>
 
-              {(project.url && project.url !== '#') && (isCloudWorkstation || isActive === false || isConceptualOrNoUrl) ? (
-                 <Button variant="default" asChild className="mt-6 shadow-md hover:shadow-lg transition-shadow">
+              {!isConceptualOrNoUrl && project.url && project.url.trim() !== '#' && (
+                 <Button 
+                    variant="default" 
+                    asChild 
+                    className="mt-4 shadow-md hover:shadow-lg transition-shadow"
+                    disabled={!buttonEnabled}
+                  >
                   <a href={project.url} target="_blank" rel="noopener noreferrer">
-                    {isCloudWorkstation ? "Open Project Workspace" : isConceptualOrNoUrl ? "View Details (If Available)" : "Attempt to Visit Site"} 
+                    {buttonText}
                     <ExternalLinkIcon className="ml-2 h-4 w-4" />
                   </a>
                 </Button>
-              ) : null}
+              )}
+               {isConceptualOrNoUrl && project.url && project.url.trim() !== '#' && (
+                 <Button 
+                    variant="outline" 
+                    asChild 
+                    className="mt-4 shadow-md hover:shadow-lg transition-shadow"
+                  >
+                  <a href={project.url} target="_blank" rel="noopener noreferrer">
+                    {buttonText}
+                    <ExternalLinkIcon className="ml-2 h-4 w-4" />
+                  </a>
+                </Button>
+              )}
             </div>
-          )}
         </div>
       </DialogContent>
     </Dialog>
   );
 }
+
