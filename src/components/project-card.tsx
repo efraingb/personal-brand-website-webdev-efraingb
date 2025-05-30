@@ -8,7 +8,7 @@ import Image from "next/image";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ExternalLink, Eye, Wifi, WifiOff, Loader2, AlertTriangle, Terminal } from "lucide-react"; // Added Terminal
+import { ExternalLink, Eye, Wifi, WifiOff, Loader2, AlertTriangle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 interface ProjectCardProps {
@@ -34,7 +34,8 @@ export default function ProjectCard({ project, onViewProject }: ProjectCardProps
       }
 
       if (isCloudWorkstation) {
-        // For cloud workstation URLs, assume online and skip server-side check
+        // For cloud workstation URLs, assume online and skip server-side check.
+        // Efraín can access these, so they should appear online on the card.
         setIsActive(true);
         setIsLoading(false);
         return;
@@ -78,13 +79,11 @@ export default function ProjectCard({ project, onViewProject }: ProjectCardProps
     if (isConceptualOrNoUrl) {
       return <Badge variant="outline" className="flex items-center gap-1 border-amber-500 text-amber-700"><AlertTriangle className="h-3 w-3" /> Conceptual</Badge>;
     }
-    if (isCloudWorkstation) {
-      return <Badge variant="default" className="bg-sky-500 hover:bg-sky-600 text-white flex items-center gap-1"><Terminal className="h-3 w-3" /> Dev Link</Badge>;
-    }
-    if (isLoading) {
+    // For cloud workstation, isActive is set to true directly in useEffect
+    if (isLoading && !isCloudWorkstation) { // Only show loading if not a cloud workstation (which is handled instantly)
       return <Badge variant="secondary" className="flex items-center gap-1"><Loader2 className="h-3 w-3 animate-spin" /> Checking...</Badge>;
     }
-    return isActive ? (
+    return isActive ? ( // This will be true for cloud workstations
       <Badge variant="default" className="bg-green-500 hover:bg-green-600 text-white flex items-center gap-1">
         <Wifi className="h-3 w-3" /> Online
       </Badge>
@@ -136,7 +135,10 @@ export default function ProjectCard({ project, onViewProject }: ProjectCardProps
           asChild 
           variant="outline" 
           className="w-full sm:w-auto"
-          disabled={isConceptualOrNoUrl || (isLoading && !isCloudWorkstation) || (!isActive && !isCloudWorkstation)} // Disabled if conceptual, loading (and not CW), or offline (and not CW)
+          // For conceptual projects, button is disabled.
+          // For cloud workstations, isActive is true, isLoading is false, so button is enabled.
+          // For others, depends on isLoading and isActive.
+          disabled={isConceptualOrNoUrl || (isLoading && !isCloudWorkstation) || (!isActive && !isCloudWorkstation)}
         >
           <a href={project.url || '#'} target="_blank" rel="noopener noreferrer">
             <ExternalLink className="mr-2 h-4 w-4" /> Visit Site
