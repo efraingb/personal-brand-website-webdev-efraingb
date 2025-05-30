@@ -38,7 +38,7 @@ export default function DocumentsSection() {
               <CardContent className="pt-0"> {/* Use CardContent for padding consistency for the button */}
                 <Button asChild variant="outline" className="w-full">
                   <Link href={item.url} target="_blank" rel="noopener noreferrer">
-                    {item.iconName === 'BookOpen' ? 'View on Amazon' : 'Visit Profile'}
+                    {item.buttonText || (item.iconName === 'BookOpen' ? 'View Details' : 'Visit Profile')}
                     <ExternalLink className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>

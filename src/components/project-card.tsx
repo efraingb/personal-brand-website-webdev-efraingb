@@ -8,7 +8,7 @@ import Image from "next/image";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ExternalLink, Eye, Wifi, WifiOff, Loader2 } from "lucide-react";
+import { ExternalLink, Eye, Wifi, WifiOff, Loader2, AlertTriangle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 interface ProjectCardProps {
@@ -21,17 +21,20 @@ export default function ProjectCard({ project, onViewProject }: ProjectCardProps
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const { toast } = useToast();
 
+  const isConceptualOrNoUrl = !project.url || project.url.trim() === '' || project.url === '#';
+
   useEffect(() => {
     let isMounted = true;
     async function checkStatus() {
-      if (!project.url) {
-        setIsActive(false);
+      if (isConceptualOrNoUrl) {
+        setIsActive(false); // Conceptual or no URL means it's not "Online" for live view
         setIsLoading(false);
         return;
       }
+
       try {
         setIsLoading(true);
-        // Ensure URL has a scheme
+        // Ensure URL has a scheme if not conceptual
         let fullUrl = project.url;
         if (!/^https?:\/\//i.test(fullUrl)) {
           fullUrl = `https://` + fullUrl;
@@ -61,9 +64,12 @@ export default function ProjectCard({ project, onViewProject }: ProjectCardProps
     return () => {
       isMounted = false;
     };
-  }, [project.url, project.name, toast]);
+  }, [project.url, project.name, toast, isConceptualOrNoUrl]);
 
   const statusBadge = () => {
+    if (isConceptualOrNoUrl) {
+      return <Badge variant="outline" className="flex items-center gap-1 border-amber-500 text-amber-700"><AlertTriangle className="h-3 w-3" /> Conceptual</Badge>;
+    }
     if (isLoading) {
       return <Badge variant="secondary" className="flex items-center gap-1"><Loader2 className="h-3 w-3 animate-spin" /> Checking...</Badge>;
     }
@@ -108,10 +114,10 @@ export default function ProjectCard({ project, onViewProject }: ProjectCardProps
       </CardContent>
       <CardFooter className="flex flex-col sm:flex-row justify-between items-center gap-2 p-4 bg-muted/30">
         <Button 
-          onClick={() => onViewProject(project, isActive)} 
+          onClick={() => onViewProject(project, isConceptualOrNoUrl ? false : isActive)} // For modal, conceptual project is treated as "offline" for live iframe
           variant="default"
           className="w-full sm:w-auto"
-          disabled={isLoading}
+          disabled={isLoading && !isConceptualOrNoUrl} // Disable only if loading and not conceptual
         >
           <Eye className="mr-2 h-4 w-4" /> View Project
         </Button>
@@ -119,9 +125,9 @@ export default function ProjectCard({ project, onViewProject }: ProjectCardProps
           asChild 
           variant="outline" 
           className="w-full sm:w-auto"
-          disabled={isLoading || !isActive} // Disable if loading or if project is offline
+          disabled={isLoading || !isActive || isConceptualOrNoUrl} // Disable if loading, offline, or conceptual/no URL
         >
-          <a href={project.url} target="_blank" rel="noopener noreferrer">
+          <a href={project.url || '#'} target="_blank" rel="noopener noreferrer">
             <ExternalLink className="mr-2 h-4 w-4" /> Visit Site
           </a>
         </Button>

@@ -4,18 +4,20 @@
 import type { Project } from "@/lib/types";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import Image from "next/image";
-import { ServerCrash, WifiOff } from "lucide-react";
+import { ServerCrash, WifiOff, AlertTriangle, ExternalLink as ExternalLinkIcon } from "lucide-react"; // Added AlertTriangle and imported ExternalLinkIcon from lucide
 import { Button } from "./ui/button";
 
 interface ProjectModalProps {
   project: Project | null;
-  isActive: boolean | null;
+  isActive: boolean | null; // For live projects: true if online, false if offline. For conceptual: usually false.
   isOpen: boolean;
   onClose: () => void;
 }
 
 export default function ProjectModal({ project, isActive, isOpen, onClose }: ProjectModalProps) {
   if (!project) return null;
+
+  const isConceptualOrNoUrl = !project.url || project.url.trim() === '' || project.url === '#';
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
@@ -26,7 +28,7 @@ export default function ProjectModal({ project, isActive, isOpen, onClose }: Pro
         </DialogHeader>
         
         <div className="flex-grow overflow-hidden p-6 pt-2">
-          {isActive === null && ( // Loading state
+          {isActive === null && !isConceptualOrNoUrl && ( // Loading state only if not conceptual and status is unknown
             <div className="w-full h-full flex flex-col items-center justify-center bg-muted/50 rounded-md">
               <svg className="animate-spin h-10 w-10 text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                 <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
@@ -35,7 +37,7 @@ export default function ProjectModal({ project, isActive, isOpen, onClose }: Pro
               <p className="mt-4 text-muted-foreground">Checking project status...</p>
             </div>
           )}
-          {isActive === true && (
+          {isActive === true && !isConceptualOrNoUrl && ( // Live project is online
             <iframe
               src={project.url}
               title={project.name}
@@ -43,12 +45,21 @@ export default function ProjectModal({ project, isActive, isOpen, onClose }: Pro
               allowFullScreen
             />
           )}
-          {isActive === false && (
+          {(isActive === false || isConceptualOrNoUrl) && ( // Live project offline OR conceptual project
             <div className="w-full h-full flex flex-col items-center justify-center bg-muted/50 rounded-md p-4 text-center">
-              <WifiOff className="h-16 w-16 text-destructive mb-4" />
-              <h3 className="text-xl font-semibold text-destructive-foreground mb-2">Project Offline</h3>
+              {isConceptualOrNoUrl ? (
+                <AlertTriangle className="h-16 w-16 text-amber-500 mb-4" />
+              ) : (
+                <WifiOff className="h-16 w-16 text-destructive mb-4" />
+              )}
+              <h3 className="text-xl font-semibold text-foreground mb-2">
+                {isConceptualOrNoUrl ? "Conceptual Project" : "Project Offline"}
+              </h3>
               <p className="text-muted-foreground mb-4">
-                This project at <code className="text-sm bg-muted px-1 py-0.5 rounded">{project.url}</code> appears to be currently offline or inaccessible.
+                {isConceptualOrNoUrl 
+                  ? "This is a conceptual project or does not have a live demo URL." 
+                  : `This project at <code class="text-sm bg-muted px-1 py-0.5 rounded">${project.url}</code> appears to be currently offline or inaccessible.`
+                }
               </p>
               <div className="relative w-full max-w-md aspect-video rounded-md overflow-hidden shadow-lg">
                 <Image
@@ -59,11 +70,13 @@ export default function ProjectModal({ project, isActive, isOpen, onClose }: Pro
                   data-ai-hint={project.dataAiHint}
                 />
               </div>
-               <Button variant="link" asChild className="mt-4">
-                <a href={project.url} target="_blank" rel="noopener noreferrer">
-                  Attempt to visit site anyway <ExternalLinkIcon className="ml-2 h-4 w-4" />
-                </a>
-              </Button>
+              {!isConceptualOrNoUrl && project.url && ( // Show "Attempt to visit" only if it was supposed to be online
+                 <Button variant="link" asChild className="mt-4">
+                  <a href={project.url} target="_blank" rel="noopener noreferrer">
+                    Attempt to visit site anyway <ExternalLinkIcon className="ml-2 h-4 w-4" />
+                  </a>
+                </Button>
+              )}
             </div>
           )}
         </div>
@@ -71,24 +84,3 @@ export default function ProjectModal({ project, isActive, isOpen, onClose }: Pro
     </Dialog>
   );
 }
-
-// Helper icon, as lucide-react might not be directly available in this specific component context
-// Or ensure lucide-react icons are imported if this component is used elsewhere.
-const ExternalLinkIcon = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    {...props}
-  >
-    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-    <polyline points="15 3 21 3 21 9" />
-    <line x1="10" x2="21" y1="14" y2="3" />
-  </svg>
-);
