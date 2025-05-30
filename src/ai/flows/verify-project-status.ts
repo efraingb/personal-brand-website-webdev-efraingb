@@ -1,3 +1,4 @@
+
 // VerifyProjectStatus story implementation.
 'use server';
 /**
@@ -50,13 +51,12 @@ const verifyProjectStatusPrompt = ai.definePrompt({
   tools: [checkUrlStatus],
   input: {schema: VerifyProjectStatusInputSchema},
   output: {schema: VerifyProjectStatusOutputSchema},
-  prompt: `You are a service that determines if a project is active given its URL.
-
-  Use the checkUrlStatus tool to check if the project at the given URL is active.
-  The URL is: {{{url}}}.
-
-  Return a JSON object with the field 'isActive' set to true if the project is active, and false otherwise.
-  `,
+  system: `Your task is to determine if a project URL is active.
+You MUST use the 'checkUrlStatus' tool to get the status of the URL: {{{url}}}.
+The 'checkUrlStatus' tool will return 'true' if the site is active (responds with HTTP status < 400) and 'false' otherwise.
+After the tool provides its boolean result, you MUST populate the 'isActive' field in your output based *only* on this boolean result.
+Do not add any explanatory text or conversation; provide only the structured output matching the defined schema.`,
+  prompt: `Assess the status of the project at the URL: {{{url}}}`,
 });
 
 const verifyProjectStatusFlow = ai.defineFlow(
@@ -67,6 +67,15 @@ const verifyProjectStatusFlow = ai.defineFlow(
   },
   async input => {
     const {output} = await verifyProjectStatusPrompt(input);
-    return output!;
+    if (!output) {
+      // Handle cases where output might be null or undefined,
+      // though with a well-defined output schema and a correctly functioning LLM/tool, this should be rare.
+      console.error('verifyProjectStatusPrompt did not return a valid output.');
+      // Fallback to a default or throw an error, depending on desired behavior.
+      // For now, let's assume offline if output is missing.
+      return { isActive: false };
+    }
+    return output;
   }
 );
+
