@@ -1,3 +1,4 @@
+
 // src/components/project-card.tsx
 "use client";
 
@@ -8,13 +9,15 @@ import Image from "next/image";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ExternalLink, Eye, Wifi, WifiOff, Loader2, AlertTriangle } from "lucide-react";
+import { ExternalLink, Eye, Wifi, WifiOff, Loader2, AlertTriangle, Sparkles } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 interface ProjectCardProps {
   project: Project;
   onViewProject: (project: Project, isActive: boolean | null) => void;
 }
+
+const STABLE_PROJECT_IDS = ['proj-imagine-motiva', 'proj-agro-y-mas', 'proj-epa-en-linea', 'proj-kohls'];
 
 export default function ProjectCard({ project, onViewProject }: ProjectCardProps) {
   const [isActive, setIsActive] = useState<boolean | null>(null);
@@ -23,22 +26,26 @@ export default function ProjectCard({ project, onViewProject }: ProjectCardProps
 
   const isConceptualOrNoUrl = !project.url || project.url.trim() === '' || project.url === '#';
   const isCloudWorkstation = project.url?.includes('cloudworkstations.dev');
+  const isStablePublicProject = STABLE_PROJECT_IDS.includes(project.id);
 
   useEffect(() => {
     let isMounted = true;
     async function checkStatus() {
       if (isConceptualOrNoUrl) {
-        setIsActive(false); // Conceptual projects are "offline" for iframe purposes
+        setIsActive(false);
         setIsLoading(false);
         return;
       }
 
-      if (isCloudWorkstation) {
-        setIsActive(true); // Assume cloud workstations are accessible to Efraín
+      // Cloud workstations and stable public projects are assumed to be accessible/online
+      // without running the Genkit verification flow from the card.
+      if (isCloudWorkstation || isStablePublicProject) {
+        setIsActive(true);
         setIsLoading(false);
         return;
       }
 
+      // For other projects (typically AI projects), verify status
       try {
         setIsLoading(true);
         let fullUrl = project.url;
@@ -50,15 +57,18 @@ export default function ProjectCard({ project, onViewProject }: ProjectCardProps
         if (isMounted) {
           setIsActive(result.isActive);
         }
-      } catch (error) {
+      } catch (error: any) {
         console.error(`Error verifying project ${project.name}:`, error);
         if (isMounted) {
           setIsActive(false);
-          toast({
-            title: "Verification Error",
-            description: `Could not verify status for ${project.name}. Assuming it's offline.`,
-            variant: "destructive",
-          });
+          // Only show toast if it's not a known "overloaded" error, which is handled in the flow.
+          if (!error.message?.includes("503")) {
+            toast({
+              title: "Verification Error",
+              description: `Could not verify status for ${project.name}. Assuming it's offline.`,
+              variant: "destructive",
+            });
+          }
         }
       } finally {
         if (isMounted) {
@@ -70,15 +80,20 @@ export default function ProjectCard({ project, onViewProject }: ProjectCardProps
     return () => {
       isMounted = false;
     };
-  }, [project.url, project.name, toast, isConceptualOrNoUrl, isCloudWorkstation]);
+  }, [project.id, project.url, project.name, toast, isConceptualOrNoUrl, isCloudWorkstation, isStablePublicProject]);
 
   const statusBadge = () => {
     if (isConceptualOrNoUrl) {
       return <Badge variant="outline" className="flex items-center gap-1 border-amber-500 text-amber-700 bg-amber-500/10"><AlertTriangle className="h-3 w-3" /> Conceptual</Badge>;
     }
-    if (isLoading && !isCloudWorkstation) {
+    if (isCloudWorkstation) {
+      return <Badge variant="default" className="bg-sky-500 hover:bg-sky-600 text-white flex items-center gap-1"><Sparkles className="h-3 w-3" /> Online (Dev)</Badge>;
+    }
+    if (isLoading && !isStablePublicProject) { // Don't show "Checking..." for stable projects
       return <Badge variant="secondary" className="flex items-center gap-1"><Loader2 className="h-3 w-3 animate-spin" /> Checking...</Badge>;
     }
+    
+    // For stable projects, isActive will be true and isLoading false
     return isActive ? (
       <Badge variant="default" className="bg-green-500 hover:bg-green-600 text-white flex items-center gap-1">
         <Wifi className="h-3 w-3" /> Online
@@ -120,10 +135,10 @@ export default function ProjectCard({ project, onViewProject }: ProjectCardProps
       </CardContent>
       <CardFooter className="flex flex-col sm:flex-row justify-between items-center gap-2 p-4 bg-muted/30">
         <Button 
-          onClick={() => onViewProject(project, isConceptualOrNoUrl ? false : isActive)}
+          onClick={() => onViewProject(project, isConceptualOrNoUrl ? false : (isStablePublicProject || isCloudWorkstation ? true : isActive) )}
           variant="default"
           className="w-full sm:w-auto"
-          disabled={isLoading && !isConceptualOrNoUrl && !isCloudWorkstation}
+          disabled={isLoading && !isConceptualOrNoUrl && !isCloudWorkstation && !isStablePublicProject}
         >
           <Eye className="mr-2 h-4 w-4" /> View Project
         </Button>
@@ -131,7 +146,7 @@ export default function ProjectCard({ project, onViewProject }: ProjectCardProps
           asChild 
           variant="outline" 
           className="w-full sm:w-auto"
-          disabled={isConceptualOrNoUrl || (isLoading && !isCloudWorkstation) || (!isActive && !isCloudWorkstation)}
+          disabled={isConceptualOrNoUrl || (isLoading && !isCloudWorkstation && !isStablePublicProject) || (!isActive && !isCloudWorkstation && !isStablePublicProject)}
         >
           <a href={project.url || '#'} target="_blank" rel="noopener noreferrer">
             <ExternalLink className="mr-2 h-4 w-4" /> Visit Site
@@ -141,3 +156,4 @@ export default function ProjectCard({ project, onViewProject }: ProjectCardProps
     </Card>
   );
 }
+
