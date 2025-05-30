@@ -51,12 +51,14 @@ const verifyProjectStatusPrompt = ai.definePrompt({
   tools: [checkUrlStatus],
   input: {schema: VerifyProjectStatusInputSchema},
   output: {schema: VerifyProjectStatusOutputSchema},
-  system: `Your task is to determine if a project URL is active.
-You MUST use the 'checkUrlStatus' tool to get the status of the URL: {{{url}}}.
-The 'checkUrlStatus' tool will return 'true' if the site is active (responds with HTTP status < 400) and 'false' otherwise.
-After the tool provides its boolean result, you MUST populate the 'isActive' field in your output based *only* on this boolean result.
-Do not add any explanatory text or conversation; provide only the structured output matching the defined schema.`,
-  prompt: `Assess the status of the project at the URL: {{{url}}}`,
+  system: `You are an AI assistant that checks if a URL is active.
+You have one tool available: 'checkUrlStatus'. This tool takes a URL and returns 'true' if the URL is active, and 'false' otherwise.
+Given the input URL: {{{url}}}
+1. Call the 'checkUrlStatus' tool with this URL.
+2. Take the boolean result from the 'checkUrlStatus' tool.
+3. Construct a JSON object with a single key "isActive" set to this boolean result.
+Your entire response MUST be ONLY this JSON object. For example: { "isActive": true } or { "isActive": false }. Do not add any other text, conversation, or explanations.`,
+  prompt: `{{{url}}}`, // Main prompt is now just the URL, system prompt handles the logic.
 });
 
 const verifyProjectStatusFlow = ai.defineFlow(
