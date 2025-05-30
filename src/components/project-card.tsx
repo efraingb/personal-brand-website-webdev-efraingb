@@ -8,7 +8,7 @@ import Image from "next/image";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ExternalLink, Eye, Wifi, WifiOff, Loader2, AlertTriangle } from "lucide-react";
+import { ExternalLink, Eye, Wifi, WifiOff, Loader2, AlertTriangle, Terminal } from "lucide-react"; // Added Terminal
 import { useToast } from "@/hooks/use-toast";
 
 interface ProjectCardProps {
@@ -22,19 +22,27 @@ export default function ProjectCard({ project, onViewProject }: ProjectCardProps
   const { toast } = useToast();
 
   const isConceptualOrNoUrl = !project.url || project.url.trim() === '' || project.url === '#';
+  const isCloudWorkstation = project.url?.includes('cloudworkstations.dev');
 
   useEffect(() => {
     let isMounted = true;
     async function checkStatus() {
       if (isConceptualOrNoUrl) {
-        setIsActive(false); // Conceptual or no URL means it's not "Online" for live view
+        setIsActive(false);
         setIsLoading(false);
         return;
       }
 
+      if (isCloudWorkstation) {
+        // For cloud workstation URLs, assume online and skip server-side check
+        setIsActive(true);
+        setIsLoading(false);
+        return;
+      }
+
+      // For other URLs, proceed with verification
       try {
         setIsLoading(true);
-        // Ensure URL has a scheme if not conceptual
         let fullUrl = project.url;
         if (!/^https?:\/\//i.test(fullUrl)) {
           fullUrl = `https://` + fullUrl;
@@ -47,7 +55,7 @@ export default function ProjectCard({ project, onViewProject }: ProjectCardProps
       } catch (error) {
         console.error(`Error verifying project ${project.name}:`, error);
         if (isMounted) {
-          setIsActive(false); // Assume offline on error
+          setIsActive(false);
           toast({
             title: "Verification Error",
             description: `Could not verify status for ${project.name}. Assuming it's offline.`,
@@ -64,11 +72,14 @@ export default function ProjectCard({ project, onViewProject }: ProjectCardProps
     return () => {
       isMounted = false;
     };
-  }, [project.url, project.name, toast, isConceptualOrNoUrl]);
+  }, [project.url, project.name, toast, isConceptualOrNoUrl, isCloudWorkstation]);
 
   const statusBadge = () => {
     if (isConceptualOrNoUrl) {
       return <Badge variant="outline" className="flex items-center gap-1 border-amber-500 text-amber-700"><AlertTriangle className="h-3 w-3" /> Conceptual</Badge>;
+    }
+    if (isCloudWorkstation) {
+      return <Badge variant="default" className="bg-sky-500 hover:bg-sky-600 text-white flex items-center gap-1"><Terminal className="h-3 w-3" /> Dev Link</Badge>;
     }
     if (isLoading) {
       return <Badge variant="secondary" className="flex items-center gap-1"><Loader2 className="h-3 w-3 animate-spin" /> Checking...</Badge>;
@@ -114,10 +125,10 @@ export default function ProjectCard({ project, onViewProject }: ProjectCardProps
       </CardContent>
       <CardFooter className="flex flex-col sm:flex-row justify-between items-center gap-2 p-4 bg-muted/30">
         <Button 
-          onClick={() => onViewProject(project, isConceptualOrNoUrl ? false : isActive)} // For modal, conceptual project is treated as "offline" for live iframe
+          onClick={() => onViewProject(project, isConceptualOrNoUrl ? false : isActive)}
           variant="default"
           className="w-full sm:w-auto"
-          disabled={isLoading && !isConceptualOrNoUrl} // Disable only if loading and not conceptual
+          disabled={isLoading && !isConceptualOrNoUrl && !isCloudWorkstation}
         >
           <Eye className="mr-2 h-4 w-4" /> View Project
         </Button>
@@ -125,7 +136,7 @@ export default function ProjectCard({ project, onViewProject }: ProjectCardProps
           asChild 
           variant="outline" 
           className="w-full sm:w-auto"
-          disabled={isLoading || !isActive || isConceptualOrNoUrl} // Disable if loading, offline, or conceptual/no URL
+          disabled={isConceptualOrNoUrl || (isLoading && !isCloudWorkstation) || (!isActive && !isCloudWorkstation)} // Disabled if conceptual, loading (and not CW), or offline (and not CW)
         >
           <a href={project.url || '#'} target="_blank" rel="noopener noreferrer">
             <ExternalLink className="mr-2 h-4 w-4" /> Visit Site
