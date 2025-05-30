@@ -37,10 +37,26 @@ const checkUrlStatus = ai.defineTool(
   },
   async (input) => {
     try {
-      const response = await fetch(input.url);
+      console.log(`[checkUrlStatus] Attempting to fetch: ${input.url}`);
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 5000); // 5-second timeout
+
+      const response = await fetch(input.url, {
+        method: 'GET', // Explicitly set method
+        redirect: 'follow', // Explicitly follow redirects
+        signal: controller.signal 
+      });
+      clearTimeout(timeoutId); // Clear timeout if fetch completes
+
+      console.log(`[checkUrlStatus] Response for ${input.url}: status=${response.status}, ok=${response.ok}, redirected=${response.redirected}`);
       return response.status < 400;
-    } catch (error) {
-      console.error(`Error checking URL ${input.url}:`, error);
+    } catch (error: any) {
+      // clearTimeout(timeoutId); // Ensure timeout is cleared on error too
+      if (error.name === 'AbortError') {
+        console.error(`[checkUrlStatus] Fetch timed out for URL ${input.url}`);
+      } else {
+        console.error(`[checkUrlStatus] Error fetching URL ${input.url}: Message: ${error.message}`, error.cause ? `Cause: ${JSON.stringify(error.cause)}` : '', `Type: ${error.name}`);
+      }
       return false;
     }
   }
@@ -70,14 +86,9 @@ const verifyProjectStatusFlow = ai.defineFlow(
   async input => {
     const {output} = await verifyProjectStatusPrompt(input);
     if (!output) {
-      // Handle cases where output might be null or undefined,
-      // though with a well-defined output schema and a correctly functioning LLM/tool, this should be rare.
-      console.error('verifyProjectStatusPrompt did not return a valid output.');
-      // Fallback to a default or throw an error, depending on desired behavior.
-      // For now, let's assume offline if output is missing.
-      return { isActive: false };
+      console.error('verifyProjectStatusPrompt did not return a valid output. Input was:', input);
+      return { isActive: false }; // Fallback if LLM fails to construct output
     }
     return output;
   }
 );
-
