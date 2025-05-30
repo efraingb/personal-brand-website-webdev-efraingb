@@ -1,3 +1,4 @@
+
 import type { Project, LinkItem } from './types';
 
 export const projectsData: Project[] = [
@@ -15,7 +16,7 @@ export const projectsData: Project[] = [
     name: 'NEGOTIA',
     url: 'https://9000-idx-studio-1745689952822.cluster-ux5mmlia3zhhask7riihruxydo.cloudworkstations.dev/',
     description: 'Deal Smarter, Not Harder. Plataforma de negociación asistida por IA diseñada para facilitar acuerdos beneficiosos para todas las partes (Win-Win Outcomes).',
-    thumbnailUrl: 'https://placehold.co/600x400.png',
+    thumbnailUrl: 'https://firebasestorage.googleapis.com/v0/b/your-project-id.appspot.com/o/negotia-screenshot.png?alt=media&token=REPLACE_WITH_YOUR_TOKEN', // Asegúrate de reemplazar esto con la URL real de tu imagen.
     dataAiHint: 'ai negotiation platform',
     tags: ['AI', 'Negotiation', 'SaaS', 'B2B'],
   },
