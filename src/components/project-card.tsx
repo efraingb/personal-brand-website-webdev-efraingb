@@ -28,20 +28,17 @@ export default function ProjectCard({ project, onViewProject }: ProjectCardProps
     let isMounted = true;
     async function checkStatus() {
       if (isConceptualOrNoUrl) {
-        setIsActive(false);
+        setIsActive(false); // Conceptual projects are "offline" for iframe purposes
         setIsLoading(false);
         return;
       }
 
       if (isCloudWorkstation) {
-        // For cloud workstation URLs, assume online and skip server-side check.
-        // Efraín can access these, so they should appear online on the card.
-        setIsActive(true);
+        setIsActive(true); // Assume cloud workstations are accessible to Efraín
         setIsLoading(false);
         return;
       }
 
-      // For other URLs, proceed with verification
       try {
         setIsLoading(true);
         let fullUrl = project.url;
@@ -77,13 +74,12 @@ export default function ProjectCard({ project, onViewProject }: ProjectCardProps
 
   const statusBadge = () => {
     if (isConceptualOrNoUrl) {
-      return <Badge variant="outline" className="flex items-center gap-1 border-amber-500 text-amber-700"><AlertTriangle className="h-3 w-3" /> Conceptual</Badge>;
+      return <Badge variant="outline" className="flex items-center gap-1 border-amber-500 text-amber-700 bg-amber-500/10"><AlertTriangle className="h-3 w-3" /> Conceptual</Badge>;
     }
-    // For cloud workstation, isActive is set to true directly in useEffect
-    if (isLoading && !isCloudWorkstation) { // Only show loading if not a cloud workstation (which is handled instantly)
+    if (isLoading && !isCloudWorkstation) {
       return <Badge variant="secondary" className="flex items-center gap-1"><Loader2 className="h-3 w-3 animate-spin" /> Checking...</Badge>;
     }
-    return isActive ? ( // This will be true for cloud workstations
+    return isActive ? (
       <Badge variant="default" className="bg-green-500 hover:bg-green-600 text-white flex items-center gap-1">
         <Wifi className="h-3 w-3" /> Online
       </Badge>
@@ -95,17 +91,17 @@ export default function ProjectCard({ project, onViewProject }: ProjectCardProps
   };
 
   return (
-    <Card className="flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out transform hover:-translate-y-1 rounded-xl">
-      <div className="relative w-full aspect-video overflow-hidden">
+    <Card className="flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out transform hover:-translate-y-1 rounded-xl group">
+      <div className="relative w-full aspect-[16/10] overflow-hidden rounded-t-xl">
         <Image
           src={project.thumbnailUrl}
           alt={`${project.name} thumbnail`}
-          layout="fill"
-          objectFit="cover"
-          className="transition-transform duration-500 group-hover:scale-105"
+          fill
+          className="object-cover transition-transform duration-500 group-hover:scale-105"
           data-ai-hint={project.dataAiHint}
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
-         <div className="absolute top-2 right-2">{statusBadge()}</div>
+         <div className="absolute top-3 right-3">{statusBadge()}</div>
       </div>
       <CardHeader className="pt-4">
         <CardTitle className="text-xl font-semibold text-primary">{project.name}</CardTitle>
@@ -135,9 +131,6 @@ export default function ProjectCard({ project, onViewProject }: ProjectCardProps
           asChild 
           variant="outline" 
           className="w-full sm:w-auto"
-          // For conceptual projects, button is disabled.
-          // For cloud workstations, isActive is true, isLoading is false, so button is enabled.
-          // For others, depends on isLoading and isActive.
           disabled={isConceptualOrNoUrl || (isLoading && !isCloudWorkstation) || (!isActive && !isCloudWorkstation)}
         >
           <a href={project.url || '#'} target="_blank" rel="noopener noreferrer">
