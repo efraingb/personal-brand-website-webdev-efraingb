@@ -8,6 +8,19 @@ interface ProjectGalleryProps {
 }
 
 export default function ProjectGallery({ onProjectSelect }: ProjectGalleryProps) {
+  // Define IDs for categorization
+  const recentInnovationsIds = ['proj-quiz-ai', 'proj-negotia', 'proj-agroia', 'proj-bless'];
+  const pastCollaborationsIds = ['proj-imagine-motiva'];
+
+  const recentInnovationsProjects = projectsData
+    .filter(project => recentInnovationsIds.includes(project.id))
+    .sort((a, b) => recentInnovationsIds.indexOf(a.id) - recentInnovationsIds.indexOf(b.id)); // Maintain defined order
+
+  const pastCollaborationsProjects = projectsData
+    .filter(project => pastCollaborationsIds.includes(project.id))
+    .sort((a, b) => pastCollaborationsIds.indexOf(a.id) - pastCollaborationsIds.indexOf(b.id)); // Maintain defined order
+
+
   return (
     <section id="projects" className="py-16 md:py-24 bg-background">
       <div className="container px-4 sm:px-6 lg:px-8">
@@ -21,18 +34,42 @@ export default function ProjectGallery({ onProjectSelect }: ProjectGalleryProps)
           </p>
         </div>
         
-        {projectsData.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
-            {projectsData.map((project) => (
-              <ProjectCard 
-                key={project.id} 
-                project={project} 
-                onViewProject={onProjectSelect} 
-              />
-            ))}
+        {recentInnovationsProjects.length > 0 && (
+          <div className="mb-16">
+            <h3 className="text-3xl font-semibold tracking-tight text-primary mb-8 text-center sm:text-left">
+              Proyectos Destacados con IA y Plataformas Recientes
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+              {recentInnovationsProjects.map((project) => (
+                <ProjectCard 
+                  key={project.id} 
+                  project={project} 
+                  onViewProject={onProjectSelect} 
+                />
+              ))}
+            </div>
           </div>
-        ) : (
-          <p className="text-center text-lg text-muted-foreground">No projects to display at the moment. Check back soon!</p>
+        )}
+
+        {pastCollaborationsProjects.length > 0 && (
+          <div>
+            <h3 className="text-3xl font-semibold tracking-tight text-primary mb-8 text-center sm:text-left">
+              Colaboraciones Anteriores de Impacto
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+              {pastCollaborationsProjects.map((project) => (
+                <ProjectCard 
+                  key={project.id} 
+                  project={project} 
+                  onViewProject={onProjectSelect} 
+                />
+              ))}
+            </div>
+          </div>
+        )}
+
+        {projectsData.length === 0 && (
+           <p className="text-center text-lg text-muted-foreground">No projects to display at the moment. Check back soon!</p>
         )}
       </div>
     </section>
