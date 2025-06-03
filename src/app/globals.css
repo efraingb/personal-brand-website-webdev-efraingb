@@ -20,7 +20,7 @@
     --secondary-foreground: 202 100% 14%; /* #003049 */
 
     --muted: 202 50% 80%; 
-    --muted-foreground: 202 80% 35%;
+    --muted-foreground: 202 75% 40%; /* Adjusted for better contrast */
 
     --accent: 202 65% 55%; /* #40A2D8 */
     --accent-foreground: 0 0% 100%; /* white */
@@ -67,7 +67,7 @@
     --secondary-foreground: 0 0% 98%;
 
     --muted: 202 100% 25%;
-    --muted-foreground: 202 50% 70%;
+    --muted-foreground: 202 50% 70%; /* Remains suitable for dark mode */
 
     --accent: 202 54% 90%; /* #D4E7F2 - Light Blue as accent in dark mode */
     --accent-foreground: 202 100% 10%; /* Dark text on Light Blue */
