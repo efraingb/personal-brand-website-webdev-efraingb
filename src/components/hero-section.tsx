@@ -12,16 +12,20 @@ export default function HeroSection() {
       
       <div className="container relative z-10 text-center px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto">
-          <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent opacity-0 animate-in fade-in-0 slide-in-from-bottom-4 duration-500 ease-out forwards delay-100">
+          <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent 
+                         md:opacity-0 md:animate-in md:fade-in-0 md:slide-in-from-bottom-4 duration-500 ease-out md:delay-100">
             Efraín G.B.
           </h1>
-          <p className="mt-6 text-xl sm:text-2xl md:text-3xl font-medium text-foreground/90 opacity-0 animate-in fade-in-0 slide-in-from-bottom-4 duration-500 ease-out forwards delay-300">
+          <p className="mt-6 text-xl sm:text-2xl md:text-3xl font-medium text-foreground/90 
+                        md:opacity-0 md:animate-in md:fade-in-0 md:slide-in-from-bottom-4 duration-500 ease-out md:delay-300">
             Full-Stack Developer & AI Innovator
           </p>
-          <p className="mt-8 text-lg text-foreground/70 leading-relaxed opacity-0 animate-in fade-in-0 slide-in-from-bottom-4 duration-500 ease-out forwards delay-500">
+          <p className="mt-8 text-lg text-foreground/70 leading-relaxed 
+                        md:opacity-0 md:animate-in md:fade-in-0 md:slide-in-from-bottom-4 duration-500 ease-out md:delay-500">
             Passionate about crafting elegant and efficient digital solutions. Specializing in full-stack web development and exploring the frontiers of Artificial Intelligence to build impactful applications.
           </p>
-          <div className="mt-12 flex flex-col sm:flex-row gap-4 justify-center opacity-0 animate-in fade-in-0 slide-in-from-bottom-4 duration-500 ease-out forwards delay-700">
+          <div className="mt-12 flex flex-col sm:flex-row gap-4 justify-center 
+                          md:opacity-0 md:animate-in md:fade-in-0 md:slide-in-from-bottom-4 duration-500 ease-out md:delay-700">
             <Button asChild size="lg" className="shadow-lg hover:shadow-xl transition-shadow">
               <Link href="#projects">
                 View My Work <ArrowDown className="ml-2 h-5 w-5" />
