@@ -40,7 +40,7 @@ export default function ProjectGallery({ onProjectSelect }: ProjectGalleryProps)
             <h3 className="text-3xl font-semibold tracking-tight text-primary mb-10 text-center sm:text-left">
               Proyectos IA Recientes y Destacados
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6"> {/* Reduced gap from gap-8 to gap-6 */}
               {recentIaProjects.map((project) => (
                 <ProjectCard 
                   key={project.id} 
@@ -57,7 +57,7 @@ export default function ProjectGallery({ onProjectSelect }: ProjectGalleryProps)
             <h3 className="text-3xl font-semibold tracking-tight text-primary mb-10 text-center sm:text-left">
               Colaboraciones de Impacto
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6"> {/* Reduced gap from gap-8 to gap-6 */}
               {pastCollaborationsProjects.map((project) => (
                 <ProjectCard 
                   key={project.id} 
@@ -76,4 +76,3 @@ export default function ProjectGallery({ onProjectSelect }: ProjectGalleryProps)
     </section>
   );
 }
-
