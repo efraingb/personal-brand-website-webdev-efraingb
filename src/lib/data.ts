@@ -11,6 +11,7 @@ export const projectsData: Project[] = [
     thumbnailUrl: 'https://i.imgur.com/0NciRLC.png',
     dataAiHint: 'ai quiz generator',
     tags: ['AI', 'EdTech', 'Firebase', 'Generative AI'],
+    videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', // Placeholder
   },
   {
     id: 'proj-negotia',
@@ -20,6 +21,7 @@ export const projectsData: Project[] = [
     thumbnailUrl: 'https://i.imgur.com/wIwB6qu.png',
     dataAiHint: 'ai negotiation platform',
     tags: ['AI', 'Negotiation', 'SaaS', 'B2B'],
+    videoUrl: 'https://vimeo.com/123456789', // Placeholder
   },
   {
     id: 'proj-bless',
@@ -29,6 +31,7 @@ export const projectsData: Project[] = [
     thumbnailUrl: 'https://i.imgur.com/2GnmZm2.png',
     dataAiHint: 'community platform',
     tags: ['Community', 'Platform', 'Firebase', 'Social Impact'],
+    // No videoUrl for this one to test fallback
   },
   {
     id: 'proj-agroia',
@@ -38,6 +41,7 @@ export const projectsData: Project[] = [
     thumbnailUrl: 'https://i.imgur.com/h53YbVW.png',
     dataAiHint: 'agritech platform',
     tags: ['AgriTech', 'AI', 'E-commerce', 'Platform', 'Firebase'],
+    videoUrl: 'https://www.youtube.com/watch?v=anotherVideoExample', // Placeholder
   },
 
   // Colaboraciones de Impacto

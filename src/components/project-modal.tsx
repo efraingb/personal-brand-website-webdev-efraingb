@@ -5,7 +5,7 @@
 import type { Project } from "@/lib/types";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import Image from "next/image";
-import { WifiOff, ExternalLink as ExternalLinkIcon, Loader2, Rocket, Info, Sparkles } from "lucide-react"; 
+import { WifiOff, ExternalLink as ExternalLinkIcon, Loader2, Rocket, Info, Sparkles, Film } from "lucide-react"; 
 import { Button } from "./ui/button";
 
 interface ProjectModalProps {
@@ -15,11 +15,50 @@ interface ProjectModalProps {
   onClose: () => void;
 }
 
+interface VideoIdResult {
+  id: string;
+  platform: 'youtube' | 'vimeo';
+}
+
+function extractVideoId(url: string): VideoIdResult | null {
+  let videoId: string | null = null;
+  let platform: 'youtube' | 'vimeo' | null = null;
+
+  let match = url.match(/^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/);
+  if (match && match[2] && match[2].length === 11) {
+    videoId = match[2];
+    platform = 'youtube';
+  } else {
+    match = url.match(/vimeo\.com\/(?:video\/|)(\d+)/);
+    if (match && match[1]) {
+      videoId = match[1];
+      platform = 'vimeo';
+    }
+  }
+
+  if (videoId && platform) {
+    return { id: videoId, platform: platform as 'youtube' | 'vimeo' };
+  }
+  return null;
+}
+
+
 export default function ProjectModal({ project, isActive, isOpen, onClose }: ProjectModalProps) {
   if (!project) return null;
 
   const hasValidUrl = project.url && project.url.trim() !== '' && project.url !== '#';
   const isCloudWorkstation = project.url?.includes('cloudworkstations.dev');
+  
+  const hasVideo = project.videoUrl && project.videoUrl.trim() !== '';
+  let embedUrl = '';
+  if (hasVideo) {
+    const videoDetails = extractVideoId(project.videoUrl!);
+    if (videoDetails?.platform === 'youtube') {
+      embedUrl = `https://www.youtube.com/embed/${videoDetails.id}`;
+    } else if (videoDetails?.platform === 'vimeo') {
+      embedUrl = `https://player.vimeo.com/video/${videoDetails.id}`;
+    }
+  }
 
   let displayIcon = <Info className="h-10 w-10 text-accent mb-3" />;
   let messageTitle = project.name;
@@ -27,43 +66,59 @@ export default function ProjectModal({ project, isActive, isOpen, onClose }: Pro
   let buttonText = "Visit Site";
   let buttonEnabled = true;
   
+  if (hasVideo) {
+    displayIcon = <Film className="h-10 w-10 text-accent mb-3" />;
+    messageTitle = `${project.name} - Video Demo`;
+    messageDescription = "Watch a video walkthrough of this project below. You can also visit the site if available.";
+  }
+
   if (isActive === true) {
-    if (isCloudWorkstation) {
-      displayIcon = <Sparkles className="h-10 w-10 text-sky-500 mb-3" />;
-      messageTitle = "Active Project (Dev)";
-      messageDescription = "This project is active on a development server. Click below to explore it if you have access.";
-      buttonText = "Open Dev Link";
-    } else {
-      displayIcon = <Rocket className="h-10 w-10 text-green-500 mb-3" />;
-      messageTitle = "Project Online";
-      messageDescription = "This project is live and accessible. Click below to visit the site.";
+    if (!hasVideo) { // Only override if no video, otherwise video message takes precedence
+        if (isCloudWorkstation) {
+        displayIcon = <Sparkles className="h-10 w-10 text-sky-500 mb-3" />;
+        messageTitle = "Active Project (Dev)";
+        messageDescription = "This project is active on a development server. Click below to explore it if you have access.";
+        buttonText = "Open Dev Link";
+        } else {
+        displayIcon = <Rocket className="h-10 w-10 text-green-500 mb-3" />;
+        messageTitle = "Project Online";
+        messageDescription = "This project is live and accessible. Click below to visit the site.";
+        }
     }
   } else if (isActive === false) {
-    displayIcon = <WifiOff className="h-10 w-10 text-destructive mb-3" />;
-    messageTitle = "Project Status";
-     if (!hasValidUrl) {
-        messageDescription = "This project does not have a direct public URL at the moment, but you can view its details and image below.";
-        buttonText = "No Public Link";
-        buttonEnabled = false;
-    } else {
-        messageDescription = (
-        <>
-            This project at <code className="text-sm bg-muted/70 px-1.5 py-0.5 rounded-sm font-mono shadow-sm">{project.url}</code> currently appears to be offline or inaccessible. You can still attempt to visit the site directly.
-        </>
-        );
-        buttonText = "Attempt to Visit";
+    if (!hasVideo) {
+        displayIcon = <WifiOff className="h-10 w-10 text-destructive mb-3" />;
+        messageTitle = "Project Status";
+        if (!hasValidUrl) {
+            messageDescription = "This project does not have a direct public URL at the moment, but you can view its details and image below.";
+            buttonText = "No Public Link";
+            buttonEnabled = false;
+        } else {
+            messageDescription = (
+            <>
+                This project at <code className="text-sm bg-muted/70 px-1.5 py-0.5 rounded-sm font-mono shadow-sm">{project.url}</code> currently appears to be offline or inaccessible. You can still attempt to visit the site directly.
+            </>
+            );
+            buttonText = "Attempt to Visit";
+        }
+    } else { // Has video, but site is offline/no URL
+        messageDescription = "Watch a video walkthrough of this project. The live site appears to be offline or has no direct public URL."
     }
-  } else { // isActive is null (verifying status)
-     displayIcon = <Loader2 className="h-10 w-10 text-primary animate-spin mb-3" />;
-     messageTitle = "Verifying Status...";
-     messageDescription = "We're currently verifying the live status of this project. This might take a moment.";
-     buttonEnabled = false;
-     if (!hasValidUrl) { 
-        messageTitle = "Project Details";
-        messageDescription = "This project does not have a direct public URL, but you can view its image and description.";
+  } else { // isActive is null (verifying status) or project without URL and no video
+     if (!hasVideo) {
+        displayIcon = <Loader2 className="h-10 w-10 text-primary animate-spin mb-3" />;
+        messageTitle = "Verifying Status...";
+        messageDescription = "We're currently verifying the live status of this project. This might take a moment.";
         buttonEnabled = false;
-        buttonText = "No Public Link";
-        displayIcon = <Info className="h-10 w-10 text-muted-foreground mb-3" />;
+        if (!hasValidUrl) { 
+            messageTitle = "Project Details";
+            messageDescription = "This project does not have a direct public URL, but you can view its image and description.";
+            buttonEnabled = false;
+            buttonText = "No Public Link";
+            displayIcon = <Info className="h-10 w-10 text-muted-foreground mb-3" />;
+        }
+     } else { // Has video, site status is being verified
+        messageDescription = "Watch a video walkthrough of this project. We're also checking the live site status."
      }
   }
 
@@ -86,16 +141,30 @@ export default function ProjectModal({ project, isActive, isOpen, onClose }: Pro
                 {messageDescription}
               </div>
               
-              <div className="relative w-full max-w-md aspect-[16/10] rounded-lg overflow-hidden shadow-xl my-4 border border-border/30 animate-in fade-in-0 zoom-in-95 duration-300 ease-out">
-                <Image
-                  src={project.thumbnailUrl}
-                  alt={`${project.name} thumbnail`}
-                  fill
-                  className="object-cover"
-                  data-ai-hint={project.dataAiHint}
-                  sizes="(max-width: 640px) 80vw, (max-width: 768px) 60vw, 480px"
-                />
-              </div>
+              {hasVideo && embedUrl ? (
+                <div className="relative w-full max-w-md aspect-video rounded-lg overflow-hidden shadow-xl my-4 border border-border/30 animate-in fade-in-0 zoom-in-95 duration-300 ease-out">
+                  <iframe
+                    src={embedUrl}
+                    title={`${project.name} video walkthrough`}
+                    className="absolute top-0 left-0 w-full h-full"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+              ) : (
+                <div className="relative w-full max-w-md aspect-[16/10] rounded-lg overflow-hidden shadow-xl my-4 border border-border/30 animate-in fade-in-0 zoom-in-95 duration-300 ease-out">
+                  <Image
+                    src={project.thumbnailUrl}
+                    alt={`${project.name} thumbnail`}
+                    fill
+                    className="object-cover"
+                    data-ai-hint={project.dataAiHint}
+                    sizes="(max-width: 640px) 80vw, (max-width: 768px) 60vw, 480px"
+                  />
+                </div>
+              )}
+
 
               {hasValidUrl && (
                  <Button 

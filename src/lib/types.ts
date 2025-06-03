@@ -1,3 +1,4 @@
+
 import type { LucideIcon } from 'lucide-react';
 
 export interface Project {
@@ -8,6 +9,7 @@ export interface Project {
   thumbnailUrl: string;
   dataAiHint: string;
   tags?: string[];
+  videoUrl?: string; // New field for video walkthrough URL
 }
 
 export interface LinkItem {

@@ -9,7 +9,7 @@ import Image from "next/image";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ExternalLink, Eye, Wifi, WifiOff, Loader2, Sparkles, AlertTriangle } from "lucide-react";
+import { ExternalLink, Eye, Wifi, WifiOff, Loader2, Sparkles, PlayCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
@@ -60,7 +60,6 @@ export default function ProjectCard({ project, onViewProject }: ProjectCardProps
         console.error(`Error verifying project ${project.name}:`, error);
         if (isMounted) {
           setIsActive(false);
-          // Avoid toasting for 503 (overloaded) or AbortError (timeout), which are handled by the flow returning false
           if (error.name !== 'AbortError' && !error.message?.includes("503")) { 
             toast({
               title: "Verification Issue",
@@ -134,7 +133,21 @@ export default function ProjectCard({ project, onViewProject }: ProjectCardProps
          <div className="absolute top-3 right-3">{statusBadge()}</div>
       </div>
       <CardHeader className="pt-4">
-        <CardTitle className="text-xl font-semibold text-primary">{project.name}</CardTitle>
+        <div className="flex justify-between items-center">
+          <CardTitle className="text-xl font-semibold text-primary">{project.name}</CardTitle>
+          {project.videoUrl && (
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <PlayCircle className="h-6 w-6 text-accent cursor-pointer" onClick={() => onViewProject(project, effectiveIsActive)} />
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>View Video Demo</p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
+          )}
+        </div>
         {project.tags && project.tags.length > 0 && (
           <div className="flex flex-wrap gap-1 mt-1">
             {project.tags.map(tag => (
