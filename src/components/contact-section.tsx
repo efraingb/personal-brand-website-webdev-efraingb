@@ -24,7 +24,7 @@ export default function ContactSection() {
               <ul className="space-y-6">
                 {contactLinksData.map((item) => (
                   <li key={item.name}>
-                    <Button asChild variant="default" size="lg" className="w-full text-base shadow-md hover:shadow-lg transition-shadow">
+                    <Button asChild variant="default" size="lg" className="w-full text-base shadow-md hover:shadow-lg transition-all duration-150 ease-in-out active:scale-95 transform">
                       <Link href={item.url} target={item.url.startsWith('mailto:') ? '_self' : '_blank'} rel="noopener noreferrer" className="flex items-center justify-center">
                         <Icon name={item.iconName} className="mr-3 h-5 w-5" />
                         <span>{item.text || item.name}</span>

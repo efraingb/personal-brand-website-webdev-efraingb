@@ -21,7 +21,7 @@ export default function DocumentsSection() {
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {documentLinksData.map((item) => (
-            <Card key={item.name} className="flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out transform hover:-translate-y-1 rounded-xl">
+            <Card key={item.name} className="group flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out transform hover:-translate-y-1 rounded-xl">
               <CardHeader>
                 <div className="flex items-center gap-3">
                   <Icon name={item.iconName} className="h-8 w-8 text-accent" />
@@ -36,7 +36,7 @@ export default function DocumentsSection() {
                 )}
               </CardContent>
               <CardContent className="pt-0"> {/* Use CardContent for padding consistency for the button */}
-                <Button asChild variant="outline" className="w-full">
+                <Button asChild variant="outline" className="w-full group-hover:border-accent group-hover:text-accent transition-colors">
                   <Link href={item.url} target="_blank" rel="noopener noreferrer">
                     {item.buttonText || (item.iconName === 'BookOpen' ? 'View Details' : 'Visit Profile')}
                     <ExternalLink className="ml-2 h-4 w-4" />
