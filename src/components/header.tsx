@@ -4,7 +4,7 @@
 import Link from 'next/link';
 import { navLinksData } from '@/lib/data';
 import { Button } from '@/components/ui/button';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetHeader } from '@/components/ui/sheet';
 import { Menu, Feather } from 'lucide-react';
 import React from 'react';
 
@@ -40,6 +40,9 @@ export default function Header() {
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="w-[300px] sm:w-[400px] bg-background">
+              <SheetHeader className="sr-only">
+                <SheetTitle>Menú de Navegación</SheetTitle>
+              </SheetHeader>
               <nav className="flex flex-col gap-4 pt-8">
               <Link href="#hero" className="flex items-center space-x-2 text-primary mb-4" onClick={() => setIsMenuOpen(false)}>
                 <Feather className="h-6 w-6" />
