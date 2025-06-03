@@ -1,3 +1,4 @@
+
 // src/components/contact-section.tsx
 import { contactLinksData } from "@/lib/data";
 import { Button } from "@/components/ui/button";
@@ -9,17 +10,18 @@ export default function ContactSection() {
   return (
     <section id="contact" className="py-16 md:py-24 bg-background">
       <div className="container px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
+        <div className="text-center mb-10"> {/* Adjusted bottom margin */}
           <h2 className="text-4xl font-bold tracking-tight text-primary sm:text-5xl">
             Get In Touch
           </h2>
+          <div className="mt-3 mb-8 h-1 w-24 bg-accent rounded-full mx-auto"></div>
           <p className="mt-4 text-lg text-foreground/80 max-w-2xl mx-auto">
             I'm always open to discussing new projects, creative ideas, or opportunities to be part of something great.
           </p>
         </div>
         
         <div className="max-w-lg mx-auto">
-          <Card className="p-6 sm:p-8 shadow-xl rounded-xl">
+          <Card className="p-6 sm:p-8 shadow-xl hover:shadow-2xl transition-all duration-300 ease-in-out transform hover:-translate-y-1 rounded-xl">
             <CardContent className="p-0">
               <ul className="space-y-6">
                 {contactLinksData.map((item) => (

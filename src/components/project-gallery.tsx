@@ -1,3 +1,4 @@
+
 // src/components/project-gallery.tsx
 import { projectsData } from "@/lib/data";
 import type { Project } from "@/lib/types";
@@ -25,10 +26,11 @@ export default function ProjectGallery({ onProjectSelect }: ProjectGalleryProps)
   return (
     <section id="projects" className="py-16 md:py-24 bg-background">
       <div className="container px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto"> {/* Changed max-w-6xl to max-w-5xl */}
-        <div className="text-center mb-16"> {/* Increased bottom margin for more space */}
+        <div className="text-center mb-10"> {/* Adjusted bottom margin */}
           <h2 className="text-4xl font-bold tracking-tight text-primary sm:text-5xl">
             My Projects
           </h2>
+          <div className="mt-3 mb-8 h-1 w-24 bg-accent rounded-full mx-auto"></div>
           <p className="mt-4 text-lg text-foreground/80 max-w-2xl mx-auto">
             A selection of projects that showcase my skills and passion for development.
             Each one represents a unique challenge and learning opportunity.

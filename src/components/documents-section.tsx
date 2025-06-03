@@ -1,3 +1,4 @@
+
 // src/components/documents-section.tsx
 import { documentLinksData } from "@/lib/data";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -10,10 +11,11 @@ export default function DocumentsSection() {
   return (
     <section id="documents" className="py-16 md:py-24 bg-secondary/20">
       <div className="container px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
+        <div className="text-center mb-10"> {/* Adjusted bottom margin */}
           <h2 className="text-4xl font-bold tracking-tight text-primary sm:text-5xl">
             Resources & Profiles
           </h2>
+          <div className="mt-3 mb-8 h-1 w-24 bg-accent rounded-full mx-auto"></div>
           <p className="mt-4 text-lg text-foreground/80 max-w-2xl mx-auto">
             Explore books I recommend and find my professional profiles online.
           </p>
@@ -21,7 +23,7 @@ export default function DocumentsSection() {
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {documentLinksData.map((item) => (
-            <Card key={item.name} className="group flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out transform hover:-translate-y-1 rounded-xl">
+            <Card key={item.name} className="group flex flex-col overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 ease-in-out transform hover:-translate-y-1 rounded-xl">
               <CardHeader>
                 <div className="flex items-center gap-3">
                   <Icon name={item.iconName} className="h-8 w-8 text-accent" />

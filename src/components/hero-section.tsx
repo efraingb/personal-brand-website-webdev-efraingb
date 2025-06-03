@@ -7,7 +7,7 @@ import Image from "next/image";
 
 export default function HeroSection() {
   return (
-    <section id="hero" className="relative py-16 md:py-28 min-h-[calc(100vh-4rem)] flex items-center justify-center overflow-hidden">
+    <section id="hero" className="relative py-16 md:py-28 min-h-[calc(100vh-4rem)] flex items-center justify-center overflow-hidden bg-gradient-to-br from-background to-secondary/20">
       <div className="absolute inset-0 opacity-10 [background-image:radial-gradient(var(--foreground)_1px,transparent_1px)] [background-size:24px_24px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)]"></div>
       
       <div className="container relative z-10 text-center px-4 sm:px-6 lg:px-8">
