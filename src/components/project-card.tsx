@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ExternalLink, Eye, Wifi, WifiOff, Loader2, AlertTriangle, Sparkles } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
 interface ProjectCardProps {
   project: Project;
@@ -24,28 +25,25 @@ export default function ProjectCard({ project, onViewProject }: ProjectCardProps
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const { toast } = useToast();
 
-  const isConceptualOrNoUrl = !project.url || project.url.trim() === '' || project.url === '#';
+  const hasValidUrl = project.url && project.url.trim() !== '' && project.url !== '#';
   const isCloudWorkstation = project.url?.includes('cloudworkstations.dev');
   const isStablePublicProject = STABLE_PROJECT_IDS.includes(project.id);
 
   useEffect(() => {
     let isMounted = true;
     async function checkStatus() {
-      if (isConceptualOrNoUrl) {
-        setIsActive(false);
+      if (!hasValidUrl) {
+        setIsActive(false); // No URL means it can't be online
         setIsLoading(false);
         return;
       }
 
-      // Cloud workstations and stable public projects are assumed to be accessible/online
-      // without running the Genkit verification flow from the card.
       if (isCloudWorkstation || isStablePublicProject) {
         setIsActive(true);
         setIsLoading(false);
         return;
       }
 
-      // For other projects (typically AI projects), verify status
       try {
         setIsLoading(true);
         let fullUrl = project.url;
@@ -61,7 +59,6 @@ export default function ProjectCard({ project, onViewProject }: ProjectCardProps
         console.error(`Error verifying project ${project.name}:`, error);
         if (isMounted) {
           setIsActive(false);
-          // Only show toast if it's not a known "overloaded" error, which is handled in the flow.
           if (!error.message?.includes("503")) {
             toast({
               title: "Verification Error",
@@ -80,28 +77,38 @@ export default function ProjectCard({ project, onViewProject }: ProjectCardProps
     return () => {
       isMounted = false;
     };
-  }, [project.id, project.url, project.name, toast, isConceptualOrNoUrl, isCloudWorkstation, isStablePublicProject]);
+  }, [project.id, project.url, project.name, toast, hasValidUrl, isCloudWorkstation, isStablePublicProject]);
 
   const statusBadge = () => {
-    if (isConceptualOrNoUrl) {
-      return <Badge variant="outline" className="flex items-center gap-1 border-amber-500 text-amber-700 bg-amber-500/10"><AlertTriangle className="h-3 w-3" /> Conceptual</Badge>;
+    let badgeContent: JSX.Element;
+    let tooltipText: string;
+
+    if (!hasValidUrl) {
+      badgeContent = <Badge variant="destructive" className="flex items-center gap-1"><WifiOff className="h-3 w-3" /> Offline</Badge>;
+      tooltipText = "This project does not have a valid URL.";
+    } else if (isCloudWorkstation) {
+      badgeContent = <Badge variant="default" className="bg-sky-500 hover:bg-sky-600 text-white flex items-center gap-1"><Sparkles className="h-3 w-3" /> Online (Dev)</Badge>;
+      tooltipText = "This project is active on a development server.";
+    } else if (isLoading && !isStablePublicProject) {
+      badgeContent = <Badge variant="secondary" className="flex items-center gap-1"><Loader2 className="h-3 w-3 animate-spin" /> Checking...</Badge>;
+      tooltipText = "Verifying project status...";
+    } else if (isActive) {
+      badgeContent = <Badge variant="default" className="bg-green-500 hover:bg-green-600 text-white flex items-center gap-1"><Wifi className="h-3 w-3" /> Online</Badge>;
+      tooltipText = "This project is currently online and accessible.";
+    } else {
+      badgeContent = <Badge variant="destructive" className="flex items-center gap-1"><WifiOff className="h-3 w-3" /> Offline</Badge>;
+      tooltipText = "This project appears to be offline or inaccessible.";
     }
-    if (isCloudWorkstation) {
-      return <Badge variant="default" className="bg-sky-500 hover:bg-sky-600 text-white flex items-center gap-1"><Sparkles className="h-3 w-3" /> Online (Dev)</Badge>;
-    }
-    if (isLoading && !isStablePublicProject) { // Don't show "Checking..." for stable projects
-      return <Badge variant="secondary" className="flex items-center gap-1"><Loader2 className="h-3 w-3 animate-spin" /> Checking...</Badge>;
-    }
-    
-    // For stable projects, isActive will be true and isLoading false
-    return isActive ? (
-      <Badge variant="default" className="bg-green-500 hover:bg-green-600 text-white flex items-center gap-1">
-        <Wifi className="h-3 w-3" /> Online
-      </Badge>
-    ) : (
-      <Badge variant="destructive" className="flex items-center gap-1">
-        <WifiOff className="h-3 w-3" /> Offline
-      </Badge>
+
+    return (
+      <TooltipProvider>
+        <Tooltip>
+          <TooltipTrigger asChild>{badgeContent}</TooltipTrigger>
+          <TooltipContent>
+            <p>{tooltipText}</p>
+          </TooltipContent>
+        </Tooltip>
+      </TooltipProvider>
     );
   };
 
@@ -135,10 +142,10 @@ export default function ProjectCard({ project, onViewProject }: ProjectCardProps
       </CardContent>
       <CardFooter className="flex flex-col sm:flex-row justify-between items-center gap-2 p-4 bg-muted/30">
         <Button 
-          onClick={() => onViewProject(project, isConceptualOrNoUrl ? false : (isStablePublicProject || isCloudWorkstation ? true : isActive) )}
+          onClick={() => onViewProject(project, hasValidUrl ? (isStablePublicProject || isCloudWorkstation ? true : isActive) : false )}
           variant="default"
           className="w-full sm:w-auto"
-          disabled={isLoading && !isConceptualOrNoUrl && !isCloudWorkstation && !isStablePublicProject}
+          disabled={isLoading && !hasValidUrl && !isCloudWorkstation && !isStablePublicProject}
         >
           <Eye className="mr-2 h-4 w-4" /> View Project
         </Button>
@@ -146,7 +153,7 @@ export default function ProjectCard({ project, onViewProject }: ProjectCardProps
           asChild 
           variant="outline" 
           className="w-full sm:w-auto"
-          disabled={isConceptualOrNoUrl || (isLoading && !isCloudWorkstation && !isStablePublicProject) || (!isActive && !isCloudWorkstation && !isStablePublicProject)}
+          disabled={!hasValidUrl || (isLoading && !isCloudWorkstation && !isStablePublicProject) || (!isActive && !isCloudWorkstation && !isStablePublicProject)}
         >
           <a href={project.url || '#'} target="_blank" rel="noopener noreferrer">
             <ExternalLink className="mr-2 h-4 w-4" /> Visit Site
@@ -156,4 +163,3 @@ export default function ProjectCard({ project, onViewProject }: ProjectCardProps
     </Card>
   );
 }
-
