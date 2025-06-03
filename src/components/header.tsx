@@ -20,7 +20,7 @@ export default function Header() {
           <span className="font-bold text-xl">Efraín G.B.</span>
         </Link>
         
-        <nav className="hidden md:flex gap-6 items-center">
+        <nav className="hidden lg:flex gap-6 items-center">
           {navLinksData.map((link) => (
             <Link
               key={link.href}
@@ -32,7 +32,7 @@ export default function Header() {
           ))}
         </nav>
 
-        <div className="md:hidden">
+        <div className="lg:hidden">
           <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon">
