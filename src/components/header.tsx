@@ -1,3 +1,4 @@
+
 // src/components/header.tsx
 "use client";
 
@@ -14,7 +15,7 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 max-w-screen-2xl items-center justify-between">
-        <Link href="#hero" className="flex items-center space-x-2 text-primary hover:text-accent transition-colors">
+        <Link href="#hero" className="flex items-center space-x-3 text-primary hover:text-accent transition-colors">
           <Feather className="h-6 w-6" />
           <span className="font-bold text-xl">Efraín G.B.</span>
         </Link>
@@ -40,11 +41,11 @@ export default function Header() {
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="w-[300px] sm:w-[400px] bg-background">
-              <SheetHeader className="sr-only">
-                <SheetTitle>Menú de Navegación</SheetTitle>
+              <SheetHeader>
+                <SheetTitle className="sr-only">Menú de Navegación</SheetTitle>
               </SheetHeader>
               <nav className="flex flex-col gap-4 pt-8">
-              <Link href="#hero" className="flex items-center space-x-2 text-primary mb-4" onClick={() => setIsMenuOpen(false)}>
+              <Link href="#hero" className="flex items-center space-x-3 text-primary mb-4" onClick={() => setIsMenuOpen(false)}>
                 <Feather className="h-6 w-6" />
                 <span className="font-bold text-xl">Efraín G.B.</span>
               </Link>
@@ -66,3 +67,4 @@ export default function Header() {
     </header>
   );
 }
+
