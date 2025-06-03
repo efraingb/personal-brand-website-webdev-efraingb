@@ -1,3 +1,4 @@
+
 // src/components/project-card.tsx
 "use client";
 
@@ -8,7 +9,7 @@ import Image from "next/image";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ExternalLink, Eye, Wifi, WifiOff, Loader2, AlertTriangle, Sparkles } from "lucide-react";
+import { ExternalLink, Eye, Wifi, WifiOff, Loader2, Sparkles, AlertTriangle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
@@ -44,7 +45,6 @@ export default function ProjectCard({ project, onViewProject }: ProjectCardProps
         return;
       }
 
-      // For other projects, proceed with verification
       try {
         setIsLoading(true);
         let fullUrl = project.url;
@@ -60,11 +60,13 @@ export default function ProjectCard({ project, onViewProject }: ProjectCardProps
         console.error(`Error verifying project ${project.name}:`, error);
         if (isMounted) {
           setIsActive(false);
-          if (!error.message?.includes("503")) { // Avoid toasting for common "overloaded" errors
+          // Avoid toasting for 503 (overloaded) or AbortError (timeout), which are handled by the flow returning false
+          if (error.name !== 'AbortError' && !error.message?.includes("503")) { 
             toast({
               title: "Verification Issue",
-              description: `Could not verify status for ${project.name}. Assuming it's offline.`,
+              description: `Could not verify status for ${project.name}. It might be temporarily offline.`,
               variant: "destructive",
+              duration: 5000,
             });
           }
         }
@@ -90,13 +92,13 @@ export default function ProjectCard({ project, onViewProject }: ProjectCardProps
     } else if (isCloudWorkstation) {
       badgeContent = <Badge variant="default" className="bg-sky-500 hover:bg-sky-600 text-white flex items-center gap-1"><Sparkles className="h-3 w-3" /> Online (Dev)</Badge>;
       tooltipText = "This project is active on a development server.";
-    } else if (isLoading && !isStablePublicProject) { // only show "Checking..." for non-stable projects
+    } else if (isLoading && !isStablePublicProject) {
       badgeContent = <Badge variant="secondary" className="flex items-center gap-1"><Loader2 className="h-3 w-3 animate-spin" /> Checking...</Badge>;
       tooltipText = "Verifying project status...";
     } else if (isActive) {
       badgeContent = <Badge variant="default" className="bg-green-500 hover:bg-green-600 text-white flex items-center gap-1"><Wifi className="h-3 w-3" /> Online</Badge>;
       tooltipText = "This project is currently online and accessible.";
-    } else { // Includes non-stable projects that resolved to offline, or stable projects that somehow got here
+    } else { 
       badgeContent = <Badge variant="destructive" className="flex items-center gap-1"><WifiOff className="h-3 w-3" /> Offline</Badge>;
       tooltipText = "This project appears to be offline or inaccessible.";
     }
@@ -118,7 +120,7 @@ export default function ProjectCard({ project, onViewProject }: ProjectCardProps
   return (
     <Card className={cn(
       "flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out transform hover:-translate-y-1 rounded-xl group",
-      isLoading && !(isCloudWorkstation || isStablePublicProject) && 'opacity-75'
+      isLoading && !(isCloudWorkstation || isStablePublicProject) && 'opacity-75 transition-opacity duration-300'
     )}>
       <div className="relative w-full aspect-[16/10] overflow-hidden rounded-t-xl">
         <Image
@@ -151,7 +153,7 @@ export default function ProjectCard({ project, onViewProject }: ProjectCardProps
           onClick={() => onViewProject(project, effectiveIsActive)}
           variant="default"
           className="w-full sm:w-auto"
-          disabled={isLoading && !isCloudWorkstation && !isStablePublicProject && !hasValidUrl} // Disable if loading AND not a special case AND no valid URL
+          disabled={isLoading && !(isCloudWorkstation || isStablePublicProject)}
         >
           <Eye className="mr-2 h-4 w-4" /> View Project
         </Button>
