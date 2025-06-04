@@ -7,6 +7,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } f
 import Image from "next/image";
 import { WifiOff, ExternalLink as ExternalLinkIcon, Loader2, Rocket, Info, Sparkles, Film } from "lucide-react"; 
 import { Button } from "./ui/button";
+import { cn } from "@/lib/utils"; // Import cn
 
 interface ProjectModalProps {
   project: Project | null;
@@ -151,7 +152,10 @@ export default function ProjectModal({ project, isActive, isOpen, onClose }: Pro
               </div>
               
               {hasVideo && embedUrl ? (
-                <div className="relative w-full max-w-md aspect-video rounded-lg overflow-hidden shadow-xl my-4 border border-border/30 animate-in fade-in-0 zoom-in-95 duration-300 ease-out">
+                <div className={cn(
+                  "relative w-full max-w-md rounded-lg overflow-hidden shadow-xl my-4 border border-border/30 animate-in fade-in-0 zoom-in-95 duration-300 ease-out",
+                  project.videoUrl?.includes("/shorts/") ? "aspect-[9/16]" : "aspect-video"
+                )}>
                   <iframe
                     src={embedUrl}
                     title={`${project.name} video walkthrough`}
