@@ -1,13 +1,16 @@
 
-import type { Project, LinkItem } from './types';
+import type { Project, LinkItem, NavLink } from './types'; // Added NavLink
 
+// --- PROJECTS ---
+// Note: 'name' and 'description' are now keys for translation.
+// The actual translation will happen in the component using the dictionary.
+// e.g., dict.projectsData[`${project.id}_name`]
 export const projectsData: Project[] = [
-  // Proyectos IA Recientes y Destacados
   {
     id: 'proj-quiz-ai',
-    name: 'Creador de Quizzes con IA',
+    name: 'proj-quiz-ai_name', // Key for translation
     url: 'https://9000-idx-studio-1746296464496.cluster-pgviq6mvsncnqxx6kr7pbz65v6.cloudworkstations.dev/',
-    description: 'Herramienta inteligente para generar cuestionarios y evaluaciones personalizadas mediante IA, facilitando la creación de contenido educativo y de capacitación.',
+    description: 'proj-quiz-ai_description', // Key for translation
     thumbnailUrl: 'https://i.imgur.com/0NciRLC.png',
     dataAiHint: 'ai quiz generator',
     tags: ['AI', 'EdTech', 'Firebase', 'Generative AI'],
@@ -15,9 +18,9 @@ export const projectsData: Project[] = [
   },
   {
     id: 'proj-negotia',
-    name: 'NEGOTIA',
+    name: 'proj-negotia_name',
     url: 'https://9000-idx-studio-1745689952822.cluster-ux5mmlia3zhhask7riihruxydo.cloudworkstations.dev/',
-    description: 'Deal Smarter, Not Harder. Plataforma de negociación asistida por IA diseñada para facilitar acuerdos beneficiosos para todas las partes (Win-Win Outcomes).',
+    description: 'proj-negotia_description',
     thumbnailUrl: 'https://i.imgur.com/wIwB6qu.png',
     dataAiHint: 'ai negotiation platform',
     tags: ['AI', 'Negotiation', 'SaaS', 'B2B'],
@@ -25,9 +28,9 @@ export const projectsData: Project[] = [
   },
   {
     id: 'proj-bless',
-    name: 'Bless Contigo',
+    name: 'proj-bless_name',
     url: 'https://9000-firebase-studio-1747186834705.cluster-hf4yr35cmnbd4vhbxvfvc6cp5q.cloudworkstations.dev/',
-    description: 'Plataforma comunitaria diseñada para conectar y ofrecer recursos de apoyo, fomentando la colaboración y el bienestar colectivo.',
+    description: 'proj-bless_description',
     thumbnailUrl: 'https://i.imgur.com/2GnmZm2.png',
     dataAiHint: 'community platform',
     tags: ['Community', 'Platform', 'Firebase', 'Social Impact'],
@@ -35,95 +38,102 @@ export const projectsData: Project[] = [
   },
   {
     id: 'proj-agroia',
-    name: 'Agroia',
+    name: 'proj-agroia_name',
     url: 'https://9000-idx-studio-1745949441464.cluster-pgviq6mvsncnqxx6kr7pbz65v6.cloudworkstations.dev/',
-    description: 'Plataforma digital inteligente para el sector agrícola, utilizando IA para conectar productores con mercados, optimizar recursos y facilitar el acceso a tecnologías avanzadas.',
+    description: 'proj-agroia_description',
     thumbnailUrl: 'https://i.imgur.com/h53YbVW.png',
     dataAiHint: 'agritech platform',
     tags: ['AgriTech', 'AI', 'E-commerce', 'Platform', 'Firebase'],
     videoUrl: 'https://www.youtube.com/shorts/BvDAXjkxc3M',
   },
-
-  // Colaboraciones de Impacto
   {
     id: 'proj-imagine-motiva',
-    name: 'Imagine Motiva (Establishment Labs)',
+    name: 'proj-imagine-motiva_name',
     url: 'https://motiva.health/motivaImagine/',
-    description: 'Colaboración en el desarrollo de soluciones digitales innovadoras para Establishment Labs, una empresa global de tecnología médica, enfocadas en la visualización avanzada y personalización de implantes mamarios.',
+    description: 'proj-imagine-motiva_description',
     thumbnailUrl: 'https://i.imgur.com/8m70722.png',
     dataAiHint: 'medtech visualization',
     tags: ['MedTech', 'UX/UI', '3D Visualization', 'Enterprise', 'Collaboration'],
   },
   {
     id: 'proj-agro-y-mas',
-    name: 'Agro Y Más',
+    name: 'proj-agro-y-mas_name',
     url: 'https://agroymas.com/',
-    description: 'Colaboración en la plataforma digital para el sector agrícola, enfocada en conectar a productores con información relevante, mercados y soluciones financieras.',
+    description: 'proj-agro-y-mas_description',
     thumbnailUrl: 'https://i.imgur.com/McB2HN9.png',
     dataAiHint: 'agritech news finance',
     tags: ['AgriTech', 'Platform', 'FinTech', 'Content', 'Collaboration'],
   },
   {
     id: 'proj-epa-en-linea',
-    name: 'EPA en Línea (Costa Rica)',
+    name: 'proj-epa-en-linea_name',
     url: 'https://cr.epaenlinea.com',
-    description: 'Colaboración en la plataforma de e-commerce para Ferretería EPA en Costa Rica, una importante cadena de ferreterías, enfocada en mejorar la experiencia de compra en línea para sus clientes.',
+    description: 'proj-epa-en-linea_description',
     thumbnailUrl: 'https://i.imgur.com/XNbjFzv.png',
     dataAiHint: 'hardware ecommerce retail',
     tags: ['E-commerce', 'Retail', 'Web Development', 'Collaboration'],
   },
   {
     id: 'proj-kohls',
-    name: "Kohl's E-commerce",
+    name: 'proj-kohls_name',
     url: 'https://www.kohls.com',
-    description: 'Colaboración relacionada con la plataforma de e-commerce de Kohl’s, una destacada cadena de tiendas departamentales en Estados Unidos.',
+    description: 'proj-kohls_description',
     thumbnailUrl: 'https://i.imgur.com/Ud4Q2jt.png',
     dataAiHint: 'department store ecommerce',
     tags: ['E-commerce', 'Retail', 'Enterprise', 'Collaboration'],
   },
 ];
 
+// --- DOCUMENT LINKS ---
+// 'name', 'description', 'buttonText' are keys for translation.
 export const documentLinksData: LinkItem[] = [
   {
-    name: 'Antes que las Tostadoras Gobiernen',
+    id: 'bookAntesTostadoras', // Added ID for key generation
+    name: 'bookAntesTostadoras_name',
     url: 'https://www.amazon.com/Antes-que-las-Tostadoras-Gobiernen-ebook/dp/B0DQJ8Q55K/',
     iconName: 'BookOpen',
-    description: "Un libro que explora el futuro de la IA (Edición en español).",
-    buttonText: 'Ver en Amazon'
+    description: 'bookAntesTostadoras_description',
+    buttonText: 'bookAntesTostadoras_buttonText'
   },
   {
-    name: 'Practical Computer Science for Everyone',
+    id: 'bookPracticalCS',
+    name: 'bookPracticalCS_name',
     url: 'https://drive.google.com/file/d/14_sPGzT-GH9JNqfYperRCmHJ12LNBnGB/view',
     iconName: 'BookOpen',
-    description: "CS fundamentals made accessible (Free download - English).",
-    buttonText: 'Descargar Gratis'
+    description: 'bookPracticalCS_description',
+    buttonText: 'bookPracticalCS_buttonText'
   },
   {
-    name: 'LinkedIn Profile',
+    id: 'profileLinkedIn',
+    name: 'profileLinkedIn_name',
     url: 'https://www.linkedin.com/in/efraingb/',
     iconName: 'Linkedin',
-    description: "Conéctate conmigo en LinkedIn.",
-    buttonText: 'Visit Profile'
+    description: 'profileLinkedIn_description',
+    buttonText: 'profileLinkedIn_buttonText'
   },
   {
-    name: 'GitHub Profile',
+    id: 'profileGitHub',
+    name: 'profileGitHub_name',
     url: 'https://github.com/efraingbdev/',
     iconName: 'Github',
-    description: "Explora mis proyectos de código abierto.",
-    buttonText: 'Visit Profile'
+    description: 'profileGitHub_description',
+    buttonText: 'profileGitHub_buttonText'
   },
 ];
 
+// --- CONTACT LINKS ---
+// 'name' and 'text' are keys for translation.
 export const contactLinksData: LinkItem[] = [
-    { name: 'Email', url: 'mailto:hiefraingb@gmail.com', iconName: 'Mail', text: 'hiefraingb@gmail.com' },
-    { name: 'LinkedIn', url: 'https://www.linkedin.com/in/efraingb/', iconName: 'Linkedin', text: 'linkedin.com/in/efraingb' },
-    { name: 'GitHub', url: 'https://github.com/efraingbdev/', iconName: 'Github', text: 'github.com/efraingbdev' },
+    { id: 'email', name: 'email_name', url: 'mailto:hiefraingb@gmail.com', iconName: 'Mail', text: 'email_text' },
+    { id: 'linkedin', name: 'linkedin_name', url: 'https://www.linkedin.com/in/efraingb/', iconName: 'Linkedin', text: 'linkedin_text' },
+    { id: 'github', name: 'github_name', url: 'https://github.com/efraingbdev/', iconName: 'Github', text: 'github_text' },
 ];
 
-export const navLinksData = [
-  { href: '#hero', label: 'Home' },
-  { href: '#projects', label: 'Projects' },
-  { href: '#documents', label: 'Resources' },
-  { href: '#contact', label: 'Contact' },
+// --- NAV LINKS ---
+// 'label' becomes 'labelKey' for translation.
+export const navLinksData: NavLink[] = [
+  { href: '#hero', labelKey: 'home' },
+  { href: '#projects', labelKey: 'projects' },
+  { href: '#documents', labelKey: 'resources' },
+  { href: '#contact', labelKey: 'contact' },
 ];
-

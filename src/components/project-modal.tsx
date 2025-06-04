@@ -7,13 +7,15 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } f
 import Image from "next/image";
 import { WifiOff, ExternalLink as ExternalLinkIcon, Loader2, Rocket, Info, Sparkles, Film } from "lucide-react"; 
 import { Button } from "./ui/button";
-import { cn } from "@/lib/utils"; // Import cn
+import { cn } from "@/lib/utils";
+import type { Dictionary } from "@/lib/i18n";
 
 interface ProjectModalProps {
   project: Project | null;
   isActive: boolean | null; 
   isOpen: boolean;
   onClose: () => void;
+  dict: Dictionary; // Expects dict.projectModal
 }
 
 interface VideoIdResult {
@@ -25,19 +27,16 @@ function extractVideoId(url: string): VideoIdResult | null {
   let videoId: string | null = null;
   let platform: 'youtube' | 'vimeo' | null = null;
 
-  // Try YouTube Shorts format first (e.g., https://www.youtube.com/shorts/VIDEO_ID)
   let match = url.match(/youtube\.com\/shorts\/([a-zA-Z0-9_-]{11})/);
   if (match && match[1]) {
     videoId = match[1];
     platform = 'youtube';
   } else {
-    // Try other YouTube formats (e.g., youtu.be/, watch?v=, embed/)
     match = url.match(/^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/i);
     if (match && match[2] && match[2].length === 11) {
       videoId = match[2];
       platform = 'youtube';
     } else {
-      // Try Vimeo format
       match = url.match(/vimeo\.com\/(?:video\/|)(\d+)/);
       if (match && match[1]) {
         videoId = match[1];
@@ -53,7 +52,7 @@ function extractVideoId(url: string): VideoIdResult | null {
 }
 
 
-export default function ProjectModal({ project, isActive, isOpen, onClose }: ProjectModalProps) {
+export default function ProjectModal({ project, isActive, isOpen, onClose, dict }: ProjectModalProps) {
   if (!project) return null;
 
   const hasValidUrl = project.url && project.url.trim() !== '' && project.url !== '#';
@@ -71,64 +70,58 @@ export default function ProjectModal({ project, isActive, isOpen, onClose }: Pro
   }
 
   let displayIcon = <Info className="h-10 w-10 text-accent mb-3" />;
-  let messageTitle = project.name;
-  let messageDescription: React.ReactNode = "Further details about this project can be found by visiting its site if available.";
-  let buttonText = "Visit Site";
+  // Project name is already translated (it's a key used by ProjectCard)
+  let messageTitle = project.name + (hasVideo ? ` - ${dict.videoDemoTitleSuffix || "Video Demo"}` : ` - ${dict.defaultTitleSuffix || "Details"}`);
+  let messageDescription: React.ReactNode = dict.defaultDescription;
+  let buttonText = dict.buttonVisitSite;
   let buttonEnabled = true;
   
   if (hasVideo) {
     displayIcon = <Film className="h-10 w-10 text-accent mb-3" />;
-    messageTitle = `${project.name} - Video Demo`;
-    messageDescription = "Watch a video walkthrough of this project below. You can also visit the site if available.";
+    messageDescription = dict.videoDemoDescription;
   }
 
   if (isActive === true) {
-    if (!hasVideo) { // Only override if no video, otherwise video message takes precedence
-        if (isCloudWorkstation) {
-        displayIcon = <Sparkles className="h-10 w-10 text-sky-500 mb-3" />;
-        messageTitle = "Active Project (Dev)";
-        messageDescription = "This project is active on a development server. Click below to explore it if you have access.";
-        buttonText = "Open Dev Link";
-        } else {
-        displayIcon = <Rocket className="h-10 w-10 text-green-500 mb-3" />;
-        messageTitle = "Project Online";
-        messageDescription = "This project is live and accessible. Click below to visit the site.";
-        }
+    if (isCloudWorkstation) {
+      displayIcon = <Sparkles className="h-10 w-10 text-sky-500 mb-3" />;
+      messageTitle = `${project.name} - ${dict.statusActiveDevTitle || "Active Project (Dev)"}`;
+      messageDescription = dict.statusActiveDevDescription;
+      buttonText = dict.buttonOpenDevLink || "Open Dev Link";
+    } else if (!hasVideo) { // Only override if no video, otherwise video message takes precedence
+      displayIcon = <Rocket className="h-10 w-10 text-green-500 mb-3" />;
+      messageTitle = `${project.name} - ${dict.statusOnlineTitle || "Project Online"}`;
+      messageDescription = dict.statusOnlineDescription;
     }
   } else if (isActive === false) {
     if (!hasVideo) {
         displayIcon = <WifiOff className="h-10 w-10 text-destructive mb-3" />;
-        messageTitle = "Project Status";
+        messageTitle = `${project.name} - ${dict.statusOfflineTitle || "Project Status"}`;
         if (!hasValidUrl) {
-            messageDescription = "This project does not have a direct public URL at the moment, but you can view its details and image below.";
-            buttonText = "No Public Link";
+            messageDescription = dict.statusOfflineNoUrlDescription;
+            buttonText = dict.buttonNoPublicLink || "No Public Link";
             buttonEnabled = false;
         } else {
-            messageDescription = (
-            <>
-                This project at <code className="text-sm bg-muted/70 px-1.5 py-0.5 rounded-sm font-mono shadow-sm">{project.url}</code> currently appears to be offline or inaccessible. You can still attempt to visit the site directly.
-            </>
-            );
-            buttonText = "Attempt to Visit";
+            messageDescription = (dict.statusOfflineDescription || "This project at {projectUrl} currently appears to be offline or inaccessible. You can still attempt to visit the site directly.").replace('{projectUrl}', project.url);
+            buttonText = dict.buttonAttemptVisit || "Attempt to Visit";
         }
     } else { // Has video, but site is offline/no URL
-        messageDescription = "Watch a video walkthrough of this project. The live site appears to be offline or has no direct public URL."
+        messageDescription = dict.videoOfflineDescription;
     }
   } else { // isActive is null (verifying status) or project without URL and no video
      if (!hasVideo) {
         displayIcon = <Loader2 className="h-10 w-10 text-primary animate-spin mb-3" />;
-        messageTitle = "Verifying Status...";
-        messageDescription = "We're currently verifying the live status of this project. This might take a moment.";
+        messageTitle = `${project.name} - ${dict.statusVerifyingTitle || "Verifying Status..."}`;
+        messageDescription = dict.statusVerifyingDescription;
         buttonEnabled = false;
         if (!hasValidUrl) { 
-            messageTitle = "Project Details";
-            messageDescription = "This project does not have a direct public URL, but you can view its image and description.";
+            messageTitle = `${project.name} - ${dict.statusNoUrlTitle || "Project Details"}`;
+            messageDescription = dict.statusNoUrlDescriptionModal;
             buttonEnabled = false;
-            buttonText = "No Public Link";
+            buttonText = dict.buttonNoPublicLink || "No Public Link";
             displayIcon = <Info className="h-10 w-10 text-muted-foreground mb-3" />;
         }
      } else { // Has video, site status is being verified
-        messageDescription = "Watch a video walkthrough of this project. We're also checking the live site status."
+        messageDescription = dict.statusVerifyingVideoDescription;
      }
   }
 
@@ -137,6 +130,7 @@ export default function ProjectModal({ project, isActive, isOpen, onClose }: Pro
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="max-w-2xl w-[90vw] sm:w-[70vw] md:w-[60vw] lg:max-w-xl p-0 flex flex-col bg-card text-card-foreground rounded-lg shadow-2xl max-h-[85vh]">
         <DialogHeader className="p-6 pb-3 border-b border-border/50">
+           {/* Project name and description are translated via project object which uses keys */}
           <DialogTitle className="text-xl sm:text-2xl font-semibold">{project.name}</DialogTitle>
           {project.description && <DialogDescription className="text-sm text-muted-foreground mt-1 leading-relaxed">{project.description}</DialogDescription>}
         </DialogHeader>
@@ -178,7 +172,6 @@ export default function ProjectModal({ project, isActive, isOpen, onClose }: Pro
                 </div>
               )}
 
-
               {hasValidUrl && (
                  <Button 
                     variant="default" 
@@ -207,4 +200,3 @@ export default function ProjectModal({ project, isActive, isOpen, onClose }: Pro
     </Dialog>
   );
 }
-

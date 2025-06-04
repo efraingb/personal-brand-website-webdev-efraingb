@@ -1,15 +1,21 @@
 
 // src/components/project-gallery.tsx
-import { projectsData } from "@/lib/data";
+// This component might need to be client-side if it handles modal state directly
+// For now, assume it receives translated data and onProjectSelect from a client parent
+"use client"; // Making this client as it will interact with ProjectCard (client) for modal.
+
 import type { Project } from "@/lib/types";
 import ProjectCard from "./project-card";
+import type { Dictionary } from "@/lib/i18n";
 
 interface ProjectGalleryProps {
+  dict: Dictionary; // Expects dict.projectGallery
+  projectsData: Project[];
   onProjectSelect: (project: Project, isActive: boolean | null) => void;
+  projectCardDict: Dictionary; // Pass dict.projectCard down
 }
 
-export default function ProjectGallery({ onProjectSelect }: ProjectGalleryProps) {
-  // Define IDs for categorization
+export default function ProjectGallery({ dict, projectsData, onProjectSelect, projectCardDict }: ProjectGalleryProps) {
   const recentIaProjectIds = ['proj-quiz-ai', 'proj-negotia', 'proj-agroia', 'proj-bless'];
   const pastCollaborationsIds = ['proj-imagine-motiva', 'proj-agro-y-mas', 'proj-epa-en-linea', 'proj-kohls'];
 
@@ -19,28 +25,25 @@ export default function ProjectGallery({ onProjectSelect }: ProjectGalleryProps)
 
   const pastCollaborationsProjects = projectsData
     .filter(project => pastCollaborationsIds.includes(project.id))
-    // You might want a different sorting for collaborations, e.g., by recency if you add a date, or just keep as is.
     .sort((a, b) => pastCollaborationsIds.indexOf(a.id) - pastCollaborationsIds.indexOf(b.id));
-
 
   return (
     <section id="projects" className="py-16 md:py-24 bg-background">
-      <div className="container px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto"> {/* Changed max-w-6xl to max-w-5xl */}
-        <div className="text-center mb-10"> {/* Adjusted bottom margin */}
+      <div className="container px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
+        <div className="text-center mb-10">
           <h2 className="text-4xl font-bold tracking-tight text-primary sm:text-5xl">
-            My Projects
+            {dict.title}
           </h2>
           <div className="mt-3 mb-8 h-1 w-24 bg-accent rounded-full mx-auto"></div>
           <p className="mt-4 text-lg text-foreground/80 max-w-2xl mx-auto">
-            A selection of projects that showcase my skills and passion for development.
-            Each one represents a unique challenge and learning opportunity.
+            {dict.description}
           </p>
         </div>
         
         {recentIaProjects.length > 0 && (
           <div className="mb-16">
             <h3 className="text-3xl font-semibold tracking-tight text-primary mb-10 text-center sm:text-left">
-              Proyectos IA Recientes y Destacados
+              {dict.recentIaProjectsTitle}
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {recentIaProjects.map((project) => (
@@ -48,6 +51,7 @@ export default function ProjectGallery({ onProjectSelect }: ProjectGalleryProps)
                   key={project.id} 
                   project={project} 
                   onViewProject={onProjectSelect} 
+                  dict={projectCardDict} // Pass down the specific dictionary part
                 />
               ))}
             </div>
@@ -55,16 +59,17 @@ export default function ProjectGallery({ onProjectSelect }: ProjectGalleryProps)
         )}
 
         {pastCollaborationsProjects.length > 0 && (
-          <div className="mb-16"> {/* Added bottom margin for spacing before next section or footer */}
+          <div className="mb-16">
             <h3 className="text-3xl font-semibold tracking-tight text-primary mb-10 text-center sm:text-left">
-              Colaboraciones de Impacto
+              {dict.impactfulCollaborationsTitle}
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {pastCollaborationsProjects.map((project) => (
                 <ProjectCard 
                   key={project.id} 
                   project={project} 
-                  onViewProject={onProjectSelect} 
+                  onViewProject={onProjectSelect}
+                  dict={projectCardDict} // Pass down the specific dictionary part
                 />
               ))}
             </div>
@@ -72,7 +77,7 @@ export default function ProjectGallery({ onProjectSelect }: ProjectGalleryProps)
         )}
 
         {projectsData.length === 0 && (
-           <p className="text-center text-lg text-muted-foreground">No projects to display at the moment. Check back soon!</p>
+           <p className="text-center text-lg text-muted-foreground">{dict.noProjects}</p>
         )}
       </div>
     </section>

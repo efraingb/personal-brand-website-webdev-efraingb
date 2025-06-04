@@ -1,0 +1,131 @@
+
+{
+  "layout": {
+    "title": "Escenario Digital de Efraín",
+    "description": "Portafolio de Efraín G.B., Desarrollador Full-Stack e Innovador en IA."
+  },
+  "nav": {
+    "home": "Inicio",
+    "projects": "Proyectos",
+    "resources": "Recursos",
+    "contact": "Contacto"
+  },
+  "header": {
+    "logoText": "Efraín G.B.",
+    "toggleMenu": "Alternar menú",
+    "mobileMenuTitle": "Menú de Navegación"
+  },
+  "hero": {
+    "mainTitle": "Efraín G.B.",
+    "subtitle": "Desarrollador Full-Stack e Innovador en IA",
+    "description": "Apasionado por crear soluciones digitales elegantes y eficientes. Especializado en desarrollo web full-stack y explorando las fronteras de la Inteligencia Artificial para construir aplicaciones de impacto.",
+    "viewMyWork": "Ver Mi Trabajo",
+    "getInTouch": "Contáctame"
+  },
+  "projectGallery": {
+    "title": "Mis Proyectos",
+    "description": "Una selección de proyectos que muestran mis habilidades y pasión por el desarrollo. Cada uno representa un desafío único y una oportunidad de aprendizaje.",
+    "recentIaProjectsTitle": "Proyectos IA Recientes y Destacados",
+    "impactfulCollaborationsTitle": "Colaboraciones de Impacto",
+    "noProjects": "No hay proyectos para mostrar en este momento. ¡Vuelve pronto!"
+  },
+  "projectCard": {
+    "viewProject": "Ver Proyecto",
+    "visitSite": "Visitar Sitio",
+    "statusOffline": "Offline",
+    "statusOfflineNoUrlTooltip": "Este proyecto no tiene una URL pública válida.",
+    "statusOnlineDev": "Online (Dev)",
+    "statusOnlineDevTooltip": "Este proyecto está activo en un servidor de desarrollo.",
+    "statusChecking": "Verificando...",
+    "statusCheckingTooltip": "Verificando estado del proyecto...",
+    "statusOnline": "Online",
+    "statusOnlineTooltip": "Este proyecto está actualmente online y accesible.",
+    "statusOfflineTooltip": "Este proyecto parece estar offline o inaccesible.",
+    "viewVideoDemo": "Ver Video Demo",
+    "verificationIssueTitle": "Problema de Verificación",
+    "verificationIssueDescription": "No se pudo verificar el estado de {projectName}. Podría estar temporalmente offline."
+  },
+  "projectModal": {
+    "defaultTitleSuffix": "Detalles",
+    "videoDemoTitleSuffix": "Video Demo",
+    "defaultDescription": "Más detalles sobre este proyecto se pueden encontrar visitando su sitio si está disponible.",
+    "videoDemoDescription": "Mira un video de demostración de este proyecto a continuación. También puedes visitar el sitio si está disponible.",
+    "statusActiveDevTitle": "Proyecto Activo (Dev)",
+    "statusActiveDevDescription": "Este proyecto está activo en un servidor de desarrollo. Haz clic abajo para explorarlo si tienes acceso.",
+    "statusOnlineTitle": "Proyecto Online",
+    "statusOnlineDescription": "Este proyecto está en vivo y accesible. Haz clic abajo para visitar el sitio.",
+    "statusOfflineTitle": "Estado del Proyecto",
+    "statusOfflineNoUrlDescription": "Este proyecto no tiene una URL pública directa en este momento, pero puedes ver sus detalles e imagen a continuación.",
+    "statusOfflineDescription": "El proyecto en {projectUrl} parece estar offline o inaccesible actualmente. Aún puedes intentar visitar el sitio directamente.",
+    "videoOfflineDescription": "Mira un video de demostración de este proyecto. El sitio en vivo parece estar offline o no tiene URL pública directa.",
+    "statusVerifyingTitle": "Verificando Estado...",
+    "statusVerifyingDescription": "Actualmente estamos verificando el estado en vivo de este proyecto. Esto podría tomar un momento.",
+    "statusVerifyingVideoDescription": "Mira un video de demostración de este proyecto. También estamos verificando el estado del sitio en vivo.",
+    "statusNoUrlTitle": "Detalles del Proyecto",
+    "statusNoUrlDescriptionModal": "Este proyecto no tiene una URL pública directa, pero puedes ver su imagen y descripción.",
+    "buttonVisitSite": "Visitar Sitio",
+    "buttonOpenDevLink": "Abrir Enlace Dev",
+    "buttonAttemptVisit": "Intentar Visitar",
+    "buttonNoPublicLink": "Sin Enlace Público"
+  },
+  "documentsSection": {
+    "title": "Recursos y Perfiles",
+    "description": "Explora libros que recomiendo y encuentra mis perfiles profesionales en línea.",
+    "defaultViewDetails": "Ver Detalles",
+    "defaultVisitProfile": "Visitar Perfil"
+  },
+  "contactSection": {
+    "title": "Contáctame",
+    "description": "Siempre estoy abierto a discutir nuevos proyectos, ideas creativas u oportunidades para ser parte de algo grandioso.",
+    "lookingForward": "¡Espero tener noticias tuyas!"
+  },
+  "footer": {
+    "copyright": "© {currentYear} Efraín G.B. Todos los derechos reservados.",
+    "credits": "Construido con Next.js y Tailwind CSS. Alojado en Firebase."
+  },
+  "projectsData": {
+    "proj-quiz-ai_name": "Creador de Quizzes con IA",
+    "proj-quiz-ai_description": "Herramienta inteligente para generar cuestionarios y evaluaciones personalizadas mediante IA, facilitando la creación de contenido educativo y de capacitación.",
+    "proj-negotia_name": "NEGOTIA",
+    "proj-negotia_description": "Negocia de forma más inteligente, no más difícil. Plataforma de negociación asistida por IA diseñada para facilitar acuerdos beneficiosos para todas las partes (Resultados Ganar-Ganar).",
+    "proj-bless_name": "Bless Contigo",
+    "proj-bless_description": "Plataforma comunitaria diseñada para conectar y ofrecer recursos de apoyo, fomentando la colaboración y el bienestar colectivo.",
+    "proj-agroia_name": "Agroia",
+    "proj-agroia_description": "Plataforma digital inteligente para el sector agrícola, utilizando IA para conectar productores con mercados, optimizar recursos y facilitar el acceso a tecnologías avanzadas.",
+    "proj-imagine-motiva_name": "Imagine Motiva (Establishment Labs)",
+    "proj-imagine-motiva_description": "Colaboración en el desarrollo de soluciones digitales innovadoras para Establishment Labs, una empresa global de tecnología médica, enfocadas en la visualización avanzada y personalización de implantes mamarios.",
+    "proj-agro-y-mas_name": "Agro Y Más",
+    "proj-agro-y-mas_description": "Colaboración en la plataforma digital para el sector agrícola, enfocada en conectar a productores con información relevante, mercados y soluciones financieras.",
+    "proj-epa-en-linea_name": "EPA en Línea (Costa Rica)",
+    "proj-epa-en-linea_description": "Colaboración en la plataforma de e-commerce para Ferretería EPA en Costa Rica, una importante cadena de ferreterías, enfocada en mejorar la experiencia de compra en línea para sus clientes.",
+    "proj-kohls_name": "Kohl's E-commerce",
+    "proj-kohls_description": "Colaboración relacionada con la plataforma de e-commerce de Kohl’s, una destacada cadena de tiendas departamentales en Estados Unidos."
+  },
+  "documentLinksData": {
+    "bookAntesTostadoras_name": "Antes que las Tostadoras Gobiernen",
+    "bookAntesTostadoras_description": "Un libro que explora el futuro de la IA (Edición en español).",
+    "bookAntesTostadoras_buttonText": "Ver en Amazon",
+    "bookPracticalCS_name": "Practical Computer Science for Everyone",
+    "bookPracticalCS_description": "Fundamentos de CS accesibles (Descarga gratuita - Inglés).",
+    "bookPracticalCS_buttonText": "Descargar Gratis",
+    "profileLinkedIn_name": "Perfil de LinkedIn",
+    "profileLinkedIn_description": "Conéctate conmigo en LinkedIn.",
+    "profileLinkedIn_buttonText": "Visitar Perfil",
+    "profileGitHub_name": "Perfil de GitHub",
+    "profileGitHub_description": "Explora mis proyectos de código abierto.",
+    "profileGitHub_buttonText": "Visitar Perfil"
+  },
+  "contactLinksData": {
+    "email_name": "Correo",
+    "email_text": "hiefraingb@gmail.com",
+    "linkedin_name": "LinkedIn",
+    "linkedin_text": "linkedin.com/in/efraingb",
+    "github_name": "GitHub",
+    "github_text": "github.com/efraingbdev"
+  },
+  "languageSwitcher": {
+    "changeLanguage": "Cambiar idioma",
+    "english": "English",
+    "spanish": "Español"
+  }
+}

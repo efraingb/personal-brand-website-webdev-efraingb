@@ -2,23 +2,29 @@
 import type { LucideIcon } from 'lucide-react';
 
 export interface Project {
-  id: string;
-  name: string;
-  url: string; // Keep as string, ProjectCard will handle empty or '#'
-  description: string;
+  id: string; // Used for generating translation keys like `${id}_name`
+  name: string; // This will now hold the translation key, e.g., "projectX_name"
+  url: string;
+  description: string; // This will now hold the translation key, e.g., "projectX_description"
   thumbnailUrl: string;
   dataAiHint: string;
-  tags?: string[];
-  videoUrl?: string; // New field for video walkthrough URL
+  tags?: string[]; // Tags are not translated in this iteration
+  videoUrl?: string;
 }
 
 export interface LinkItem {
-  name: string;
+  id: string; // Added ID for key generation
+  name: string; // Translation key, e.g., "documentY_name" or "contactZ_name"
   url: string;
   iconName: IconName;
-  description?: string;
-  text?: string; // For contact section display text
-  buttonText?: string; // For documents section button text
+  description?: string; // Translation key, e.g., "documentY_description"
+  text?: string; // Translation key for contact items, e.g., "contactZ_text"
+  buttonText?: string; // Translation key, e.g., "documentY_buttonText"
 }
 
 export type IconName = 'BookOpen' | 'Linkedin' | 'Github' | 'Mail' | 'ExternalLink' | 'ServerCrash' | 'CircleDot';
+
+export interface NavLink {
+  href: string;
+  labelKey: string; // e.g., "home", "projects" which maps to dict.nav.home
+}

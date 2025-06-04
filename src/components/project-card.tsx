@@ -13,15 +13,17 @@ import { ExternalLink, Eye, Wifi, WifiOff, Loader2, Sparkles, PlayCircle } from 
 import { useToast } from "@/hooks/use-toast";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
+import type { Dictionary } from "@/lib/i18n";
 
 interface ProjectCardProps {
   project: Project;
   onViewProject: (project: Project, isActive: boolean | null) => void;
+  dict: Dictionary; // Expects dict.projectCard
 }
 
 const STABLE_PROJECT_IDS = ['proj-imagine-motiva', 'proj-agro-y-mas', 'proj-epa-en-linea', 'proj-kohls'];
 
-export default function ProjectCard({ project, onViewProject }: ProjectCardProps) {
+export default function ProjectCard({ project, onViewProject, dict }: ProjectCardProps) {
   const [isActive, setIsActive] = useState<boolean | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const { toast } = useToast();
@@ -62,8 +64,8 @@ export default function ProjectCard({ project, onViewProject }: ProjectCardProps
           setIsActive(false);
           if (error.name !== 'AbortError' && !error.message?.includes("503")) { 
             toast({
-              title: "Verification Issue",
-              description: `Could not verify status for ${project.name}. It might be temporarily offline.`,
+              title: dict.verificationIssueTitle || "Verification Issue",
+              description: (dict.verificationIssueDescription || "Could not verify status for {projectName}. It might be temporarily offline.").replace('{projectName}', project.name),
               variant: "destructive",
               duration: 5000,
             });
@@ -79,27 +81,29 @@ export default function ProjectCard({ project, onViewProject }: ProjectCardProps
     return () => {
       isMounted = false;
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [project.id, project.url, project.name, toast, hasValidUrl, isCloudWorkstation, isStablePublicProject]);
+  // dict dependency removed from useEffect to avoid re-fetching on language change. Status text is outside useEffect.
 
   const statusBadge = () => {
     let badgeContent: JSX.Element;
     let tooltipText: string;
 
     if (!hasValidUrl) {
-      badgeContent = <Badge variant="destructive" className="flex items-center gap-1"><WifiOff className="h-3 w-3" /> Offline</Badge>;
-      tooltipText = "This project does not have a valid public URL.";
+      badgeContent = <Badge variant="destructive" className="flex items-center gap-1"><WifiOff className="h-3 w-3" />{dict.statusOffline || "Offline"}</Badge>;
+      tooltipText = dict.statusOfflineNoUrlTooltip || "This project does not have a valid public URL.";
     } else if (isCloudWorkstation) {
-      badgeContent = <Badge variant="default" className="bg-sky-500 hover:bg-sky-600 text-white flex items-center gap-1"><Sparkles className="h-3 w-3" /> Online (Dev)</Badge>;
-      tooltipText = "This project is active on a development server.";
+      badgeContent = <Badge variant="default" className="bg-sky-500 hover:bg-sky-600 text-white flex items-center gap-1"><Sparkles className="h-3 w-3" />{dict.statusOnlineDev || "Online (Dev)"}</Badge>;
+      tooltipText = dict.statusOnlineDevTooltip || "This project is active on a development server.";
     } else if (isLoading && !isStablePublicProject) {
-      badgeContent = <Badge variant="secondary" className="flex items-center gap-1"><Loader2 className="h-3 w-3 animate-spin" /> Checking...</Badge>;
-      tooltipText = "Verifying project status...";
+      badgeContent = <Badge variant="secondary" className="flex items-center gap-1"><Loader2 className="h-3 w-3 animate-spin" />{dict.statusChecking || "Checking..."}</Badge>;
+      tooltipText = dict.statusCheckingTooltip || "Verifying project status...";
     } else if (isActive) {
-      badgeContent = <Badge variant="default" className="bg-green-500 hover:bg-green-600 text-white flex items-center gap-1"><Wifi className="h-3 w-3" /> Online</Badge>;
-      tooltipText = "This project is currently online and accessible.";
+      badgeContent = <Badge variant="default" className="bg-green-500 hover:bg-green-600 text-white flex items-center gap-1"><Wifi className="h-3 w-3" />{dict.statusOnline || "Online"}</Badge>;
+      tooltipText = dict.statusOnlineTooltip || "This project is currently online and accessible.";
     } else { 
-      badgeContent = <Badge variant="destructive" className="flex items-center gap-1"><WifiOff className="h-3 w-3" /> Offline</Badge>;
-      tooltipText = "This project appears to be offline or inaccessible.";
+      badgeContent = <Badge variant="destructive" className="flex items-center gap-1"><WifiOff className="h-3 w-3" />{dict.statusOffline || "Offline"}</Badge>;
+      tooltipText = dict.statusOfflineTooltip || "This project appears to be offline or inaccessible.";
     }
 
     return (
@@ -134,6 +138,7 @@ export default function ProjectCard({ project, onViewProject }: ProjectCardProps
       </div>
       <CardHeader className="pt-4">
         <div className="flex justify-between items-center">
+          {/* Project name is now translated directly from project.name which holds the key */}
           <CardTitle className="text-xl font-semibold text-primary">{project.name}</CardTitle>
           {project.videoUrl && (
             <TooltipProvider>
@@ -142,7 +147,7 @@ export default function ProjectCard({ project, onViewProject }: ProjectCardProps
                   <PlayCircle className="h-6 w-6 text-accent cursor-pointer" onClick={() => onViewProject(project, effectiveIsActive)} />
                 </TooltipTrigger>
                 <TooltipContent>
-                  <p>View Video Demo</p>
+                  <p>{dict.viewVideoDemo || "View Video Demo"}</p>
                 </TooltipContent>
               </Tooltip>
             </TooltipProvider>
@@ -157,6 +162,7 @@ export default function ProjectCard({ project, onViewProject }: ProjectCardProps
         )}
       </CardHeader>
       <CardContent className="flex-grow">
+        {/* Project description is now translated directly from project.description which holds the key */}
         <CardDescription className="text-sm text-foreground/80 leading-relaxed">
           {project.description}
         </CardDescription>
@@ -168,7 +174,7 @@ export default function ProjectCard({ project, onViewProject }: ProjectCardProps
           className="w-full sm:w-auto"
           disabled={isLoading && !(isCloudWorkstation || isStablePublicProject)}
         >
-          <Eye className="mr-2 h-4 w-4" /> View Project
+          <Eye className="mr-2 h-4 w-4" /> {dict.viewProject || "View Project"}
         </Button>
         <Button 
           asChild 
@@ -177,7 +183,7 @@ export default function ProjectCard({ project, onViewProject }: ProjectCardProps
           disabled={!hasValidUrl || (!effectiveIsActive && !(isCloudWorkstation || isStablePublicProject))}
         >
           <a href={project.url || '#'} target="_blank" rel="noopener noreferrer">
-            <ExternalLink className="mr-2 h-4 w-4" /> Visit Site
+            <ExternalLink className="mr-2 h-4 w-4" /> {dict.visitSite || "Visit Site"}
           </a>
         </Button>
       </CardFooter>
