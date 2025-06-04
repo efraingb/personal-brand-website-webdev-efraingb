@@ -24,15 +24,24 @@ function extractVideoId(url: string): VideoIdResult | null {
   let videoId: string | null = null;
   let platform: 'youtube' | 'vimeo' | null = null;
 
-  let match = url.match(/^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/);
-  if (match && match[2] && match[2].length === 11) {
-    videoId = match[2];
+  // Try YouTube Shorts format first (e.g., https://www.youtube.com/shorts/VIDEO_ID)
+  let match = url.match(/youtube\.com\/shorts\/([a-zA-Z0-9_-]{11})/);
+  if (match && match[1]) {
+    videoId = match[1];
     platform = 'youtube';
   } else {
-    match = url.match(/vimeo\.com\/(?:video\/|)(\d+)/);
-    if (match && match[1]) {
-      videoId = match[1];
-      platform = 'vimeo';
+    // Try other YouTube formats (e.g., youtu.be/, watch?v=, embed/)
+    match = url.match(/^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/i);
+    if (match && match[2] && match[2].length === 11) {
+      videoId = match[2];
+      platform = 'youtube';
+    } else {
+      // Try Vimeo format
+      match = url.match(/vimeo\.com\/(?:video\/|)(\d+)/);
+      if (match && match[1]) {
+        videoId = match[1];
+        platform = 'vimeo';
+      }
     }
   }
 
@@ -194,3 +203,4 @@ export default function ProjectModal({ project, isActive, isOpen, onClose }: Pro
     </Dialog>
   );
 }
+
