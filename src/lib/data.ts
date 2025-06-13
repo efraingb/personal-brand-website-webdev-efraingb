@@ -142,6 +142,7 @@ export const contactLinksData: LinkItem[] = [
 export const navLinksData: NavLink[] = [
   { href: '#hero', labelKey: 'home' },
   { href: '#projects', labelKey: 'projects' },
-  { href: '#documents', labelKey: 'resources' },
+  { href: '#documents', labelKey: 'booksAndResources' }, // Updated labelKey
   { href: '#contact', labelKey: 'contact' },
 ];
+

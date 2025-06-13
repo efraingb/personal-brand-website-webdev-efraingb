@@ -7,7 +7,7 @@
   "nav": {
     "home": "Home",
     "projects": "Projects",
-    "resources": "Resources",
+    "booksAndResources": "Books & Resources",
     "contact": "Contact"
   },
   "header": {
@@ -18,13 +18,13 @@
   "hero": {
     "mainTitle": "Efraín G.B.",
     "subtitle": "Full-Stack Developer & AI Innovator",
-    "description": "Passionate about crafting elegant and efficient digital solutions. Specializing in full-stack web development and exploring the frontiers of Artificial Intelligence to build impactful applications.",
+    "description": "Passionate about crafting elegant and efficient digital solutions. Explore my AI-driven tools, discover insightful books and resources, and learn about my work in full-stack development & AI innovation.",
     "viewMyWork": "View My Work",
     "getInTouch": "Get In Touch"
   },
   "projectGallery": {
     "title": "My Projects",
-    "description": "A selection of projects that showcase my skills and passion for development. Each one represents a unique challenge and learning opportunity.",
+    "description": "A selection of projects that showcase my skills and passion for development, including innovative AI tools you can explore (with premium features planned!). Each one represents a unique challenge and learning opportunity.",
     "recentIaProjectsTitle": "Recent & Featured AI Projects",
     "impactfulCollaborationsTitle": "Impactful Collaborations",
     "noProjects": "No projects to display at the moment. Check back soon!"
@@ -69,8 +69,8 @@
     "buttonNoPublicLink": "No Public Link"
   },
   "documentsSection": {
-    "title": "Resources & Profiles",
-    "description": "Explore books I recommend and find my professional profiles online.",
+    "title": "Books & Resources",
+    "description": "Explore my published books, professional profiles, and other valuable resources.",
     "defaultViewDetails": "View Details",
     "defaultVisitProfile": "Visit Profile"
   },

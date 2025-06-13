@@ -7,7 +7,7 @@
   "nav": {
     "home": "Inicio",
     "projects": "Proyectos",
-    "resources": "Recursos",
+    "booksAndResources": "Libros y Recursos",
     "contact": "Contacto"
   },
   "header": {
@@ -18,13 +18,13 @@
   "hero": {
     "mainTitle": "Efraín G.B.",
     "subtitle": "Desarrollador Full-Stack e Innovador en IA",
-    "description": "Apasionado por crear soluciones digitales elegantes y eficientes. Especializado en desarrollo web full-stack y explorando las fronteras de la Inteligencia Artificial para construir aplicaciones de impacto.",
+    "description": "Apasionado por crear soluciones digitales elegantes y eficientes. Explora mis herramientas impulsadas por IA, descubre libros y recursos valiosos, y conoce más sobre mi trabajo en desarrollo full-stack e innovación en IA.",
     "viewMyWork": "Ver Mi Trabajo",
     "getInTouch": "Contáctame"
   },
   "projectGallery": {
     "title": "Mis Proyectos",
-    "description": "Una selección de proyectos que muestran mis habilidades y pasión por el desarrollo. Cada uno representa un desafío único y una oportunidad de aprendizaje.",
+    "description": "Una selección de proyectos que muestran mis habilidades y pasión por el desarrollo, incluyendo herramientas innovadoras de IA que puedes explorar (¡con funciones premium en camino!). Cada uno representa un desafío único y una oportunidad de aprendizaje.",
     "recentIaProjectsTitle": "Proyectos IA Recientes y Destacados",
     "impactfulCollaborationsTitle": "Colaboraciones de Impacto",
     "noProjects": "No hay proyectos para mostrar en este momento. ¡Vuelve pronto!"
@@ -69,8 +69,8 @@
     "buttonNoPublicLink": "Sin Enlace Público"
   },
   "documentsSection": {
-    "title": "Recursos y Perfiles",
-    "description": "Explora libros que recomiendo y encuentra mis perfiles profesionales en línea.",
+    "title": "Libros y Recursos",
+    "description": "Explora mis libros publicados, perfiles profesionales y otros recursos de valor.",
     "defaultViewDetails": "Ver Detalles",
     "defaultVisitProfile": "Visitar Perfil"
   },
