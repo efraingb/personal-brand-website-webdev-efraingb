@@ -84,8 +84,8 @@
     "credits": "Built with Next.js and Tailwind CSS. Hosted on Firebase."
   },
   "projectsData": {
-    "proj-quiz-ai_name": "AI Quiz Creator",
-    "proj-quiz-ai_description": "Intelligent tool to generate custom quizzes and assessments using AI, facilitating the creation of educational and training content.",
+    "proj-quiz-ai_name": "Saber IA",
+    "proj-quiz-ai_description": "Unlock your potential. AI-powered quizzes. Tailored for you.",
     "proj-negotia_name": "NEGOTIA",
     "proj-negotia_description": "Deal Smarter, Not Harder. AI-assisted negotiation platform designed to facilitate win-win outcomes for all parties.",
     "proj-bless_name": "Bless Contigo",
@@ -108,6 +108,9 @@
     "bookPracticalCS_name": "Practical Computer Science for Everyone",
     "bookPracticalCS_description": "CS fundamentals made accessible (Free download - English).",
     "bookPracticalCS_buttonText": "Download Free",
+    "bookIaParaCrecer_name": "AI for Growth: Optimize with Odoo, Innovate with Blockchain, and Sell with Digital Marketing",
+    "bookIaParaCrecer_description": "Discover the transformative power of Artificial Intelligence in the business and technological world with our comprehensive digital guide: an invaluable resource for a direct and practical immersion in the application of AI in key areas such as optimized management with Odoo, innovation through Blockchain, and enhanced Digital Marketing strategies.",
+    "bookIaParaCrecer_buttonText": "View on Hotmart",
     "profileLinkedIn_name": "LinkedIn Profile",
     "profileLinkedIn_description": "Connect with me on LinkedIn.",
     "profileLinkedIn_buttonText": "Visit Profile",

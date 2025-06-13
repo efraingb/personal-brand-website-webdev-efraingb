@@ -84,8 +84,8 @@
     "credits": "Construido con Next.js y Tailwind CSS. Alojado en Firebase."
   },
   "projectsData": {
-    "proj-quiz-ai_name": "Creador de Quizzes con IA",
-    "proj-quiz-ai_description": "Herramienta inteligente para generar cuestionarios y evaluaciones personalizadas mediante IA, facilitando la creación de contenido educativo y de capacitación.",
+    "proj-quiz-ai_name": "Saber IA",
+    "proj-quiz-ai_description": "Desbloquea tu potencial. Quizzes con IA. A tu medida.",
     "proj-negotia_name": "NEGOTIA",
     "proj-negotia_description": "Negocia de forma más inteligente, no más difícil. Plataforma de negociación asistida por IA diseñada para facilitar acuerdos beneficiosos para todas las partes (Resultados Ganar-Ganar).",
     "proj-bless_name": "Bless Contigo",
@@ -108,6 +108,9 @@
     "bookPracticalCS_name": "Practical Computer Science for Everyone",
     "bookPracticalCS_description": "Fundamentos de CS accesibles (Descarga gratuita - Inglés).",
     "bookPracticalCS_buttonText": "Descargar Gratis",
+    "bookIaParaCrecer_name": "IA para Crecer: Optimiza con Odoo, Innova con Blockchain y Vende con Marketing Digital",
+    "bookIaParaCrecer_description": "Descubre el poder transformador de la Inteligencia Artificial en el mundo empresarial y tecnológico con nuestra guía digital integral: un recurso invaluable para una inmersión directa y práctica en la aplicación de IA en áreas clave como la gestión optimizada con Odoo, la innovación mediante Blockchain y las estrategias potenciadas de Marketing.",
+    "bookIaParaCrecer_buttonText": "Ver en Hotmart",
     "profileLinkedIn_name": "Perfil de LinkedIn",
     "profileLinkedIn_description": "Conéctate conmigo en LinkedIn.",
     "profileLinkedIn_buttonText": "Visitar Perfil",

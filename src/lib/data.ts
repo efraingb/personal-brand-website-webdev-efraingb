@@ -8,12 +8,12 @@ import type { Project, LinkItem, NavLink } from './types'; // Added NavLink
 export const projectsData: Project[] = [
   {
     id: 'proj-quiz-ai',
-    name: 'proj-quiz-ai_name', // Key for translation
+    name: 'proj-quiz-ai_name', // Key for translation (content updated in locale files)
     url: 'https://9000-idx-studio-1746296464496.cluster-pgviq6mvsncnqxx6kr7pbz65v6.cloudworkstations.dev/',
-    description: 'proj-quiz-ai_description', // Key for translation
+    description: 'proj-quiz-ai_description', // Key for translation (content updated in locale files)
     thumbnailUrl: 'https://i.imgur.com/0NciRLC.png',
     dataAiHint: 'ai quiz generator',
-    tags: ['AI', 'EdTech', 'Firebase', 'Generative AI'],
+    tags: ['AI', 'EdTech', 'Firebase', 'Generative AI', 'Web Development'],
     videoUrl: 'https://www.youtube.com/shorts/gGhuAib5n20',
   },
   {
@@ -23,7 +23,7 @@ export const projectsData: Project[] = [
     description: 'proj-negotia_description',
     thumbnailUrl: 'https://i.imgur.com/wIwB6qu.png',
     dataAiHint: 'ai negotiation platform',
-    tags: ['AI', 'Negotiation', 'SaaS', 'B2B'],
+    tags: ['AI', 'Negotiation', 'SaaS', 'B2B', 'Web Development'],
     videoUrl: 'https://www.youtube.com/shorts/W5yZ03meojo',
   },
   {
@@ -33,7 +33,7 @@ export const projectsData: Project[] = [
     description: 'proj-bless_description',
     thumbnailUrl: 'https://i.imgur.com/2GnmZm2.png',
     dataAiHint: 'community platform',
-    tags: ['Community', 'Platform', 'Firebase', 'Social Impact'],
+    tags: ['Community', 'Platform', 'Firebase', 'Social Impact', 'Web Development'],
     videoUrl: 'https://www.youtube.com/shorts/t3nXM-hHEaQ',
   },
   {
@@ -43,7 +43,7 @@ export const projectsData: Project[] = [
     description: 'proj-agroia_description',
     thumbnailUrl: 'https://i.imgur.com/h53YbVW.png',
     dataAiHint: 'agritech platform',
-    tags: ['AgriTech', 'AI', 'E-commerce', 'Platform', 'Firebase'],
+    tags: ['AgriTech', 'AI', 'E-commerce', 'Platform', 'Firebase', 'Web Development'],
     videoUrl: 'https://www.youtube.com/shorts/BvDAXjkxc3M',
   },
   {
@@ -88,7 +88,7 @@ export const projectsData: Project[] = [
 // 'name', 'description', 'buttonText' are keys for translation.
 export const documentLinksData: LinkItem[] = [
   {
-    id: 'bookAntesTostadoras', // Added ID for key generation
+    id: 'bookAntesTostadoras',
     name: 'bookAntesTostadoras_name',
     url: 'https://www.amazon.com/Antes-que-las-Tostadoras-Gobiernen-ebook/dp/B0DQJ8Q55K/',
     iconName: 'BookOpen',
@@ -102,6 +102,14 @@ export const documentLinksData: LinkItem[] = [
     iconName: 'BookOpen',
     description: 'bookPracticalCS_description',
     buttonText: 'bookPracticalCS_buttonText'
+  },
+  {
+    id: 'bookIaParaCrecer',
+    name: 'bookIaParaCrecer_name',
+    url: 'https://hotmart.com/es/marketplace/productos/ia-para-crecer-optimiza-con-odoo-innova-con-blockchain-y-vende-con-marketing-digital/G100133293T?fbclid=IwY2xjawK4YDFleHRuA2FlbQIxMABicmlkETFhaW02MERiUFphV01qWlJxAR6lr0Hy9XltTLi6236HX98TzZAdhaN8Ey9MueYC2ea0Uwzibr_dpD4wEqYJlw_aem_o2R-nGjNY8EM8T0FEMh-Zg',
+    iconName: 'BookOpen',
+    description: 'bookIaParaCrecer_description',
+    buttonText: 'bookIaParaCrecer_buttonText'
   },
   {
     id: 'profileLinkedIn',
