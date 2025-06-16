@@ -22,7 +22,7 @@ export interface LinkItem {
   buttonText?: string; // Translation key, e.g., "documentY_buttonText"
 }
 
-export type IconName = 'BookOpen' | 'Linkedin' | 'Github' | 'Mail' | 'ExternalLink' | 'ServerCrash' | 'CircleDot';
+export type IconName = 'BookOpen' | 'Linkedin' | 'Github' | 'Mail' | 'ExternalLink' | 'ServerCrash' | 'CircleDot' | 'Smartphone';
 
 export interface NavLink {
   href: string;

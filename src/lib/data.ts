@@ -135,6 +135,13 @@ export const contactLinksData: LinkItem[] = [
     { id: 'email', name: 'email_name', url: 'mailto:hiefraingb@gmail.com', iconName: 'Mail', text: 'email_text' },
     { id: 'linkedin', name: 'linkedin_name', url: 'https://www.linkedin.com/in/efraingb/', iconName: 'Linkedin', text: 'linkedin_text' },
     { id: 'github', name: 'github_name', url: 'https://github.com/efraingbdev/', iconName: 'Github', text: 'github_text' },
+    {
+      id: 'whatsapp',
+      name: 'whatsapp_name',
+      url: 'https://wa.me/50672618900',
+      iconName: 'Smartphone',
+      text: 'whatsapp_text'
+    }
 ];
 
 // --- NAV LINKS ---
@@ -142,7 +149,6 @@ export const contactLinksData: LinkItem[] = [
 export const navLinksData: NavLink[] = [
   { href: '#hero', labelKey: 'home' },
   { href: '#projects', labelKey: 'projects' },
-  { href: '#documents', labelKey: 'booksAndResources' }, // Updated labelKey
+  { href: '#documents', labelKey: 'booksAndResources' },
   { href: '#contact', labelKey: 'contact' },
 ];
-

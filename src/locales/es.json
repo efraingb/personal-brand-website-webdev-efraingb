@@ -124,7 +124,9 @@
     "linkedin_name": "LinkedIn",
     "linkedin_text": "linkedin.com/in/efraingb",
     "github_name": "GitHub",
-    "github_text": "github.com/efraingbdev"
+    "github_text": "github.com/efraingbdev",
+    "whatsapp_name": "WhatsApp",
+    "whatsapp_text": "Chatea por WhatsApp (+506 7261-8900)"
   },
   "languageSwitcher": {
     "changeLanguage": "Cambiar idioma",

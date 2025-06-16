@@ -24,6 +24,8 @@ export const Icon: FC<IconProps> = ({ name, ...props }) => {
       return <ServerCrash {...props} />;
     case 'CircleDot':
       return <CircleDot {...props} />;
+    case 'Smartphone':
+      return <Smartphone {...props} />;
     default:
       // Fallback for icons not explicitly handled, or return a default icon
       // For example, if tags like 'React', 'AI' are passed as icon names by mistake
