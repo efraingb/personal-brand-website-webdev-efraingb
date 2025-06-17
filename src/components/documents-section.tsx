@@ -27,37 +27,36 @@ export default function DocumentsSection({ dict, documentLinksData }: DocumentsS
           </p>
         </div>
         
-        <div className="max-w-4xl mx-auto"> {/* Centering wrapper for the grid, changed from max-w-5xl */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {documentLinksData.map((item) => (
-              <Card key={item.id} className="group flex flex-col overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 ease-in-out transform hover:-translate-y-1 rounded-xl">
-                <CardHeader>
-                  <div className="flex items-center gap-3">
-                    <Icon name={item.iconName} className="h-8 w-8 text-accent" />
-                    {/* Item name is translated from item.name which holds the key */}
-                    <CardTitle className="text-xl font-semibold text-primary">{item.name}</CardTitle>
-                  </div>
-                </CardHeader>
-                <CardContent className="flex-grow">
-                  {/* Item description is translated from item.description which holds the key */}
-                  {item.description && (
-                    <CardDescription className="text-sm text-foreground/80 leading-relaxed">
-                      {item.description}
-                    </CardDescription>
-                  )}
-                </CardContent>
-                <CardContent className="pt-0">
-                  <Button asChild variant="outline" className="w-full group-hover:border-accent group-hover:text-accent transition-colors">
-                    <Link href={item.url} target="_blank" rel="noopener noreferrer">
-                      {/* Item buttonText is translated from item.buttonText which holds the key */}
-                      {item.buttonText || (item.iconName === 'BookOpen' ? dict.defaultViewDetails : dict.defaultVisitProfile)}
-                      <ExternalLink className="ml-2 h-4 w-4" />
-                    </Link>
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+        {/* The grid is now a direct child of div.container, allowing it to use available width */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {documentLinksData.map((item) => (
+            <Card key={item.id} className="group flex flex-col overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 ease-in-out transform hover:-translate-y-1 rounded-xl">
+              <CardHeader>
+                <div className="flex items-center gap-3">
+                  <Icon name={item.iconName} className="h-8 w-8 text-accent" />
+                  {/* Item name is translated from item.name which holds the key */}
+                  <CardTitle className="text-xl font-semibold text-primary">{item.name}</CardTitle>
+                </div>
+              </CardHeader>
+              <CardContent className="flex-grow">
+                {/* Item description is translated from item.description which holds the key */}
+                {item.description && (
+                  <CardDescription className="text-sm text-foreground/80 leading-relaxed">
+                    {item.description}
+                  </CardDescription>
+                )}
+              </CardContent>
+              <CardContent className="pt-0">
+                <Button asChild variant="outline" className="w-full group-hover:border-accent group-hover:text-accent transition-colors">
+                  <Link href={item.url} target="_blank" rel="noopener noreferrer">
+                    {/* Item buttonText is translated from item.buttonText which holds the key */}
+                    {item.buttonText || (item.iconName === 'BookOpen' ? dict.defaultViewDetails : dict.defaultVisitProfile)}
+                    <ExternalLink className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+              </CardContent>
+            </Card>
+          ))}
         </div>
       </div>
     </section>
