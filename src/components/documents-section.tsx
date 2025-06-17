@@ -27,7 +27,7 @@ export default function DocumentsSection({ dict, documentLinksData }: DocumentsS
           </p>
         </div>
         
-        <div className="max-w-5xl mx-auto"> {/* Centering wrapper for the grid */}
+        <div className="max-w-4xl mx-auto"> {/* Centering wrapper for the grid, changed from max-w-5xl */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {documentLinksData.map((item) => (
               <Card key={item.id} className="group flex flex-col overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 ease-in-out transform hover:-translate-y-1 rounded-xl">
@@ -63,3 +63,4 @@ export default function DocumentsSection({ dict, documentLinksData }: DocumentsS
     </section>
   );
 }
+
