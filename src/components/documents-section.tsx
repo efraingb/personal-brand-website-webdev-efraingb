@@ -27,10 +27,12 @@ export default function DocumentsSection({ dict, documentLinksData }: DocumentsS
           </p>
         </div>
         
-        {/* The grid is now a direct child of div.container, allowing it to use available width */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="flex flex-wrap justify-center gap-8">
           {documentLinksData.map((item) => (
-            <Card key={item.id} className="group flex flex-col overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 ease-in-out transform hover:-translate-y-1 rounded-xl">
+            <Card 
+              key={item.id} 
+              className="group flex flex-col overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 ease-in-out transform hover:-translate-y-1 rounded-xl w-full md:w-[calc(50%_-_1rem)] max-w-lg"
+            >
               <CardHeader>
                 <div className="flex items-center gap-3">
                   <Icon name={item.iconName} className="h-8 w-8 text-accent" />
@@ -62,4 +64,3 @@ export default function DocumentsSection({ dict, documentLinksData }: DocumentsS
     </section>
   );
 }
-
