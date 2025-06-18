@@ -32,6 +32,7 @@ export default function ProjectCard({ project, onViewProject, dict }: ProjectCar
   const isCloudWorkstation = project.url?.includes('cloudworkstations.dev');
   const isStablePublicProject = STABLE_PROJECT_IDS.includes(project.id);
   const isCollaborationLogoCard = project.isCollaborationLogo === true;
+  const thumbnailUrlIsValid = typeof project.thumbnailUrl === 'string' && project.thumbnailUrl.trim() !== '';
 
 
   useEffect(() => {
@@ -88,7 +89,7 @@ export default function ProjectCard({ project, onViewProject, dict }: ProjectCar
 
 
   const statusBadge = () => {
-    if (isCollaborationLogoCard) return null; 
+    if (isCollaborationLogoCard || !thumbnailUrlIsValid) return null; // Also hide badge if no thumbnail
 
     let badgeContent: JSX.Element;
     let tooltipText: string;
@@ -123,21 +124,20 @@ export default function ProjectCard({ project, onViewProject, dict }: ProjectCar
   };
   
   const effectiveIsActive = hasValidUrl ? (isCloudWorkstation || isStablePublicProject || isCollaborationLogoCard ? true : isActive) : false;
-  const thumbnailUrlIsValid = typeof project.thumbnailUrl === 'string' && project.thumbnailUrl.trim() !== '';
-
+  
   return (
     <Card className={cn(
       "flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out transform hover:-translate-y-1 rounded-xl group",
       isLoading && !(isCloudWorkstation || isStablePublicProject || isCollaborationLogoCard) && 'opacity-75 transition-opacity duration-300'
     )}>
-      <div className={cn(
-          "relative w-full aspect-[16/10] overflow-hidden rounded-t-xl",
-          (isCollaborationLogoCard && thumbnailUrlIsValid) && "bg-muted flex items-center justify-center p-4",
-          !thumbnailUrlIsValid && "bg-muted" 
-        )}>
-        {thumbnailUrlIsValid && (
+      {thumbnailUrlIsValid && (
+        <div className={cn(
+            "relative w-full aspect-[16/10] overflow-hidden rounded-t-xl",
+            (isCollaborationLogoCard && thumbnailUrlIsValid) && "bg-muted flex items-center justify-center p-4",
+            !thumbnailUrlIsValid && "bg-muted" 
+          )}>
           <Image
-            src={project.thumbnailUrl}
+            src={project.thumbnailUrl} // Safe now because of thumbnailUrlIsValid check
             alt={`${project.name} thumbnail`}
             fill
             className={cn(
@@ -147,9 +147,9 @@ export default function ProjectCard({ project, onViewProject, dict }: ProjectCar
             data-ai-hint={project.dataAiHint}
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
-        )}
-         {!isCollaborationLogoCard && <div className="absolute top-3 right-3">{statusBadge()}</div>}
-      </div>
+           {!isCollaborationLogoCard && <div className="absolute top-3 right-3">{statusBadge()}</div>}
+        </div>
+      )}
       <CardHeader className="pt-4">
         <div className="flex justify-between items-center">
           <CardTitle className="text-xl font-semibold text-primary">{project.name}</CardTitle>
@@ -204,4 +204,3 @@ export default function ProjectCard({ project, onViewProject, dict }: ProjectCar
     </Card>
   );
 }
-
