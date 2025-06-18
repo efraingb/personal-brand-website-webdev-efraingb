@@ -5,10 +5,11 @@
 import type { Project } from "@/lib/types";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import Image from "next/image";
-import { WifiOff, ExternalLink as ExternalLinkIcon, Loader2, Rocket, Info, Sparkles, Film } from "lucide-react"; 
+import { WifiOff, ExternalLink as ExternalLinkIcon, Loader2, Rocket, Info, Sparkles, Film, Clock, Mail, MessageSquare } from "lucide-react"; 
 import { Button } from "./ui/button";
 import { cn } from "@/lib/utils";
 import type { Dictionary } from "@/lib/i18n";
+import Link from "next/link";
 
 interface ProjectModalProps {
   project: Project | null;
@@ -55,6 +56,9 @@ function extractVideoId(url: string): VideoIdResult | null {
 export default function ProjectModal({ project, isActive, isOpen, onClose, dict }: ProjectModalProps) {
   if (!project) return null;
 
+  const aiToolIds = ['proj-quiz-ai', 'proj-negotia', 'proj-agroia'];
+  const isSpecialAiTool = aiToolIds.includes(project.id);
+
   const hasValidUrl = project.url && project.url.trim() !== '' && project.url !== '#';
   const isCloudWorkstation = project.url?.includes('cloudworkstations.dev');
   
@@ -70,59 +74,128 @@ export default function ProjectModal({ project, isActive, isOpen, onClose, dict 
   }
 
   let displayIcon = <Info className="h-10 w-10 text-accent mb-3" />;
-  // Project name is already translated (it's a key used by ProjectCard)
   let messageTitle = project.name + (hasVideo ? ` - ${dict.videoDemoTitleSuffix || "Video Demo"}` : ` - ${dict.defaultTitleSuffix || "Details"}`);
   let messageDescription: React.ReactNode = dict.defaultDescription;
-  let buttonText = dict.buttonVisitSite;
-  let buttonEnabled = true;
+  let mainButton: React.ReactNode = null;
   
-  if (hasVideo) {
-    displayIcon = <Film className="h-10 w-10 text-accent mb-3" />;
-    messageDescription = dict.videoDemoDescription;
+  if (isSpecialAiTool) {
+    if (isActive === true) { 
+      displayIcon = hasVideo ? <Film className="h-10 w-10 text-accent mb-3" /> : <Rocket className="h-10 w-10 text-green-500 mb-3" />;
+      messageTitle = `${project.name} - ${dict.statusOnlineTitle || "Project Online"}`;
+      messageDescription = hasVideo ? dict.videoDemoDescription : dict.statusOnlineDescription;
+      if (hasValidUrl) {
+        mainButton = (
+          <Button variant="default" asChild className="mt-4 shadow-md hover:shadow-lg transition-shadow">
+            <a href={project.url} target="_blank" rel="noopener noreferrer">
+              {dict.buttonVisitSite || "Visit Site"}
+              <ExternalLinkIcon className="ml-2 h-4 w-4" />
+            </a>
+          </Button>
+        );
+      }
+    } else { 
+      displayIcon = <Clock className="h-10 w-10 text-amber-500 mb-3" />;
+      messageTitle = `${project.name} - ${dict.iaToolOfflineTitle || "AI Tool Access Request"}`;
+      messageDescription = (
+        <>
+          <p>{dict.iaToolOfflineDescription || "This AI tool has specific availability. Contact to request access."}</p>
+          {hasVideo && <p className="mt-2 text-sm text-foreground/70">{dict.videoOfflineDescriptionAlternative || "You can also watch the video demo below."}</p>}
+        </>
+      );
+      mainButton = (
+        <Button asChild variant="default" className="mt-4 shadow-md hover:shadow-lg transition-shadow">
+          <Link href="#contact" onClick={onClose}>
+            {dict.buttonRequestAccess || "Request Access"}
+            <MessageSquare className="ml-2 h-4 w-4" />
+          </Link>
+        </Button>
+      );
+    }
+  } else { 
+    // This block handles non-special AI tools or AI tools that are confirmed online (already handled by the first 'if' in isSpecialAiTool)
+    // So effectively, this is for generic projects, or fallback if AI tool logic for online state needs more generic text/button
+    if (isActive === true) {
+      // Set icon and messages for generic online projects
+      if (isCloudWorkstation) {
+        displayIcon = <Sparkles className="h-10 w-10 text-sky-500 mb-3" />;
+        messageTitle = `${project.name} - ${dict.statusActiveDevTitle || "Active Project (Dev)"}`;
+        messageDescription = dict.statusActiveDevDescription;
+      } else if (hasVideo) {
+        displayIcon = <Film className="h-10 w-10 text-accent mb-3" />;
+        messageTitle = project.name + ` - ${dict.videoDemoTitleSuffix || "Video Demo"}`;
+        messageDescription = dict.videoDemoDescription;
+      } else {
+        displayIcon = <Rocket className="h-10 w-10 text-green-500 mb-3" />;
+        messageTitle = `${project.name} - ${dict.statusOnlineTitle || "Project Online"}`;
+        messageDescription = dict.statusOnlineDescription;
+      }
+
+      // Set button for generic online projects
+      if (hasValidUrl) {
+         mainButton = (
+          <Button variant="default" asChild className="mt-4 shadow-md hover:shadow-lg transition-shadow">
+            <a href={project.url} target="_blank" rel="noopener noreferrer">
+              {isCloudWorkstation ? (dict.buttonOpenDevLink || "Open Dev Link") : (dict.buttonVisitSite || "Visit Site")}
+              <ExternalLinkIcon className="ml-2 h-4 w-4" />
+            </a>
+          </Button>
+        );
+      }
+    } else if (isActive === false) { // Generic project offline
+      displayIcon = hasVideo ? <Film className="h-10 w-10 text-accent mb-3" /> : <WifiOff className="h-10 w-10 text-destructive mb-3" />;
+      messageTitle = project.name + (hasVideo ? ` - ${dict.videoDemoTitleSuffix || "Video Demo"}` : ` - ${dict.statusOfflineTitle || "Project Status"}`);
+      
+      if (!hasValidUrl) {
+        messageDescription = hasVideo ? dict.videoOfflineDescription : dict.statusOfflineNoUrlDescription;
+        mainButton = ( <Button variant="outline" className="mt-4 shadow-md" disabled={true}> {dict.buttonNoPublicLink || "No Public Link"} </Button> );
+      } else {
+        messageDescription = hasVideo ? dict.videoOfflineDescription : (dict.statusOfflineDescription || "Offline").replace('{projectUrl}', project.url);
+        mainButton = (
+          <Button variant="default" asChild className="mt-4 shadow-md hover:shadow-lg transition-shadow">
+            <a href={project.url} target="_blank" rel="noopener noreferrer">
+              {dict.buttonAttemptVisit || "Attempt to Visit"} <ExternalLinkIcon className="ml-2 h-4 w-4" />
+            </a>
+          </Button>
+        );
+      }
+    } else { // isActive is null (verifying)
+      displayIcon = hasVideo ? <Film className="h-10 w-10 text-accent mb-3" /> : <Loader2 className="h-10 w-10 text-primary animate-spin mb-3" />;
+      messageTitle = project.name + (hasVideo ? ` - ${dict.videoDemoTitleSuffix || "Video Demo"}` : ` - ${dict.statusVerifyingTitle || "Verifying Status..."}`);
+      messageDescription = hasVideo ? dict.statusVerifyingVideoDescription : dict.statusVerifyingDescription;
+      
+      if (!hasValidUrl && !hasVideo) { // Special case: Verifying, no URL, no Video -> show "No public link" details
+          messageTitle = `${project.name} - ${dict.statusNoUrlTitle || "Project Details"}`;
+          messageDescription = dict.statusNoUrlDescriptionModal;
+          displayIcon = <Info className="h-10 w-10 text-muted-foreground mb-3" />;
+      }
+      
+      // Button for verifying state (usually disabled or placeholder)
+      mainButton = (
+        <Button variant="outline" className="mt-4 shadow-md" disabled={true}>
+          {hasValidUrl ? (dict.buttonVisitSite || "Visit Site") : (dict.buttonNoPublicLink || "No Public Link")}
+        </Button>
+      );
+    }
   }
 
-  if (isActive === true) {
-    if (isCloudWorkstation) {
-      displayIcon = <Sparkles className="h-10 w-10 text-sky-500 mb-3" />;
-      messageTitle = `${project.name} - ${dict.statusActiveDevTitle || "Active Project (Dev)"}`;
-      messageDescription = dict.statusActiveDevDescription;
-      buttonText = dict.buttonOpenDevLink || "Open Dev Link";
-    } else if (!hasVideo) { // Only override if no video, otherwise video message takes precedence
-      displayIcon = <Rocket className="h-10 w-10 text-green-500 mb-3" />;
-      messageTitle = `${project.name} - ${dict.statusOnlineTitle || "Project Online"}`;
-      messageDescription = dict.statusOnlineDescription;
+  // Fallback button if no other logic set it and it's not a special AI tool offline case
+  if (!mainButton) {
+    if (hasValidUrl) {
+      mainButton = (
+        <Button variant="default" asChild className="mt-4 shadow-md hover:shadow-lg transition-shadow" disabled={isActive === null}>
+          <a href={project.url} target="_blank" rel="noopener noreferrer">
+            {isCloudWorkstation ? (dict.buttonOpenDevLink || "Open Dev Link") : (dict.buttonVisitSite || "Visit Site")}
+            <ExternalLinkIcon className="ml-2 h-4 w-4" />
+          </a>
+        </Button>
+      );
+    } else {
+       mainButton = (
+        <Button variant="outline" className="mt-4 shadow-md" disabled={true}>
+          {dict.buttonNoPublicLink || "No Public Link"}
+        </Button>
+      );
     }
-  } else if (isActive === false) {
-    if (!hasVideo) {
-        displayIcon = <WifiOff className="h-10 w-10 text-destructive mb-3" />;
-        messageTitle = `${project.name} - ${dict.statusOfflineTitle || "Project Status"}`;
-        if (!hasValidUrl) {
-            messageDescription = dict.statusOfflineNoUrlDescription;
-            buttonText = dict.buttonNoPublicLink || "No Public Link";
-            buttonEnabled = false;
-        } else {
-            messageDescription = (dict.statusOfflineDescription || "This project at {projectUrl} currently appears to be offline or inaccessible. You can still attempt to visit the site directly.").replace('{projectUrl}', project.url);
-            buttonText = dict.buttonAttemptVisit || "Attempt to Visit";
-        }
-    } else { // Has video, but site is offline/no URL
-        messageDescription = dict.videoOfflineDescription;
-    }
-  } else { // isActive is null (verifying status) or project without URL and no video
-     if (!hasVideo) {
-        displayIcon = <Loader2 className="h-10 w-10 text-primary animate-spin mb-3" />;
-        messageTitle = `${project.name} - ${dict.statusVerifyingTitle || "Verifying Status..."}`;
-        messageDescription = dict.statusVerifyingDescription;
-        buttonEnabled = false;
-        if (!hasValidUrl) { 
-            messageTitle = `${project.name} - ${dict.statusNoUrlTitle || "Project Details"}`;
-            messageDescription = dict.statusNoUrlDescriptionModal;
-            buttonEnabled = false;
-            buttonText = dict.buttonNoPublicLink || "No Public Link";
-            displayIcon = <Info className="h-10 w-10 text-muted-foreground mb-3" />;
-        }
-     } else { // Has video, site status is being verified
-        messageDescription = dict.statusVerifyingVideoDescription;
-     }
   }
 
 
@@ -130,7 +203,6 @@ export default function ProjectModal({ project, isActive, isOpen, onClose, dict 
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="max-w-2xl w-[90vw] sm:w-[70vw] md:w-[60vw] lg:max-w-xl p-0 flex flex-col bg-card text-card-foreground rounded-lg shadow-2xl max-h-[85vh]">
         <DialogHeader className="p-6 pb-3 border-b border-border/50">
-           {/* Project name and description are translated via project object which uses keys */}
           <DialogTitle className="text-xl sm:text-2xl font-semibold">{project.name}</DialogTitle>
           {project.description && <DialogDescription className="text-sm text-muted-foreground mt-1 leading-relaxed">{project.description}</DialogDescription>}
         </DialogHeader>
@@ -171,29 +243,7 @@ export default function ProjectModal({ project, isActive, isOpen, onClose, dict 
                   />
                 </div>
               )}
-
-              {hasValidUrl && (
-                 <Button 
-                    variant="default" 
-                    asChild 
-                    className="mt-4 shadow-md hover:shadow-lg transition-shadow"
-                    disabled={!buttonEnabled}
-                  >
-                  <a href={project.url} target="_blank" rel="noopener noreferrer">
-                    {buttonText}
-                    <ExternalLinkIcon className="ml-2 h-4 w-4" />
-                  </a>
-                </Button>
-              )}
-               {!hasValidUrl && !buttonEnabled && (
-                 <Button 
-                    variant="outline" 
-                    className="mt-4 shadow-md"
-                    disabled={true}
-                  >
-                    {buttonText}
-                </Button>
-              )}
+              {mainButton}
             </div>
         </div>
       </DialogContent>

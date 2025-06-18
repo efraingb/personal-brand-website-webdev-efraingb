@@ -66,7 +66,11 @@
     "buttonVisitSite": "Visit Site",
     "buttonOpenDevLink": "Open Dev Link",
     "buttonAttemptVisit": "Attempt to Visit",
-    "buttonNoPublicLink": "No Public Link"
+    "buttonNoPublicLink": "No Public Link",
+    "iaToolOfflineTitle": "AI Tool Access Request",
+    "iaToolOfflineDescription": "This AI tool is typically available on weekdays (Mon-Fri) from 8 AM to 12 PM Costa Rica time (UTC-6). Please contact me via WhatsApp or email to request access or inquire about availability outside these hours.",
+    "videoOfflineDescriptionAlternative": "You can also watch the video demo below while you wait or to see its capabilities.",
+    "buttonRequestAccess": "Request Access"
   },
   "documentsSection": {
     "title": "Books & Resources",
