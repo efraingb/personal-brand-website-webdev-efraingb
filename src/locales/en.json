@@ -1,4 +1,3 @@
-
 {
   "layout": {
     "title": "Efraín's Digital Stage",
@@ -20,8 +19,7 @@
     "subtitle": "Full-Stack Developer & AI Innovator",
     "description": "Passionate about crafting elegant and efficient digital solutions. Explore my AI-driven tools, discover insightful books and resources, and learn about my work in full-stack development & AI innovation.",
     "viewMyWork": "View My Work",
-    "getInTouch": "Get In Touch",
-    "personalPhotoAlt": "Efraín G.B. - Personal Photo"
+    "getInTouch": "Get In Touch"
   },
   "projectGallery": {
     "title": "My Projects",
@@ -75,9 +73,10 @@
   },
   "documentsSection": {
     "title": "Books & Resources",
-    "description": "Explore my published books, professional profiles, and other valuable resources.",
+    "description": "Explore my published books, professional profiles, and other valuable resources & collaborations.",
     "defaultViewDetails": "View Details",
-    "defaultVisitProfile": "Visit Profile"
+    "defaultVisitProfile": "Visit Profile",
+    "recommendedBadge": "Recommended"
   },
   "contactSection": {
     "title": "Get In Touch",
@@ -85,6 +84,7 @@
     "lookingForward": "Looking forward to hearing from you!"
   },
   "footer": {
+    "personalPhotoAlt": "Efraín G.B. - Personal Photo",
     "copyright": "© {currentYear} Efraín G.B. All rights reserved.",
     "credits": "Built with Next.js and Tailwind CSS. Hosted on Firebase."
   },
@@ -108,20 +108,24 @@
   },
   "documentLinksData": {
     "bookAntesTostadoras_name": "Antes que las Tostadoras Gobiernen",
-    "bookAntesTostadoras_description": "A book exploring the future of AI (Spanish Edition).",
+    "bookAntesTostadoras_description": "A book exploring the future of AI (Spanish Edition). Explore my vision on the evolution of artificial intelligence and its impact on our world. This work delves into the ethical, social, and technological challenges and opportunities that AI presents.",
     "bookAntesTostadoras_buttonText": "View on Amazon",
     "bookPracticalCS_name": "Practical Computer Science for Everyone",
     "bookPracticalCS_description": "CS fundamentals made accessible (Free download - English).",
     "bookPracticalCS_buttonText": "Download Free",
-    "bookIaParaCrecer_name": "AI for Growth: Optimize with Odoo, Innovate with Blockchain, and Sell with Digital Marketing",
-    "bookIaParaCrecer_description": "Discover the transformative power of Artificial Intelligence in the business and technological world with our comprehensive digital guide: an invaluable resource for a direct and practical immersion in the application of AI in key areas such as optimized management with Odoo, innovation through Blockchain, and enhanced Digital Marketing strategies.",
-    "bookIaParaCrecer_buttonText": "View on Hotmart",
+    "bookIaParaCrecer_name": "AI for Growth",
+    "bookIaParaCrecer_description": "Discover the transformative power of Artificial Intelligence in business: Optimize with Odoo, Innovate with Blockchain, and Sell with Digital Marketing.",
+    "bookIaParaCrecer_buttonTextBuyNow": "Buy Now on Hotmart",
     "profileLinkedIn_name": "LinkedIn Profile",
     "profileLinkedIn_description": "Connect with me on LinkedIn.",
     "profileLinkedIn_buttonText": "Visit Profile",
     "profileGitHub_name": "GitHub Profile",
     "profileGitHub_description": "Explore my open source projects.",
-    "profileGitHub_buttonText": "Visit Profile"
+    "profileGitHub_buttonText": "Visit Profile",
+    "brandCRDigital_name": "CRDigital",
+    "brandCRDigital_description": "Collaboration with CRDigital, a prominent web community in Costa Rica, fostering local tech talent and innovation.",
+    "brandVita_name": "Vita Web 4.0",
+    "brandVita_description": "Strategic collaboration with Vita, a pioneering Web 4.0 startup based in Dubai, exploring next-generation internet solutions."
   },
   "contactLinksData": {
     "email_name": "Email",

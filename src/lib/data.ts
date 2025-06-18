@@ -1,10 +1,5 @@
+import type { Project, LinkItem, NavLink } from './types';
 
-import type { Project, LinkItem, NavLink } from './types'; // Added NavLink
-
-// --- PROJECTS ---
-// Note: 'name' and 'description' are now keys for translation.
-// The actual translation will happen in the component using the dictionary.
-// e.g., dict.projectsData[`${project.id}_name`]
 export const projectsData: Project[] = [
   {
     id: 'proj-quiz-ai',
@@ -31,8 +26,8 @@ export const projectsData: Project[] = [
     name: 'proj-bless_name',
     url: 'https://9000-firebase-studio-1747186834705.cluster-hf4yr35cmnbd4vhbxvfvc6cp5q.cloudworkstations.dev/',
     description: 'proj-bless_description',
-    thumbnailUrl: 'https://i.imgur.com/lQZr47s.png', // Corrected to direct image link
-    dataAiHint: 'community logo',
+    thumbnailUrl: 'https://i.imgur.com/8NVeo3p.jpeg', // Restored previous thumbnail
+    dataAiHint: 'community platform', // Adjusted hint
     tags: ['Community', 'Platform', 'Firebase', 'Social Impact', 'Web Development'],
     videoUrl: 'https://www.youtube.com/shorts/t3nXM-hHEaQ',
   },
@@ -84,8 +79,6 @@ export const projectsData: Project[] = [
   },
 ];
 
-// --- DOCUMENT LINKS ---
-// 'name', 'description', 'buttonText' are keys for translation.
 export const documentLinksData: LinkItem[] = [
   {
     id: 'bookAntesTostadoras',
@@ -94,8 +87,18 @@ export const documentLinksData: LinkItem[] = [
     iconName: 'BookOpen',
     description: 'bookAntesTostadoras_description',
     buttonText: 'bookAntesTostadoras_buttonText',
-    imageUrl: 'https://imgur.com/UPyjS5R.png',
-    dataAiHint: 'book cover art'
+    imageUrl: 'https://i.imgur.com/UPyjS5R.png',
+    dataAiHint: 'book cover art',
+    isFeatured: true, // Mark as featured
+  },
+  {
+    id: 'bookIaParaCrecer',
+    name: 'bookIaParaCrecer_name',
+    url: 'https://hotmart.com/es/marketplace/productos/ia-para-crecer-optimiza-con-odoo-innova-con-blockchain-y-vende-con-marketing-digital/G100133293T?fbclid=IwY2xjawK4YDFleHRuA2FlbQIxMABicmlkETFhaW02MERiUFphV01qWlJxAR6lr0Hy9XltTLi6236HX98TzZAdhaN8Ey9MueYC2ea0Uwzibr_dpD4wEqYJlw_aem_o2R-nGjNY8EM8T0FEMh-Zg',
+    iconName: 'BookOpen',
+    description: 'bookIaParaCrecer_description',
+    buttonText: 'bookIaParaCrecer_buttonTextBuyNow', // New key for "Buy Now"
+    isRecommended: true, // Mark as recommended for badge
   },
   {
     id: 'bookPracticalCS',
@@ -104,14 +107,6 @@ export const documentLinksData: LinkItem[] = [
     iconName: 'BookOpen',
     description: 'bookPracticalCS_description',
     buttonText: 'bookPracticalCS_buttonText'
-  },
-  {
-    id: 'bookIaParaCrecer',
-    name: 'bookIaParaCrecer_name',
-    url: 'https://hotmart.com/es/marketplace/productos/ia-para-crecer-optimiza-con-odoo-innova-con-blockchain-y-vende-con-marketing-digital/G100133293T?fbclid=IwY2xjawK4YDFleHRuA2FlbQIxMABicmlkETFhaW02MERiUFphV01qWlJxAR6lr0Hy9XltTLi6236HX98TzZAdhaN8Ey9MueYC2ea0Uwzibr_dpD4wEqYJlw_aem_o2R-nGjNY8EM8T0FEMh-Zg',
-    iconName: 'BookOpen',
-    description: 'bookIaParaCrecer_description',
-    buttonText: 'bookIaParaCrecer_buttonText'
   },
   {
     id: 'profileLinkedIn',
@@ -129,10 +124,28 @@ export const documentLinksData: LinkItem[] = [
     description: 'profileGitHub_description',
     buttonText: 'profileGitHub_buttonText'
   },
+  {
+    id: 'brandCRDigital',
+    name: 'brandCRDigital_name',
+    url: '#', 
+    iconName: 'CircleDot', 
+    description: 'brandCRDigital_description',
+    imageUrl: 'https://i.imgur.com/cU0e19I.png',
+    dataAiHint: 'community logo CRDigital',
+    buttonText: null, // No button or specific text
+  },
+  {
+    id: 'brandVita',
+    name: 'brandVita_name',
+    url: '#', 
+    iconName: 'CircleDot', 
+    description: 'brandVita_description', 
+    imageUrl: 'https://i.imgur.com/6VbVVsL.png',
+    dataAiHint: 'startup logo Vita',
+    buttonText: null, // No button or specific text
+  }
 ];
 
-// --- CONTACT LINKS ---
-// 'name' and 'text' are keys for translation.
 export const contactLinksData: LinkItem[] = [
     { id: 'email', name: 'email_name', url: 'mailto:hiefraingb@gmail.com', iconName: 'Mail', text: 'email_text' },
     { id: 'linkedin', name: 'linkedin_name', url: 'https://www.linkedin.com/in/efraingb/', iconName: 'Linkedin', text: 'linkedin_text' },
@@ -146,12 +159,9 @@ export const contactLinksData: LinkItem[] = [
     }
 ];
 
-// --- NAV LINKS ---
-// 'label' becomes 'labelKey' for translation.
 export const navLinksData: NavLink[] = [
   { href: '#hero', labelKey: 'home' },
   { href: '#projects', labelKey: 'projects' },
   { href: '#documents', labelKey: 'booksAndResources' },
   { href: '#contact', labelKey: 'contact' },
 ];
-

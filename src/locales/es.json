@@ -1,4 +1,3 @@
-
 {
   "layout": {
     "title": "Escenario Digital de Efraín",
@@ -20,8 +19,7 @@
     "subtitle": "Desarrollador Full-Stack e Innovador en IA",
     "description": "Apasionado por crear soluciones digitales elegantes y eficientes. Explora mis herramientas impulsadas por IA, descubre libros y recursos valiosos, y conoce más sobre mi trabajo en desarrollo full-stack e innovación en IA.",
     "viewMyWork": "Ver Mi Trabajo",
-    "getInTouch": "Contáctame",
-    "personalPhotoAlt": "Efraín G.B. - Foto Personal"
+    "getInTouch": "Contáctame"
   },
   "projectGallery": {
     "title": "Mis Proyectos",
@@ -75,9 +73,10 @@
   },
   "documentsSection": {
     "title": "Libros y Recursos",
-    "description": "Explora mis libros publicados, perfiles profesionales y otros recursos de valor.",
+    "description": "Explora mis libros publicados, perfiles profesionales y otros valiosos recursos y colaboraciones.",
     "defaultViewDetails": "Ver Detalles",
-    "defaultVisitProfile": "Visitar Perfil"
+    "defaultVisitProfile": "Visitar Perfil",
+    "recommendedBadge": "¡Recomendado!"
   },
   "contactSection": {
     "title": "Contáctame",
@@ -85,6 +84,7 @@
     "lookingForward": "¡Espero tener noticias tuyas!"
   },
   "footer": {
+    "personalPhotoAlt": "Efraín G.B. - Foto Personal",
     "copyright": "© {currentYear} Efraín G.B. Todos los derechos reservados.",
     "credits": "Construido con Next.js y Tailwind CSS. Alojado en Firebase."
   },
@@ -108,20 +108,24 @@
   },
   "documentLinksData": {
     "bookAntesTostadoras_name": "Antes que las Tostadoras Gobiernen",
-    "bookAntesTostadoras_description": "Un libro que explora el futuro de la IA (Edición en español).",
+    "bookAntesTostadoras_description": "Un libro que explora el futuro de la IA (Edición en español). Explora mi visión sobre la evolución de la inteligencia artificial y su impacto en nuestro mundo. Esta obra profundiza en los desafíos y oportunidades éticas, sociales y tecnológicas que presenta la IA.",
     "bookAntesTostadoras_buttonText": "Ver en Amazon",
     "bookPracticalCS_name": "Practical Computer Science for Everyone",
     "bookPracticalCS_description": "Fundamentos de CS accesibles (Descarga gratuita - Inglés).",
     "bookPracticalCS_buttonText": "Descargar Gratis",
-    "bookIaParaCrecer_name": "IA para Crecer: Optimiza con Odoo, Innova con Blockchain y Vende con Marketing Digital",
-    "bookIaParaCrecer_description": "Descubre el poder transformador de la Inteligencia Artificial en el mundo empresarial y tecnológico con nuestra guía digital integral: un recurso invaluable para una inmersión directa y práctica en la aplicación de IA en áreas clave como la gestión optimizada con Odoo, la innovación mediante Blockchain y las estrategias potenciadas de Marketing.",
-    "bookIaParaCrecer_buttonText": "Ver en Hotmart",
+    "bookIaParaCrecer_name": "IA para Crecer",
+    "bookIaParaCrecer_description": "Descubre el poder transformador de la Inteligencia Artificial en los negocios: Optimiza con Odoo, Innova con Blockchain y Vende con Marketing Digital.",
+    "bookIaParaCrecer_buttonTextBuyNow": "Comprar ahora en Hotmart",
     "profileLinkedIn_name": "Perfil de LinkedIn",
     "profileLinkedIn_description": "Conéctate conmigo en LinkedIn.",
     "profileLinkedIn_buttonText": "Visitar Perfil",
     "profileGitHub_name": "Perfil de GitHub",
     "profileGitHub_description": "Explora mis proyectos de código abierto.",
-    "profileGitHub_buttonText": "Visitar Perfil"
+    "profileGitHub_buttonText": "Visitar Perfil",
+    "brandCRDigital_name": "CRDigital",
+    "brandCRDigital_description": "Colaboración con CRDigital, una destacada comunidad web en Costa Rica, fomentando el talento tecnológico local y la innovación.",
+    "brandVita_name": "Vita Web 4.0",
+    "brandVita_description": "Colaboración estratégica con Vita, una startup pionera de Web 4.0 con sede en Dubai, explorando soluciones de internet de próxima generación."
   },
   "contactLinksData": {
     "email_name": "Correo",
