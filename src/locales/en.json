@@ -1,3 +1,4 @@
+
 {
   "layout": {
     "title": "Efraín's Digital Stage",
@@ -104,7 +105,11 @@
     "proj-epa-en-linea_name": "EPA en Línea (Costa Rica)",
     "proj-epa-en-linea_description": "Collaboration on the e-commerce platform for Ferretería EPA in Costa Rica, a major hardware store chain, focused on improving the online shopping experience for its customers.",
     "proj-kohls_name": "Kohl's E-commerce",
-    "proj-kohls_description": "Collaboration related to the e-commerce platform of Kohl’s, a leading department store chain in the United States."
+    "proj-kohls_description": "Collaboration related to the e-commerce platform of Kohl’s, a leading department store chain in the United States.",
+    "collab-crdigital_name": "CRDigital",
+    "collab-crdigital_description": "Collaboration with CRDigital, a prominent web community in Costa Rica, fostering local tech talent and innovation.",
+    "collab-vita_name": "Vita",
+    "collab-vita_description": "Strategic collaboration with Vita, a pioneering Web 4.0 startup based in Dubai, exploring next-generation internet solutions."
   },
   "documentLinksData": {
     "bookAntesTostadoras_name": "Antes que las Tostadoras Gobiernen",
@@ -121,11 +126,7 @@
     "profileLinkedIn_buttonText": "Visit Profile",
     "profileGitHub_name": "GitHub Profile",
     "profileGitHub_description": "Explore my open source projects.",
-    "profileGitHub_buttonText": "Visit Profile",
-    "brandCRDigital_name": "CRDigital",
-    "brandCRDigital_description": "Collaboration with CRDigital, a prominent web community in Costa Rica, fostering local tech talent and innovation.",
-    "brandVita_name": "Vita Web 4.0",
-    "brandVita_description": "Strategic collaboration with Vita, a pioneering Web 4.0 startup based in Dubai, exploring next-generation internet solutions."
+    "profileGitHub_buttonText": "Visit Profile"
   },
   "contactLinksData": {
     "email_name": "Email",

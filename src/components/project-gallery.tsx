@@ -1,23 +1,21 @@
 
 // src/components/project-gallery.tsx
-// This component might need to be client-side if it handles modal state directly
-// For now, assume it receives translated data and onProjectSelect from a client parent
-"use client"; // Making this client as it will interact with ProjectCard (client) for modal.
+"use client"; 
 
 import type { Project } from "@/lib/types";
 import ProjectCard from "./project-card";
 import type { Dictionary } from "@/lib/i18n";
 
 interface ProjectGalleryProps {
-  dict: Dictionary; // Expects dict.projectGallery
+  dict: Dictionary; 
   projectsData: Project[];
   onProjectSelect: (project: Project, isActive: boolean | null) => void;
-  projectCardDict: Dictionary; // Pass dict.projectCard down
+  projectCardDict: Dictionary; 
 }
 
 export default function ProjectGallery({ dict, projectsData, onProjectSelect, projectCardDict }: ProjectGalleryProps) {
   const recentIaProjectIds = ['proj-quiz-ai', 'proj-negotia', 'proj-agroia', 'proj-bless'];
-  const pastCollaborationsIds = ['proj-imagine-motiva', 'proj-agro-y-mas', 'proj-epa-en-linea', 'proj-kohls'];
+  const pastCollaborationsIds = ['proj-imagine-motiva', 'proj-agro-y-mas', 'proj-epa-en-linea', 'proj-kohls', 'collab-crdigital', 'collab-vita'];
 
   const recentIaProjects = projectsData
     .filter(project => recentIaProjectIds.includes(project.id))
@@ -51,7 +49,7 @@ export default function ProjectGallery({ dict, projectsData, onProjectSelect, pr
                   key={project.id} 
                   project={project} 
                   onViewProject={onProjectSelect} 
-                  dict={projectCardDict} // Pass down the specific dictionary part
+                  dict={projectCardDict} 
                 />
               ))}
             </div>
@@ -69,7 +67,7 @@ export default function ProjectGallery({ dict, projectsData, onProjectSelect, pr
                   key={project.id} 
                   project={project} 
                   onViewProject={onProjectSelect}
-                  dict={projectCardDict} // Pass down the specific dictionary part
+                  dict={projectCardDict} 
                 />
               ))}
             </div>

@@ -1,3 +1,4 @@
+
 import type { LucideIcon } from 'lucide-react';
 
 export interface Project {
@@ -9,6 +10,7 @@ export interface Project {
   dataAiHint: string;
   tags?: string[]; 
   videoUrl?: string;
+  isCollaborationLogo?: boolean; // Optional flag for logo projects
 }
 
 export interface LinkItem {
@@ -18,11 +20,11 @@ export interface LinkItem {
   iconName: IconName;
   description?: string; 
   text?: string; 
-  buttonText?: string | null; // Allow null for items without buttons
+  buttonText?: string | null; 
   imageUrl?: string; 
   dataAiHint?: string; 
-  isFeatured?: boolean; // For "Antes que las tostadoras..."
-  isRecommended?: boolean; // For "IA para Crecer" badge
+  isFeatured?: boolean; 
+  isRecommended?: boolean; 
 }
 
 export type IconName = 'BookOpen' | 'Linkedin' | 'Github' | 'Mail' | 'ExternalLink' | 'ServerCrash' | 'CircleDot' | 'Smartphone';
@@ -31,3 +33,4 @@ export interface NavLink {
   href: string;
   labelKey: string; 
 }
+

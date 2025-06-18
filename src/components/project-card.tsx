@@ -21,7 +21,7 @@ interface ProjectCardProps {
   dict: Dictionary; // Expects dict.projectCard
 }
 
-const STABLE_PROJECT_IDS = ['proj-imagine-motiva', 'proj-agro-y-mas', 'proj-epa-en-linea', 'proj-kohls'];
+const STABLE_PROJECT_IDS = ['proj-imagine-motiva', 'proj-agro-y-mas', 'proj-epa-en-linea', 'proj-kohls', 'collab-crdigital', 'collab-vita'];
 
 export default function ProjectCard({ project, onViewProject, dict }: ProjectCardProps) {
   const [isActive, setIsActive] = useState<boolean | null>(null);
@@ -31,12 +31,14 @@ export default function ProjectCard({ project, onViewProject, dict }: ProjectCar
   const hasValidUrl = project.url && project.url.trim() !== '' && project.url !== '#';
   const isCloudWorkstation = project.url?.includes('cloudworkstations.dev');
   const isStablePublicProject = STABLE_PROJECT_IDS.includes(project.id);
+  const isCollaborationLogoCard = project.isCollaborationLogo === true;
+
 
   useEffect(() => {
     let isMounted = true;
     async function checkStatus() {
-      if (!hasValidUrl) {
-        setIsActive(false);
+      if (!hasValidUrl || isCollaborationLogoCard) { // Also treat collab logos as not needing status check
+        setIsActive(isCollaborationLogoCard ? true : false); // Collab logos are "active" for modal purposes
         setIsLoading(false);
         return;
       }
@@ -82,10 +84,12 @@ export default function ProjectCard({ project, onViewProject, dict }: ProjectCar
       isMounted = false;
     };
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [project.id, project.url, project.name, toast, hasValidUrl, isCloudWorkstation, isStablePublicProject]);
-  // dict dependency removed from useEffect to avoid re-fetching on language change. Status text is outside useEffect.
+  }, [project.id, project.url, project.name, toast, hasValidUrl, isCloudWorkstation, isStablePublicProject, isCollaborationLogoCard]);
+
 
   const statusBadge = () => {
+    if (isCollaborationLogoCard) return null; // No status badge for collab logos
+
     let badgeContent: JSX.Element;
     let tooltipText: string;
 
@@ -118,29 +122,34 @@ export default function ProjectCard({ project, onViewProject, dict }: ProjectCar
     );
   };
   
-  const effectiveIsActive = hasValidUrl ? (isCloudWorkstation || isStablePublicProject ? true : isActive) : false;
+  const effectiveIsActive = hasValidUrl ? (isCloudWorkstation || isStablePublicProject || isCollaborationLogoCard ? true : isActive) : false;
 
   return (
     <Card className={cn(
       "flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out transform hover:-translate-y-1 rounded-xl group",
-      isLoading && !(isCloudWorkstation || isStablePublicProject) && 'opacity-75 transition-opacity duration-300'
+      isLoading && !(isCloudWorkstation || isStablePublicProject || isCollaborationLogoCard) && 'opacity-75 transition-opacity duration-300'
     )}>
-      <div className="relative w-full aspect-[16/10] overflow-hidden rounded-t-xl">
+      <div className={cn(
+          "relative w-full aspect-[16/10] overflow-hidden rounded-t-xl",
+          isCollaborationLogoCard && "bg-muted flex items-center justify-center p-4" // Background for contain
+        )}>
         <Image
           src={project.thumbnailUrl}
           alt={`${project.name} thumbnail`}
           fill
-          className="object-cover transition-transform duration-500 group-hover:scale-105"
+          className={cn(
+            "transition-transform duration-500 group-hover:scale-105",
+            isCollaborationLogoCard ? "object-contain" : "object-cover"
+          )}
           data-ai-hint={project.dataAiHint}
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
-         <div className="absolute top-3 right-3">{statusBadge()}</div>
+         {!isCollaborationLogoCard && <div className="absolute top-3 right-3">{statusBadge()}</div>}
       </div>
       <CardHeader className="pt-4">
         <div className="flex justify-between items-center">
-          {/* Project name is now translated directly from project.name which holds the key */}
           <CardTitle className="text-xl font-semibold text-primary">{project.name}</CardTitle>
-          {project.videoUrl && (
+          {project.videoUrl && !isCollaborationLogoCard && (
             <TooltipProvider>
               <Tooltip>
                 <TooltipTrigger asChild>
@@ -162,7 +171,6 @@ export default function ProjectCard({ project, onViewProject, dict }: ProjectCar
         )}
       </CardHeader>
       <CardContent className="flex-grow">
-        {/* Project description is now translated directly from project.description which holds the key */}
         <CardDescription className="text-sm text-foreground/80 leading-relaxed">
           {project.description}
         </CardDescription>
@@ -172,7 +180,7 @@ export default function ProjectCard({ project, onViewProject, dict }: ProjectCar
           onClick={() => onViewProject(project, effectiveIsActive)}
           variant="default"
           className="w-full sm:w-auto"
-          disabled={isLoading && !(isCloudWorkstation || isStablePublicProject)}
+          disabled={isLoading && !(isCloudWorkstation || isStablePublicProject || isCollaborationLogoCard)}
         >
           <Eye className="mr-2 h-4 w-4" /> {dict.viewProject || "View Project"}
         </Button>
@@ -180,7 +188,7 @@ export default function ProjectCard({ project, onViewProject, dict }: ProjectCar
           asChild 
           variant="outline" 
           className="w-full sm:w-auto"
-          disabled={!hasValidUrl || (!effectiveIsActive && !(isCloudWorkstation || isStablePublicProject))}
+          disabled={!hasValidUrl || (!effectiveIsActive && !(isCloudWorkstation || isStablePublicProject)) || isCollaborationLogoCard}
         >
           <a href={project.url || '#'} target="_blank" rel="noopener noreferrer">
             <ExternalLink className="mr-2 h-4 w-4" /> {dict.visitSite || "Visit Site"}

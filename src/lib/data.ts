@@ -1,3 +1,4 @@
+
 import type { Project, LinkItem, NavLink } from './types';
 
 export const projectsData: Project[] = [
@@ -26,8 +27,8 @@ export const projectsData: Project[] = [
     name: 'proj-bless_name',
     url: 'https://9000-firebase-studio-1747186834705.cluster-hf4yr35cmnbd4vhbxvfvc6cp5q.cloudworkstations.dev/',
     description: 'proj-bless_description',
-    thumbnailUrl: 'https://i.imgur.com/8NVeo3p.jpeg', // Restored previous thumbnail
-    dataAiHint: 'community platform', // Adjusted hint
+    thumbnailUrl: 'https://i.imgur.com/lQZr47s.png', // Corrected to Bless Contigo Logo
+    dataAiHint: 'community logo',
     tags: ['Community', 'Platform', 'Firebase', 'Social Impact', 'Web Development'],
     videoUrl: 'https://www.youtube.com/shorts/t3nXM-hHEaQ',
   },
@@ -77,6 +78,26 @@ export const projectsData: Project[] = [
     dataAiHint: 'department store ecommerce',
     tags: ['E-commerce', 'Retail', 'Enterprise', 'Collaboration'],
   },
+  {
+    id: 'collab-crdigital',
+    name: 'collab-crdigital_name',
+    url: '#',
+    description: 'collab-crdigital_description',
+    thumbnailUrl: 'https://i.imgur.com/cU0e19I.png',
+    dataAiHint: 'community logo CRDigital',
+    tags: ['Brand Collaboration', 'Community'],
+    isCollaborationLogo: true, // Flag for special rendering
+  },
+  {
+    id: 'collab-vita',
+    name: 'collab-vita_name',
+    url: '#',
+    description: 'collab-vita_description',
+    thumbnailUrl: 'https://i.imgur.com/6VbVVsL.png',
+    dataAiHint: 'startup logo Vita',
+    tags: ['Brand Collaboration', 'Web 4.0', 'Startup'],
+    isCollaborationLogo: true, // Flag for special rendering
+  }
 ];
 
 export const documentLinksData: LinkItem[] = [
@@ -89,7 +110,7 @@ export const documentLinksData: LinkItem[] = [
     buttonText: 'bookAntesTostadoras_buttonText',
     imageUrl: 'https://i.imgur.com/UPyjS5R.png',
     dataAiHint: 'book cover art',
-    isFeatured: true, // Mark as featured
+    isFeatured: true, 
   },
   {
     id: 'bookIaParaCrecer',
@@ -97,8 +118,8 @@ export const documentLinksData: LinkItem[] = [
     url: 'https://hotmart.com/es/marketplace/productos/ia-para-crecer-optimiza-con-odoo-innova-con-blockchain-y-vende-con-marketing-digital/G100133293T?fbclid=IwY2xjawK4YDFleHRuA2FlbQIxMABicmlkETFhaW02MERiUFphV01qWlJxAR6lr0Hy9XltTLi6236HX98TzZAdhaN8Ey9MueYC2ea0Uwzibr_dpD4wEqYJlw_aem_o2R-nGjNY8EM8T0FEMh-Zg',
     iconName: 'BookOpen',
     description: 'bookIaParaCrecer_description',
-    buttonText: 'bookIaParaCrecer_buttonTextBuyNow', // New key for "Buy Now"
-    isRecommended: true, // Mark as recommended for badge
+    buttonText: 'bookIaParaCrecer_buttonTextBuyNow',
+    isRecommended: true,
   },
   {
     id: 'bookPracticalCS',
@@ -123,26 +144,6 @@ export const documentLinksData: LinkItem[] = [
     iconName: 'Github',
     description: 'profileGitHub_description',
     buttonText: 'profileGitHub_buttonText'
-  },
-  {
-    id: 'brandCRDigital',
-    name: 'brandCRDigital_name',
-    url: '#', 
-    iconName: 'CircleDot', 
-    description: 'brandCRDigital_description',
-    imageUrl: 'https://i.imgur.com/cU0e19I.png',
-    dataAiHint: 'community logo CRDigital',
-    buttonText: null, // No button or specific text
-  },
-  {
-    id: 'brandVita',
-    name: 'brandVita_name',
-    url: '#', 
-    iconName: 'CircleDot', 
-    description: 'brandVita_description', 
-    imageUrl: 'https://i.imgur.com/6VbVVsL.png',
-    dataAiHint: 'startup logo Vita',
-    buttonText: null, // No button or specific text
   }
 ];
 
@@ -165,3 +166,4 @@ export const navLinksData: NavLink[] = [
   { href: '#documents', labelKey: 'booksAndResources' },
   { href: '#contact', labelKey: 'contact' },
 ];
+

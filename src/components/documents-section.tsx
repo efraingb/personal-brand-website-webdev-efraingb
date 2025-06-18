@@ -1,18 +1,19 @@
+
 // src/components/documents-section.tsx
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Icon } from "@/components/icons";
 import Link from "next/link";
 import Image from "next/image";
-import { ExternalLink, Star } from "lucide-react"; // Added Star for badge
-import { Badge } from "@/components/ui/badge"; // Added Badge
+import { ExternalLink, Star } from "lucide-react"; 
+import { Badge } from "@/components/ui/badge"; 
 import type { Dictionary } from '@/lib/i18n';
 import type { LinkItem } from '@/lib/types'; 
 import { cn } from "@/lib/utils";
 
 interface DocumentsSectionProps {
-  dict: Dictionary; // Expects dict.documentsSection
-  documentLinksData: LinkItem[]; // Translated data
+  dict: Dictionary; 
+  documentLinksData: LinkItem[]; 
 }
 
 export default function DocumentsSection({ dict, documentLinksData }: DocumentsSectionProps) {
@@ -36,8 +37,8 @@ export default function DocumentsSection({ dict, documentLinksData }: DocumentsS
               className={cn(
                 "group flex flex-col overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 ease-in-out transform hover:-translate-y-1 rounded-xl",
                 item.isFeatured 
-                  ? "w-full md:w-3/4 lg:w-2/3 xl:max-w-3xl mx-auto" 
-                  : "w-full md:w-[calc(50%_-_1rem)] max-w-lg"
+                  ? "w-full md:w-3/4 lg:w-2/3 xl:max-w-3xl mx-auto"  // Featured book takes more space
+                  : "w-full md:w-[calc(50%_-_1rem)] max-w-lg" // Other items
               )}
             >
               <CardHeader className={cn(item.isFeatured && "md:flex-row md:items-start md:gap-6")}>
@@ -45,8 +46,8 @@ export default function DocumentsSection({ dict, documentLinksData }: DocumentsS
                   <div className={cn(
                     "relative flex-shrink-0 rounded-md overflow-hidden shadow-md mx-auto md:mx-0",
                     item.isFeatured 
-                      ? "h-64 w-48 sm:h-72 sm:w-auto sm:aspect-[2/3]" // Larger image for featured book
-                      : "h-24 w-16" // Default size for other items
+                      ? "h-64 w-48 sm:h-72 sm:aspect-[2/3]" // Larger image for featured book
+                      : "h-24 w-16" // Default size for other items like smaller book covers or profile icons
                   )}>
                     <Image 
                       src={item.imageUrl} 
@@ -87,12 +88,12 @@ export default function DocumentsSection({ dict, documentLinksData }: DocumentsS
               <CardContent className={cn(
                   "flex-grow", 
                   item.imageUrl && !item.isFeatured ? "pt-2" : "pt-0",
-                  item.isFeatured && item.description ? "pt-2 md:pt-0" : "", // ensure padding if description is outside header for featured
-                  !item.description && item.isFeatured ? "pt-0" : "" // if no description and featured, no top padding here
+                  item.isFeatured && item.description ? "pt-2 md:pt-0" : "", 
+                  !item.description && item.isFeatured ? "pt-0" : "" 
                 )}
               >
                 {item.isFeatured && item.description && (
-                  <div className="md:hidden"> {/* Show description again for mobile if it was in header */}
+                  <div className="md:hidden"> 
                      <CardDescription className="text-sm text-foreground/80 leading-relaxed mt-2">
                         {item.description}
                       </CardDescription>
