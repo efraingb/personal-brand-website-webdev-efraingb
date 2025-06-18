@@ -103,13 +103,17 @@
     "proj-agro-y-mas_name": "Agro Y Más",
     "proj-agro-y-mas_description": "Colaboración en la plataforma digital para el sector agrícola, enfocada en conectar a productores con información relevante, mercados y soluciones financieras.",
     "proj-epa-en-linea_name": "EPA en Línea (Costa Rica)",
-    "proj-epa-en-linea_description": "Colaboración en la plataforma de e-commerce para Ferretería EPA en Costa Rica, una importante cadena de ferreterías, enfocada en mejorar la experiencia de compra en línea para sus clientes.",
+    "proj-epa-en-linea_description": "Colaboré en la plataforma e-commerce de Ferretería EPA en Costa Rica, una importante cadena de ferreterías, mejorando la experiencia de compra online.",
     "proj-kohls_name": "Kohl's E-commerce",
     "proj-kohls_description": "Colaboración relacionada con la plataforma de e-commerce de Kohl’s, una destacada cadena de tiendas departamentales en Estados Unidos.",
     "collab-crdigital_name": "CRDigital",
     "collab-crdigital_description": "Colaboración con CRDigital, una destacada comunidad web en Costa Rica, fomentando el talento tecnológico local y la innovación.",
     "collab-vita_name": "Vita",
-    "collab-vita_description": "Colaboración estratégica con Vita, una startup pionera de Web 4.0 con sede en Dubai, explorando soluciones de internet de próxima generación."
+    "collab-vita_description": "Colaboración estratégica con Vita, una startup pionera de Web 4.0 con sede en Dubai, explorando soluciones de internet de próxima generación.",
+    "collab-poder-judicial_name": "Poder Judicial de Costa Rica",
+    "collab-poder-judicial_description": "Colaboración en identidad de marca y consultoría web con el Poder Judicial de Costa Rica.",
+    "collab-libreria-internacional_name": "Librería Internacional",
+    "collab-libreria-internacional_description": "Colaboración en estrategia digital y mejoras e-commerce para Librería Internacional, una cadena de librerías líder."
   },
   "documentLinksData": {
     "bookAntesTostadoras_name": "Antes que las Tostadoras Gobiernen",
@@ -120,7 +124,7 @@
     "bookPracticalCS_buttonText": "Descargar Gratis",
     "bookIaParaCrecer_name": "IA para Crecer",
     "bookIaParaCrecer_description": "Descubre el poder transformador de la Inteligencia Artificial en los negocios: Optimiza con Odoo, Innova con Blockchain y Vende con Marketing Digital.",
-    "bookIaParaCrecer_buttonTextBuyNow": "Comprar ahora en Hotmart",
+    "bookIaParaCrecer_buttonText": "Comprar ahora en Hotmart",
     "profileLinkedIn_name": "Perfil de LinkedIn",
     "profileLinkedIn_description": "Conéctate conmigo en LinkedIn.",
     "profileLinkedIn_buttonText": "Visitar Perfil",

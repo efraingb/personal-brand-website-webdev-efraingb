@@ -103,13 +103,17 @@
     "proj-agro-y-mas_name": "Agro Y Más",
     "proj-agro-y-mas_description": "Collaboration on the digital platform for the agricultural sector, focused on connecting producers with relevant information, markets, and financial solutions.",
     "proj-epa-en-linea_name": "EPA en Línea (Costa Rica)",
-    "proj-epa-en-linea_description": "Collaboration on the e-commerce platform for Ferretería EPA in Costa Rica, a major hardware store chain, focused on improving the online shopping experience for its customers.",
+    "proj-epa-en-linea_description": "Contributed to the e-commerce platform for Ferretería EPA in Costa Rica, a major hardware retail chain, enhancing the online shopping experience.",
     "proj-kohls_name": "Kohl's E-commerce",
     "proj-kohls_description": "Collaboration related to the e-commerce platform of Kohl’s, a leading department store chain in the United States.",
     "collab-crdigital_name": "CRDigital",
     "collab-crdigital_description": "Collaboration with CRDigital, a prominent web community in Costa Rica, fostering local tech talent and innovation.",
     "collab-vita_name": "Vita",
-    "collab-vita_description": "Strategic collaboration with Vita, a pioneering Web 4.0 startup based in Dubai, exploring next-generation internet solutions."
+    "collab-vita_description": "Strategic collaboration with Vita, a pioneering Web 4.0 startup based in Dubai, exploring next-generation internet solutions.",
+    "collab-poder-judicial_name": "Judicial Branch of Costa Rica",
+    "collab-poder-judicial_description": "Brand identity and web consulting collaboration with the Judicial Branch of Costa Rica.",
+    "collab-libreria-internacional_name": "Librería Internacional",
+    "collab-libreria-internacional_description": "Collaboration on digital strategy and e-commerce enhancements for Librería Internacional, a leading bookstore chain."
   },
   "documentLinksData": {
     "bookAntesTostadoras_name": "Antes que las Tostadoras Gobiernen",
@@ -120,7 +124,7 @@
     "bookPracticalCS_buttonText": "Download Free",
     "bookIaParaCrecer_name": "AI for Growth",
     "bookIaParaCrecer_description": "Discover the transformative power of Artificial Intelligence in business: Optimize with Odoo, Innovate with Blockchain, and Sell with Digital Marketing.",
-    "bookIaParaCrecer_buttonTextBuyNow": "Buy Now on Hotmart",
+    "bookIaParaCrecer_buttonText": "Buy Now on Hotmart",
     "profileLinkedIn_name": "LinkedIn Profile",
     "profileLinkedIn_description": "Connect with me on LinkedIn.",
     "profileLinkedIn_buttonText": "Visit Profile",

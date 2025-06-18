@@ -21,7 +21,7 @@ interface ProjectCardProps {
   dict: Dictionary; // Expects dict.projectCard
 }
 
-const STABLE_PROJECT_IDS = ['proj-imagine-motiva', 'proj-agro-y-mas', 'proj-epa-en-linea', 'proj-kohls', 'collab-crdigital', 'collab-vita'];
+const STABLE_PROJECT_IDS = ['proj-imagine-motiva', 'proj-agro-y-mas', 'proj-epa-en-linea', 'proj-kohls', 'collab-crdigital', 'collab-vita', 'collab-poder-judicial', 'collab-libreria-internacional'];
 
 export default function ProjectCard({ project, onViewProject, dict }: ProjectCardProps) {
   const [isActive, setIsActive] = useState<boolean | null>(null);
@@ -37,8 +37,8 @@ export default function ProjectCard({ project, onViewProject, dict }: ProjectCar
   useEffect(() => {
     let isMounted = true;
     async function checkStatus() {
-      if (!hasValidUrl || isCollaborationLogoCard) { // Also treat collab logos as not needing status check
-        setIsActive(isCollaborationLogoCard ? true : false); // Collab logos are "active" for modal purposes
+      if (!hasValidUrl || isCollaborationLogoCard) { 
+        setIsActive(isCollaborationLogoCard ? true : false); 
         setIsLoading(false);
         return;
       }
@@ -88,7 +88,7 @@ export default function ProjectCard({ project, onViewProject, dict }: ProjectCar
 
 
   const statusBadge = () => {
-    if (isCollaborationLogoCard) return null; // No status badge for collab logos
+    if (isCollaborationLogoCard) return null; 
 
     let badgeContent: JSX.Element;
     let tooltipText: string;
@@ -131,7 +131,7 @@ export default function ProjectCard({ project, onViewProject, dict }: ProjectCar
     )}>
       <div className={cn(
           "relative w-full aspect-[16/10] overflow-hidden rounded-t-xl",
-          isCollaborationLogoCard && "bg-muted flex items-center justify-center p-4" // Background for contain
+          isCollaborationLogoCard && "bg-muted flex items-center justify-center p-4" 
         )}>
         <Image
           src={project.thumbnailUrl}
@@ -175,26 +175,28 @@ export default function ProjectCard({ project, onViewProject, dict }: ProjectCar
           {project.description}
         </CardDescription>
       </CardContent>
-      <CardFooter className="flex flex-col sm:flex-row justify-between items-center gap-2 p-4 bg-muted/30">
-        <Button 
-          onClick={() => onViewProject(project, effectiveIsActive)}
-          variant="default"
-          className="w-full sm:w-auto"
-          disabled={isLoading && !(isCloudWorkstation || isStablePublicProject || isCollaborationLogoCard)}
-        >
-          <Eye className="mr-2 h-4 w-4" /> {dict.viewProject || "View Project"}
-        </Button>
-        <Button 
-          asChild 
-          variant="outline" 
-          className="w-full sm:w-auto"
-          disabled={!hasValidUrl || (!effectiveIsActive && !(isCloudWorkstation || isStablePublicProject)) || isCollaborationLogoCard}
-        >
-          <a href={project.url || '#'} target="_blank" rel="noopener noreferrer">
-            <ExternalLink className="mr-2 h-4 w-4" /> {dict.visitSite || "Visit Site"}
-          </a>
-        </Button>
-      </CardFooter>
+      {!isCollaborationLogoCard && (
+        <CardFooter className="flex flex-col sm:flex-row justify-between items-center gap-2 p-4 bg-muted/30">
+          <Button 
+            onClick={() => onViewProject(project, effectiveIsActive)}
+            variant="default"
+            className="w-full sm:w-auto"
+            disabled={isLoading && !(isCloudWorkstation || isStablePublicProject || isCollaborationLogoCard)}
+          >
+            <Eye className="mr-2 h-4 w-4" /> {dict.viewProject || "View Project"}
+          </Button>
+          <Button 
+            asChild 
+            variant="outline" 
+            className="w-full sm:w-auto"
+            disabled={!hasValidUrl || (!effectiveIsActive && !(isCloudWorkstation || isStablePublicProject)) || isCollaborationLogoCard}
+          >
+            <a href={project.url || '#'} target="_blank" rel="noopener noreferrer">
+              <ExternalLink className="mr-2 h-4 w-4" /> {dict.visitSite || "Visit Site"}
+            </a>
+          </Button>
+        </CardFooter>
+      )}
     </Card>
   );
 }

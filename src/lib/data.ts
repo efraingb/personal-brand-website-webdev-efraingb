@@ -27,7 +27,7 @@ export const projectsData: Project[] = [
     name: 'proj-bless_name',
     url: 'https://9000-firebase-studio-1747186834705.cluster-hf4yr35cmnbd4vhbxvfvc6cp5q.cloudworkstations.dev/',
     description: 'proj-bless_description',
-    thumbnailUrl: 'https://i.imgur.com/lQZr47s.png', // Corrected to Bless Contigo Logo
+    thumbnailUrl: 'https://i.imgur.com/lQZr47s.png',
     dataAiHint: 'community logo',
     tags: ['Community', 'Platform', 'Firebase', 'Social Impact', 'Web Development'],
     videoUrl: 'https://www.youtube.com/shorts/t3nXM-hHEaQ',
@@ -64,7 +64,7 @@ export const projectsData: Project[] = [
     id: 'proj-epa-en-linea',
     name: 'proj-epa-en-linea_name',
     url: 'https://cr.epaenlinea.com',
-    description: 'proj-epa-en-linea_description',
+    description: 'proj-epa-en-linea_description', // Key for updated, shorter description
     thumbnailUrl: 'https://i.imgur.com/XNbjFzv.png',
     dataAiHint: 'hardware ecommerce retail',
     tags: ['E-commerce', 'Retail', 'Web Development', 'Collaboration'],
@@ -86,7 +86,7 @@ export const projectsData: Project[] = [
     thumbnailUrl: 'https://i.imgur.com/cU0e19I.png',
     dataAiHint: 'community logo CRDigital',
     tags: ['Brand Collaboration', 'Community'],
-    isCollaborationLogo: true, // Flag for special rendering
+    isCollaborationLogo: true,
   },
   {
     id: 'collab-vita',
@@ -96,7 +96,27 @@ export const projectsData: Project[] = [
     thumbnailUrl: 'https://i.imgur.com/6VbVVsL.png',
     dataAiHint: 'startup logo Vita',
     tags: ['Brand Collaboration', 'Web 4.0', 'Startup'],
-    isCollaborationLogo: true, // Flag for special rendering
+    isCollaborationLogo: true,
+  },
+  {
+    id: 'collab-poder-judicial',
+    name: 'collab-poder-judicial_name',
+    url: '#',
+    description: 'collab-poder-judicial_description',
+    thumbnailUrl: 'https://placehold.co/600x375.png', // Placeholder, aspect 16:10
+    dataAiHint: 'government justice logo',
+    tags: ['Brand Collaboration', 'Consulting'],
+    isCollaborationLogo: true,
+  },
+  {
+    id: 'collab-libreria-internacional',
+    name: 'collab-libreria-internacional_name',
+    url: '#',
+    description: 'collab-libreria-internacional_description',
+    thumbnailUrl: 'https://placehold.co/600x375.png', // Placeholder, aspect 16:10
+    dataAiHint: 'bookstore retail logo',
+    tags: ['Brand Collaboration', 'Digital Strategy'],
+    isCollaborationLogo: true,
   }
 ];
 
@@ -110,7 +130,7 @@ export const documentLinksData: LinkItem[] = [
     buttonText: 'bookAntesTostadoras_buttonText',
     imageUrl: 'https://i.imgur.com/UPyjS5R.png',
     dataAiHint: 'book cover art',
-    isFeatured: true, 
+    isFeatured: true,
   },
   {
     id: 'bookIaParaCrecer',
@@ -118,7 +138,7 @@ export const documentLinksData: LinkItem[] = [
     url: 'https://hotmart.com/es/marketplace/productos/ia-para-crecer-optimiza-con-odoo-innova-con-blockchain-y-vende-con-marketing-digital/G100133293T?fbclid=IwY2xjawK4YDFleHRuA2FlbQIxMABicmlkETFhaW02MERiUFphV01qWlJxAR6lr0Hy9XltTLi6236HX98TzZAdhaN8Ey9MueYC2ea0Uwzibr_dpD4wEqYJlw_aem_o2R-nGjNY8EM8T0FEMh-Zg',
     iconName: 'BookOpen',
     description: 'bookIaParaCrecer_description',
-    buttonText: 'bookIaParaCrecer_buttonTextBuyNow',
+    buttonText: 'bookIaParaCrecer_buttonText', // Changed from bookIaParaCrecer_buttonTextBuyNow
     isRecommended: true,
   },
   {
@@ -166,4 +186,3 @@ export const navLinksData: NavLink[] = [
   { href: '#documents', labelKey: 'booksAndResources' },
   { href: '#contact', labelKey: 'contact' },
 ];
-
