@@ -144,8 +144,6 @@ export const documentLinksData: LinkItem[] = [
     iconName: 'BookOpen',
     description: 'bookPracticalCS_description',
     buttonText: 'bookPracticalCS_buttonText',
-    imageUrl: 'https://placehold.co/128x192.png',
-    dataAiHint: 'book computer',
   },
   {
     id: 'profileLinkedIn',
@@ -154,8 +152,6 @@ export const documentLinksData: LinkItem[] = [
     iconName: 'Linkedin',
     description: 'profileLinkedIn_description',
     buttonText: 'profileLinkedIn_buttonText',
-    imageUrl: 'https://placehold.co/150x150.png',
-    dataAiHint: 'profile avatar',
   },
   {
     id: 'profileGitHub',
@@ -164,8 +160,6 @@ export const documentLinksData: LinkItem[] = [
     iconName: 'Github',
     description: 'profileGitHub_description',
     buttonText: 'profileGitHub_buttonText',
-    imageUrl: 'https://placehold.co/150x150.png',
-    dataAiHint: 'code profile',
   }
 ];
 
