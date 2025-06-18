@@ -18,7 +18,7 @@
   "hero": {
     "mainTitle": "Efraín G.B.",
     "subtitle": "Desarrollador Full-Stack e Innovador en IA",
-    "description": "Apasionado por crear soluciones digitales elegantes y eficientes. Explora mis herramientas impulsadas por IA, descubre libros y recursos valiosos, y conoce más sobre mi trabajo en desarrollo full-stack e innovación en IA.",
+    "description": "Apasionado por crear soluciones digitales elegantes y eficientes. Sumérgete en mis innovadoras herramientas impulsadas por IA, descubre y adquiere mis libros y recursos valiosos, y conoce más sobre mi trabajo en desarrollo full-stack e innovación en IA.",
     "viewMyWork": "Ver Mi Trabajo",
     "getInTouch": "Contáctame"
   },
@@ -90,14 +90,14 @@
     "credits": "Construido con Next.js y Tailwind CSS. Alojado en Firebase."
   },
   "projectsData": {
+    "proj-agroia_name": "Agroia",
+    "proj-agroia_description": "Plataforma digital inteligente para el sector agrícola, utilizando IA para conectar productores con mercados, optimizar recursos y facilitar el acceso a tecnologías avanzadas.",
     "proj-quiz-ai_name": "Saber IA",
     "proj-quiz-ai_description": "Desbloquea tu potencial. Quizzes con IA. A tu medida.",
     "proj-negotia_name": "NEGOTIA",
     "proj-negotia_description": "Negocia de forma más inteligente, no más difícil. Plataforma de negociación asistida por IA diseñada para facilitar acuerdos beneficiosos para todas las partes (Resultados Ganar-Ganar).",
     "proj-bless_name": "Bless Contigo",
     "proj-bless_description": "Plataforma comunitaria diseñada para conectar y ofrecer recursos de apoyo, fomentando la colaboración y el bienestar colectivo.",
-    "proj-agroia_name": "Agroia",
-    "proj-agroia_description": "Plataforma digital inteligente para el sector agrícola, utilizando IA para conectar productores con mercados, optimizar recursos y facilitar el acceso a tecnologías avanzadas.",
     "proj-imagine-motiva_name": "Imagine Motiva (Establishment Labs)",
     "proj-imagine-motiva_description": "Colaboración en el desarrollo de soluciones digitales innovadoras para Establishment Labs, una empresa global de tecnología médica, enfocadas en la visualización avanzada y personalización de implantes mamarios.",
     "proj-agro-y-mas_name": "Agro Y Más",

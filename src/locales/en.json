@@ -18,7 +18,7 @@
   "hero": {
     "mainTitle": "Efraín G.B.",
     "subtitle": "Full-Stack Developer & AI Innovator",
-    "description": "Passionate about crafting elegant and efficient digital solutions. Explore my AI-driven tools, discover insightful books and resources, and learn about my work in full-stack development & AI innovation.",
+    "description": "Passionate about crafting elegant and efficient digital solutions. Dive into my innovative AI-driven tools, discover and purchase my insightful books and resources, and learn about my work in full-stack development & AI innovation.",
     "viewMyWork": "View My Work",
     "getInTouch": "Get In Touch"
   },
@@ -90,14 +90,14 @@
     "credits": "Built with Next.js and Tailwind CSS. Hosted on Firebase."
   },
   "projectsData": {
+    "proj-agroia_name": "Agroia",
+    "proj-agroia_description": "Intelligent digital platform for the agricultural sector, using AI to connect producers with markets, optimize resources, and facilitate access to advanced technologies.",
     "proj-quiz-ai_name": "Saber IA",
     "proj-quiz-ai_description": "Unlock your potential. AI-powered quizzes. Tailored for you.",
     "proj-negotia_name": "NEGOTIA",
     "proj-negotia_description": "Deal Smarter, Not Harder. AI-assisted negotiation platform designed to facilitate win-win outcomes for all parties.",
     "proj-bless_name": "Bless Contigo",
     "proj-bless_description": "Community platform designed to connect and offer support resources, fostering collaboration and collective well-being.",
-    "proj-agroia_name": "Agroia",
-    "proj-agroia_description": "Intelligent digital platform for the agricultural sector, using AI to connect producers with markets, optimize resources, and facilitate access to advanced technologies.",
     "proj-imagine-motiva_name": "Imagine Motiva (Establishment Labs)",
     "proj-imagine-motiva_description": "Collaboration in the development of innovative digital solutions for Establishment Labs, a global medical technology company, focused on advanced visualization and personalization of breast implants.",
     "proj-agro-y-mas_name": "Agro Y Más",
