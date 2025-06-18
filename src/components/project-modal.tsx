@@ -59,7 +59,7 @@ function extractVideoId(url: string): VideoIdResult | null {
 export default function ProjectModal({ project, isActive, isOpen, onClose, dict }: ProjectModalProps) {
   if (!project) return null;
 
-  const aiToolIdsWithSpecialSchedule = ['proj-quiz-ai', 'proj-negotia', 'proj-agroia', 'proj-bless'];
+  const aiToolIdsWithSpecialSchedule = ['proj-quiz-ai', 'proj-negotia', 'proj-bless'];
   const isSpecialAiTool = aiToolIdsWithSpecialSchedule.includes(project.id);
 
   const hasValidUrl = project.url && project.url.trim() !== '' && project.url !== '#';
@@ -81,7 +81,7 @@ export default function ProjectModal({ project, isActive, isOpen, onClose, dict 
   let messageDescription: React.ReactNode = dict.defaultDescription;
   let mainButton: React.ReactNode = null;
   
-  if (isSpecialAiTool) {
+  if (isSpecialAiTool && isActive !== true) { // Adjusted condition for special AI tools: if it's special AND NOT confirmed active
     displayIcon = <Clock className="h-10 w-10 text-amber-500 mb-3" />;
     messageTitle = `${project.name} - ${dict.iaToolOfflineTitle || "AI Tool Access Request"}`;
     messageDescription = (
@@ -167,10 +167,10 @@ export default function ProjectModal({ project, isActive, isOpen, onClose, dict 
   }
 
   // Fallback button if no other logic set it and it's not a special AI tool
-  if (!mainButton && !isSpecialAiTool) {
+  if (!mainButton && !(isSpecialAiTool && isActive !== true)) {
     if (hasValidUrl) {
       mainButton = (
-        <Button variant="default" asChild className="mt-4 shadow-md hover:shadow-lg transition-shadow" disabled={isActive === null && !isCloudWorkstation}>
+        <Button variant="default" asChild className="mt-4 shadow-md hover:shadow-lg transition-shadow" disabled={isActive === null && !isCloudWorkstation && project.id !== 'proj-agroia'}>
           <a href={project.url} target="_blank" rel="noopener noreferrer">
             {isCloudWorkstation ? (dict.buttonOpenDevLink || "Open Dev Link") : (dict.buttonVisitSite || "Visit Site")}
             <ExternalLinkIcon className="ml-2 h-4 w-4" />
@@ -239,4 +239,5 @@ export default function ProjectModal({ project, isActive, isOpen, onClose, dict 
     </Dialog>
   );
 }
+
 

@@ -21,7 +21,7 @@ interface ProjectCardProps {
   dict: Dictionary; // Expects dict.projectCard
 }
 
-const STABLE_PROJECT_IDS = ['proj-imagine-motiva', 'proj-agro-y-mas', 'proj-epa-en-linea', 'proj-kohls', 'collab-crdigital', 'collab-vita', 'collab-poder-judicial', 'collab-libreria-internacional'];
+const STABLE_PROJECT_IDS = ['proj-imagine-motiva', 'proj-agro-y-mas', 'proj-epa-en-linea', 'proj-kohls', 'collab-crdigital', 'collab-vita', 'collab-poder-judicial', 'collab-libreria-internacional', 'proj-agroia'];
 
 export default function ProjectCard({ project, onViewProject, dict }: ProjectCardProps) {
   const [isActive, setIsActive] = useState<boolean | null>(null);
@@ -89,7 +89,7 @@ export default function ProjectCard({ project, onViewProject, dict }: ProjectCar
 
 
   const statusBadge = () => {
-    if (isCollaborationLogoCard || !thumbnailUrlIsValid) return null; // Also hide badge if no thumbnail
+    if (isCollaborationLogoCard || !thumbnailUrlIsValid) return null; 
 
     let badgeContent: JSX.Element;
     let tooltipText: string;
@@ -133,11 +133,10 @@ export default function ProjectCard({ project, onViewProject, dict }: ProjectCar
       {thumbnailUrlIsValid && (
         <div className={cn(
             "relative w-full aspect-[16/10] overflow-hidden rounded-t-xl",
-            (isCollaborationLogoCard && thumbnailUrlIsValid) && "bg-muted flex items-center justify-center p-4",
-            !thumbnailUrlIsValid && "bg-muted" 
+            (isCollaborationLogoCard && thumbnailUrlIsValid) && "bg-muted flex items-center justify-center p-4"
           )}>
           <Image
-            src={project.thumbnailUrl} // Safe now because of thumbnailUrlIsValid check
+            src={project.thumbnailUrl} 
             alt={`${project.name} thumbnail`}
             fill
             className={cn(
@@ -204,3 +203,4 @@ export default function ProjectCard({ project, onViewProject, dict }: ProjectCar
     </Card>
   );
 }
+

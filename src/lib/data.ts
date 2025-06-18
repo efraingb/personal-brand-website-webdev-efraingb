@@ -3,6 +3,16 @@ import type { Project, LinkItem, NavLink } from './types';
 
 export const projectsData: Project[] = [
   {
+    id: 'proj-agroia',
+    name: 'proj-agroia_name',
+    url: 'https://studio--agroia-6lbvq.us-central1.hosted.app/',
+    description: 'proj-agroia_description',
+    thumbnailUrl: 'https://i.imgur.com/h53YbVW.png',
+    dataAiHint: 'agritech platform',
+    tags: ['AgriTech', 'AI', 'E-commerce', 'Platform', 'Firebase', 'Web Development'],
+    videoUrl: 'https://www.youtube.com/shorts/BvDAXjkxc3M',
+  },
+  {
     id: 'proj-quiz-ai',
     name: 'proj-quiz-ai_name',
     url: 'https://9000-idx-studio-1746296464496.cluster-pgviq6mvsncnqxx6kr7pbz65v6.cloudworkstations.dev/',
@@ -31,16 +41,6 @@ export const projectsData: Project[] = [
     dataAiHint: 'community logo',
     tags: ['Community', 'Platform', 'Firebase', 'Social Impact', 'Web Development'],
     videoUrl: 'https://www.youtube.com/shorts/t3nXM-hHEaQ',
-  },
-  {
-    id: 'proj-agroia',
-    name: 'proj-agroia_name',
-    url: 'https://9000-idx-studio-1745949441464.cluster-pgviq6mvsncnqxx6kr7pbz65v6.cloudworkstations.dev/',
-    description: 'proj-agroia_description',
-    thumbnailUrl: 'https://i.imgur.com/h53YbVW.png',
-    dataAiHint: 'agritech platform',
-    tags: ['AgriTech', 'AI', 'E-commerce', 'Platform', 'Firebase', 'Web Development'],
-    videoUrl: 'https://www.youtube.com/shorts/BvDAXjkxc3M',
   },
   {
     id: 'proj-imagine-motiva',
@@ -182,4 +182,5 @@ export const navLinksData: NavLink[] = [
   { href: '#documents', labelKey: 'booksAndResources' },
   { href: '#contact', labelKey: 'contact' },
 ];
+
 
