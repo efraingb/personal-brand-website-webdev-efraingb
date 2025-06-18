@@ -64,7 +64,7 @@ export const projectsData: Project[] = [
     id: 'proj-epa-en-linea',
     name: 'proj-epa-en-linea_name',
     url: 'https://cr.epaenlinea.com',
-    description: 'proj-epa-en-linea_description', // Key for updated, shorter description
+    description: 'proj-epa-en-linea_description', 
     thumbnailUrl: 'https://i.imgur.com/XNbjFzv.png',
     dataAiHint: 'hardware ecommerce retail',
     tags: ['E-commerce', 'Retail', 'Web Development', 'Collaboration'],
@@ -103,8 +103,6 @@ export const projectsData: Project[] = [
     name: 'collab-poder-judicial_name',
     url: '#',
     description: 'collab-poder-judicial_description',
-    thumbnailUrl: 'https://placehold.co/600x375.png', // Placeholder, aspect 16:10
-    dataAiHint: 'government justice logo',
     tags: ['Brand Collaboration', 'Consulting'],
     isCollaborationLogo: true,
   },
@@ -113,8 +111,6 @@ export const projectsData: Project[] = [
     name: 'collab-libreria-internacional_name',
     url: '#',
     description: 'collab-libreria-internacional_description',
-    thumbnailUrl: 'https://placehold.co/600x375.png', // Placeholder, aspect 16:10
-    dataAiHint: 'bookstore retail logo',
     tags: ['Brand Collaboration', 'Digital Strategy'],
     isCollaborationLogo: true,
   }
@@ -138,7 +134,7 @@ export const documentLinksData: LinkItem[] = [
     url: 'https://hotmart.com/es/marketplace/productos/ia-para-crecer-optimiza-con-odoo-innova-con-blockchain-y-vende-con-marketing-digital/G100133293T?fbclid=IwY2xjawK4YDFleHRuA2FlbQIxMABicmlkETFhaW02MERiUFphV01qWlJxAR6lr0Hy9XltTLi6236HX98TzZAdhaN8Ey9MueYC2ea0Uwzibr_dpD4wEqYJlw_aem_o2R-nGjNY8EM8T0FEMh-Zg',
     iconName: 'BookOpen',
     description: 'bookIaParaCrecer_description',
-    buttonText: 'bookIaParaCrecer_buttonText', // Changed from bookIaParaCrecer_buttonTextBuyNow
+    buttonText: 'bookIaParaCrecer_buttonText',
     isRecommended: true,
   },
   {
@@ -186,3 +182,4 @@ export const navLinksData: NavLink[] = [
   { href: '#documents', labelKey: 'booksAndResources' },
   { href: '#contact', labelKey: 'contact' },
 ];
+
