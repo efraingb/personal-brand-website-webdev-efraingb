@@ -123,6 +123,7 @@ export default function ProjectCard({ project, onViewProject, dict }: ProjectCar
   };
   
   const effectiveIsActive = hasValidUrl ? (isCloudWorkstation || isStablePublicProject || isCollaborationLogoCard ? true : isActive) : false;
+  const thumbnailUrlIsValid = typeof project.thumbnailUrl === 'string' && project.thumbnailUrl.trim() !== '';
 
   return (
     <Card className={cn(
@@ -131,19 +132,22 @@ export default function ProjectCard({ project, onViewProject, dict }: ProjectCar
     )}>
       <div className={cn(
           "relative w-full aspect-[16/10] overflow-hidden rounded-t-xl",
-          isCollaborationLogoCard && "bg-muted flex items-center justify-center p-4" 
+          (isCollaborationLogoCard && thumbnailUrlIsValid) && "bg-muted flex items-center justify-center p-4",
+          !thumbnailUrlIsValid && "bg-muted" 
         )}>
-        <Image
-          src={project.thumbnailUrl}
-          alt={`${project.name} thumbnail`}
-          fill
-          className={cn(
-            "transition-transform duration-500 group-hover:scale-105",
-            isCollaborationLogoCard ? "object-contain" : "object-cover"
-          )}
-          data-ai-hint={project.dataAiHint}
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-        />
+        {thumbnailUrlIsValid && (
+          <Image
+            src={project.thumbnailUrl}
+            alt={`${project.name} thumbnail`}
+            fill
+            className={cn(
+              "transition-transform duration-500 group-hover:scale-105",
+              isCollaborationLogoCard ? "object-contain" : "object-cover"
+            )}
+            data-ai-hint={project.dataAiHint}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          />
+        )}
          {!isCollaborationLogoCard && <div className="absolute top-3 right-3">{statusBadge()}</div>}
       </div>
       <CardHeader className="pt-4">
@@ -200,3 +204,4 @@ export default function ProjectCard({ project, onViewProject, dict }: ProjectCar
     </Card>
   );
 }
+
