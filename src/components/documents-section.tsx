@@ -5,15 +5,15 @@ import { Button } from "@/components/ui/button";
 import { Icon } from "@/components/icons";
 import Link from "next/link";
 import Image from "next/image";
-import { ExternalLink, Star } from "lucide-react"; 
-import { Badge } from "@/components/ui/badge"; 
+import { ExternalLink, Star } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 import type { Dictionary } from '@/lib/i18n';
-import type { LinkItem } from '@/lib/types'; 
+import type { LinkItem } from '@/lib/types';
 import { cn } from "@/lib/utils";
 
 interface DocumentsSectionProps {
-  dict: Dictionary; 
-  documentLinksData: LinkItem[]; 
+  dict: Dictionary;
+  documentLinksData: LinkItem[];
 }
 
 export default function DocumentsSection({ dict, documentLinksData }: DocumentsSectionProps) {
@@ -29,14 +29,14 @@ export default function DocumentsSection({ dict, documentLinksData }: DocumentsS
             {dict.description}
           </p>
         </div>
-        
+
         <div className="flex flex-wrap justify-center gap-8">
           {documentLinksData.map((item) => (
-            <Card 
-              key={item.id} 
+            <Card
+              key={item.id}
               className={cn(
                 "group flex flex-col overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 ease-in-out transform hover:-translate-y-1 rounded-xl",
-                item.isFeatured 
+                item.isFeatured
                   ? "w-full md:w-3/4 lg:w-2/3 xl:max-w-3xl mx-auto"  // Featured book takes more space
                   : "w-full md:w-[calc(50%_-_1rem)] max-w-lg" // Other items
               )}
@@ -45,24 +45,24 @@ export default function DocumentsSection({ dict, documentLinksData }: DocumentsS
                 {item.imageUrl && (
                   <div className={cn(
                     "relative flex-shrink-0 rounded-md overflow-hidden shadow-md mx-auto md:mx-0",
-                    item.isFeatured 
+                    item.isFeatured
                       ? "h-64 w-48 sm:h-72 sm:aspect-[2/3]" // Larger image for featured book
-                      : "h-24 w-16" // Default size for other items like smaller book covers or profile icons
+                      : "h-24 w-24 sm:h-28 sm:w-28" // Default size for other items like smaller book covers or profile icons
                   )}>
-                    <Image 
-                      src={item.imageUrl} 
-                      alt={item.name} 
-                      fill 
-                      className="object-cover" 
+                    <Image
+                      src={item.imageUrl}
+                      alt={item.name}
+                      fill
+                      className="object-cover"
                       data-ai-hint={item.dataAiHint || "document image"}
-                      sizes={item.isFeatured ? "(max-width: 640px) 192px, (max-width: 768px) 192px, 256px" : "64px"}
+                      sizes={item.isFeatured ? "(max-width: 640px) 192px, (max-width: 768px) 192px, 256px" : "(max-width: 640px) 96px, 112px"}
                     />
                   </div>
                 )}
-                <div className={cn("flex-grow", item.isFeatured ? "mt-4 md:mt-0 text-center md:text-left" : "mt-0")}>
+                <div className={cn("flex-grow", item.isFeatured ? "mt-4 md:mt-0 text-center md:text-left" : "mt-4 text-center sm:text-left")}> {/* Adjusted mt for non-featured */}
                   <div className={cn(
                       "flex items-center gap-3 mb-1",
-                      item.isFeatured ? "justify-center md:justify-start" : ""
+                      item.isFeatured ? "justify-center md:justify-start" : "justify-center sm:justify-start" // Center on mobile for non-featured
                     )}>
                       {!item.imageUrl && <Icon name={item.iconName} className="h-6 w-6 text-accent" />}
                        <CardTitle className={cn(
@@ -78,7 +78,7 @@ export default function DocumentsSection({ dict, documentLinksData }: DocumentsS
                    {item.description && (
                     <CardDescription className={cn(
                         "text-foreground/80 leading-relaxed",
-                        item.isFeatured ? "text-base mt-2" : "text-sm"
+                        item.isFeatured ? "text-base mt-2" : "text-sm mt-1" // Adjusted mt for non-featured
                       )}>
                       {item.description}
                     </CardDescription>
@@ -86,14 +86,13 @@ export default function DocumentsSection({ dict, documentLinksData }: DocumentsS
                 </div>
               </CardHeader>
               <CardContent className={cn(
-                  "flex-grow", 
-                  item.imageUrl && !item.isFeatured ? "pt-2" : "pt-0",
-                  item.isFeatured && item.description ? "pt-2 md:pt-0" : "", 
-                  !item.description && item.isFeatured ? "pt-0" : "" 
+                  "flex-grow pt-0", // Simplified padding, rely on header for top space
+                  item.isFeatured && item.description ? "pb-0 md:pb-6" : "pb-6" // Ensure bottom padding unless it's for the button only
                 )}
               >
+                {/* This description is only for featured items on mobile, as header stacks vertically */}
                 {item.isFeatured && item.description && (
-                  <div className="md:hidden"> 
+                  <div className="md:hidden">
                      <CardDescription className="text-sm text-foreground/80 leading-relaxed mt-2">
                         {item.description}
                       </CardDescription>

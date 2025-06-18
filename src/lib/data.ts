@@ -64,7 +64,7 @@ export const projectsData: Project[] = [
     id: 'proj-epa-en-linea',
     name: 'proj-epa-en-linea_name',
     url: 'https://cr.epaenlinea.com',
-    description: 'proj-epa-en-linea_description', 
+    description: 'proj-epa-en-linea_description',
     thumbnailUrl: 'https://i.imgur.com/XNbjFzv.png',
     dataAiHint: 'hardware ecommerce retail',
     tags: ['E-commerce', 'Retail', 'Web Development', 'Collaboration'],
@@ -143,7 +143,9 @@ export const documentLinksData: LinkItem[] = [
     url: 'https://drive.google.com/file/d/14_sPGzT-GH9JNqfYperRCmHJ12LNBnGB/view',
     iconName: 'BookOpen',
     description: 'bookPracticalCS_description',
-    buttonText: 'bookPracticalCS_buttonText'
+    buttonText: 'bookPracticalCS_buttonText',
+    imageUrl: 'https://placehold.co/128x192.png',
+    dataAiHint: 'book computer',
   },
   {
     id: 'profileLinkedIn',
@@ -151,7 +153,9 @@ export const documentLinksData: LinkItem[] = [
     url: 'https://www.linkedin.com/in/efraingb/',
     iconName: 'Linkedin',
     description: 'profileLinkedIn_description',
-    buttonText: 'profileLinkedIn_buttonText'
+    buttonText: 'profileLinkedIn_buttonText',
+    imageUrl: 'https://placehold.co/150x150.png',
+    dataAiHint: 'profile avatar',
   },
   {
     id: 'profileGitHub',
@@ -159,7 +163,9 @@ export const documentLinksData: LinkItem[] = [
     url: 'https://github.com/efraingbdev/',
     iconName: 'Github',
     description: 'profileGitHub_description',
-    buttonText: 'profileGitHub_buttonText'
+    buttonText: 'profileGitHub_buttonText',
+    imageUrl: 'https://placehold.co/150x150.png',
+    dataAiHint: 'code profile',
   }
 ];
 
