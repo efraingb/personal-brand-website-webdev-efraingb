@@ -5,7 +5,7 @@
 import type { Project } from "@/lib/types";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import Image from "next/image";
-import { WifiOff, ExternalLink as ExternalLinkIcon, Loader2, Rocket, Info, Sparkles, Film, Clock, Mail, MessageSquare } from "lucide-react"; 
+import { WifiOff, ExternalLink as ExternalLinkIcon, Loader2, Rocket, Info, Sparkles, Film, Clock, MessageSquare } from "lucide-react"; 
 import { Button } from "./ui/button";
 import { cn } from "@/lib/utils";
 import type { Dictionary } from "@/lib/i18n";
@@ -28,16 +28,19 @@ function extractVideoId(url: string): VideoIdResult | null {
   let videoId: string | null = null;
   let platform: 'youtube' | 'vimeo' | null = null;
 
+  // Check for YouTube Shorts format first
   let match = url.match(/youtube\.com\/shorts\/([a-zA-Z0-9_-]{11})/);
   if (match && match[1]) {
     videoId = match[1];
     platform = 'youtube';
   } else {
+    // Standard YouTube URL formats
     match = url.match(/^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/i);
     if (match && match[2] && match[2].length === 11) {
       videoId = match[2];
       platform = 'youtube';
     } else {
+      // Vimeo URL format
       match = url.match(/vimeo\.com\/(?:video\/|)(\d+)/);
       if (match && match[1]) {
         videoId = match[1];
@@ -56,8 +59,8 @@ function extractVideoId(url: string): VideoIdResult | null {
 export default function ProjectModal({ project, isActive, isOpen, onClose, dict }: ProjectModalProps) {
   if (!project) return null;
 
-  const aiToolIds = ['proj-quiz-ai', 'proj-negotia', 'proj-agroia'];
-  const isSpecialAiTool = aiToolIds.includes(project.id);
+  const aiToolIdsWithSpecialSchedule = ['proj-quiz-ai', 'proj-negotia', 'proj-agroia', 'proj-bless'];
+  const isSpecialAiTool = aiToolIdsWithSpecialSchedule.includes(project.id);
 
   const hasValidUrl = project.url && project.url.trim() !== '' && project.url !== '#';
   const isCloudWorkstation = project.url?.includes('cloudworkstations.dev');
@@ -79,43 +82,25 @@ export default function ProjectModal({ project, isActive, isOpen, onClose, dict 
   let mainButton: React.ReactNode = null;
   
   if (isSpecialAiTool) {
-    if (isActive === true) { 
-      displayIcon = hasVideo ? <Film className="h-10 w-10 text-accent mb-3" /> : <Rocket className="h-10 w-10 text-green-500 mb-3" />;
-      messageTitle = `${project.name} - ${dict.statusOnlineTitle || "Project Online"}`;
-      messageDescription = hasVideo ? dict.videoDemoDescription : dict.statusOnlineDescription;
-      if (hasValidUrl) {
-        mainButton = (
-          <Button variant="default" asChild className="mt-4 shadow-md hover:shadow-lg transition-shadow">
-            <a href={project.url} target="_blank" rel="noopener noreferrer">
-              {dict.buttonVisitSite || "Visit Site"}
-              <ExternalLinkIcon className="ml-2 h-4 w-4" />
-            </a>
-          </Button>
-        );
-      }
-    } else { 
-      displayIcon = <Clock className="h-10 w-10 text-amber-500 mb-3" />;
-      messageTitle = `${project.name} - ${dict.iaToolOfflineTitle || "AI Tool Access Request"}`;
-      messageDescription = (
-        <>
-          <p>{dict.iaToolOfflineDescription || "This AI tool has specific availability. Contact to request access."}</p>
-          {hasVideo && <p className="mt-2 text-sm text-foreground/70">{dict.videoOfflineDescriptionAlternative || "You can also watch the video demo below."}</p>}
-        </>
-      );
-      mainButton = (
-        <Button asChild variant="default" className="mt-4 shadow-md hover:shadow-lg transition-shadow">
-          <Link href="#contact" onClick={onClose}>
-            {dict.buttonRequestAccess || "Request Access"}
-            <MessageSquare className="ml-2 h-4 w-4" />
-          </Link>
-        </Button>
-      );
-    }
+    displayIcon = <Clock className="h-10 w-10 text-amber-500 mb-3" />;
+    messageTitle = `${project.name} - ${dict.iaToolOfflineTitle || "AI Tool Access Request"}`;
+    messageDescription = (
+      <>
+        <p>{dict.iaToolOfflineDescription || "This AI tool has specific availability. Contact to request access."}</p>
+        {hasVideo && <p className="mt-2 text-sm text-foreground/70">{dict.videoOfflineDescriptionAlternative || "You can also watch the video demo below."}</p>}
+      </>
+    );
+    mainButton = (
+      <Button asChild variant="default" className="mt-4 shadow-md hover:shadow-lg transition-shadow" onClick={onClose}>
+        <Link href="#contact">
+          {dict.buttonRequestAccess || "Request Access"}
+          <MessageSquare className="ml-2 h-4 w-4" />
+        </Link>
+      </Button>
+    );
   } else { 
-    // This block handles non-special AI tools or AI tools that are confirmed online (already handled by the first 'if' in isSpecialAiTool)
-    // So effectively, this is for generic projects, or fallback if AI tool logic for online state needs more generic text/button
+    // This block handles non-special AI tools or AI tools that are confirmed online
     if (isActive === true) {
-      // Set icon and messages for generic online projects
       if (isCloudWorkstation) {
         displayIcon = <Sparkles className="h-10 w-10 text-sky-500 mb-3" />;
         messageTitle = `${project.name} - ${dict.statusActiveDevTitle || "Active Project (Dev)"}`;
@@ -130,7 +115,6 @@ export default function ProjectModal({ project, isActive, isOpen, onClose, dict 
         messageDescription = dict.statusOnlineDescription;
       }
 
-      // Set button for generic online projects
       if (hasValidUrl) {
          mainButton = (
           <Button variant="default" asChild className="mt-4 shadow-md hover:shadow-lg transition-shadow">
@@ -141,7 +125,7 @@ export default function ProjectModal({ project, isActive, isOpen, onClose, dict 
           </Button>
         );
       }
-    } else if (isActive === false) { // Generic project offline
+    } else if (isActive === false) { 
       displayIcon = hasVideo ? <Film className="h-10 w-10 text-accent mb-3" /> : <WifiOff className="h-10 w-10 text-destructive mb-3" />;
       messageTitle = project.name + (hasVideo ? ` - ${dict.videoDemoTitleSuffix || "Video Demo"}` : ` - ${dict.statusOfflineTitle || "Project Status"}`);
       
@@ -158,31 +142,35 @@ export default function ProjectModal({ project, isActive, isOpen, onClose, dict 
           </Button>
         );
       }
-    } else { // isActive is null (verifying)
-      displayIcon = hasVideo ? <Film className="h-10 w-10 text-accent mb-3" /> : <Loader2 className="h-10 w-10 text-primary animate-spin mb-3" />;
-      messageTitle = project.name + (hasVideo ? ` - ${dict.videoDemoTitleSuffix || "Video Demo"}` : ` - ${dict.statusVerifyingTitle || "Verifying Status..."}`);
-      messageDescription = hasVideo ? dict.statusVerifyingVideoDescription : dict.statusVerifyingDescription;
-      
-      if (!hasValidUrl && !hasVideo) { // Special case: Verifying, no URL, no Video -> show "No public link" details
-          messageTitle = `${project.name} - ${dict.statusNoUrlTitle || "Project Details"}`;
-          messageDescription = dict.statusNoUrlDescriptionModal;
-          displayIcon = <Info className="h-10 w-10 text-muted-foreground mb-3" />;
+    } else { // isActive is null (verifying or no URL for non-special AI tool)
+      if (hasVideo && !hasValidUrl) { // Has video, no URL, not special AI tool
+        displayIcon = <Film className="h-10 w-10 text-accent mb-3" />;
+        messageTitle = project.name + ` - ${dict.videoDemoTitleSuffix || "Video Demo"}`;
+        messageDescription = dict.statusVerifyingVideoDescription; // Or specific "video only" message
+        mainButton = ( <Button variant="outline" className="mt-4 shadow-md" disabled={true}> {dict.buttonNoPublicLink || "No Public Link"} </Button> );
+      } else if (!hasValidUrl && !hasVideo) { // No URL, no Video, not special AI tool
+        displayIcon = <Info className="h-10 w-10 text-muted-foreground mb-3" />;
+        messageTitle = `${project.name} - ${dict.statusNoUrlTitle || "Project Details"}`;
+        messageDescription = dict.statusNoUrlDescriptionModal;
+        mainButton = ( <Button variant="outline" className="mt-4 shadow-md" disabled={true}> {dict.buttonNoPublicLink || "No Public Link"} </Button> );
+      } else { // Has URL (and possibly video), isActive is null (verifying)
+        displayIcon = hasVideo ? <Film className="h-10 w-10 text-accent mb-3" /> : <Loader2 className="h-10 w-10 text-primary animate-spin mb-3" />;
+        messageTitle = project.name + (hasVideo ? ` - ${dict.videoDemoTitleSuffix || "Video Demo"}` : ` - ${dict.statusVerifyingTitle || "Verifying Status..."}`);
+        messageDescription = hasVideo ? dict.statusVerifyingVideoDescription : dict.statusVerifyingDescription;
+        mainButton = (
+          <Button variant="outline" className="mt-4 shadow-md" disabled={true}>
+            {dict.buttonVisitSite || "Visit Site"}
+          </Button>
+        );
       }
-      
-      // Button for verifying state (usually disabled or placeholder)
-      mainButton = (
-        <Button variant="outline" className="mt-4 shadow-md" disabled={true}>
-          {hasValidUrl ? (dict.buttonVisitSite || "Visit Site") : (dict.buttonNoPublicLink || "No Public Link")}
-        </Button>
-      );
     }
   }
 
-  // Fallback button if no other logic set it and it's not a special AI tool offline case
-  if (!mainButton) {
+  // Fallback button if no other logic set it and it's not a special AI tool
+  if (!mainButton && !isSpecialAiTool) {
     if (hasValidUrl) {
       mainButton = (
-        <Button variant="default" asChild className="mt-4 shadow-md hover:shadow-lg transition-shadow" disabled={isActive === null}>
+        <Button variant="default" asChild className="mt-4 shadow-md hover:shadow-lg transition-shadow" disabled={isActive === null && !isCloudWorkstation}>
           <a href={project.url} target="_blank" rel="noopener noreferrer">
             {isCloudWorkstation ? (dict.buttonOpenDevLink || "Open Dev Link") : (dict.buttonVisitSite || "Visit Site")}
             <ExternalLinkIcon className="ml-2 h-4 w-4" />
@@ -232,6 +220,7 @@ export default function ProjectModal({ project, isActive, isOpen, onClose, dict 
                   ></iframe>
                 </div>
               ) : (
+                project.thumbnailUrl && // Ensure thumbnailUrl exists before rendering Image
                 <div className="relative w-full max-w-md aspect-[16/10] rounded-lg overflow-hidden shadow-xl my-4 border border-border/30 animate-in fade-in-0 zoom-in-95 duration-300 ease-out">
                   <Image
                     src={project.thumbnailUrl}
@@ -250,3 +239,4 @@ export default function ProjectModal({ project, isActive, isOpen, onClose, dict 
     </Dialog>
   );
 }
+

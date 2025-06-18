@@ -69,7 +69,7 @@
     "buttonNoPublicLink": "Sin Enlace Público",
     "iaToolOfflineTitle": "Solicitud de Acceso a Herramienta IA",
     "iaToolOfflineDescription": "Esta herramienta de IA suele estar disponible de lunes a viernes de 8 AM a 12 PM hora de Costa Rica (UTC-6). Por favor, contáctame por WhatsApp o correo para solicitar acceso o consultar disponibilidad fuera de este horario.",
-    "videoOfflineDescriptionAlternative": "También puedes ver el video de demostración a continuación mientras esperas o para conocer sus capacidades.",
+    "videoOfflineDescriptionAlternative": "También puedes ver el video de demostración a continuación.",
     "buttonRequestAccess": "Solicitar Acceso"
   },
   "documentsSection": {
@@ -138,3 +138,4 @@
     "spanish": "Español"
   }
 }
+
