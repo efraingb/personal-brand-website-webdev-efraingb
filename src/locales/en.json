@@ -24,7 +24,7 @@
   },
   "projectGallery": {
     "title": "My Projects",
-    "description": "A selection of projects that showcase my skills and passion for development, including innovative AI tools you can explore (with premium features planned!). Each one represents a unique challenge and learning opportunity.",
+    "description": "A selection of projects that showcase my skills and passion for development, including innovative AI tools you can explore. Each one represents a unique challenge and learning opportunity.",
     "recentIaProjectsTitle": "Recent & Featured AI Projects",
     "impactfulCollaborationsTitle": "Impactful Collaborations",
     "noProjects": "No projects to display at the moment. Check back soon!"
@@ -148,3 +148,5 @@
     "spanish": "Español"
   }
 }
+
+    

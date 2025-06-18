@@ -24,7 +24,7 @@
   },
   "projectGallery": {
     "title": "Mis Proyectos",
-    "description": "Una selección de proyectos que muestran mis habilidades y pasión por el desarrollo, incluyendo herramientas innovadoras de IA que puedes explorar (¡con funciones premium en camino!). Cada uno representa un desafío único y una oportunidad de aprendizaje.",
+    "description": "Una selección de proyectos que muestran mis habilidades y pasión por el desarrollo, incluyendo herramientas innovadoras de IA que puedes explorar. Cada uno representa un desafío único y una oportunidad de aprendizaje.",
     "recentIaProjectsTitle": "Proyectos IA Recientes y Destacados",
     "impactfulCollaborationsTitle": "Colaboraciones de Impacto",
     "noProjects": "No hay proyectos para mostrar en este momento. ¡Vuelve pronto!"
@@ -103,7 +103,7 @@
     "proj-agro-y-mas_name": "Agro Y Más",
     "proj-agro-y-mas_description": "Colaboración en la plataforma digital para el sector agrícola, enfocada en conectar a productores con información relevante, mercados y soluciones financieras.",
     "proj-epa-en-linea_name": "EPA en Línea (Costa Rica)",
-    "proj-epa-en-linea_description": "Colaboré en la plataforma e-commerce de Ferretería EPA en Costa Rica, una importante cadena de ferreterías, mejorando la experiencia de compra online.",
+    "proj-epa-en-linea_description": "Contribuí a la plataforma e-commerce de Ferretería EPA en Costa Rica, una importante cadena de ferreterías, mejorando la experiencia de compra online.",
     "proj-kohls_name": "Kohl's E-commerce",
     "proj-kohls_description": "Colaboración relacionada con la plataforma de e-commerce de Kohl’s, una destacada cadena de tiendas departamentales en Estados Unidos.",
     "collab-crdigital_name": "CRDigital",
@@ -148,3 +148,5 @@
     "spanish": "Español"
   }
 }
+
+    
