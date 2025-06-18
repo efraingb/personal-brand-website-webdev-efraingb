@@ -20,6 +20,8 @@ export interface LinkItem {
   description?: string; // Translation key, e.g., "documentY_description"
   text?: string; // Translation key for contact items, e.g., "contactZ_text"
   buttonText?: string; // Translation key, e.g., "documentY_buttonText"
+  imageUrl?: string; // For images like book covers
+  dataAiHint?: string; // For AI hint on imageUrl
 }
 
 export type IconName = 'BookOpen' | 'Linkedin' | 'Github' | 'Mail' | 'ExternalLink' | 'ServerCrash' | 'CircleDot' | 'Smartphone';

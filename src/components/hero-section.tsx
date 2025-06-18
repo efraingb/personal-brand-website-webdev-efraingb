@@ -36,6 +36,18 @@ export default function HeroSection({ dict }: HeroSectionProps) {
               <Link href="#contact">{dict.getInTouch}</Link>
             </Button>
           </div>
+          <div className="mt-12 flex justify-center">
+            <div className="relative h-32 w-32 sm:h-40 sm:w-40 rounded-full overflow-hidden shadow-xl border-4 border-background transform transition-all hover:scale-105">
+              <Image
+                src="https://i.imgur.com/jbUy3VU.png" // Corrected to .png
+                alt={dict.personalPhotoAlt || "Efraín G.B. - Personal Photo"}
+                fill
+                className="object-cover"
+                data-ai-hint="portrait person"
+                sizes="(max-width: 640px) 128px, 160px"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </section>

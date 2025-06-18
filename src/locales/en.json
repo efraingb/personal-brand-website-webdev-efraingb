@@ -20,7 +20,8 @@
     "subtitle": "Full-Stack Developer & AI Innovator",
     "description": "Passionate about crafting elegant and efficient digital solutions. Explore my AI-driven tools, discover insightful books and resources, and learn about my work in full-stack development & AI innovation.",
     "viewMyWork": "View My Work",
-    "getInTouch": "Get In Touch"
+    "getInTouch": "Get In Touch",
+    "personalPhotoAlt": "Efraín G.B. - Personal Photo"
   },
   "projectGallery": {
     "title": "My Projects",
@@ -138,4 +139,3 @@
     "spanish": "Español"
   }
 }
-

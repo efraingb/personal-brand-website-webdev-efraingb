@@ -8,9 +8,9 @@ import type { Project, LinkItem, NavLink } from './types'; // Added NavLink
 export const projectsData: Project[] = [
   {
     id: 'proj-quiz-ai',
-    name: 'proj-quiz-ai_name', // Key for translation (content updated in locale files)
+    name: 'proj-quiz-ai_name',
     url: 'https://9000-idx-studio-1746296464496.cluster-pgviq6mvsncnqxx6kr7pbz65v6.cloudworkstations.dev/',
-    description: 'proj-quiz-ai_description', // Key for translation (content updated in locale files)
+    description: 'proj-quiz-ai_description',
     thumbnailUrl: 'https://i.imgur.com/0NciRLC.png',
     dataAiHint: 'ai quiz generator',
     tags: ['AI', 'EdTech', 'Firebase', 'Generative AI', 'Web Development'],
@@ -31,8 +31,8 @@ export const projectsData: Project[] = [
     name: 'proj-bless_name',
     url: 'https://9000-firebase-studio-1747186834705.cluster-hf4yr35cmnbd4vhbxvfvc6cp5q.cloudworkstations.dev/',
     description: 'proj-bless_description',
-    thumbnailUrl: 'https://i.imgur.com/2GnmZm2.png',
-    dataAiHint: 'community platform',
+    thumbnailUrl: 'https://i.imgur.com/lQZr47s.png', // Corrected to direct image link
+    dataAiHint: 'community logo',
     tags: ['Community', 'Platform', 'Firebase', 'Social Impact', 'Web Development'],
     videoUrl: 'https://www.youtube.com/shorts/t3nXM-hHEaQ',
   },
@@ -93,7 +93,9 @@ export const documentLinksData: LinkItem[] = [
     url: 'https://www.amazon.com/Antes-que-las-Tostadoras-Gobiernen-ebook/dp/B0DQJ8Q55K/',
     iconName: 'BookOpen',
     description: 'bookAntesTostadoras_description',
-    buttonText: 'bookAntesTostadoras_buttonText'
+    buttonText: 'bookAntesTostadoras_buttonText',
+    imageUrl: 'https://imgur.com/UPyjS5R.png',
+    dataAiHint: 'book cover art'
   },
   {
     id: 'bookPracticalCS',
@@ -152,3 +154,4 @@ export const navLinksData: NavLink[] = [
   { href: '#documents', labelKey: 'booksAndResources' },
   { href: '#contact', labelKey: 'contact' },
 ];
+
