@@ -37,7 +37,7 @@ export default function DocumentsSection({ dict, documentLinksData }: DocumentsS
               className={cn(
                 "group flex flex-col overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 ease-in-out transform hover:-translate-y-1 rounded-xl",
                 item.isFeatured
-                  ? "w-full md:w-3/4 lg:w-2/3 xl:max-w-3xl mx-auto"  // Featured book takes more space
+                  ? "w-full md:w-3/4 lg:w-2/3 xl:max-w-3xl 2xl:max-w-xl mx-auto"  // Featured book: adjusted 2xl max-width
                   : "w-full md:w-[calc(50%_-_1rem)] max-w-lg" // Other items
               )}
             >
