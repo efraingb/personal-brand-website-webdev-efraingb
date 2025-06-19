@@ -43,7 +43,8 @@
     "statusOfflineTooltip": "This project appears to be offline or inaccessible.",
     "viewVideoDemo": "View Video Demo",
     "verificationIssueTitle": "Verification Issue",
-    "verificationIssueDescription": "Could not verify status for {projectName}. It might be temporarily offline."
+    "verificationIssueDescription": "Could not verify status for {projectName}. It might be temporarily offline.",
+    "featuredAiBadgeText": "Featured AI"
   },
   "projectModal": {
     "defaultTitleSuffix": "Details",
@@ -103,7 +104,7 @@
     "proj-agro-y-mas_name": "Agro Y Más",
     "proj-agro-y-mas_description": "Collaboration on the digital platform for the agricultural sector, focused on connecting producers with relevant information, markets, and financial solutions.",
     "proj-epa-en-linea_name": "EPA en Línea (Costa Rica)",
-    "proj-epa-en-linea_description": "Contributed to the e-commerce platform for Ferretería EPA in Costa Rica, a major hardware retail chain.",
+    "proj-epa-en-linea_description": "Contributed to the e-commerce platform for Ferretería EPA in Costa Rica, a major hardware retail chain, enhancing the online shopping experience.",
     "proj-kohls_name": "Kohl's E-commerce",
     "proj-kohls_description": "Collaboration related to the e-commerce platform of Kohl’s, a leading department store chain in the United States.",
     "collab-crdigital_name": "CRDigital",
@@ -111,9 +112,9 @@
     "collab-vita_name": "Vita",
     "collab-vita_description": "Strategic collaboration with Vita, a pioneering Web 4.0 startup based in Dubai, exploring next-generation internet solutions.",
     "collab-poder-judicial_name": "Judicial Branch of Costa Rica",
-    "collab-poder-judicial_description": "Collaboration with the Judicial Branch of Costa Rica on various digital initiatives.",
+    "collab-poder-judicial_description": "Collaboration with the Judicial Branch of Costa Rica on various digital initiatives and consulting.",
     "collab-libreria-internacional_name": "Librería Internacional",
-    "collab-libreria-internacional_description": "Collaboration with Librería Internacional on various digital projects."
+    "collab-libreria-internacional_description": "Collaboration with Librería Internacional on various digital projects and e-commerce strategy."
   },
   "documentLinksData": {
     "bookAntesTostadoras_name": "Antes que las Tostadoras Gobiernen",
@@ -148,5 +149,3 @@
     "spanish": "Español"
   }
 }
-
-    

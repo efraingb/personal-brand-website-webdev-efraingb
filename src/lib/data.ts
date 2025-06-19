@@ -11,6 +11,7 @@ export const projectsData: Project[] = [
     dataAiHint: 'agritech platform',
     tags: ['AgriTech', 'AI', 'E-commerce', 'Platform', 'Firebase', 'Web Development'],
     videoUrl: 'https://www.youtube.com/shorts/BvDAXjkxc3M',
+    isFeaturedAi: true, // Highlight AgroIA
   },
   {
     id: 'proj-quiz-ai',
@@ -134,7 +135,7 @@ export const documentLinksData: LinkItem[] = [
     url: 'https://hotmart.com/es/marketplace/productos/ia-para-crecer-optimiza-con-odoo-innova-con-blockchain-y-vende-con-marketing-digital/G100133293T?fbclid=IwY2xjawK4YDFleHRuA2FlbQIxMABicmlkETFhaW02MERiUFphV01qWlJxAR6lr0Hy9XltTLi6236HX98TzZAdhaN8Ey9MueYC2ea0Uwzibr_dpD4wEqYJlw_aem_o2R-nGjNY8EM8T0FEMh-Zg',
     iconName: 'BookOpen',
     description: 'bookIaParaCrecer_description',
-    buttonText: 'bookIaParaCrecer_buttonText',
+    buttonText: 'bookIaParaCrecer_buttonText', // Key corrected here for consistency
     isRecommended: true,
   },
   {
@@ -182,5 +183,3 @@ export const navLinksData: NavLink[] = [
   { href: '#documents', labelKey: 'booksAndResources' },
   { href: '#contact', labelKey: 'contact' },
 ];
-
-

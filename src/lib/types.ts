@@ -6,11 +6,12 @@ export interface Project {
   name: string; 
   url: string;
   description: string; 
-  thumbnailUrl: string;
-  dataAiHint: string;
+  thumbnailUrl?: string; // Made optional for projects without images
+  dataAiHint?: string;  // Made optional
   tags?: string[]; 
   videoUrl?: string;
-  isCollaborationLogo?: boolean; // Optional flag for logo projects
+  isCollaborationLogo?: boolean; 
+  isFeaturedAi?: boolean; // New property to highlight specific AI projects
 }
 
 export interface LinkItem {

@@ -33,7 +33,6 @@ export default function ProjectCard({ project, onViewProject, dict }: ProjectCar
   const isStablePublicProject = STABLE_PROJECT_IDS.includes(project.id);
   const isCollaborationLogoCard = project.isCollaborationLogo === true;
   
-  // Robust check for thumbnailUrl
   const thumbnailUrlIsValid = typeof project.thumbnailUrl === 'string' && project.thumbnailUrl.trim() !== '';
 
 
@@ -82,16 +81,13 @@ export default function ProjectCard({ project, onViewProject, dict }: ProjectCar
         }
       }
     }
-
-    // Only run checkStatus if there's a valid URL and it's not a collaboration logo card
-    // or if it's not a stable project (which are assumed active)
+    
     if (thumbnailUrlIsValid && hasValidUrl && !isCollaborationLogoCard && !isStablePublicProject && !isCloudWorkstation) {
       checkStatus();
     } else if (isCollaborationLogoCard || !thumbnailUrlIsValid) {
-      // For collaboration logos or items without thumbnails, set loading to false and active based on URL presence for non-logos
       setIsLoading(false);
-      setIsActive(hasValidUrl && !isCollaborationLogoCard); // Only truly "active" if it has a URL and isn't just a logo
-    } else { // Handles stable projects and cloud workstations
+      setIsActive(hasValidUrl && !isCollaborationLogoCard); 
+    } else { 
       setIsLoading(false);
       setIsActive(true);
     }
@@ -148,7 +144,7 @@ export default function ProjectCard({ project, onViewProject, dict }: ProjectCar
       {thumbnailUrlIsValid && (
         <div className={cn(
             "relative w-full aspect-[16/10] overflow-hidden rounded-t-xl",
-            (isCollaborationLogoCard && thumbnailUrlIsValid) && "bg-card flex items-center justify-center p-4" // Changed bg-muted to bg-card
+            (isCollaborationLogoCard && thumbnailUrlIsValid) && "bg-card flex items-center justify-center p-4" 
           )}>
           <Image
             src={project.thumbnailUrl} 
@@ -165,13 +161,21 @@ export default function ProjectCard({ project, onViewProject, dict }: ProjectCar
         </div>
       )}
       <CardHeader className="pt-4">
-        <div className="flex justify-between items-center">
-          <CardTitle className="text-xl font-semibold text-primary">{project.name}</CardTitle>
+        <div className="flex justify-between items-start">
+          <div className="flex-grow mr-2">
+            <CardTitle className="text-xl font-semibold text-primary">{project.name}</CardTitle>
+            {project.isFeaturedAi && (
+              <Badge variant="default" className="mt-1 bg-teal-500 hover:bg-teal-600 text-white text-xs">
+                <Sparkles className="mr-1 h-3 w-3" />
+                {dict.featuredAiBadgeText || "Featured AI"}
+              </Badge>
+            )}
+          </div>
           {project.videoUrl && !isCollaborationLogoCard && (
             <TooltipProvider>
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <PlayCircle className="h-6 w-6 text-accent cursor-pointer" onClick={() => onViewProject(project, effectiveIsActive)} />
+                  <PlayCircle className="h-6 w-6 text-accent cursor-pointer flex-shrink-0" onClick={() => onViewProject(project, effectiveIsActive)} />
                 </TooltipTrigger>
                 <TooltipContent>
                   <p>{dict.viewVideoDemo || "View Video Demo"}</p>
@@ -181,7 +185,7 @@ export default function ProjectCard({ project, onViewProject, dict }: ProjectCar
           )}
         </div>
         {project.tags && project.tags.length > 0 && (
-          <div className="flex flex-wrap gap-1 mt-1">
+          <div className="flex flex-wrap gap-1 mt-2">
             {project.tags.map(tag => (
               <Badge key={tag} variant="secondary" className="text-xs">{tag}</Badge>
             ))}
@@ -193,7 +197,7 @@ export default function ProjectCard({ project, onViewProject, dict }: ProjectCar
           {project.description}
         </CardDescription>
       </CardContent>
-      {!isCollaborationLogoCard && ( // This condition ensures footer doesn't show for collaboration logos
+      {!isCollaborationLogoCard && ( 
         <CardFooter className="flex flex-col sm:flex-row justify-between items-center gap-2 p-4 bg-muted/30">
           <Button 
             onClick={() => onViewProject(project, effectiveIsActive)}
