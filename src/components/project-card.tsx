@@ -21,7 +21,7 @@ interface ProjectCardProps {
   dict: Dictionary; // Expects dict.projectCard
 }
 
-const STABLE_PROJECT_IDS = ['proj-imagine-motiva', 'proj-agro-y-mas', 'proj-epa-en-linea', 'proj-kohls', 'collab-crdigital', 'collab-vita', 'collab-poder-judicial', 'collab-libreria-internacional', 'proj-agroia'];
+const STABLE_PROJECT_IDS = ['proj-imagine-motiva', 'proj-agro-y-mas', 'proj-epa-en-linea', 'proj-kohls', 'proj-agroia'];
 
 export default function ProjectCard({ project, onViewProject, dict }: ProjectCardProps) {
   const [isActive, setIsActive] = useState<boolean | null>(null);
@@ -32,6 +32,8 @@ export default function ProjectCard({ project, onViewProject, dict }: ProjectCar
   const isCloudWorkstation = project.url?.includes('cloudworkstations.dev');
   const isStablePublicProject = STABLE_PROJECT_IDS.includes(project.id);
   const isCollaborationLogoCard = project.isCollaborationLogo === true;
+  
+  // Robust check for thumbnailUrl
   const thumbnailUrlIsValid = typeof project.thumbnailUrl === 'string' && project.thumbnailUrl.trim() !== '';
 
 
@@ -80,12 +82,25 @@ export default function ProjectCard({ project, onViewProject, dict }: ProjectCar
         }
       }
     }
-    checkStatus();
+
+    // Only run checkStatus if there's a valid URL and it's not a collaboration logo card
+    // or if it's not a stable project (which are assumed active)
+    if (thumbnailUrlIsValid && hasValidUrl && !isCollaborationLogoCard && !isStablePublicProject && !isCloudWorkstation) {
+      checkStatus();
+    } else if (isCollaborationLogoCard || !thumbnailUrlIsValid) {
+      // For collaboration logos or items without thumbnails, set loading to false and active based on URL presence for non-logos
+      setIsLoading(false);
+      setIsActive(hasValidUrl && !isCollaborationLogoCard); // Only truly "active" if it has a URL and isn't just a logo
+    } else { // Handles stable projects and cloud workstations
+      setIsLoading(false);
+      setIsActive(true);
+    }
+    
     return () => {
       isMounted = false;
     };
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [project.id, project.url, project.name, toast, hasValidUrl, isCloudWorkstation, isStablePublicProject, isCollaborationLogoCard]);
+  }, [project.id, project.url, project.name, toast, hasValidUrl, isCloudWorkstation, isStablePublicProject, isCollaborationLogoCard, thumbnailUrlIsValid]);
 
 
   const statusBadge = () => {
@@ -128,12 +143,12 @@ export default function ProjectCard({ project, onViewProject, dict }: ProjectCar
   return (
     <Card className={cn(
       "flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out transform hover:-translate-y-1 rounded-xl group",
-      isLoading && !(isCloudWorkstation || isStablePublicProject || isCollaborationLogoCard) && 'opacity-75 transition-opacity duration-300'
+      isLoading && !(isCloudWorkstation || isStablePublicProject || isCollaborationLogoCard || !thumbnailUrlIsValid) && 'opacity-75 transition-opacity duration-300'
     )}>
       {thumbnailUrlIsValid && (
         <div className={cn(
             "relative w-full aspect-[16/10] overflow-hidden rounded-t-xl",
-            (isCollaborationLogoCard && thumbnailUrlIsValid) && "bg-muted flex items-center justify-center p-4"
+            (isCollaborationLogoCard && thumbnailUrlIsValid) && "bg-card flex items-center justify-center p-4" // Changed bg-muted to bg-card
           )}>
           <Image
             src={project.thumbnailUrl} 
@@ -178,13 +193,13 @@ export default function ProjectCard({ project, onViewProject, dict }: ProjectCar
           {project.description}
         </CardDescription>
       </CardContent>
-      {!isCollaborationLogoCard && (
+      {!isCollaborationLogoCard && ( // This condition ensures footer doesn't show for collaboration logos
         <CardFooter className="flex flex-col sm:flex-row justify-between items-center gap-2 p-4 bg-muted/30">
           <Button 
             onClick={() => onViewProject(project, effectiveIsActive)}
             variant="default"
             className="w-full sm:w-auto"
-            disabled={isLoading && !(isCloudWorkstation || isStablePublicProject || isCollaborationLogoCard)}
+            disabled={isLoading && !(isCloudWorkstation || isStablePublicProject || !thumbnailUrlIsValid)}
           >
             <Eye className="mr-2 h-4 w-4" /> {dict.viewProject || "View Project"}
           </Button>
@@ -192,7 +207,7 @@ export default function ProjectCard({ project, onViewProject, dict }: ProjectCar
             asChild 
             variant="outline" 
             className="w-full sm:w-auto"
-            disabled={!hasValidUrl || (!effectiveIsActive && !(isCloudWorkstation || isStablePublicProject)) || isCollaborationLogoCard}
+            disabled={!hasValidUrl || (!effectiveIsActive && !(isCloudWorkstation || isStablePublicProject))}
           >
             <a href={project.url || '#'} target="_blank" rel="noopener noreferrer">
               <ExternalLink className="mr-2 h-4 w-4" /> {dict.visitSite || "Visit Site"}
@@ -203,4 +218,3 @@ export default function ProjectCard({ project, onViewProject, dict }: ProjectCar
     </Card>
   );
 }
-
