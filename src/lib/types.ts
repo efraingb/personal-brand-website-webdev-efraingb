@@ -12,6 +12,7 @@ export interface Project {
   videoUrl?: string;
   isCollaborationLogo?: boolean; 
   isFeaturedAi?: boolean; // New property to highlight specific AI projects
+  thumbnailIsLogo?: boolean; // New property to handle logo-like thumbnails
 }
 
 export interface LinkItem {
@@ -34,4 +35,3 @@ export interface NavLink {
   href: string;
   labelKey: string; 
 }
-

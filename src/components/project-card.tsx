@@ -21,7 +21,7 @@ interface ProjectCardProps {
   dict: Dictionary; // Expects dict.projectCard
 }
 
-const STABLE_PROJECT_IDS = ['proj-imagine-motiva', 'proj-agro-y-mas', 'proj-epa-en-linea', 'proj-kohls', 'proj-agroia', 'proj-bless'];
+const STABLE_PROJECT_IDS = ['proj-imagine-motiva', 'proj-agro-y-mas', 'proj-epa-en-linea', 'proj-kohls', 'proj-agroia', 'proj-bless', 'proj-menta-ai'];
 
 export default function ProjectCard({ project, onViewProject, dict }: ProjectCardProps) {
   const [isActive, setIsActive] = useState<boolean | null>(null);
@@ -32,6 +32,7 @@ export default function ProjectCard({ project, onViewProject, dict }: ProjectCar
   const isCloudWorkstation = project.url?.includes('cloudworkstations.dev');
   const isStablePublicProject = STABLE_PROJECT_IDS.includes(project.id);
   const isCollaborationLogoCard = project.isCollaborationLogo === true;
+  const isLogoStyle = project.isCollaborationLogo || project.thumbnailIsLogo;
   
   const thumbnailUrlIsValid = typeof project.thumbnailUrl === 'string' && project.thumbnailUrl.trim() !== '';
 
@@ -144,7 +145,7 @@ export default function ProjectCard({ project, onViewProject, dict }: ProjectCar
       {thumbnailUrlIsValid && (
         <div className={cn(
             "relative w-full aspect-[16/10] overflow-hidden rounded-t-xl",
-            (isCollaborationLogoCard && thumbnailUrlIsValid) && "bg-card flex items-center justify-center p-4" 
+            (isLogoStyle && thumbnailUrlIsValid) && "bg-card flex items-center justify-center p-4" 
           )}>
           <Image
             src={project.thumbnailUrl} 
@@ -152,7 +153,7 @@ export default function ProjectCard({ project, onViewProject, dict }: ProjectCar
             fill
             className={cn(
               "transition-transform duration-500 group-hover:scale-105",
-              isCollaborationLogoCard ? "object-contain" : "object-cover"
+              isLogoStyle ? "object-contain" : "object-cover"
             )}
             data-ai-hint={project.dataAiHint}
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

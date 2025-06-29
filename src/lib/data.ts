@@ -22,6 +22,7 @@ export const projectsData: Project[] = [
     dataAiHint: 'ai quiz menta',
     tags: ['AI', 'EdTech', 'Firebase', 'Generative AI', 'Web Development'],
     videoUrl: 'https://www.youtube.com/shorts/gGhuAib5n20',
+    thumbnailIsLogo: true,
   },
   {
     id: 'proj-negotia',
@@ -36,7 +37,7 @@ export const projectsData: Project[] = [
   {
     id: 'proj-bless',
     name: 'proj-bless_name',
-    url: 'https://studio--bless-contigo.us-central1.hosted.app',
+    url: 'https://studio--bless-contigo.us-central1.hosted.app/',
     description: 'proj-bless_description',
     thumbnailUrl: 'https://i.imgur.com/lQZr47s.png',
     dataAiHint: 'community logo',

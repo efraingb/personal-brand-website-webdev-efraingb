@@ -59,7 +59,7 @@ function extractVideoId(url: string): VideoIdResult | null {
 export default function ProjectModal({ project, isActive, isOpen, onClose, dict }: ProjectModalProps) {
   if (!project) return null;
 
-  const aiToolIdsWithSpecialSchedule = ['proj-menta-ai', 'proj-negotia'];
+  const aiToolIdsWithSpecialSchedule = ['proj-negotia'];
   const isSpecialAiTool = aiToolIdsWithSpecialSchedule.includes(project.id);
 
   const hasValidUrl = project.url && project.url.trim() !== '' && project.url !== '#';
