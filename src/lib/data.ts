@@ -36,7 +36,7 @@ export const projectsData: Project[] = [
   {
     id: 'proj-bless',
     name: 'proj-bless_name',
-    url: 'https://9000-firebase-studio-1747186834705.cluster-hf4yr35cmnbd4vhbxvfvc6cp5q.cloudworkstations.dev/',
+    url: 'https://studio--bless-contigo.us-central1.hosted.app',
     description: 'proj-bless_description',
     thumbnailUrl: 'https://i.imgur.com/lQZr47s.png',
     dataAiHint: 'community logo',
