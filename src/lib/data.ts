@@ -27,7 +27,7 @@ export const projectsData: Project[] = [
   {
     id: 'proj-negotia',
     name: 'proj-negotia_name',
-    url: 'https://9000-idx-studio-1745689952822.cluster-ux5mmlia3zhhask7riihruxydo.cloudworkstations.dev/',
+    url: 'https://studio--debate-resolver.us-central1.hosted.app',
     description: 'proj-negotia_description',
     thumbnailUrl: 'https://i.imgur.com/wIwB6qu.png',
     dataAiHint: 'ai negotiation platform',

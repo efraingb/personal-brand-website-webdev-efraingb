@@ -21,7 +21,7 @@ interface ProjectCardProps {
   dict: Dictionary; // Expects dict.projectCard
 }
 
-const STABLE_PROJECT_IDS = ['proj-imagine-motiva', 'proj-agro-y-mas', 'proj-epa-en-linea', 'proj-kohls', 'proj-agroia', 'proj-bless', 'proj-menta-ai'];
+const STABLE_PROJECT_IDS = ['proj-imagine-motiva', 'proj-agro-y-mas', 'proj-epa-en-linea', 'proj-kohls', 'proj-agroia', 'proj-bless', 'proj-menta-ai', 'proj-negotia'];
 
 export default function ProjectCard({ project, onViewProject, dict }: ProjectCardProps) {
   const [isActive, setIsActive] = useState<boolean | null>(null);
@@ -145,7 +145,7 @@ export default function ProjectCard({ project, onViewProject, dict }: ProjectCar
       {thumbnailUrlIsValid && (
         <div className={cn(
             "relative w-full aspect-[16/10] overflow-hidden rounded-t-xl",
-            (isLogoStyle && thumbnailUrlIsValid) && "bg-card flex items-center justify-center p-4" 
+            isLogoStyle && "bg-card flex items-center justify-center p-4" 
           )}>
           <Image
             src={project.thumbnailUrl} 
