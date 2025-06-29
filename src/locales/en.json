@@ -93,8 +93,8 @@
   "projectsData": {
     "proj-agroia_name": "Agroia",
     "proj-agroia_description": "Intelligent digital platform for the agricultural sector, using AI to connect producers with markets, optimize resources, and facilitate access to advanced technologies.",
-    "proj-quiz-ai_name": "Saber IA",
-    "proj-quiz-ai_description": "Unlock your potential. AI-powered quizzes. Tailored for you.",
+    "proj-menta-ai_name": "Menta IA",
+    "proj-menta-ai_description": "Unlock your potential. AI-powered quizzes. Tailored for you.",
     "proj-negotia_name": "NEGOTIA",
     "proj-negotia_description": "Deal Smarter, Not Harder. AI-assisted negotiation platform designed to facilitate win-win outcomes for all parties.",
     "proj-bless_name": "Bless Contigo",
@@ -104,7 +104,7 @@
     "proj-agro-y-mas_name": "Agro Y Más",
     "proj-agro-y-mas_description": "Collaboration on the digital platform for the agricultural sector, focused on connecting producers with relevant information, markets, and financial solutions.",
     "proj-epa-en-linea_name": "EPA en Línea (Costa Rica)",
-    "proj-epa-en-linea_description": "Contributed to the e-commerce platform for Ferretería EPA in Costa Rica, a major hardware retail chain, enhancing the online shopping experience.",
+    "proj-epa-en-linea_description": "Contributed to the e-commerce platform for Ferretería EPA in Costa Rica, a major hardware retail chain.",
     "proj-kohls_name": "Kohl's E-commerce",
     "proj-kohls_description": "Collaboration related to the e-commerce platform of Kohl’s, a leading department store chain in the United States.",
     "collab-crdigital_name": "CRDigital",
@@ -112,9 +112,9 @@
     "collab-vita_name": "Vita",
     "collab-vita_description": "Strategic collaboration with Vita, a pioneering Web 4.0 startup based in Dubai, exploring next-generation internet solutions.",
     "collab-poder-judicial_name": "Judicial Branch of Costa Rica",
-    "collab-poder-judicial_description": "Collaboration with the Judicial Branch of Costa Rica on various digital initiatives and consulting.",
+    "collab-poder-judicial_description": "Collaboration with the Judicial Branch of Costa Rica on various digital initiatives.",
     "collab-libreria-internacional_name": "Librería Internacional",
-    "collab-libreria-internacional_description": "Collaboration with Librería Internacional on various digital projects and e-commerce strategy."
+    "collab-libreria-internacional_description": "Collaboration with Librería Internacional on various digital and e-commerce projects."
   },
   "documentLinksData": {
     "bookAntesTostadoras_name": "Antes que las Tostadoras Gobiernen",

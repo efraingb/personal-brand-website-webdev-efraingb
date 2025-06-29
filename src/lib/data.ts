@@ -14,12 +14,12 @@ export const projectsData: Project[] = [
     isFeaturedAi: true, // Highlight AgroIA
   },
   {
-    id: 'proj-quiz-ai',
-    name: 'proj-quiz-ai_name',
-    url: 'https://9000-idx-studio-1746296464496.cluster-pgviq6mvsncnqxx6kr7pbz65v6.cloudworkstations.dev/',
-    description: 'proj-quiz-ai_description',
-    thumbnailUrl: 'https://i.imgur.com/0NciRLC.png',
-    dataAiHint: 'ai quiz generator',
+    id: 'proj-menta-ai',
+    name: 'proj-menta-ai_name',
+    url: 'https://studio--ai-quizzer-mamal.us-central1.hosted.app',
+    description: 'proj-menta-ai_description',
+    thumbnailUrl: 'https://i.imgur.com/7ALZDkT.png',
+    dataAiHint: 'ai quiz menta',
     tags: ['AI', 'EdTech', 'Firebase', 'Generative AI', 'Web Development'],
     videoUrl: 'https://www.youtube.com/shorts/gGhuAib5n20',
   },
@@ -135,7 +135,7 @@ export const documentLinksData: LinkItem[] = [
     url: 'https://hotmart.com/es/marketplace/productos/ia-para-crecer-optimiza-con-odoo-innova-con-blockchain-y-vende-con-marketing-digital/G100133293T?fbclid=IwY2xjawK4YDFleHRuA2FlbQIxMABicmlkETFhaW02MERiUFphV01qWlJxAR6lr0Hy9XltTLi6236HX98TzZAdhaN8Ey9MueYC2ea0Uwzibr_dpD4wEqYJlw_aem_o2R-nGjNY8EM8T0FEMh-Zg',
     iconName: 'BookOpen',
     description: 'bookIaParaCrecer_description',
-    buttonText: 'bookIaParaCrecer_buttonText', // Key corrected here for consistency
+    buttonText: 'bookIaParaCrecer_buttonText',
     isRecommended: true,
   },
   {
