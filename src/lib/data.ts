@@ -206,6 +206,8 @@ export const credentialsData: CredentialColumn[] = [
     iconName: 'GraduationCap',
     credentials: [
       { id: 'cred_mba_tech', text: 'credentials_education_mba_tech' },
+      { id: 'cred_master_pm', text: 'credentials_education_master_pm' },
+      { id: 'cred_master_big_data', text: 'credentials_education_master_big_data' },
       { id: 'cred_spec_analytics', text: 'credentials_education_spec_analytics' },
       { id: 'cred_certs', text: 'credentials_education_certs' },
     ],
