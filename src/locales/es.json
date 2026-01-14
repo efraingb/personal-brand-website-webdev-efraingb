@@ -25,8 +25,7 @@
   "credentialsSection": {
     "title": "Credenciales y Experiencia",
     "credentials_education_title": "Formación y Certificaciones",
-    "credentials_education_masters_pm": "Máster en Dirección de Proyectos (ENEB 2025)",
-    "credentials_education_masters_ai": "Máster en Big Data e IA (ENEB 2025)",
+    "credentials_education_mba_tech": "MBA con Énfasis en Tecnología (ULACIT, en curso)",
     "credentials_education_spec_analytics": "Especializado en Analítica de Datos e IA (calif. 10/10)",
     "credentials_education_certs": "+8 Certificaciones Profesionales",
     "credentials_experience_title": "Experiencia y Liderazgo",
@@ -37,7 +36,6 @@
     "credentials_results_title": "Resultados Comprobados",
     "credentials_results_revenue": "+30% Crecimiento en Ingresos (CostaRica.org)",
     "credentials_results_nasdaq": "Transformación en Empresa NASDAQ (Establishment Labs)",
-    "credentials_results_edtech": "+10K Estudiantes vía EdTech (MentaIA)",
     "credentials_results_clients": "Base Global de Clientes (EE.UU., LatAm, Europa)"
   },
   "projectGallery": {
@@ -125,6 +123,8 @@
     "proj-epa-en-linea_description": "Contribuí a la plataforma e-commerce de Ferretería EPA en Costa Rica, una importante cadena de ferreterías.",
     "proj-kohls_name": "Kohl's E-commerce",
     "proj-kohls_description": "Colaboración relacionada con la plataforma de e-commerce de Kohl’s, una destacada cadena de tiendas departamentales en Estados Unidos.",
+    "collab-ulacit_name": "ULACIT",
+    "collab-ulacit_description": "Consultoría y desarrollo, incluyendo un creador de landing pages con IA y contribuciones clave para el lanzamiento de su nuevo sitio web institucional.",
     "collab-crdigital_name": "CRDigital",
     "collab-crdigital_description": "Colaboración con CRDigital, una destacada comunidad web en Costa Rica, fomentando el talento tecnológico local y la innovación.",
     "collab-vita_name": "Vita",

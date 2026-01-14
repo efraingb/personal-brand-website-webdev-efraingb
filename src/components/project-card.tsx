@@ -21,7 +21,7 @@ interface ProjectCardProps {
   dict: Dictionary; // Expects dict.projectCard
 }
 
-const STABLE_PROJECT_IDS = ['proj-menta-ai', 'proj-imagine-motiva', 'proj-agro-y-mas', 'proj-epa-en-linea', 'proj-kohls'];
+const STABLE_PROJECT_IDS = ['proj-menta-ai'];
 
 export default function ProjectCard({ project, onViewProject, dict }: ProjectCardProps) {
   const [isActive, setIsActive] = useState<boolean | null>(null);
@@ -161,65 +161,67 @@ export default function ProjectCard({ project, onViewProject, dict }: ProjectCar
            {!isCollaborationLogoCard && <div className="absolute top-3 right-3">{statusBadge()}</div>}
         </div>
       )}
-      <CardHeader className="pt-4">
-        <div className="flex justify-between items-start">
-          <div className="flex-grow mr-2">
-            <CardTitle className="text-xl font-semibold text-primary">{project.name}</CardTitle>
-            {project.isFeaturedAi && (
-              <Badge variant="default" className="mt-1 bg-teal-500 hover:bg-teal-600 text-white text-xs">
-                <Sparkles className="mr-1 h-3 w-3" />
-                {dict.featuredAiBadgeText || "Featured AI"}
-              </Badge>
+      <div className={cn("flex flex-col flex-grow", !thumbnailUrlIsValid && "pt-6")}>
+        <CardHeader>
+          <div className="flex justify-between items-start">
+            <div className="flex-grow mr-2">
+              <CardTitle className="text-xl font-semibold text-primary">{project.name}</CardTitle>
+              {project.isFeaturedAi && (
+                <Badge variant="default" className="mt-1 bg-teal-500 hover:bg-teal-600 text-white text-xs">
+                  <Sparkles className="mr-1 h-3 w-3" />
+                  {dict.featuredAiBadgeText || "Featured AI"}
+                </Badge>
+              )}
+            </div>
+            {project.videoUrl && !isCollaborationLogoCard && (
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <PlayCircle className="h-6 w-6 text-accent cursor-pointer flex-shrink-0" onClick={() => onViewProject(project, effectiveIsActive)} />
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>{dict.viewVideoDemo || "View Video Demo"}</p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
             )}
           </div>
-          {project.videoUrl && !isCollaborationLogoCard && (
-            <TooltipProvider>
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <PlayCircle className="h-6 w-6 text-accent cursor-pointer flex-shrink-0" onClick={() => onViewProject(project, effectiveIsActive)} />
-                </TooltipTrigger>
-                <TooltipContent>
-                  <p>{dict.viewVideoDemo || "View Video Demo"}</p>
-                </TooltipContent>
-              </Tooltip>
-            </TooltipProvider>
+          {project.tags && project.tags.length > 0 && (
+            <div className="flex flex-wrap gap-1 mt-2">
+              {project.tags.map(tag => (
+                <Badge key={tag} variant="secondary" className="text-xs">{tag}</Badge>
+              ))}
+            </div>
           )}
-        </div>
-        {project.tags && project.tags.length > 0 && (
-          <div className="flex flex-wrap gap-1 mt-2">
-            {project.tags.map(tag => (
-              <Badge key={tag} variant="secondary" className="text-xs">{tag}</Badge>
-            ))}
-          </div>
+        </CardHeader>
+        <CardContent className="flex-grow">
+          <CardDescription className="text-sm text-foreground/80 leading-relaxed">
+            {project.description}
+          </CardDescription>
+        </CardContent>
+        {!isCollaborationLogoCard && ( 
+          <CardFooter className="flex flex-col sm:flex-row justify-between items-center gap-2 p-4 bg-muted/30 mt-auto">
+            <Button 
+              onClick={() => onViewProject(project, effectiveIsActive)}
+              variant="default"
+              className="w-full sm:w-auto"
+              disabled={isLoading && !(isCloudWorkstation || isStablePublicProject || !thumbnailUrlIsValid)}
+            >
+              <Eye className="mr-2 h-4 w-4" /> {dict.viewProject || "View Project"}
+            </Button>
+            <Button 
+              asChild 
+              variant="outline" 
+              className="w-full sm:w-auto"
+              disabled={!hasValidUrl || (!effectiveIsActive && !(isCloudWorkstation || isStablePublicProject))}
+            >
+              <a href={project.url || '#'} target="_blank" rel="noopener noreferrer">
+                <ExternalLink className="mr-2 h-4 w-4" /> {dict.visitSite || "Visit Site"}
+              </a>
+            </Button>
+          </CardFooter>
         )}
-      </CardHeader>
-      <CardContent className="flex-grow">
-        <CardDescription className="text-sm text-foreground/80 leading-relaxed">
-          {project.description}
-        </CardDescription>
-      </CardContent>
-      {!isCollaborationLogoCard && ( 
-        <CardFooter className="flex flex-col sm:flex-row justify-between items-center gap-2 p-4 bg-muted/30">
-          <Button 
-            onClick={() => onViewProject(project, effectiveIsActive)}
-            variant="default"
-            className="w-full sm:w-auto"
-            disabled={isLoading && !(isCloudWorkstation || isStablePublicProject || !thumbnailUrlIsValid)}
-          >
-            <Eye className="mr-2 h-4 w-4" /> {dict.viewProject || "View Project"}
-          </Button>
-          <Button 
-            asChild 
-            variant="outline" 
-            className="w-full sm:w-auto"
-            disabled={!hasValidUrl || (!effectiveIsActive && !(isCloudWorkstation || isStablePublicProject))}
-          >
-            <a href={project.url || '#'} target="_blank" rel="noopener noreferrer">
-              <ExternalLink className="mr-2 h-4 w-4" /> {dict.visitSite || "Visit Site"}
-            </a>
-          </Button>
-        </CardFooter>
-      )}
+      </div>
     </Card>
   );
 }

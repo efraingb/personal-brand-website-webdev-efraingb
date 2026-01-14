@@ -15,7 +15,7 @@ interface ProjectGalleryProps {
 
 export default function ProjectGallery({ dict, projectsData, onProjectSelect, projectCardDict }: ProjectGalleryProps) {
   const recentIaProjectIds = ['proj-menta-ai'];
-  const pastCollaborationsIds = ['proj-agroia', 'proj-negotia', 'proj-bless', 'proj-imagine-motiva', 'proj-agro-y-mas', 'proj-epa-en-linea', 'proj-kohls', 'collab-crdigital', 'collab-vita', 'collab-poder-judicial', 'collab-libreria-internacional'];
+  const pastCollaborationsIds = ['collab-ulacit', 'proj-agroia', 'proj-negotia', 'proj-bless', 'proj-imagine-motiva', 'proj-agro-y-mas', 'proj-epa-en-linea', 'proj-kohls', 'collab-crdigital', 'collab-vita', 'collab-poder-judicial', 'collab-libreria-internacional'];
 
   const recentIaProjects = projectsData
     .filter(project => recentIaProjectIds.includes(project.id))
@@ -43,7 +43,7 @@ export default function ProjectGallery({ dict, projectsData, onProjectSelect, pr
             <h3 className="text-3xl font-semibold tracking-tight text-primary mb-10 text-center sm:text-left">
               {dict.recentIaProjectsTitle}
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="w-full md:w-1/2 mx-auto">
               {recentIaProjects.map((project) => (
                 <ProjectCard 
                   key={project.id} 
