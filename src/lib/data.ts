@@ -85,7 +85,7 @@ export const projectsData: Project[] = [
     name: 'collab-ulacit_name',
     url: 'https://www.ulacit.ac.cr/',
     description: 'collab-ulacit_description',
-    thumbnailUrl: 'https://i.imgur.com/9n8L14p.png',
+    thumbnailUrl: '',
     dataAiHint: 'university logo ulacit',
     tags: ['EdTech', 'AI', 'Web Development', 'Consulting'],
     isCollaborationLogo: true,
