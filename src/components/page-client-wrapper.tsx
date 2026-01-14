@@ -54,15 +54,15 @@ export default function PageClientWrapper({
 
   return (
     <>
-      <CredentialsSection 
-        dict={credentialsSectionDict} 
-        columns={credentialColumnsData} 
-      />
       <ProjectGallery
         dict={projectGalleryDict}
         projectsData={projectsData}
         onProjectSelect={handleOpenProjectModal}
         projectCardDict={projectCardDict}
+      />
+      <CredentialsSection 
+        dict={credentialsSectionDict} 
+        columns={credentialColumnsData} 
       />
       <DocumentsSection
         dict={documentsSectionDict}
