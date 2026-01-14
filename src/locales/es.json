@@ -7,6 +7,7 @@
   "nav": {
     "home": "Inicio",
     "projects": "Proyectos",
+    "credentials": "Credenciales",
     "booksAndResources": "Libros y Recursos",
     "contact": "Contacto"
   },
@@ -18,7 +19,7 @@
   "hero": {
     "mainTitle": "Efraín G.B.",
     "subtitle": "Desarrollador Full-Stack e Innovador en IA",
-    "description": "Apasionado por crear soluciones digitales elegantes y eficientes. A continuación encontrará mis credenciales y una selección de mis proyectos y recursos más relevantes.",
+    "description": "Apasionado por crear soluciones digitales elegantes y eficientes. Explore mis credenciales y una selección de mis proyectos más relevantes a continuación.",
     "viewMyWork": "Explora Mis Proyectos",
     "getInTouch": "Contáctame"
   },
@@ -50,6 +51,7 @@
   "projectCard": {
     "viewProject": "Ver Proyecto",
     "visitSite": "Visitar Sitio",
+    "viewDetails": "Ver Detalles",
     "statusOffline": "Offline",
     "statusOfflineNoUrlTooltip": "Este proyecto no tiene una URL pública válida.",
     "statusOnlineDev": "Online (Dev)",
@@ -110,13 +112,13 @@
   },
   "projectsData": {
     "proj-agroia_name": "Agroia",
-    "proj-agroia_description": "Plataforma digital inteligente para el sector agrícola, que utiliza IA para conectar a los productores con los mercados y optimizar los recursos.",
+    "proj-agroia_description": "Plataforma digital inteligente para el sector agrícola, que utiliza IA para conectar a los productores con los mercados y optimizar los recursos. (Actualmente offline)",
     "proj-menta-ai_name": "Menta IA",
     "proj-menta-ai_description": "Transforma cualquier tema en una experiencia de aprendizaje interactiva. Crea, aprende y domina con el poder de la IA, ideal para estudiantes, profesionales y mentes curiosas.",
     "proj-negotia_name": "NEGOTIA",
-    "proj-negotia_description": "Negocia de forma más inteligente, no más difícil. Plataforma de negociación asistida por IA diseñada para facilitar acuerdos beneficiosos para todas las partes.",
+    "proj-negotia_description": "Negocia de forma más inteligente, no más difícil. Plataforma de negociación asistida por IA diseñada para facilitar acuerdos beneficiosos para todas las partes. (Actualmente offline)",
     "proj-bless_name": "Bless Contigo",
-    "proj-bless_description": "Plataforma comunitaria diseñada para conectar y ofrecer recursos de apoyo, fomentando la colaboración y el bienestar colectivo.",
+    "proj-bless_description": "Plataforma comunitaria diseñada para conectar y ofrecer recursos de apoyo, fomentando la colaboración y el bienestar colectivo. (Actualmente offline)",
     "proj-imagine-motiva_name": "Imagine Motiva (Establishment Labs)",
     "proj-imagine-motiva_description": "Colaboración en el desarrollo de soluciones digitales innovadoras para Establishment Labs, una empresa global de tecnología médica.",
     "proj-agro-y-mas_name": "Agro Y Más",
@@ -169,3 +171,5 @@
     "spanish": "Español"
   }
 }
+
+    
