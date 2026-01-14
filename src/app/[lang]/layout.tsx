@@ -32,7 +32,7 @@ export default async function RootLayout({
   params,
 }: RootLayoutProps) {
   return (
-    <html lang={params.lang} className={`${GeistSans.variable} ${GeistMono.variable}`}>
+    <html lang={params.lang} className={`${GeistSans.variable} ${GeistMono.variable}`} suppressHydrationWarning>
       <body className="antialiased">
         {children}
       </body>
