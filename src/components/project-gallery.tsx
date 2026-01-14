@@ -46,7 +46,7 @@ export default function ProjectGallery({ dict, projectsData, onProjectSelect, pr
         
         {recentIaProjects.length > 0 && (
           <div className="mb-16">
-            <h3 className="text-3xl font-semibold tracking-tight text-primary mb-10 text-center sm:text-left">
+            <h3 className="text-3xl font-semibold tracking-tight text-primary mb-10 text-center">
               {dict.recentIaProjectsTitle}
             </h3>
             <div className="w-full md:w-1/2 mx-auto">
