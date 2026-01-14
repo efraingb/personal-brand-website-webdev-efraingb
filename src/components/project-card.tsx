@@ -3,7 +3,6 @@
 "use client";
 
 import type { Project } from "@/lib/types";
-import { verifyProjectStatus } from "@/ai/flows/verify-project-status";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
@@ -25,7 +24,7 @@ const STABLE_PROJECT_IDS = ['proj-menta-ai'];
 
 export default function ProjectCard({ project, onViewProject, dict }: ProjectCardProps) {
   const [isActive, setIsActive] = useState<boolean | null>(null);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const { toast } = useToast();
 
   const hasValidUrl = project.url && project.url.trim() !== '' && project.url !== '#';
@@ -38,63 +37,12 @@ export default function ProjectCard({ project, onViewProject, dict }: ProjectCar
 
 
   useEffect(() => {
-    let isMounted = true;
-    async function checkStatus() {
-      if (!hasValidUrl || (isCollaborationLogoCard && !thumbnailUrlIsValid)) { 
-        setIsActive(false); 
-        setIsLoading(false);
-        return;
-      }
-
-      if (isCloudWorkstation || isStablePublicProject) {
-        setIsActive(true);
-        setIsLoading(false);
-        return;
-      }
-
-      try {
-        setIsLoading(true);
-        let fullUrl = project.url;
-        if (!/^https?:\/\//i.test(fullUrl)) {
-          fullUrl = `https://` + fullUrl;
-        }
-        
-        const result = await verifyProjectStatus({ url: fullUrl });
-        if (isMounted) {
-          setIsActive(result.isActive);
-        }
-      } catch (error: any) {
-        console.error(`Error verifying project ${project.name}:`, error);
-        if (isMounted) {
-          setIsActive(false);
-          if (error.name !== 'AbortError' && !error.message?.includes("503")) { 
-            toast({
-              title: dict.verificationIssueTitle || "Verification Issue",
-              description: (dict.verificationIssueDescription || "Could not verify status for {projectName}. It might be temporarily offline.").replace('{projectName}', project.name),
-              variant: "destructive",
-              duration: 5000,
-            });
-          }
-        }
-      } finally {
-        if (isMounted) {
-          setIsLoading(false);
-        }
-      }
+    if (hasValidUrl) {
+      setIsActive(true);
+    } else {
+      setIsActive(false);
     }
-    
-    if (hasValidUrl && !isStablePublicProject && !isCloudWorkstation && !(isCollaborationLogoCard && !thumbnailUrlIsValid)) {
-      checkStatus();
-    } else { 
-      setIsLoading(false);
-      setIsActive(hasValidUrl && !isCollaborationLogoCard);
-    }
-    
-    return () => {
-      isMounted = false;
-    };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [project.id, project.url, project.name, toast, hasValidUrl, isCloudWorkstation, isStablePublicProject, isCollaborationLogoCard, thumbnailUrlIsValid]);
+  }, [hasValidUrl]);
 
 
   const statusBadge = () => {
