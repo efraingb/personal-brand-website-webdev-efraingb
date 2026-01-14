@@ -1,12 +1,13 @@
 'use client';
 
 import React from 'react';
-import type { Project, LinkItem } from '@/lib/types';
+import type { Project, LinkItem, Credential, CredentialColumn } from '@/lib/types';
 import type { Dictionary } from '@/lib/i18n';
 import ProjectGallery from '@/components/project-gallery';
 import DocumentsSection from '@/components/documents-section';
 import ContactSection from '@/components/contact-section';
 import ProjectModal from '@/components/project-modal';
+import CredentialsSection from '@/components/credentials-section';
 
 interface PageClientWrapperProps {
   projectsData: Project[];
@@ -17,6 +18,8 @@ interface PageClientWrapperProps {
   documentLinksData: LinkItem[];
   contactSectionDict: Dictionary;
   contactLinksData: LinkItem[];
+  credentialsSectionDict: Dictionary;
+  credentialColumnsData: CredentialColumn[];
 }
 
 export default function PageClientWrapper({
@@ -27,7 +30,9 @@ export default function PageClientWrapper({
   documentsSectionDict,
   documentLinksData,
   contactSectionDict,
-  contactLinksData
+  contactLinksData,
+  credentialsSectionDict,
+  credentialColumnsData,
 }: PageClientWrapperProps) {
   const [selectedProject, setSelectedProject] = React.useState<Project | null>(null);
   const [isProjectModalOpen, setIsProjectModalOpen] = React.useState(false);
@@ -49,6 +54,10 @@ export default function PageClientWrapper({
 
   return (
     <>
+      <CredentialsSection 
+        dict={credentialsSectionDict} 
+        columns={credentialColumnsData} 
+      />
       <ProjectGallery
         dict={projectGalleryDict}
         projectsData={projectsData}

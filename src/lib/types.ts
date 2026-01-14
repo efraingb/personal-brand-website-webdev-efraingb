@@ -29,9 +29,32 @@ export interface LinkItem {
   isRecommended?: boolean; 
 }
 
-export type IconName = 'BookOpen' | 'Linkedin' | 'Github' | 'Mail' | 'ExternalLink' | 'ServerCrash' | 'CircleDot' | 'Smartphone';
+export type IconName = 
+  | 'BookOpen' 
+  | 'Linkedin' 
+  | 'Github' 
+  | 'Mail' 
+  | 'ExternalLink' 
+  | 'ServerCrash' 
+  | 'CircleDot' 
+  | 'Smartphone'
+  | 'GraduationCap'
+  | 'Briefcase'
+  | 'BarChart3';
 
 export interface NavLink {
   href: string;
   labelKey: string; 
+}
+
+export interface Credential {
+  id: string;
+  text: string;
+}
+
+export interface CredentialColumn {
+  id: string;
+  title: string;
+  iconName: IconName;
+  credentials: Credential[];
 }

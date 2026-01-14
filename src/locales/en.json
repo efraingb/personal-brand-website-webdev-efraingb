@@ -18,9 +18,27 @@
   "hero": {
     "mainTitle": "Efraín G.B.",
     "subtitle": "Full-Stack Developer & AI Innovator",
-    "description": "Passionate about crafting elegant and efficient digital solutions. Dive into my innovative AI-driven tools, discover and purchase my insightful books and resources, and learn about my work in full-stack development & AI innovation.",
-    "viewMyWork": "View My Work",
+    "description": "Passionate about crafting elegant and efficient digital solutions. Below you will find my credentials and a selection of my most relevant projects and resources.",
+    "viewMyWork": "Explore My Projects",
     "getInTouch": "Get In Touch"
+  },
+  "credentialsSection": {
+    "title": "Credentials & Expertise",
+    "credentials_education_title": "Education & Certifications",
+    "credentials_education_masters_pm": "Masters in Project Management (ENEB 2025)",
+    "credentials_education_masters_ai": "Masters in Big Data & AI (ENEB 2025)",
+    "credentials_education_spec_analytics": "Specialized in Data Analytics & AI (10/10 rating)",
+    "credentials_education_certs": "8+ Professional Certifications",
+    "credentials_experience_title": "Experience & Leadership",
+    "credentials_experience_fullstack": "13+ Years in Full-Stack Development",
+    "credentials_experience_growth": "4 Years as Growth Engineering Architect",
+    "credentials_experience_leadership": "8+ Years in IT Solutions Leadership",
+    "credentials_experience_mentoring": "10 Years Mentoring Youth & Education",
+    "credentials_results_title": "Proven Results",
+    "credentials_results_revenue": "+30% Revenue Growth (CostaRica.org)",
+    "credentials_results_nasdaq": "NASDAQ Company Transformation (Establishment Labs)",
+    "credentials_results_edtech": "10K+ Students via EdTech (MentaIA)",
+    "credentials_results_clients": "Global Client Base (US, LatAm, Europe)"
   },
   "projectGallery": {
     "title": "My Projects",
@@ -69,7 +87,7 @@
     "buttonAttemptVisit": "Attempt to Visit",
     "buttonNoPublicLink": "No Public Link",
     "iaToolOfflineTitle": "AI Tool Access Request",
-    "iaToolOfflineDescription": "This AI tool is typically available on weekdays (Mon-Fri) from 8 AM to 12 PM Costa Rica time (UTC-6). Please contact me via WhatsApp or email to request access or inquire about availability outside these hours.",
+    "iaToolOfflineDescription": "This AI tool has specific availability. Contact to request access.",
     "videoOfflineDescriptionAlternative": "You can also watch the video demo below.",
     "buttonRequestAccess": "Request Access"
   },
@@ -92,7 +110,7 @@
   },
   "projectsData": {
     "proj-agroia_name": "Agroia",
-    "proj-agroia_description": "Intelligent digital platform for the agricultural sector, using AI to connect producers with markets, optimize resources, and facilitate access to advanced technologies.",
+    "proj-agroia_description": "Intelligent digital platform for the agricultural sector, using AI to connect producers with markets and optimize resources.",
     "proj-menta-ai_name": "Menta IA",
     "proj-menta-ai_description": "Transform any topic into an interactive learning experience. Create, learn, and master with the power of AI, ideal for students, professionals, and curious minds.",
     "proj-negotia_name": "NEGOTIA",
@@ -100,7 +118,7 @@
     "proj-bless_name": "Bless Contigo",
     "proj-bless_description": "Community platform designed to connect and offer support resources, fostering collaboration and collective well-being.",
     "proj-imagine-motiva_name": "Imagine Motiva (Establishment Labs)",
-    "proj-imagine-motiva_description": "Collaboration in the development of innovative digital solutions for Establishment Labs, a global medical technology company, focused on advanced visualization and personalization of breast implants.",
+    "proj-imagine-motiva_description": "Collaboration in the development of innovative digital solutions for Establishment Labs, a global medical technology company.",
     "proj-agro-y-mas_name": "Agro Y Más",
     "proj-agro-y-mas_description": "Collaboration on the digital platform for the agricultural sector, focused on connecting producers with relevant information, markets, and financial solutions.",
     "proj-epa-en-linea_name": "EPA en Línea (Costa Rica)",

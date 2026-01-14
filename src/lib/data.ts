@@ -1,5 +1,5 @@
 
-import type { Project, LinkItem, NavLink } from './types';
+import type { Project, LinkItem, NavLink, CredentialColumn } from './types';
 
 export const projectsData: Project[] = [
   {
@@ -12,7 +12,7 @@ export const projectsData: Project[] = [
     tags: ['AI', 'EdTech', 'Firebase', 'Generative AI', 'Web Development'],
     videoUrl: 'https://www.youtube.com/shorts/gGhuAib5n20',
     thumbnailIsLogo: true,
-    isFeaturedAi: true, // Highlight Menta AI as the main featured project
+    isFeaturedAi: true, 
   },
   {
     id: 'proj-agroia',
@@ -187,4 +187,40 @@ export const navLinksData: NavLink[] = [
   { href: '#projects', labelKey: 'projects' },
   { href: '#documents', labelKey: 'booksAndResources' },
   { href: '#contact', labelKey: 'contact' },
+];
+
+export const credentialsData: CredentialColumn[] = [
+  {
+    id: 'education',
+    title: 'credentials_education_title',
+    iconName: 'GraduationCap',
+    credentials: [
+      { id: 'cred_masters_pm', text: 'credentials_education_masters_pm' },
+      { id: 'cred_masters_ai', text: 'credentials_education_masters_ai' },
+      { id: 'cred_spec_analytics', text: 'credentials_education_spec_analytics' },
+      { id: 'cred_certs', text: 'credentials_education_certs' },
+    ],
+  },
+  {
+    id: 'experience',
+    title: 'credentials_experience_title',
+    iconName: 'Briefcase',
+    credentials: [
+      { id: 'cred_exp_fullstack', text: 'credentials_experience_fullstack' },
+      { id: 'cred_exp_growth', text: 'credentials_experience_growth' },
+      { id: 'cred_exp_leadership', text: 'credentials_experience_leadership' },
+      { id: 'cred_exp_mentoring', text: 'credentials_experience_mentoring' },
+    ],
+  },
+  {
+    id: 'results',
+    title: 'credentials_results_title',
+    iconName: 'BarChart3',
+    credentials: [
+      { id: 'cred_res_revenue', text: 'credentials_results_revenue' },
+      { id: 'cred_res_nasdaq', text: 'credentials_results_nasdaq' },
+      { id: 'cred_res_edtech', text: 'credentials_results_edtech' },
+      { id: 'cred_res_clients', text: 'credentials_results_clients' },
+    ],
+  },
 ];
