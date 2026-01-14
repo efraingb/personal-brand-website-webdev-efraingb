@@ -5,6 +5,8 @@
 import type { Project } from "@/lib/types";
 import ProjectCard from "./project-card";
 import type { Dictionary } from "@/lib/i18n";
+import CredentialsSection from "./credentials-section";
+import type { CredentialColumn } from "@/lib/types";
 
 interface ProjectGalleryProps {
   dict: Dictionary; 

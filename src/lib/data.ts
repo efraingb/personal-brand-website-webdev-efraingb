@@ -235,5 +235,3 @@ export const credentialsData: CredentialColumn[] = [
     ],
   },
 ];
-
-    

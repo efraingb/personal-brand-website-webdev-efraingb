@@ -21,7 +21,7 @@ interface ProjectCardProps {
   dict: Dictionary; // Expects dict.projectCard
 }
 
-const STABLE_PROJECT_IDS = ['proj-menta-ai', 'proj-agroia', 'proj-negotia', 'proj-bless'];
+const STABLE_PROJECT_IDS = ['proj-menta-ai'];
 
 export default function ProjectCard({ project, onViewProject, dict }: ProjectCardProps) {
   const [isActive, setIsActive] = useState<boolean | null>(null);
@@ -40,8 +40,8 @@ export default function ProjectCard({ project, onViewProject, dict }: ProjectCar
   useEffect(() => {
     let isMounted = true;
     async function checkStatus() {
-      if (!hasValidUrl || isCollaborationLogoCard) { 
-        setIsActive(isCollaborationLogoCard ? true : false); 
+      if (!hasValidUrl || (isCollaborationLogoCard && !thumbnailUrlIsValid)) { 
+        setIsActive(false); 
         setIsLoading(false);
         return;
       }
@@ -83,14 +83,11 @@ export default function ProjectCard({ project, onViewProject, dict }: ProjectCar
       }
     }
     
-    if (thumbnailUrlIsValid && hasValidUrl && !isCollaborationLogoCard && !isStablePublicProject && !isCloudWorkstation) {
+    if (hasValidUrl && !isStablePublicProject && !isCloudWorkstation && !(isCollaborationLogoCard && !thumbnailUrlIsValid)) {
       checkStatus();
-    } else if (isCollaborationLogoCard || !thumbnailUrlIsValid) {
-      setIsLoading(false);
-      setIsActive(hasValidUrl && !isCollaborationLogoCard); 
     } else { 
       setIsLoading(false);
-      setIsActive(true);
+      setIsActive(hasValidUrl && !isCollaborationLogoCard);
     }
     
     return () => {
@@ -140,7 +137,7 @@ export default function ProjectCard({ project, onViewProject, dict }: ProjectCar
   return (
     <Card className={cn(
       "flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out transform hover:-translate-y-1 rounded-xl group",
-      isLoading && !(isCloudWorkstation || isStablePublicProject || isCollaborationLogoCard || !thumbnailUrlIsValid) && 'opacity-75 transition-opacity duration-300'
+      isLoading && !(isCloudWorkstation || isStablePublicProject || (isCollaborationLogoCard && !thumbnailUrlIsValid)) && 'opacity-75 transition-opacity duration-300'
     )}>
       {thumbnailUrlIsValid && (
         <div className={cn(
@@ -173,7 +170,7 @@ export default function ProjectCard({ project, onViewProject, dict }: ProjectCar
                 </Badge>
               )}
             </div>
-            {project.videoUrl && !isCollaborationLogoCard && (
+            {project.videoUrl && (
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger asChild>
@@ -209,13 +206,13 @@ export default function ProjectCard({ project, onViewProject, dict }: ProjectCar
               <Eye className="mr-2 h-4 w-4" /> {dict.viewDetails || "View Details"}
             </Button>
             </CardFooter>
-          ) : !isCollaborationLogoCard && ( 
+          ) : ( 
           <CardFooter className="flex flex-col sm:flex-row justify-between items-center gap-2 p-4 bg-muted/30 mt-auto">
             <Button 
               onClick={() => onViewProject(project, effectiveIsActive)}
               variant="default"
               className="w-full sm:w-auto"
-              disabled={isLoading && !(isCloudWorkstation || isStablePublicProject || !thumbnailUrlIsValid)}
+              disabled={isLoading && !(isCloudWorkstation || isStablePublicProject || !hasValidUrl)}
             >
               <Eye className="mr-2 h-4 w-4" /> {dict.viewProject || "View Project"}
             </Button>
@@ -235,5 +232,3 @@ export default function ProjectCard({ project, onViewProject, dict }: ProjectCar
     </Card>
   );
 }
-
-    
