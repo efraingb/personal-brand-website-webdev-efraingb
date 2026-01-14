@@ -21,7 +21,7 @@ interface ProjectCardProps {
   dict: Dictionary; // Expects dict.projectCard
 }
 
-const STABLE_PROJECT_IDS = ['proj-imagine-motiva', 'proj-agro-y-mas', 'proj-epa-en-linea', 'proj-kohls', 'proj-agroia', 'proj-bless', 'proj-menta-ai', 'proj-negotia'];
+const STABLE_PROJECT_IDS = ['proj-menta-ai', 'proj-imagine-motiva', 'proj-agro-y-mas', 'proj-epa-en-linea', 'proj-kohls'];
 
 export default function ProjectCard({ project, onViewProject, dict }: ProjectCardProps) {
   const [isActive, setIsActive] = useState<boolean | null>(null);

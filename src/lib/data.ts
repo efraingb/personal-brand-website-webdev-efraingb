@@ -3,31 +3,31 @@ import type { Project, LinkItem, NavLink } from './types';
 
 export const projectsData: Project[] = [
   {
-    id: 'proj-agroia',
-    name: 'proj-agroia_name',
-    url: 'https://studio--agroia-6lbvq.us-central1.hosted.app/',
-    description: 'proj-agroia_description',
-    thumbnailUrl: 'https://i.imgur.com/h53YbVW.png',
-    dataAiHint: 'agritech platform',
-    tags: ['AgriTech', 'AI', 'E-commerce', 'Platform', 'Firebase', 'Web Development'],
-    videoUrl: 'https://www.youtube.com/shorts/BvDAXjkxc3M',
-    isFeaturedAi: true, // Highlight AgroIA
-  },
-  {
     id: 'proj-menta-ai',
     name: 'proj-menta-ai_name',
-    url: 'https://studio--ai-quizzer-mamal.us-central1.hosted.app',
+    url: 'https://mentaia.org/',
     description: 'proj-menta-ai_description',
     thumbnailUrl: 'https://i.imgur.com/7ALZDkT.png',
     dataAiHint: 'ai quiz menta',
     tags: ['AI', 'EdTech', 'Firebase', 'Generative AI', 'Web Development'],
     videoUrl: 'https://www.youtube.com/shorts/gGhuAib5n20',
     thumbnailIsLogo: true,
+    isFeaturedAi: true, // Highlight Menta AI as the main featured project
+  },
+  {
+    id: 'proj-agroia',
+    name: 'proj-agroia_name',
+    url: '#',
+    description: 'proj-agroia_description',
+    thumbnailUrl: 'https://i.imgur.com/h53YbVW.png',
+    dataAiHint: 'agritech platform',
+    tags: ['AgriTech', 'AI', 'E-commerce', 'Platform', 'Firebase', 'Web Development'],
+    videoUrl: 'https://www.youtube.com/shorts/BvDAXjkxc3M',
   },
   {
     id: 'proj-negotia',
     name: 'proj-negotia_name',
-    url: 'https://studio--debate-resolver.us-central1.hosted.app',
+    url: '#',
     description: 'proj-negotia_description',
     thumbnailUrl: 'https://i.imgur.com/wIwB6qu.png',
     dataAiHint: 'ai negotiation platform',
@@ -37,7 +37,7 @@ export const projectsData: Project[] = [
   {
     id: 'proj-bless',
     name: 'proj-bless_name',
-    url: 'https://studio--bless-contigo.us-central1.hosted.app/',
+    url: '#',
     description: 'proj-bless_description',
     thumbnailUrl: 'https://i.imgur.com/lQZr47s.png',
     dataAiHint: 'community logo',
@@ -105,6 +105,8 @@ export const projectsData: Project[] = [
     name: 'collab-poder-judicial_name',
     url: '#',
     description: 'collab-poder-judicial_description',
+    thumbnailUrl: 'https://i.imgur.com/o3Vf443.png',
+    dataAiHint: 'government building logo',
     tags: ['Brand Collaboration', 'Consulting'],
     isCollaborationLogo: true,
   },
@@ -113,6 +115,8 @@ export const projectsData: Project[] = [
     name: 'collab-libreria-internacional_name',
     url: '#',
     description: 'collab-libreria-internacional_description',
+    thumbnailUrl: 'https://i.imgur.com/rN1rS5s.png',
+    dataAiHint: 'bookstore logo',
     tags: ['Brand Collaboration', 'Digital Strategy'],
     isCollaborationLogo: true,
   }

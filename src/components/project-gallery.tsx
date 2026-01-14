@@ -14,8 +14,8 @@ interface ProjectGalleryProps {
 }
 
 export default function ProjectGallery({ dict, projectsData, onProjectSelect, projectCardDict }: ProjectGalleryProps) {
-  const recentIaProjectIds = ['proj-agroia', 'proj-menta-ai', 'proj-negotia', 'proj-bless'];
-  const pastCollaborationsIds = ['proj-imagine-motiva', 'proj-agro-y-mas', 'proj-epa-en-linea', 'proj-kohls', 'collab-crdigital', 'collab-vita', 'collab-poder-judicial', 'collab-libreria-internacional'];
+  const recentIaProjectIds = ['proj-menta-ai'];
+  const pastCollaborationsIds = ['proj-agroia', 'proj-negotia', 'proj-bless', 'proj-imagine-motiva', 'proj-agro-y-mas', 'proj-epa-en-linea', 'proj-kohls', 'collab-crdigital', 'collab-vita', 'collab-poder-judicial', 'collab-libreria-internacional'];
 
   const recentIaProjects = projectsData
     .filter(project => recentIaProjectIds.includes(project.id))
