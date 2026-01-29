@@ -18,7 +18,7 @@ interface DocumentsSectionProps {
 
 export default function DocumentsSection({ dict, documentLinksData }: DocumentsSectionProps) {
   return (
-    <section id="documents" className="py-16 md:py-24 bg-secondary/20">
+    <section id="documents" className="py-16 md:py-24 bg-secondary/20 animate-in fade-in-0 slide-in-from-bottom-12 duration-500 ease-out delay-300">
       <div className="container px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10">
           <h2 className="text-4xl font-bold tracking-tight text-primary sm:text-5xl">

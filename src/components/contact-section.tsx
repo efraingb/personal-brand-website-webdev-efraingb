@@ -14,7 +14,7 @@ interface ContactSectionProps {
 
 export default function ContactSection({ dict, contactLinksData }: ContactSectionProps) {
   return (
-    <section id="contact" className="py-16 md:py-24 bg-background">
+    <section id="contact" className="py-16 md:py-24 bg-background animate-in fade-in-0 slide-in-from-bottom-12 duration-500 ease-out delay-450">
       <div className="container px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10">
           <h2 className="text-4xl font-bold tracking-tight text-primary sm:text-5xl">

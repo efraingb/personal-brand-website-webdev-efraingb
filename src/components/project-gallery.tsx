@@ -32,7 +32,7 @@ export default function ProjectGallery({ dict, projectsData, onProjectSelect, pr
   const pastCollaborationsProjectsWithoutImages = allPastCollaborations.filter(p => !p.thumbnailUrl);
 
   return (
-    <section id="projects" className="py-16 md:py-24 bg-background">
+    <section id="projects" className="py-16 md:py-24 bg-background animate-in fade-in-0 slide-in-from-bottom-12 duration-500 ease-out">
       <div className="container px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
         <div className="text-center mb-10">
           <h2 className="text-4xl font-bold tracking-tight text-primary sm:text-5xl">
