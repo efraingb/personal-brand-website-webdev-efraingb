@@ -1,8 +1,7 @@
-
 // src/app/cv/[slug]/page.tsx
 import { notFound } from 'next/navigation';
 import { cvData } from '@/lib/cv-data';
-import type { CVItem } from '@/lib/types';
+import type { CVItem, CV } from '@/lib/types';
 import { Icon } from '@/components/icons';
 import { Button } from '@/components/ui/button';
 import { Download } from 'lucide-react';
@@ -67,7 +66,7 @@ export default function CVPage({ params }: CVPageProps) {
 
         {/* Floating Print Button */}
         <div className="fixed bottom-6 right-6 print:hidden">
-            <CvPrintButton />
+            <CvPrintButton cv={cv} />
         </div>
 
 
