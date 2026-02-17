@@ -106,4 +106,34 @@
   html {
     scroll-behavior: smooth;
   }
+  @media print {
+    body {
+      background: #fff;
+      color: #000;
+    }
+    .print-container {
+      padding: 0 !important;
+      margin: 0 !important;
+      max-width: 100% !important;
+      box-shadow: none !important;
+      border: none !important;
+    }
+    .print-container * {
+      color: #000 !important;
+      background-color: #fff !important;
+      border-color: #ccc !important;
+    }
+    .print-container h1, .print-container h3, .print-container .text-primary, .print-container .text-accent {
+      color: #000 !important;
+    }
+    .print-container h3.border-b-2 {
+      border-color: #000 !important;
+    }
+    .print-container a {
+      text-decoration: none;
+    }
+    .print-hidden {
+      display: none !important;
+    }
+  }
 }

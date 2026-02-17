@@ -1,26 +1,18 @@
 // src/components/cv-print-button.tsx
 'use client';
 
-import React from 'react';
-import dynamic from 'next/dynamic';
-import type { CV } from '@/lib/types';
-import { Button } from './ui/button';
-import { Loader2 } from 'lucide-react';
-
-const CvPdfDownloader = dynamic(() => import('./cv-pdf-downloader'), {
-  ssr: false,
-  loading: () => (
-    <Button size="lg" disabled className="shadow-lg">
-      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-      Loading...
-    </Button>
-  ),
-});
+import { Button } from "@/components/ui/button";
+import { Printer } from "lucide-react";
 
 interface CvPrintButtonProps {
-    cv: CV;
+  text: string;
 }
 
-export default function CvPrintButton({ cv }: CvPrintButtonProps) {
-    return <CvPdfDownloader cv={cv} />;
+export default function CvPrintButton({ text }: CvPrintButtonProps) {
+  return (
+    <Button size="lg" className="shadow-lg" onClick={() => window.print()}>
+      <Printer className="mr-2 h-5 w-5" />
+      {text}
+    </Button>
+  );
 }

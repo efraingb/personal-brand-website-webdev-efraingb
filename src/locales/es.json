@@ -112,6 +112,9 @@
     "copyright": "© {currentYear} Efraín G.B. Todos los derechos reservados.",
     "credits": "Construido con Next.js y Tailwind CSS. Alojado en Firebase."
   },
+  "cv": {
+    "saveAsPdf": "Guardar como PDF"
+  },
   "projectsData": {
     "proj-agroia_name": "Agroia",
     "proj-agroia_description": "Plataforma digital inteligente para el sector agrícola, que utiliza IA para conectar a los productores con los mercados y optimizar los recursos. (Actualmente offline)",

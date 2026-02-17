@@ -4,9 +4,9 @@ import { cvData } from '@/lib/cv-data';
 import type { CVItem, CV } from '@/lib/types';
 import { Icon } from '@/components/icons';
 import { Button } from '@/components/ui/button';
-import { Download } from 'lucide-react';
 import CvPrintButton from '@/components/cv-print-button';
 import Link from 'next/link';
+import { getDictionary } from '@/lib/i18n';
 
 interface CVPageProps {
   params: {
@@ -41,8 +41,9 @@ const CVSkillItem = ({ item }: { item: CVItem }) => (
 );
 
 
-export default function CVPage({ params }: CVPageProps) {
+export default async function CVPage({ params }: CVPageProps) {
   const cv = cvData.find((cv) => cv.slug === params.slug);
+  const dict = await getDictionary(params.lang);
 
   if (!cv) {
     notFound();
@@ -50,7 +51,7 @@ export default function CVPage({ params }: CVPageProps) {
 
   return (
     <div className="bg-background text-foreground font-sans print:bg-white">
-      <div className="max-w-4xl mx-auto p-4 sm:p-8 lg:p-12 print:p-8">
+      <div className="max-w-4xl mx-auto p-4 sm:p-8 lg:p-12 print-container">
         
         {/* CV Header */}
         <header className="flex flex-col items-center text-center mb-8 print:mb-6 border-b border-border pb-6 print:pb-4">
@@ -65,8 +66,8 @@ export default function CVPage({ params }: CVPageProps) {
         </header>
 
         {/* Floating Print Button */}
-        <div className="fixed bottom-6 right-6 print:hidden">
-            <CvPrintButton cv={cv} />
+        <div className="fixed bottom-6 right-6 print-hidden">
+            <CvPrintButton text={dict.cv?.saveAsPdf || 'Save as PDF'} />
         </div>
 
 
