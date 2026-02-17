@@ -72,6 +72,7 @@ export interface CVContact {
 export interface CVItem {
   id: string;
   title: string;
+  titleLink?: { text: string; url: string; };
   subtitle?: string;
   date?: string;
   description: string | string[];

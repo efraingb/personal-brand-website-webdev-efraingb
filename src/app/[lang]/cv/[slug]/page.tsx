@@ -12,6 +12,7 @@ import Link from 'next/link';
 interface CVPageProps {
   params: {
     slug: string;
+    lang: string;
   };
 }
 
@@ -59,8 +60,8 @@ export default function CVPage({ params }: CVPageProps) {
           <div className="flex flex-wrap justify-center gap-x-4 gap-y-1 mt-3 text-sm text-muted-foreground">
             {cv.contact.phone && <a href={cv.contact.phone.url} className="hover:text-primary flex items-center gap-1.5"><Icon name="Phone" className="w-3 h-3"/>{cv.contact.phone.text}</a>}
             {cv.contact.email && <a href={cv.contact.email.url} className="hover:text-primary flex items-center gap-1.5"><Icon name="Mail" className="w-3 h-3"/>{cv.contact.email.text}</a>}
-            {cv.contact.website && <Link href={cv.contact.website.url} className="hover:text-primary flex items-center gap-1.5"><Icon name="Globe" className="w-3 h-3"/>{cv.contact.website.text}</Link>}
-            {cv.contact.linkedin && <a href={cv.contact.linkedin.url} className="hover:text-primary flex items-center gap-1.5"><Icon name="Linkedin" className="w-3 h-3"/>{cv.contact.linkedin.text}</a>}
+            {cv.contact.website && <Link href={`/${params.lang}`} className="hover:text-primary flex items-center gap-1.5"><Icon name="Globe" className="w-3 h-3"/>{cv.contact.website.text}</Link>}
+            {cv.contact.linkedin && <a href={cv.contact.linkedin.url} target="_blank" rel="noopener noreferrer" className="hover:text-primary flex items-center gap-1.5"><Icon name="Linkedin" className="w-3 h-3"/>{cv.contact.linkedin.text}</a>}
           </div>
         </header>
 
@@ -91,8 +92,13 @@ export default function CVPage({ params }: CVPageProps) {
                     <div key={item.id}>
                         <div className="flex justify-between items-baseline">
                         <h4 className="text-base font-semibold text-foreground">
-                            {item.title}
-                            {item.subtitle && <span className="text-muted-foreground font-normal"> | {item.subtitle}</span>}
+                          {item.title}
+                          {item.titleLink && (
+                            <a href={item.titleLink.url} target="_blank" rel="noopener noreferrer" className="underline hover:text-accent">
+                              {item.titleLink.text}
+                            </a>
+                          )}
+                          {item.subtitle && <span className="text-muted-foreground font-normal"> | {item.subtitle}</span>}
                         </h4>
                         {item.date && <p className="text-sm text-muted-foreground font-mono">{item.date}</p>}
                         </div>

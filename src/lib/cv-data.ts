@@ -9,8 +9,9 @@ export const cvData: CV[] = [
     summary: 'Technology professional and professor with 15 years of experience in software development and digital strategy, working with organizations such as Kohl’s, EPA, Establishment Labs, public sector institutions, ULACIT and CostaRica.org (+30% sales lift). I have combined this technical work with teaching and community initiatives in technology and entrepreneurship, authoring 30+ articles and two books on computing and AI. Currently an MBA candidate in Technology Management, with ongoing involvement in startup and innovation ecosystems in Costa Rica and beyond.',
     contact: {
       phone: { text: '+506 8693 9737', url: 'tel:+50686939737' },
-      email: { text: 'hiefraingb@gmail.com', url: 'mailto:hiefraingb@gmail.com' },
-      website: { text: 'EfrainGB.org', url: 'https://efraingb.org' },
+      email: { text: 'hiefraingb@gmail.com', url: 'mailto:hiefraingb@gmail.com?subject=Job%20Opportunity&body=Hello%20Efra%C3%ADn,' },
+      website: { text: 'EfrainGB.org', url: '/' },
+      linkedin: { text: 'linkedin.com/in/efraingb', url: 'https://www.linkedin.com/in/efraingb/' },
     },
     sections: [
       {
@@ -83,7 +84,8 @@ export const cvData: CV[] = [
           },
           {
             id: 'leadership_founder',
-            title: 'Founder of MentaIA.org',
+            title: 'Founder of ',
+            titleLink: { text: 'MentaIA.org', url: 'https://mentaia.org/' },
             date: 'February 2025 – Present',
             description: 'AI-powered personalized education platform.'
           }
@@ -128,8 +130,9 @@ export const cvData: CV[] = [
     summary: 'Profesional en tecnología y docencia con 15 años de experiencia en desarrollo de software y estrategia digital. Colaboración con organizaciones como Kohl’s, EPA, Establishment Labs, instituciones del sector público, ULACIT y CostaRica.org (+30% incremento en ventas). Integración de desarrollo tecnológico con educación e iniciativas comunitarias en emprendimiento. Autor de más de 30 artículos y dos libros sobre computación e inteligencia artificial. Candidato a MBA en Gestión Tecnológica, con participación activa en ecosistemas de startups e innovación en Costa Rica y ámbito internacional.',
     contact: {
       phone: { text: '+506 8693 9737', url: 'tel:+50686939737' },
-      email: { text: 'hiefraingb@gmail.com', url: 'mailto:hiefraingb@gmail.com' },
-      website: { text: 'EfrainGB.org', url: 'https://efraingb.org' },
+      email: { text: 'hiefraingb@gmail.com', url: 'mailto:hiefraingb@gmail.com?subject=Oportunidad%20Laboral&body=Hola%20Efra%C3%ADn,' },
+      website: { text: 'EfrainGB.org', url: '/' },
+      linkedin: { text: 'linkedin.com/in/efraingb', url: 'https://www.linkedin.com/in/efraingb/' },
     },
     sections: [
       {
@@ -224,7 +227,8 @@ export const cvData: CV[] = [
           },
           {
             id: 'liderazgo_founder',
-            title: 'Fundador | MentaIA.org',
+            title: 'Fundador | ',
+            titleLink: { text: 'MentaIA.org', url: 'https://mentaia.org/' },
             date: 'Febrero 2025 – Presente',
             description: ['Creación y dirección de plataforma de educación personalizada impulsada por IA.']
           }
