@@ -97,7 +97,7 @@ export const cvData: CV[] = [
         items: [
           {
             id: 'edu_mba',
-            title: 'MBA, Technology Management emphasis — ULACIT (In progress)',
+            title: 'MBA, Technology Management emphasis — ULACIT',
             date: '2025–2027',
             description: 'Strong foundation in IT and continuous professional development:'
           },
@@ -126,8 +126,8 @@ export const cvData: CV[] = [
   {
     slug: 'es',
     name: 'Efraín González Bermúdez',
-    title: 'ESPECIALISTA EN INNOVACIÓN & EDTECH | PROFESOR',
-    summary: 'Profesional en tecnología y docencia con 15 años de experiencia en desarrollo de software y estrategia digital. Colaboración con organizaciones como Kohl’s, EPA, Establishment Labs, instituciones del sector público, ULACIT y CostaRica.org (+30% incremento en ventas). Integración de desarrollo tecnológico con educación e iniciativas comunitarias en emprendimiento. Autor de más de 30 artículos y dos libros sobre computación e inteligencia artificial. Candidato a MBA en Gestión Tecnológica, con participación activa en ecosistemas de startups e innovación en Costa Rica y ámbito internacional.',
+    title: 'ANALISTA TECNOLÓGICO | PROFESOR',
+    summary: 'Profesional en tecnología y docencia con 15 años de experiencia en desarrollo de software y estrategia digital. Colaboración con organizaciones como Kohl’s, EPA, Establishment Labs, instituciones del sector público, ULACIT y CostaRica.org (+30% incremento en ventas). Integración de desarrollo tecnológico con educación e iniciativas comunitarias en emprendimiento. Autor de más de 30 artículos y dos libros sobre computación e inteligencia artificial. Cursando una Maestría en Administración con énfasis en Tecnología, con participación activa en ecosistemas de startups e innovación en Costa Rica y ámbito internacional.',
     contact: {
       phone: { text: '+506 8693 9737', url: 'tel:+50686939737' },
       email: { text: 'hiefraingb@gmail.com', url: 'mailto:hiefraingb@gmail.com?subject=Oportunidad%20Laboral&body=Hola%20Efra%C3%ADn,' },
@@ -168,7 +168,7 @@ export const cvData: CV[] = [
             description: [
               'Lanzamiento del sitio institucional en WordPress.',
               'Gestión integral del ecosistema de marketing web (múltiples sitios + e-commerce).',
-              'Supervisión de cientos de tareas para el Departamento de Marketing & Growth.',
+              'Supervisión de cientos de tareas para el Departamento de Mercadeo y Crecimiento.',
               'Desarrollo e implementación de plataforma de landing pages impulsada por IA para optimización de creación y medición.',
               'Coordinación de stakeholders y soporte externo.'
             ]
@@ -185,7 +185,7 @@ export const cvData: CV[] = [
           },
           {
             id: 'exp_lead',
-            title: 'Tech Lead | SM Group',
+            title: 'Tech Lead | Grupo SM',
             date: '2015 – 2017',
             description: [
                 'Gestión de desarrollo de software y estrategias digitales.',
@@ -240,8 +240,8 @@ export const cvData: CV[] = [
         items: [
           {
             id: 'edu_mba',
-            title: 'MBA, énfasis en Gestión Tecnológica — ULACIT',
-            date: 'En curso | 2025–2027',
+            title: 'Maestría en Administración de Empresas con énfasis en Gerencia de Tecnología — ULACIT',
+            date: '2025–2027',
             description: ''
           },
           {
