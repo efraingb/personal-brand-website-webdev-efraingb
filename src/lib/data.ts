@@ -197,7 +197,6 @@ export const navLinksData: NavLink[] = [
   { href: '#projects', labelKey: 'projects' },
   { href: '#credentials', labelKey: 'credentials' },
   { href: '#documents', labelKey: 'booksAndResources' },
-  { href: '/cv/es', labelKey: 'cv' },
   { href: '#contact', labelKey: 'contact' },
 ];
 
