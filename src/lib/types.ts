@@ -40,7 +40,9 @@ export type IconName =
   | 'Smartphone'
   | 'GraduationCap'
   | 'Briefcase'
-  | 'BarChart3';
+  | 'BarChart3'
+  | 'Phone'
+  | 'Globe';
 
 export interface NavLink {
   href: string;
@@ -57,4 +59,36 @@ export interface CredentialColumn {
   title: string;
   iconName: IconName;
   credentials: Credential[];
+}
+
+// CV-specific types
+export interface CVContact {
+  phone?: { text: string; url: string; };
+  email?: { text: string; url: string; };
+  website?: { text: string; url: string; };
+  linkedin?: { text: string; url: string; };
+}
+
+export interface CVItem {
+  id: string;
+  title: string;
+  subtitle?: string;
+  date?: string;
+  description: string | string[];
+}
+
+export interface CVSection {
+  id: string;
+  title: string;
+  items: CVItem[];
+  isTwoColumns?: boolean; // For skills section
+}
+
+export interface CV {
+  slug: string;
+  name: string;
+  title: string;
+  summary: string;
+  contact: CVContact;
+  sections: CVSection[];
 }

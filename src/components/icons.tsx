@@ -1,5 +1,5 @@
 import type { LucideProps } from 'lucide-react';
-import { BookOpen, Linkedin, Github, Mail, ExternalLink, ServerCrash, CircleDot, Smartphone, Laptop, Database, GraduationCap, Briefcase, BarChart3 } from 'lucide-react';
+import { BookOpen, Linkedin, Github, Mail, ExternalLink, ServerCrash, CircleDot, Smartphone, Laptop, Database, GraduationCap, Briefcase, BarChart3, Phone, Globe } from 'lucide-react';
 import type { FC } from 'react';
 import type { IconName } from '@/lib/types';
 
@@ -32,6 +32,10 @@ export const Icon: FC<IconProps> = ({ name, ...props }) => {
       return <Briefcase {...props} />;
     case 'BarChart3':
       return <BarChart3 {...props} />;
+    case 'Phone':
+      return <Phone {...props} />;
+    case 'Globe':
+      return <Globe {...props} />;
     default:
       // Fallback for icons not explicitly handled, or return a default icon
       // For example, if tags like 'React', 'AI' are passed as icon names by mistake
