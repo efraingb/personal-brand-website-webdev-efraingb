@@ -246,13 +246,13 @@ export const cvData: CV[] = [
           },
           {
             id: 'edu_msc_eneb',
-            title: 'MSc en Big Data & Business Intelligence y MSc en Project Management — ENEB',
+            title: 'Máster en Big Data & Business Intelligence y Máster en Project Management — ENEB',
             date: '2023–2025',
             description: ''
           },
           {
             id: 'edu_msc_ircu',
-            title: 'MSc (2019) y BSc (2017) en Diseño y Desarrollo Web — International Redeemed Christian University (IRCU)',
+            title: 'Maestría (2019) y Licenciatura (2017) en Diseño y Desarrollo Web — International Redeemed Christian University (IRCU)',
             date: '',
             description: ''
           },
