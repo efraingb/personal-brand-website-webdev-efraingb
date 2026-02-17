@@ -110,7 +110,10 @@
   "footer": {
     "personalPhotoAlt": "Efraín G.B. - Foto Personal",
     "copyright": "© {currentYear} Efraín G.B. Todos los derechos reservados.",
-    "credits": "Construido con Next.js y Tailwind CSS. Alojado en Firebase."
+    "credits": "Construido con Next.js y Tailwind CSS. Alojado en Firebase.",
+    "openCvMenu": "Abrir menú de CV",
+    "cvEnglish": "CV (Inglés)",
+    "cvSpanish": "CV (Español)"
   },
   "cv": {
     "saveAsPdf": "Guardar como PDF"

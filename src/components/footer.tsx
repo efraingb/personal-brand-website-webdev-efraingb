@@ -1,6 +1,16 @@
 // src/components/footer.tsx
 import type { Dictionary } from '@/lib/i18n';
 import Image from "next/image"; 
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Button } from "@/components/ui/button";
+import { FileText } from "lucide-react";
+import Link from "next/link";
+
 
 interface FooterProps {
   dict: Dictionary; // Expects dict.footer
@@ -9,7 +19,7 @@ interface FooterProps {
 export default function Footer({ dict }: FooterProps) {
   const currentYear = new Date().getFullYear();
   return (
-    <footer className="py-8 border-t border-border/40 bg-muted/50 text-center">
+    <footer className="relative py-8 border-t border-border/40 bg-muted/50 text-center">
       <div className="container px-4 sm:px-6 lg:px-8 text-sm text-muted-foreground">
         <div className="mb-6 flex justify-center">
             <div className="relative h-24 w-24 sm:h-32 sm:w-32 rounded-full overflow-hidden shadow-xl border-4 border-background transform transition-all hover:scale-105">
@@ -30,6 +40,23 @@ export default function Footer({ dict }: FooterProps) {
           {dict.credits || "Built with Next.js and Tailwind CSS. Hosted on Firebase."}
         </p>
 
+      </div>
+       <div className="absolute bottom-4 right-4">
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button variant="ghost" size="icon" aria-label={dict.openCvMenu || "Open CV menu"}>
+              <FileText className="h-4 w-4 text-muted-foreground" />
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end" side="top" className="w-40">
+            <DropdownMenuItem asChild>
+              <Link href="/en/cv/en" className="w-full text-left">{dict.cvEnglish || "CV (English)"}</Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem asChild>
+              <Link href="/es/cv/es" className="w-full text-left">{dict.cvSpanish || "CV (Español)"}</Link>
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
       </div>
     </footer>
   );
