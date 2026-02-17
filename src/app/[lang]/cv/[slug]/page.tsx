@@ -100,7 +100,7 @@ export default async function CVPage({ params }: CVPageProps) {
                           )}
                           {item.subtitle && <span className="text-muted-foreground font-normal"> | {item.subtitle}</span>}
                         </h4>
-                        {item.date && <p className="text-sm text-muted-foreground font-mono">{item.date}</p>}
+                        {item.date && <p className="text-sm text-muted-foreground font-mono whitespace-nowrap">{item.date}</p>}
                         </div>
                         {item.description && (
                             <div className="text-sm text-foreground/80 mt-1">

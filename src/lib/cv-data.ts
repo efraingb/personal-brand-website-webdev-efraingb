@@ -43,19 +43,19 @@ export const cvData: CV[] = [
             id: 'exp_roles',
             title: 'Roles in digital industry',
             subtitle: 'Web Master: ULACIT',
-            date: 'June 2025 – January 2026',
+            date: 'June 2025 - January 2026',
             description: 'Led institutional WordPress website launch and managed the full marketing web ecosystem (multiple sites + e-commerce, overseeing hundreds of tasks) for Marketing & Growth Department; developed and deployed my AI-powered landing page platform to accelerate creation and measurement; coordinated stakeholders and external support.'
           },
           {
             id: 'exp_consultant',
             title: 'Consultant & Senior Developer',
-            date: '2017 – Present',
+            date: '2017 - Present',
             description: 'Applied software development and digital strategy to drive growth, leading the technical lifecycle of solutions for startups and enterprise clients, including a multi‑year role with external agency Kutwit as well as my own initiatives and direct clients.'
           },
           {
             id: 'exp_lead',
             title: 'Tech Lead: SM Group',
-            date: '2015 – 2017',
+            date: '2015 - 2017',
             description: 'Managed software development and digital strategies, significantly improving the User Experience (UX) of public & education platforms.'
           },
           {
@@ -73,20 +73,20 @@ export const cvData: CV[] = [
           {
             id: 'leadership_rector',
             title: 'Vice-rector of Technology: IRCU',
-            date: '2019 – 2021',
+            date: '2019 - 2021',
             description: 'Led digital transformation & online education initiatives. Curriculum Design & Delivery (Technical Topics), Workshop Facilitation.'
           },
           {
             id: 'leadership_community',
             title: 'Strategic Community Engagement: Various Organizations',
-            date: '2010 – Present',
+            date: '2010 - Present',
             description: 'Youth, Digital & Social Services. Professor & Speaker at CyberU, EDUCATEC, Saint Thomas & CRDigital.'
           },
           {
             id: 'leadership_founder',
             title: 'Founder of ',
             titleLink: { text: 'MentaIA.org', url: 'https://mentaia.org/' },
-            date: 'February 2025 – Present',
+            date: 'February 2025 - Present',
             description: 'AI-powered personalized education platform.'
           }
         ]
@@ -98,13 +98,13 @@ export const cvData: CV[] = [
           {
             id: 'edu_mba',
             title: 'MBA, Technology Management emphasis — ULACIT',
-            date: '2025–2027',
+            date: '2025 - 2027',
             description: 'Strong foundation in IT and continuous professional development:'
           },
           {
             id: 'edu_msc_eneb',
             title: "MSc in 'Big Data & Business Intelligence' and MSc in 'Project Management': ENEB",
-            date: '2023 – 2025',
+            date: '2023 - 2025',
             description: ''
           },
           {
@@ -116,7 +116,7 @@ export const cvData: CV[] = [
            {
             id: 'edu_diverse',
             title: "Diverse programs and training in:",
-            date: '2011 – Present',
+            date: '2011 - Present',
             description: 'JavaScript, PHP, MySQL, Blockchain, Fintech, Business Administration and Acceleration, Negotiation, AI, Leadership, Digital Marketing, Design, Google Analytics, Digital Journalist, Sales, etc / Institutions such as UNA, CTP Calle Blancos, INCAE, ULACIT, Udemy, Platzi, Marketing 4 Ecommerce, IBITEC, UPI & CNC'
           }
         ]
@@ -164,7 +164,7 @@ export const cvData: CV[] = [
             id: 'exp_digital',
             title: 'Industria Digital',
             subtitle: 'Webmaster | ULACIT',
-            date: 'Junio 2025 – Enero 2026',
+            date: 'Junio 2025 - Enero 2026',
             description: [
               'Lanzamiento del sitio institucional en WordPress.',
               'Gestión integral del ecosistema de marketing web (múltiples sitios + e-commerce).',
@@ -176,7 +176,7 @@ export const cvData: CV[] = [
           {
             id: 'exp_consultor',
             title: 'Consultor y Desarrollador Senior',
-            date: '2017 – Presente',
+            date: '2017 - Presente',
             description: [
               'Desarrollo de software y estrategia digital orientados a crecimiento.',
               'Liderazgo del ciclo técnico completo de soluciones para startups y clientes empresariales.',
@@ -186,7 +186,7 @@ export const cvData: CV[] = [
           {
             id: 'exp_lead',
             title: 'Tech Lead | Grupo SM',
-            date: '2015 – 2017',
+            date: '2015 - 2017',
             description: [
                 'Gestión de desarrollo de software y estrategias digitales.',
                 'Optimización significativa de la experiencia de usuario (UX) en plataformas públicas y educativas.'
@@ -195,7 +195,7 @@ export const cvData: CV[] = [
           {
             id: 'exp_content',
             title: 'Content Manager & Desarrollador Web | Capilleira / DCC',
-            date: '2011 – 2013',
+            date: '2011 - 2013',
             description: [
                 'Diagnóstico y optimización de 300 sitios web en EE. UU. (Capilleira).',
                 'Impulso de crecimiento digital mediante gestión estratégica de contenidos (DCC).'
@@ -210,7 +210,7 @@ export const cvData: CV[] = [
           {
             id: 'liderazgo_vicerrector',
             title: 'Vicerrector de Tecnología | IRCU',
-            date: '2019 – 2021',
+            date: '2019 - 2021',
             description: [
                 'Dirección de iniciativas de transformación digital y educación en línea.',
                 'Diseño curricular en áreas técnicas y facilitación de talleres especializados.'
@@ -219,7 +219,7 @@ export const cvData: CV[] = [
           {
             id: 'liderazgo_comunidad',
             title: 'Vinculación Comunitaria Estratégica | Varias organizaciones',
-            date: '2010 – Presente',
+            date: '2010 - Presente',
             description: [
                 'Desarrollo de iniciativas en juventud, servicios digitales y acción social.',
                 'Docencia y conferencias en CyberU, EDUCATEC, Saint Thomas y CRDigital.'
@@ -229,7 +229,7 @@ export const cvData: CV[] = [
             id: 'liderazgo_founder',
             title: 'Fundador | ',
             titleLink: { text: 'MentaIA.org', url: 'https://mentaia.org/' },
-            date: 'Febrero 2025 – Presente',
+            date: 'Febrero 2025 - Presente',
             description: ['Creación y dirección de plataforma de educación personalizada impulsada por IA.']
           }
         ]
@@ -241,13 +241,13 @@ export const cvData: CV[] = [
           {
             id: 'edu_mba',
             title: 'Maestría en Administración de Empresas con énfasis en Gerencia de Tecnología — ULACIT',
-            date: '2025–2027',
+            date: '2025 - 2027',
             description: ''
           },
           {
             id: 'edu_msc_eneb',
             title: 'Máster en Big Data & Business Intelligence y Máster en Project Management — ENEB',
-            date: '2023–2025',
+            date: '2023 - 2025',
             description: ''
           },
           {
@@ -259,7 +259,7 @@ export const cvData: CV[] = [
            {
             id: 'edu_diverse',
             title: 'Formación complementaria en:',
-            date: '2011 – Presente',
+            date: '2011 - Presente',
             description: 'JavaScript, PHP, MySQL, Blockchain, Fintech, administración y aceleración de negocios, negociación, inteligencia artificial, liderazgo, marketing digital, diseño, Google Analytics, periodismo digital y ventas.\nInstituciones: UNA, CTP Calle Blancos, INCAE, ULACIT, Udemy, Platzi, Marketing 4 Ecommerce, IBITEC, UPI y CNC.'
           }
         ]
