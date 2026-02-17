@@ -7,11 +7,30 @@ import { Button } from '@/components/ui/button';
 import CvPrintButton from '@/components/cv-print-button';
 import Link from 'next/link';
 import { getDictionary } from '@/lib/i18n';
+import type { Metadata } from 'next';
 
 interface CVPageProps {
   params: {
     slug: string;
     lang: string;
+  };
+}
+
+export async function generateMetadata({ params }: CVPageProps): Promise<Metadata> {
+  const cv = cvData.find((cv) => cv.slug === params.slug);
+
+  if (!cv) {
+    return {
+      title: 'CV Not Found',
+    };
+  }
+
+  const pageTitle = `CV | ${cv.name}`;
+  const pageDescription = `Curriculum Vitae for ${cv.name}, ${cv.title}.`;
+
+  return {
+    title: pageTitle,
+    description: pageDescription,
   };
 }
 
