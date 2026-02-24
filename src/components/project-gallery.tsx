@@ -121,7 +121,7 @@ export default function ProjectGallery({ dict, projectsData, onProjectSelect, pr
                             </div>
                             <div className="flex-shrink-0 mt-4 sm:mt-0">
                                  <Button 
-                                    onClick={() => onProjectSelect(project, false)}
+                                    onClick={() => onProjectSelect(project, !!project.url && project.url !== '#')}
                                     variant="outline"
                                     >
                                     <Eye className="mr-2 h-4 w-4" /> {projectCardDict.viewDetails || "View Details"}

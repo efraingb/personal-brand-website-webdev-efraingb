@@ -20,7 +20,7 @@ interface ProjectCardProps {
   dict: Dictionary; // Expects dict.projectCard
 }
 
-const STABLE_PROJECT_IDS = ['proj-menta-ai'];
+const STABLE_PROJECT_IDS = ['proj-menta-ai', 'proj-progressia'];
 
 export default function ProjectCard({ project, onViewProject, dict }: ProjectCardProps) {
   const [isActive, setIsActive] = useState<boolean | null>(null);
@@ -147,7 +147,7 @@ export default function ProjectCard({ project, onViewProject, dict }: ProjectCar
         {isCollaborationLogoCard && !thumbnailUrlIsValid ? (
             <CardFooter className="flex flex-col sm:flex-row justify-center items-center gap-2 p-4 bg-muted/30 mt-auto">
               <Button 
-              onClick={() => onViewProject(project, false)}
+              onClick={() => onViewProject(project, effectiveIsActive)}
               variant="outline"
               className="w-full sm:w-auto"
             >
