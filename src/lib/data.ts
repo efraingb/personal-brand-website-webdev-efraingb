@@ -15,6 +15,16 @@ export const projectsData: Project[] = [
     isFeaturedAi: true, 
   },
   {
+    id: 'proj-progressia',
+    name: 'proj-progressia_name',
+    url: 'https://www.progressia.me/learn?ref=pioneros-tiquicia',
+    description: 'proj-progressia_description',
+    thumbnailUrl: '', // Text-based card as requested to be like ULACIT/Poder Judicial
+    dataAiHint: 'fintech ai progressia',
+    tags: ['AI', 'FinTech', 'EdTech', 'Strategy', 'Collaboration'],
+    isCollaborationLogo: true,
+  },
+  {
     id: 'proj-agroia',
     name: 'proj-agroia_name',
     url: '#',

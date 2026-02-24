@@ -5,7 +5,7 @@ export const cvData: CV[] = [
   {
     slug: 'en',
     name: 'Efraín González Bermúdez',
-    title: 'INNOVATION & EDTECH SPECIALIST | PROFESSOR',
+    title: 'ANALYST & IT SPECIALIST | PROFESSOR',
     summary: 'Technology professional and professor with 15 years of experience in software development and digital strategy, working with organizations such as Kohl’s, EPA, Establishment Labs, public sector institutions, ULACIT and CostaRica.org (+30% sales lift). I have combined this technical work with teaching and community initiatives in technology and entrepreneurship, authoring 30+ articles and two books on computing and AI. Currently an MBA candidate in Technology Management, with ongoing involvement in startup and innovation ecosystems in Costa Rica and beyond.',
     contact: {
       phone: { text: '+506 8693 9737', url: 'tel:+50686939737' },
@@ -40,6 +40,12 @@ export const cvData: CV[] = [
         title: 'Experience',
         items: [
           {
+            id: 'exp_progressia',
+            title: 'Lead Country Representative | Progressia (Dubai)',
+            date: '2024 - Present',
+            description: 'Leading strategic expansion and partnerships for a Dubai-based AI startup focused on financial education. Driving community engagement and growth initiatives in the Costa Rican market.'
+          },
+          {
             id: 'exp_roles',
             title: 'Roles in digital industry',
             subtitle: 'Web Master: ULACIT',
@@ -54,7 +60,7 @@ export const cvData: CV[] = [
           },
           {
             id: 'exp_lead',
-            title: 'Tech Lead: SM Group',
+            title: 'Tech Lead: Grupo SM',
             date: '2015 - 2017',
             description: 'Managed software development and digital strategies, significantly improving the User Experience (UX) of public & education platforms.'
           },
@@ -103,13 +109,13 @@ export const cvData: CV[] = [
           },
           {
             id: 'edu_msc_eneb',
-            title: "MSc in 'Big Data & Business Intelligence' and MSc in 'Project Management': ENEB",
+            title: "Master in 'Big Data & Business Intelligence' and Master in 'Project Management': ENEB",
             date: '2023 - 2025',
             description: ''
           },
           {
             id: 'edu_msc_ircu',
-            title: "MSc (2019) & BSc (2017) in Web Design & Dev: International Redeemed Christian University (IRCU)",
+            title: "Maestría (2019) & Licenciatura (2017) in Web Design & Dev: International Redeemed Christian University (IRCU)",
             date: '',
             description: ''
           },
@@ -160,6 +166,12 @@ export const cvData: CV[] = [
         id: 'experiencia',
         title: 'Experiencia',
         items: [
+          {
+            id: 'exp_progressia',
+            title: 'Lead Country Representative | Progressia (Dubai)',
+            date: '2024 - Presente',
+            description: 'Liderazgo de expansión estratégica y alianzas para una startup de IA con sede en Dubai enfocada en educación financiera. Impulso de iniciativas de crecimiento y vinculación comunitaria en el mercado costarricense.'
+          },
           {
             id: 'exp_digital',
             title: 'Industria Digital',
