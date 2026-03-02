@@ -20,7 +20,7 @@ interface ProjectCardProps {
   dict: Dictionary; // Expects dict.projectCard
 }
 
-const STABLE_PROJECT_IDS = ['proj-menta-ai', 'proj-progressia'];
+const STABLE_PROJECT_IDS = ['proj-menta-ai', 'proj-progressia', 'proj-bless'];
 
 export default function ProjectCard({ project, onViewProject, dict }: ProjectCardProps) {
   const [isActive, setIsActive] = useState<boolean | null>(null);

@@ -47,7 +47,7 @@ export const projectsData: Project[] = [
   {
     id: 'proj-bless',
     name: 'proj-bless_name',
-    url: '#',
+    url: 'https://bless.efraingb.org/',
     description: 'proj-bless_description',
     thumbnailUrl: 'https://i.imgur.com/lQZr47s.png',
     dataAiHint: 'community logo',
