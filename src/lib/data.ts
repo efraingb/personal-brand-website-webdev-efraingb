@@ -19,10 +19,20 @@ export const projectsData: Project[] = [
     name: 'proj-progressia_name',
     url: 'https://www.progressia.me/learn?ref=pioneros-tiquicia',
     description: 'proj-progressia_description',
-    thumbnailUrl: '', // Text-based card as requested to be like ULACIT/Poder Judicial
+    thumbnailUrl: '', 
     dataAiHint: 'fintech ai progressia',
-    tags: ['AI', 'FinTech', 'EdTech', 'Strategy', 'Collaboration'],
+    tags: ['AI', 'FinTech', 'Dubai Startup', 'Strategy', 'Leadership'],
     isCollaborationLogo: true,
+  },
+  {
+    id: 'proj-bless',
+    name: 'proj-bless_name',
+    url: 'https://bless.efraingb.org/',
+    description: 'proj-bless_description',
+    thumbnailUrl: 'https://i.imgur.com/lQZr47s.png',
+    dataAiHint: 'community logo bless',
+    tags: ['Community', 'Social Impact', 'Firebase', 'Platform', 'Web Development'],
+    videoUrl: 'https://www.youtube.com/shorts/t3nXM-hHEaQ',
   },
   {
     id: 'proj-agroia',
@@ -31,7 +41,7 @@ export const projectsData: Project[] = [
     description: 'proj-agroia_description',
     thumbnailUrl: 'https://i.imgur.com/h53YbVW.png',
     dataAiHint: 'agritech platform',
-    tags: ['AgriTech', 'AI', 'E-commerce', 'Platform', 'Firebase', 'Web Development'],
+    tags: ['AgriTech', 'AI', 'Innovation Lab', 'Prototypes'],
     videoUrl: 'https://www.youtube.com/shorts/BvDAXjkxc3M',
   },
   {
@@ -41,18 +51,8 @@ export const projectsData: Project[] = [
     description: 'proj-negotia_description',
     thumbnailUrl: 'https://i.imgur.com/wIwB6qu.png',
     dataAiHint: 'ai negotiation platform',
-    tags: ['AI', 'Negotiation', 'SaaS', 'B2B', 'Web Development'],
+    tags: ['AI', 'Negotiation', 'SaaS', 'Innovation Lab'],
     videoUrl: 'https://www.youtube.com/shorts/W5yZ03meojo',
-  },
-  {
-    id: 'proj-bless',
-    name: 'proj-bless_name',
-    url: 'https://bless.efraingb.org/',
-    description: 'proj-bless_description',
-    thumbnailUrl: 'https://i.imgur.com/lQZr47s.png',
-    dataAiHint: 'community logo',
-    tags: ['Community', 'Platform', 'Firebase', 'Social Impact', 'Web Development'],
-    videoUrl: 'https://www.youtube.com/shorts/t3nXM-hHEaQ',
   },
   {
     id: 'proj-imagine-motiva',
@@ -61,7 +61,7 @@ export const projectsData: Project[] = [
     description: 'proj-imagine-motiva_description',
     thumbnailUrl: 'https://i.imgur.com/8m70722.png',
     dataAiHint: 'medtech visualization',
-    tags: ['MedTech', 'UX/UI', '3D Visualization', 'Enterprise', 'Collaboration'],
+    tags: ['MedTech', 'UX/UI', 'Enterprise', 'Collaboration'],
   },
   {
     id: 'proj-agro-y-mas',
@@ -70,7 +70,7 @@ export const projectsData: Project[] = [
     description: 'proj-agro-y-mas_description',
     thumbnailUrl: 'https://i.imgur.com/McB2HN9.png',
     dataAiHint: 'agritech news finance',
-    tags: ['AgriTech', 'Platform', 'FinTech', 'Content', 'Collaboration'],
+    tags: ['AgriTech', 'FinTech', 'Content', 'Collaboration'],
   },
   {
     id: 'proj-epa-en-linea',
@@ -79,7 +79,7 @@ export const projectsData: Project[] = [
     description: 'proj-epa-en-linea_description',
     thumbnailUrl: 'https://i.imgur.com/XNbjFzv.png',
     dataAiHint: 'hardware ecommerce retail',
-    tags: ['E-commerce', 'Retail', 'Web Development', 'Collaboration'],
+    tags: ['E-commerce', 'Retail', 'Collaboration'],
   },
   {
     id: 'proj-kohls',
@@ -88,7 +88,7 @@ export const projectsData: Project[] = [
     description: 'proj-kohls_description',
     thumbnailUrl: 'https://i.imgur.com/Ud4Q2jt.png',
     dataAiHint: 'department store ecommerce',
-    tags: ['E-commerce', 'Retail', 'Enterprise', 'Collaboration'],
+    tags: ['E-commerce', 'Enterprise', 'Collaboration'],
   },
   {
     id: 'collab-ulacit',
@@ -97,7 +97,7 @@ export const projectsData: Project[] = [
     description: 'collab-ulacit_description',
     thumbnailUrl: '',
     dataAiHint: 'university logo ulacit',
-    tags: ['EdTech', 'AI', 'Web Development', 'Consulting'],
+    tags: ['EdTech', 'AI', 'Consulting'],
     isCollaborationLogo: true,
   },
   {
@@ -107,7 +107,7 @@ export const projectsData: Project[] = [
     description: 'collab-crdigital_description',
     thumbnailUrl: 'https://i.imgur.com/cU0e19I.png',
     dataAiHint: 'community logo CRDigital',
-    tags: ['Brand Collaboration', 'Community'],
+    tags: ['Community', 'Tech Talent'],
     isCollaborationLogo: true,
   },
   {
@@ -117,7 +117,7 @@ export const projectsData: Project[] = [
     description: 'collab-vita_description',
     thumbnailUrl: 'https://i.imgur.com/6VbVVsL.png',
     dataAiHint: 'startup logo Vita',
-    tags: ['Brand Collaboration', 'Web 4.0', 'Startup'],
+    tags: ['Web 4.0', 'Dubai Startup'],
     isCollaborationLogo: true,
   },
   {
@@ -126,8 +126,8 @@ export const projectsData: Project[] = [
     url: '#',
     description: 'collab-poder-judicial_description',
     thumbnailUrl: '',
-    dataAiHint: 'government building logo',
-    tags: ['Brand Collaboration', 'Consulting'],
+    dataAiHint: 'government logo',
+    tags: ['Government', 'Consulting'],
     isCollaborationLogo: true,
   },
   {
@@ -137,7 +137,7 @@ export const projectsData: Project[] = [
     description: 'collab-libreria-internacional_description',
     thumbnailUrl: '',
     dataAiHint: 'bookstore logo',
-    tags: ['Brand Collaboration', 'Digital Strategy'],
+    tags: ['Retail', 'Digital Strategy'],
     isCollaborationLogo: true,
   }
 ];

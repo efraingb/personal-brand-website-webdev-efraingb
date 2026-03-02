@@ -7,13 +7,14 @@ import { getDictionary, Dictionary } from '@/lib/i18n';
 
 interface RootLayoutProps {
   children: React.ReactNode;
-  params: {
+  params: Promise<{
     lang: string;
-  };
+  }>;
 }
 
 export async function generateMetadata({ params }: RootLayoutProps): Promise<Metadata> {
-  const dict = await getDictionary(params.lang);
+  const { lang } = await params;
+  const dict = await getDictionary(lang);
   const faviconSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" fill="#003049"/><text x="50" y="58" font-family="Arial, sans-serif" font-size="50" fill="#D4E7F2" text-anchor="middle" dominant-baseline="middle" font-weight="bold">E</text></svg>`;
   const faviconDataUrl = `data:image/svg+xml;base64,${btoa(faviconSvg)}`;
 
@@ -37,8 +38,9 @@ export default async function RootLayout({
   children,
   params,
 }: RootLayoutProps) {
+  const { lang } = await params;
   return (
-    <html lang={params.lang} className={`${GeistSans.variable} ${GeistMono.variable}`} suppressHydrationWarning>
+    <html lang={lang} className={`${GeistSans.variable} ${GeistMono.variable}`} suppressHydrationWarning>
       <body className="antialiased" suppressHydrationWarning>
         {children}
       </body>

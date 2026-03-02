@@ -1,4 +1,4 @@
-// src/app/cv/[slug]/page.tsx
+// src/app/[lang]/cv/[slug]/page.tsx
 import { notFound } from 'next/navigation';
 import { cvData } from '@/lib/cv-data';
 import type { CVItem, CV } from '@/lib/types';
@@ -10,14 +10,15 @@ import { getDictionary } from '@/lib/i18n';
 import type { Metadata } from 'next';
 
 interface CVPageProps {
-  params: {
+  params: Promise<{
     slug: string;
     lang: string;
-  };
+  }>;
 }
 
 export async function generateMetadata({ params }: CVPageProps): Promise<Metadata> {
-  const cv = cvData.find((cv) => cv.slug === params.slug);
+  const { slug } = await params;
+  const cv = cvData.find((cv) => cv.slug === slug);
 
   if (!cv) {
     return {
@@ -61,8 +62,9 @@ const CVSkillItem = ({ item }: { item: CVItem }) => (
 
 
 export default async function CVPage({ params }: CVPageProps) {
-  const cv = cvData.find((cv) => cv.slug === params.slug);
-  const dict = await getDictionary(params.lang);
+  const { slug, lang } = await params;
+  const cv = cvData.find((cv) => cv.slug === slug);
+  const dict = await getDictionary(lang);
 
   if (!cv) {
     notFound();
@@ -79,7 +81,7 @@ export default async function CVPage({ params }: CVPageProps) {
           <div className="flex flex-wrap justify-center gap-x-4 gap-y-1 mt-3 text-sm text-muted-foreground">
             {cv.contact.phone && <a href={cv.contact.phone.url} className="hover:text-primary flex items-center gap-1.5"><Icon name="Phone" className="w-3 h-3"/>{cv.contact.phone.text}</a>}
             {cv.contact.email && <a href={cv.contact.email.url} className="hover:text-primary flex items-center gap-1.5"><Icon name="Mail" className="w-3 h-3"/>{cv.contact.email.text}</a>}
-            {cv.contact.website && <Link href={`/${params.lang}`} className="hover:text-primary flex items-center gap-1.5"><Icon name="Globe" className="w-3 h-3"/>{cv.contact.website.text}</Link>}
+            {cv.contact.website && <Link href={`/${lang}`} className="hover:text-primary flex items-center gap-1.5"><Icon name="Globe" className="w-3 h-3"/>{cv.contact.website.text}</Link>}
             {cv.contact.linkedin && <a href={cv.contact.linkedin.url} target="_blank" rel="noopener noreferrer" className="hover:text-primary flex items-center gap-1.5"><Icon name="Linkedin" className="w-3 h-3"/>{cv.contact.linkedin.text}</a>}
           </div>
         </header>

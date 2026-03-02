@@ -3,69 +3,69 @@ import React from 'react';
 import Header from '@/components/header';
 import HeroSection from '@/components/hero-section';
 import Footer from '@/components/footer';
-import type { Project, LinkItem, CredentialColumn } from '@/lib/types'; // Added LinkItem
+import type { Project, LinkItem, CredentialColumn } from '@/lib/types'; 
 import { Toaster } from "@/components/ui/toaster";
 import { getDictionary, Dictionary } from '@/lib/i18n';
 import { projectsData as getRawProjectsData, documentLinksData as getRawDocumentLinksData, contactLinksData as getRawContactLinksData, navLinksData as getRawNavLinksData, credentialsData as getRawCredentialsData } from '@/lib/data';
-import PageClientWrapper from '@/components/page-client-wrapper'; // Import the new client wrapper
+import PageClientWrapper from '@/components/page-client-wrapper';
 
 interface HomePageProps {
-  params: {
+  params: Promise<{
     lang: string;
-  };
+  }>;
 }
 
 // Helper function to translate project data
 const translateProject = (project: Project, dict: Dictionary): Project => {
   return {
     ...project,
-    name: dict.projectsData[`${project.id}_name`] || project.name,
-    description: dict.projectsData[`${project.id}_description`] || project.description,
-    // Tags are not translated in this iteration
+    name: dict.projectsData?.[`${project.id}_name`] || project.name,
+    description: dict.projectsData?.[`${project.id}_description`] || project.description,
   };
 };
 
 const translateCredentialColumns = (columns: CredentialColumn[], dict: Dictionary): CredentialColumn[] => {
   return columns.map(column => ({
     ...column,
-    title: dict.credentialsSection[column.title] || column.title,
+    title: dict.credentialsSection?.[column.title] || column.title,
     credentials: column.credentials.map(cred => ({
       ...cred,
-      text: dict.credentialsSection[cred.text] || cred.text,
+      text: dict.credentialsSection?.[cred.text] || cred.text,
     })),
   }));
 };
 
 
 export default async function Home({ params }: HomePageProps) {
-  const dict = await getDictionary(params.lang);
+  const { lang } = await params;
+  const dict = await getDictionary(lang);
 
   // Translate dynamic data
   const translatedProjectsData = getRawProjectsData.map(p => translateProject(p, dict));
   
   const translatedDocumentLinksData: LinkItem[] = getRawDocumentLinksData.map(link => ({
     ...link,
-    name: dict.documentLinksData[`${link.id}_name`] || link.name,
-    description: dict.documentLinksData[`${link.id}_description`] || link.description,
-    buttonText: dict.documentLinksData[`${link.id}_buttonText`] || link.buttonText,
+    name: dict.documentLinksData?.[`${link.id}_name`] || link.name,
+    description: dict.documentLinksData?.[`${link.id}_description`] || link.description,
+    buttonText: dict.documentLinksData?.[`${link.id}_buttonText`] || link.buttonText,
   }));
 
   const translatedContactLinksData: LinkItem[] = getRawContactLinksData.map(link => ({
     ...link,
-    name: dict.contactLinksData[`${link.id}_name`] || link.name,
-    text: dict.contactLinksData[`${link.id}_text`] || link.text,
+    name: dict.contactLinksData?.[`${link.id}_name`] || link.name,
+    text: dict.contactLinksData?.[`${link.id}_text`] || link.text,
   }));
   
   const translatedNavLinksData = getRawNavLinksData.map(link => ({
     ...link,
-    label: dict.nav[link.labelKey] || link.labelKey, // labelKey defined in data.ts
+    label: dict.nav?.[link.labelKey] || link.labelKey,
   }));
 
   const translatedCredentialsData = translateCredentialColumns(getRawCredentialsData, dict);
 
   return (
     <div className="flex flex-col min-h-screen bg-background text-foreground antialiased">
-      <Header dict={dict.header} navLinks={translatedNavLinksData} lang={params.lang} langSwitcherDict={dict.languageSwitcher} />
+      <Header dict={dict.header} navLinks={translatedNavLinksData} lang={lang} langSwitcherDict={dict.languageSwitcher} />
       <main className="flex-grow">
         <HeroSection dict={dict.hero} />
         <PageClientWrapper
@@ -86,5 +86,3 @@ export default async function Home({ params }: HomePageProps) {
     </div>
   );
 }
-
-// PageClientWrapperProps interface and PageClientWrapper function are now moved to a separate file.
