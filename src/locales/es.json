@@ -1,3 +1,4 @@
+
 {
   "layout": {
     "title": "Escenario Digital de Efraín",
@@ -44,7 +45,7 @@
   "projectGallery": {
     "title": "Mis Proyectos",
     "description": "Un menú estratégico de mis principales iniciativas digitales y prototipos creativos.",
-    "mainActiveProjectsTitle": "Prioridades Actuales y Herramientas de IA",
+    "mainActiveProjectsTitle": "Proyectos Destacados y Soluciones de IA",
     "aiLabTitle": "Laboratorio de Innovación y Prototipos",
     "strategicCollaborationsTitle": "Colaboraciones Estratégicas",
     "otherImpactTitle": "Otras Contribuciones Profesionales",
@@ -64,8 +65,6 @@
     "statusOnlineTooltip": "Este proyecto está actualmente online y accesible.",
     "statusOfflineTooltip": "Este proyecto parece estar offline o inaccesible.",
     "viewVideoDemo": "Ver Video Demo",
-    "verificationIssueTitle": "Problema de Verificación",
-    "verificationIssueDescription": "No se pudo verificar el estado de {projectName}. Podría estar temporalmente offline.",
     "featuredAiBadgeText": "IA Destacada"
   },
   "projectModal": {
