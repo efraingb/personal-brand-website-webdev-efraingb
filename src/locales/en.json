@@ -2,7 +2,7 @@
 {
   "layout": {
     "title": "Efraín's Digital Stage",
-    "description": "Portfolio of Efraín G.B., Full-Stack Developer & AI Innovator."
+    "description": "Portfolio of Efraín G.B., Architect of AI Solutions & Educational Innovation."
   },
   "nav": {
     "home": "Home",
@@ -19,28 +19,28 @@
   },
   "hero": {
     "mainTitle": "Efraín G.B.",
-    "subtitle": "Full-Stack Developer & AI Innovator",
-    "description": "Passionate about crafting elegant and efficient digital solutions. Explore my credentials and a selection of my most relevant projects below.",
+    "subtitle": "Architect of AI Solutions & Educational Innovation",
+    "description": "Transforming learning and business through intelligent technological solutions. 15 years of experience bridging development, strategy, and teaching.",
     "viewMyWork": "Explore My Projects",
     "getInTouch": "Get In Touch"
   },
   "credentialsSection": {
     "title": "Credentials & Expertise",
-    "credentials_education_title": "Education & Certifications",
-    "credentials_education_mba_tech": "MBA with Emphasis in Technology (ULACIT, ongoing)",
+    "credentials_education_title": "Education & AI Mastery",
+    "credentials_education_mba_tech": "MBA with Emphasis in Technology Management (ULACIT, ongoing)",
     "credentials_education_master_pm": "Master in Project Management (ENEB)",
     "credentials_education_master_big_data": "Master in Big Data & AI (ENEB)",
     "credentials_education_spec_analytics": "Specialized in Data Analytics & AI (10/10 rating)",
     "credentials_education_certs": "8+ Professional Certifications",
-    "credentials_experience_title": "Experience & Leadership",
+    "credentials_experience_title": "Leadership & Strategy",
     "credentials_experience_fullstack": "13+ Years in Full-Stack Development",
     "credentials_experience_growth": "4 Years as Growth Engineering Architect",
-    "credentials_experience_leadership": "8+ Years in IT Solutions Leadership",
-    "credentials_experience_mentoring": "10 Years Mentoring Youth & Education",
-    "credentials_results_title": "Proven Results",
+    "credentials_experience_leadership": "8+ Years leading IT & EdTech Solutions",
+    "credentials_experience_mentoring": "10 Years Mentoring & Tech Education",
+    "credentials_results_title": "Proven Impact",
     "credentials_results_revenue": "+30% Revenue Growth (CostaRica.org)",
-    "credentials_results_nasdaq": "NASDAQ Company Transformation (Establishment Labs)",
-    "credentials_results_clients": "Global Client Base (US, LatAm, Europe)"
+    "credentials_results_nasdaq": "NASDAQ Company Digital Transformation (Establishment Labs)",
+    "credentials_results_clients": "Global Client Base (Dubai, US, LatAm, Europe)"
   },
   "projectGallery": {
     "title": "My Projects",
@@ -120,12 +120,12 @@
     "saveAsPdf": "Save as PDF"
   },
   "projectsData": {
-    "proj-agroia_name": "Agroia",
-    "proj-agroia_description": "Intelligent digital platform for the agricultural sector, connecting producers with markets through AI. Currently a concept prototype in the innovation lab.",
+    "proj-agroia_name": "AgroIA",
+    "proj-agroia_description": "Intelligent digital platform for the agricultural sector, connecting producers with markets through AI. Concept prototype in the innovation lab.",
     "proj-progressia_name": "Progressia (Dubai)",
-    "proj-progressia_description": "Leading strategic expansion and local partnerships as Lead Country Representative for a Dubai-based AI startup focused on financial education.",
+    "proj-progressia_description": "Strategic AI Expansion: Leading growth and ecosystem initiatives for a Dubai-based financial education AI startup as Lead Country Representative.",
     "proj-menta-ai_name": "Menta IA",
-    "proj-menta-ai_description": "AI-powered personalized education platform. Transform any topic into an interactive learning experience with the power of Generative AI.",
+    "proj-menta-ai_description": "Scaling Personalized Learning: Intelligent tutoring engine powered by Generative AI. Transform any topic into an interactive journey.",
     "proj-negotia_name": "NEGOTIA",
     "proj-negotia_description": "AI-assisted negotiation platform designed to facilitate win-win outcomes. Part of my innovation laboratory explorations.",
     "proj-bless_name": "Bless Contigo",

@@ -2,7 +2,7 @@
 {
   "layout": {
     "title": "Escenario Digital de Efraín",
-    "description": "Portafolio de Efraín G.B., Desarrollador Full-Stack e Innovador en IA."
+    "description": "Portafolio de Efraín G.B., Arquitecto de Soluciones de IA e Innovación Educativa."
   },
   "nav": {
     "home": "Inicio",
@@ -19,28 +19,28 @@
   },
   "hero": {
     "mainTitle": "Efraín G.B.",
-    "subtitle": "Desarrollador Full-Stack e Innovador en IA",
-    "description": "Apasionado por crear soluciones digitales elegantes y eficientes. Explore mis credenciales y una selección de mis proyectos más relevantes a continuación.",
+    "subtitle": "Arquitecto de Soluciones de IA e Innovación Educativa",
+    "description": "Transformando el aprendizaje y los negocios a través de soluciones tecnológicas inteligentes. 15 años de experiencia uniendo desarrollo, estrategia y docencia.",
     "viewMyWork": "Explora Mis Proyectos",
     "getInTouch": "Contáctame"
   },
   "credentialsSection": {
     "title": "Credenciales y Experiencia",
-    "credentials_education_title": "Formación y Certificaciones",
-    "credentials_education_mba_tech": "MBA con Énfasis en Tecnología (ULACIT, en curso)",
+    "credentials_education_title": "Formación y Maestría en IA",
+    "credentials_education_mba_tech": "MBA con Énfasis en Gerencia de Tecnología (ULACIT, en curso)",
     "credentials_education_master_pm": "Máster en Dirección de Proyectos (ENEB)",
     "credentials_education_master_big_data": "Máster en Big Data e IA (ENEB)",
     "credentials_education_spec_analytics": "Especializado en Analítica de Datos e IA (calif. 10/10)",
     "credentials_education_certs": "+8 Certificaciones Profesionales",
-    "credentials_experience_title": "Experiencia y Liderazgo",
+    "credentials_experience_title": "Liderazgo y Estrategia",
     "credentials_experience_fullstack": "+13 Años en Desarrollo Full-Stack",
     "credentials_experience_growth": "4 Años como Arquitecto de Growth Engineering",
-    "credentials_experience_leadership": "+8 Años en Liderazgo de Soluciones TI",
+    "credentials_experience_leadership": "+8 Años liderando soluciones TI y EdTech",
     "credentials_experience_mentoring": "10 Años como Mentor de Jóvenes y Educación",
     "credentials_results_title": "Resultados Comprobados",
     "credentials_results_revenue": "+30% Crecimiento en Ingresos (CostaRica.org)",
-    "credentials_results_nasdaq": "Transformación en Empresa NASDAQ (Establishment Labs)",
-    "credentials_results_clients": "Base Global de Clientes (EE.UU., LatAm, Europa)"
+    "credentials_results_nasdaq": "Transformación Digital en Empresa NASDAQ (Establishment Labs)",
+    "credentials_results_clients": "Base Global de Clientes (Dubai, EE.UU., LatAm, Europa)"
   },
   "projectGallery": {
     "title": "Mis Proyectos",
@@ -65,6 +65,8 @@
     "statusOnlineTooltip": "Este proyecto está actualmente online y accesible.",
     "statusOfflineTooltip": "Este proyecto parece estar offline o inaccesible.",
     "viewVideoDemo": "Ver Video Demo",
+    "verificationIssueTitle": "Problema de Verificación",
+    "verificationIssueDescription": "No se pudo verificar el estado de {projectName}. Podría estar temporalmente offline.",
     "featuredAiBadgeText": "IA Destacada"
   },
   "projectModal": {
@@ -118,12 +120,12 @@
     "saveAsPdf": "Guardar como PDF"
   },
   "projectsData": {
-    "proj-agroia_name": "Agroia",
-    "proj-agroia_description": "Plataforma digital para el agro que conecta productores con mercados mediante IA. Actualmente es un prototipo de concepto en el laboratorio de innovación.",
+    "proj-agroia_name": "AgroIA",
+    "proj-agroia_description": "Plataforma digital inteligente para el sector agrícola que conecta productores con mercados mediante IA. Prototipo de concepto.",
     "proj-progressia_name": "Progressia (Dubai)",
-    "proj-progressia_description": "Liderando la expansión estratégica y alianzas locales como Lead Country Representative para una startup de IA de Dubai enfocada en educación financiera.",
+    "proj-progressia_description": "Expansión Estratégica de IA: Liderazgo de iniciativas de crecimiento y ecosistema para una startup de Dubai de educación financiera como Lead Country Representative.",
     "proj-menta-ai_name": "Menta IA",
-    "proj-menta-ai_description": "Plataforma de educación personalizada impulsada por IA. Transforma cualquier tema en una experiencia de aprendizaje interactiva con el poder de la IA Generativa.",
+    "proj-menta-ai_description": "Escalando el Aprendizaje Personalizado: Motor de tutoría inteligente impulsado por IA Generativa. Transforma cualquier tema en un viaje interactivo.",
     "proj-negotia_name": "NEGOTIA",
     "proj-negotia_description": "Plataforma de negociación asistida por IA diseñada para facilitar acuerdos beneficiosos. Parte de mis exploraciones en el laboratorio de innovación.",
     "proj-bless_name": "Bless Contigo",

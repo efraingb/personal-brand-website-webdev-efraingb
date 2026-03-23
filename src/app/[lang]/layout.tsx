@@ -1,9 +1,10 @@
+
 // src/app/[lang]/layout.tsx
 import type { Metadata, Viewport } from 'next';
 import { GeistSans } from 'geist/font/sans';
 import { GeistMono } from 'geist/font/mono';
 import '../globals.css';
-import { getDictionary, Dictionary } from '@/lib/i18n';
+import { getDictionary } from '@/lib/i18n';
 
 interface RootLayoutProps {
   children: React.ReactNode;
@@ -28,7 +29,7 @@ export async function generateMetadata({ params }: RootLayoutProps): Promise<Met
 }
 
 export const viewport: Viewport = {
-  themeColor: [ // Example, adjust as needed
+  themeColor: [
     { media: '(prefers-color-scheme: light)', color: '#D4E7F2' }, 
     { media: '(prefers-color-scheme: dark)', color: '#003049' },
   ],
