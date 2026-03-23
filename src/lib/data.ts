@@ -1,4 +1,5 @@
 
+// src/lib/data.ts
 import type { Project, LinkItem, NavLink, CredentialColumn } from './types';
 
 export const projectsData: Project[] = [
@@ -22,7 +23,7 @@ export const projectsData: Project[] = [
     thumbnailUrl: '', 
     dataAiHint: 'fintech ai progressia',
     tags: ['AI', 'FinTech', 'Dubai Startup', 'Strategy', 'Leadership'],
-    isCollaborationLogo: true,
+    isCollaborationLogo: true, // Se mantiene como tarjeta grande por importancia, aunque no tenga imagen aún
   },
   {
     id: 'proj-bless',
@@ -98,7 +99,7 @@ export const projectsData: Project[] = [
     thumbnailUrl: '',
     dataAiHint: 'university logo ulacit',
     tags: ['EdTech', 'AI', 'Consulting'],
-    isCollaborationLogo: true,
+    isCollaborationLogo: false, // Desactivado para que use la tarjeta de texto sutil
   },
   {
     id: 'collab-crdigital',
@@ -128,7 +129,7 @@ export const projectsData: Project[] = [
     thumbnailUrl: '',
     dataAiHint: 'government logo',
     tags: ['Government', 'Consulting'],
-    isCollaborationLogo: true,
+    isCollaborationLogo: false, // Desactivado para usar tarjeta de texto sutil
   },
   {
     id: 'collab-libreria-internacional',
@@ -138,7 +139,7 @@ export const projectsData: Project[] = [
     thumbnailUrl: '',
     dataAiHint: 'bookstore logo',
     tags: ['Retail', 'Digital Strategy'],
-    isCollaborationLogo: true,
+    isCollaborationLogo: false,
   }
 ];
 

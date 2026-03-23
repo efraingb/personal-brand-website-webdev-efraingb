@@ -18,10 +18,10 @@ interface ProjectGalleryProps {
 }
 
 export default function ProjectGallery({ dict, projectsData, onProjectSelect, projectCardDict }: ProjectGalleryProps) {
-  // 1. Proyectos Activos y Herramientas (Los que están en vivo)
+  // 1. Proyectos Principales (Tu Top 3 de alta importancia)
   const mainActiveProjectIds = ['proj-menta-ai', 'proj-progressia', 'proj-bless'];
   
-  // 2. Laboratorio de IA (Conceptos potentes aunque estén offline)
+  // 2. Laboratorio de IA (Conceptos potentes)
   const aiLabProjectIds = ['proj-agroia', 'proj-negotia'];
 
   // 3. Colaboraciones Estratégicas (Marcas e Instituciones)
@@ -49,8 +49,9 @@ export default function ProjectGallery({ dict, projectsData, onProjectSelect, pr
     .filter(project => collaborationIds.includes(project.id))
     .sort((a, b) => collaborationIds.indexOf(a.id) - collaborationIds.indexOf(b.id));
     
-  const collabsWithImages = collaborations.filter(p => p.thumbnailUrl || p.isCollaborationLogo);
-  const collabsTextOnly = collaborations.filter(p => !p.thumbnailUrl && !p.isCollaborationLogo);
+  // CRÍTICO: Solo mostrar en tarjetas grandes si tienen imagen real para no romper la estética
+  const collabsWithImages = collaborations.filter(p => !!p.thumbnailUrl);
+  const collabsTextOnly = collaborations.filter(p => !p.thumbnailUrl);
 
   return (
     <section id="projects" className="py-16 md:py-24 bg-background animate-in fade-in-0 slide-in-from-bottom-12 duration-500 ease-out">
@@ -69,7 +70,7 @@ export default function ProjectGallery({ dict, projectsData, onProjectSelect, pr
         {mainActiveProjects.length > 0 && (
           <div className="mb-20">
             <h3 className="text-3xl font-semibold tracking-tight text-primary mb-10 text-center border-b pb-4">
-              {dict.mainActiveProjectsTitle || "Active Projects & AI Tools"}
+              {dict.mainActiveProjectsTitle || "Featured Projects & AI Solutions"}
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {mainActiveProjects.map((project) => (
@@ -103,7 +104,7 @@ export default function ProjectGallery({ dict, projectsData, onProjectSelect, pr
           </div>
         )}
 
-        {/* SECCIÓN 3: COLABORACIONES ESTRATÉGICAS */}
+        {/* SECCIÓN 3: COLABORACIONES ESTRATÉGICAS CON IMAGEN */}
         {collabsWithImages.length > 0 && (
           <div className="mb-20">
             <h3 className="text-3xl font-semibold tracking-tight text-primary mb-10 text-center border-b pb-4">
@@ -122,11 +123,11 @@ export default function ProjectGallery({ dict, projectsData, onProjectSelect, pr
           </div>
         )}
 
-        {/* SECCIÓN 4: OTRAS COLABORACIONES (TEXTO) */}
+        {/* SECCIÓN 4: OTRAS COLABORACIONES E IMPACTO (TEXTO) */}
         {collabsTextOnly.length > 0 && (
             <div className="mb-16">
                 <h3 className="text-2xl font-semibold tracking-tight text-primary/70 mb-8 text-center sm:text-left">
-                  {dict.otherImpactTitle || "Other Professional Contributions"}
+                  {dict.otherImpactTitle || "Professional Contributions & Collaborations"}
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {collabsTextOnly.map((project) => (
