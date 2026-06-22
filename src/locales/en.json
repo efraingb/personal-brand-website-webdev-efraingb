@@ -134,6 +134,20 @@
     "cvEnglish": "Resume (English)",
     "cvSpanish": "Resumen (Español)"
   },
+  "proposalPage": {
+    "backHome": "Back to Home",
+    "downloadPdf": "Download PDF",
+    "projectProposal": "Project Proposal",
+    "clientLabel": "Client",
+    "dateLabel": "Date",
+    "validUntilLabel": "Valid Until",
+    "objectivesTitle": "Strategic Objectives",
+    "scopeTitle": "Project Scope",
+    "roadmapTitle": "Roadmap & Phases",
+    "investmentTitle": "Investment Summary",
+    "totalLabel": "Total Investment",
+    "termsNote": "* Prices are subject to final agreement and scope definition."
+  },
   "cv": {
     "saveAsPdf": "Download PDF"
   },

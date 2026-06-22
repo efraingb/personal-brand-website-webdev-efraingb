@@ -41,18 +41,18 @@
   },
   "credentialsSection": {
     "title": "Confianza y Maestría",
-    "credentials_education_title": "Especialización en IA",
+    "credentials_education_title": "Maestría Técnica",
     "credentials_education_mba_tech": "MBA con Énfasis en Gerencia de Tecnología (ULACIT, en curso)",
     "credentials_education_master_pm": "Máster en Dirección de Proyectos (ENEB)",
     "credentials_education_master_big_data": "Máster en Big Data e IA (ENEB)",
     "credentials_education_spec_analytics": "Especialista en Analítica de Datos e IA (calif. 10/10)",
     "credentials_education_certs": "+8 Certificaciones Profesionales",
-    "credentials_experience_title": "Liderazgo Estratégico",
+    "credentials_experience_title": "Liderazgo y Visión",
     "credentials_experience_fullstack": "+13 Años en Desarrollo Full-Stack",
     "credentials_experience_growth": "Arquitecto de Sistemas de Growth Engineering",
     "credentials_experience_leadership": "+8 Años liderando soluciones TI y EdTech",
     "credentials_experience_mentoring": "10 Años como Mentor en Tecnología y Educación",
-    "credentials_results_title": "Impacto Comprobado",
+    "credentials_results_title": "Resultados Comprobados",
     "credentials_results_revenue": "+30% Incremento en Ventas (CostaRica.org)",
     "credentials_results_nasdaq": "Estrategia Digital para Empresa NASDAQ (Establishment Labs)",
     "credentials_results_clients": "Experiencia Global (Dubai, EE.UU., Europa, LatAm)"
@@ -133,6 +133,20 @@
     "openCvMenu": "Ver Hoja de Vida",
     "cvEnglish": "Resume (Inglés)",
     "cvSpanish": "Hoja de Vida (Español)"
+  },
+  "proposalPage": {
+    "backHome": "Volver al Inicio",
+    "downloadPdf": "Descargar PDF",
+    "projectProposal": "Propuesta de Proyecto",
+    "clientLabel": "Cliente",
+    "dateLabel": "Fecha",
+    "validUntilLabel": "Válido hasta",
+    "objectivesTitle": "Objetivos Estratégicos",
+    "scopeTitle": "Alcance del Proyecto",
+    "roadmapTitle": "Roadmap y Fases",
+    "investmentTitle": "Resumen de Inversión",
+    "totalLabel": "Inversión Total",
+    "termsNote": "* Los precios están sujetos a acuerdo final y definición detallada del alcance."
   },
   "cv": {
     "saveAsPdf": "Descargar PDF"

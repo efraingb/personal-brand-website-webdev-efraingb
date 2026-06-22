@@ -1,4 +1,3 @@
-
 import type { LucideIcon } from 'lucide-react';
 
 export interface Project {
@@ -6,13 +5,13 @@ export interface Project {
   name: string; 
   url: string;
   description: string; 
-  thumbnailUrl?: string; // Made optional for projects without images
-  dataAiHint?: string;  // Made optional
+  thumbnailUrl?: string; 
+  dataAiHint?: string;  
   tags?: string[]; 
   videoUrl?: string;
   isCollaborationLogo?: boolean; 
-  isFeaturedAi?: boolean; // New property to highlight specific AI projects
-  thumbnailIsLogo?: boolean; // New property to handle logo-like thumbnails
+  isFeaturedAi?: boolean; 
+  thumbnailIsLogo?: boolean; 
 }
 
 export interface LinkItem {
@@ -42,7 +41,9 @@ export type IconName =
   | 'Briefcase'
   | 'BarChart3'
   | 'Phone'
-  | 'Globe';
+  | 'Globe'
+  | 'FileText'
+  | 'CheckCircle';
 
 export interface NavLink {
   href: string;
@@ -82,7 +83,7 @@ export interface CVSection {
   id: string;
   title: string;
   items: CVItem[];
-  isTwoColumns?: boolean; // For skills section
+  isTwoColumns?: boolean; 
 }
 
 export interface CV {
@@ -92,4 +93,32 @@ export interface CV {
   summary: string;
   contact: CVContact;
   sections: CVSection[];
+}
+
+// Proposal-specific types
+export interface ProposalPhase {
+  title: string;
+  duration: string;
+  items: string[];
+}
+
+export interface ProposalInvestment {
+  concept: string;
+  amount: string;
+  note?: string;
+}
+
+export interface Proposal {
+  slug: string;
+  clientName: string;
+  projectName: string;
+  date: string;
+  validUntil: string;
+  summary: string;
+  objectives: string[];
+  scope: string[];
+  phases: ProposalPhase[];
+  investment: ProposalInvestment[];
+  currency: string;
+  total: string;
 }
