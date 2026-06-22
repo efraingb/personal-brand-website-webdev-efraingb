@@ -3,43 +3,43 @@ import type { Proposal } from './types';
 export const proposalsData: Proposal[] = [
   {
     slug: 'edtech-menta-demo',
-    clientName: 'Strategic Partner',
-    projectName: 'AI Tutoring Ecosystem Implementation',
-    date: 'February 20, 2025',
-    validUntil: 'March 20, 2025',
-    summary: 'Strategic proposal for the implementation of a custom AI-driven tutoring engine based on the Menta IA architecture, designed to scale personalized learning for thousands of users.',
+    clientName: 'Socio Estratégico',
+    projectName: 'Implementación de Ecosistema de Tutoría con IA',
+    date: '20 de febrero, 2025',
+    validUntil: '20 de marzo, 2025',
+    summary: 'Propuesta estratégica para la implementación de un motor de tutoría personalizado basado en la arquitectura de Menta IA, diseñado para escalar el aprendizaje y la retención mediante IA Generativa.',
     objectives: [
-      'Scale personalized education through Generative AI.',
-      'Reduce infrastructure costs while increasing student engagement.',
-      'Implement real-time pedagogical tracking and analytics.'
+      'Escalar la educación personalizada mediante agentes de IA.',
+      'Optimizar costos operativos mediante automatización inteligente.',
+      'Implementar analítica pedagógica en tiempo real.'
     ],
     scope: [
-      'Custom AI Agent development.',
-      'Cloud infrastructure setup (Firebase & Google Cloud).',
-      'Integration with existing LMS systems.',
-      'Technical training for administrative staff.'
+      'Desarrollo de Agentes de IA personalizados.',
+      'Configuración de infraestructura cloud (Firebase & Google Cloud).',
+      'Integración con sistemas LMS existentes.',
+      'Capacitación técnica para el equipo administrativo.'
     ],
     phases: [
       {
-        title: 'Phase 1: Architecture & Discovery',
-        duration: '2 weeks',
-        items: ['Initial requirement analysis', 'Infrastructure blueprint', 'Dataset preparation']
+        title: 'Fase 1: Arquitectura y Descubrimiento',
+        duration: '2 semanas',
+        items: ['Análisis de requerimientos', 'Diseño de arquitectura cloud', 'Preparación de datasets']
       },
       {
-        title: 'Phase 2: Core Development',
-        duration: '6 weeks',
-        items: ['AI Engine training', 'API Integrations', 'Frontend customization']
+        title: 'Fase 2: Desarrollo e Implementación',
+        duration: '6 semanas',
+        items: ['Entrenamiento del motor de IA', 'Integraciones vía API', 'Personalización de interfaz']
       },
       {
-        title: 'Phase 3: Quality & Launch',
-        duration: '2 weeks',
-        items: ['UAT testing', 'Final deployment', 'Staff training']
+        title: 'Fase 3: Optimización y Lanzamiento',
+        duration: '2 semanas',
+        items: ['Pruebas de usuario (UAT)', 'Despliegue final', 'Capacitación']
       }
     ],
     investment: [
-      { concept: 'Strategic Design & Architecture', amount: '2,500' },
-      { concept: 'Custom AI Engine Development', amount: '7,500' },
-      { concept: 'Infrastructure & Support (Annual)', amount: '1,500' }
+      { concept: 'Diseño Estratégico y Arquitectura', amount: '2,500' },
+      { concept: 'Desarrollo de Motor de IA Custom', amount: '7,500' },
+      { concept: 'Infraestructura y Soporte Anual', amount: '1,500' }
     ],
     currency: 'USD',
     total: '11,500'
