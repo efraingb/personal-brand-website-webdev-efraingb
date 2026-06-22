@@ -1,8 +1,7 @@
-
 {
   "layout": {
-    "title": "Escenario Digital | Efraín G.B.",
-    "description": "Portafolio estratégico de Efraín G.B., Arquitecto de Soluciones de IA e Innovación Educativa."
+    "title": "Efraín G.B. | Arquitecto de IA e Innovación EdTech",
+    "description": "Portafolio estratégico de Efraín G.B., Especialista en Soluciones de IA, Innovación Educativa y Crecimiento Digital."
   },
   "nav": {
     "home": "Inicio",
@@ -20,7 +19,7 @@
   "hero": {
     "mainTitle": "Efraín G.B.",
     "subtitle": "Arquitecto de Soluciones de IA e Innovación Educativa",
-    "description": "Transformando el aprendizaje y el crecimiento empresarial mediante ecosistemas inteligentes. 15 años uniendo desarrollo Full-Stack, estrategia digital y docencia de alto impacto.",
+    "description": "Transformando el futuro del aprendizaje y el crecimiento empresarial mediante ecosistemas inteligentes. 15 años uniendo desarrollo Full-Stack, estrategia digital y docencia de alto impacto.",
     "viewMyWork": "Ver Casos de Éxito",
     "getInTouch": "Iniciar Proyecto"
   },
@@ -43,8 +42,8 @@
     "credentials_results_clients": "Experiencia Global (Dubai, EE.UU., Europa, LatAm)"
   },
   "projectGallery": {
-    "title": "Proyectos Seleccionados",
-    "description": "Un menú estratégico de soluciones de IA, plataformas EdTech y exploraciones digitales de alto impacto.",
+    "title": "Impacto e Innovación",
+    "description": "Una selección curada de soluciones de IA, plataformas EdTech y proyectos digitales de alto impacto.",
     "mainActiveProjectsTitle": "Soluciones de IA y Educación Destacadas",
     "aiLabTitle": "Laboratorio de Innovación y Prototipos",
     "strategicCollaborationsTitle": "Alianzas Estratégicas",
@@ -102,8 +101,8 @@
     "recommendedBadge": "Lectura Recomendada"
   },
   "contactSection": {
-    "title": "Colaboremos",
-    "description": "¿Listo para orquestar tu transición a la IA o escalar un ecosistema EdTech? Vamos a cerrar la brecha entre tecnología y excelencia.",
+    "title": "Colaboremos Estratégicamente",
+    "description": "¿Listo para orquestar tu transición a la IA o escalar un ecosistema EdTech? Vamos a cerrar la brecha entre tecnología y excelencia empresarial.",
     "lookingForward": "Disponible para Asesoría de Juntas, Consultoría Estratégica y Desarrollo Core de IA.",
     "servicesTitle": "Áreas Estratégicas",
     "service1": "Estrategia de Implementación de IA",

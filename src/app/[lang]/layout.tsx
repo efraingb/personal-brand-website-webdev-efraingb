@@ -1,4 +1,3 @@
-
 // src/app/[lang]/layout.tsx
 import type { Metadata, Viewport } from 'next';
 import { GeistSans } from 'geist/font/sans';

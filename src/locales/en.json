@@ -1,4 +1,3 @@
-
 {
   "layout": {
     "title": "Efraín G.B. | AI Architect & EdTech Innovator",
@@ -20,7 +19,7 @@
   "hero": {
     "mainTitle": "Efraín G.B.",
     "subtitle": "Architect of AI Solutions & Educational Innovation",
-    "description": "Transforming education and business growth through intelligent ecosystems. 15 years bridging the gap between Full-Stack development, digital strategy, and high-impact teaching.",
+    "description": "Transforming the future of learning and business growth through intelligent ecosystems. 15 years bridging the gap between Full-Stack development, digital strategy, and high-impact teaching.",
     "viewMyWork": "View Case Studies",
     "getInTouch": "Start a Project"
   },
@@ -43,8 +42,8 @@
     "credentials_results_clients": "Global Experience (Dubai, USA, Europe, LatAm)"
   },
   "projectGallery": {
-    "title": "Selected Projects",
-    "description": "A curated menu of high-impact AI solutions, EdTech platforms, and strategic digital explorations.",
+    "title": "Impact & Innovation",
+    "description": "A curated selection of high-impact AI solutions, EdTech platforms, and strategic digital projects.",
     "mainActiveProjectsTitle": "Featured AI & Educational Solutions",
     "aiLabTitle": "Innovation Lab & Prototypes",
     "strategicCollaborationsTitle": "Strategic Partnerships",
@@ -102,8 +101,8 @@
     "recommendedBadge": "Must Read"
   },
   "contactSection": {
-    "title": "Let's Collaborate",
-    "description": "Ready to orchestrate your next AI transition or scale an EdTech ecosystem? Let's bridge the gap between technology and excellence.",
+    "title": "Collaborate Strategically",
+    "description": "Ready to orchestrate your next AI transition or scale an EdTech ecosystem? Let's bridge the gap between technology and business excellence.",
     "lookingForward": "Available for Board Advising, Strategic Consulting, and AI Core Development.",
     "servicesTitle": "Strategic Areas",
     "service1": "AI Implementation Strategy",

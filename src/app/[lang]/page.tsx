@@ -1,4 +1,3 @@
-
 // src/app/[lang]/page.tsx
 import React from 'react';
 import Header from '@/components/header';
