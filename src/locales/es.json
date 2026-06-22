@@ -121,10 +121,26 @@
     "description": "¿Listo para orquestar tu transición a la IA o escalar un ecosistema EdTech? Vamos a cerrar la brecha entre tecnología y excelencia empresarial.",
     "lookingForward": "Disponible para Asesoría de Juntas, Consultoría Estratégica y Desarrollo Core de IA.",
     "servicesTitle": "Áreas Estratégicas",
+    "directLinksTitle": "Canales Directos",
+    "formTitle": "Consulta Estratégica",
     "service1": "Estrategia de Implementación de IA",
     "service2": "Orquestación de Productos EdTech",
     "service3": "Growth Engineering",
-    "service4": "Mentoría Técnica"
+    "service4": "Mentoría Técnica",
+    "form": {
+      "step1Label": "Notificando al equipo...",
+      "step2Label": "Sincronizando con plataforma SER...",
+      "labelName": "Nombre Completo",
+      "labelEmail": "Correo Profesional",
+      "labelPhone": "WhatsApp / Teléfono",
+      "labelMessage": "¿En qué puedo ayudarte?",
+      "placeholderMessage": "Cuéntame sobre tu proyecto, visión o necesidades...",
+      "privacyNote": "Acepto el procesamiento de mis datos para contacto estratégico y sincronización con plataformas educativas.",
+      "submitButton": "Enviar Consulta Estratégica",
+      "successTitle": "Conexión Iniciada",
+      "successDescription": "Tu consulta ha sido recibida con éxito. Espera una respuesta pronto.",
+      "sendAnother": "Enviar Nuevo Mensaje"
+    }
   },
   "footer": {
     "personalPhotoAlt": "Efraín G.B.",

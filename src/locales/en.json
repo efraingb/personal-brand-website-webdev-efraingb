@@ -117,14 +117,30 @@
     "recommendedBadge": "Must Read"
   },
   "contactSection": {
-    "title": "Collaborate Strategically",
+    "title": "Colaboremos Strategically",
     "description": "Ready to orchestrate your next AI transition or scale an EdTech ecosystem? Let's bridge the gap between technology and business excellence.",
     "lookingForward": "Available for Board Advising, Strategic Consulting, and AI Core Development.",
     "servicesTitle": "Strategic Areas",
+    "directLinksTitle": "Direct Channels",
+    "formTitle": "Strategic Inquiry",
     "service1": "AI Implementation Strategy",
     "service2": "EdTech Product Orchestration",
     "service3": "Growth Engineering",
-    "service4": "Technical Mentoring"
+    "service4": "Technical Mentoring",
+    "form": {
+      "step1Label": "Notifying the team...",
+      "step2Label": "Syncing with SER Platform...",
+      "labelName": "Full Name",
+      "labelEmail": "Professional Email",
+      "labelPhone": "WhatsApp / Phone",
+      "labelMessage": "How can I help you?",
+      "placeholderMessage": "Tell me about your project, vision or needs...",
+      "privacyNote": "I agree to the processing of my data for strategic contact and synchronization with educational platforms.",
+      "submitButton": "Send Strategic Inquiry",
+      "successTitle": "Connection Initiated",
+      "successDescription": "Your strategic inquiry has been received. Expect a response shortly.",
+      "sendAnother": "Send New Message"
+    }
   },
   "footer": {
     "personalPhotoAlt": "Efraín G.B.",
