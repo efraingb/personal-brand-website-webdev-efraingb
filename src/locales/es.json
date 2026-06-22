@@ -39,6 +39,10 @@
     "it": {
       "subtitle": "Consultor IT & Profesor",
       "description": "Especialista en arquitectura de sistemas y educación técnica de alto nivel."
+    },
+    "kaiser": {
+      "subtitle": "Arquitecto de Soluciones Senior & Consultor IT",
+      "description": "15 años orquestando ecosistemas empresariales complejos, infraestructura cloud y gobernanza de IA."
     }
   },
   "credentialsSection": {
@@ -205,9 +209,6 @@
     "bookAntesTostadoras_name": "Antes que las Tostadoras Gobiernen",
     "bookAntesTostadoras_description": "Cómo convivir con la Inteligencia Artificial sin perder nuestra esencia humana.",
     "bookAntesTostadoras_buttonText": "Comprar en Amazon",
-    "bookIaParaCrecer_name": "IA para Crecer",
-    "bookIaParaCrecer_description": "Guía práctica sobre IA, Odoo y Marketing Digital para emprendedores.",
-    "bookIaParaCrecer_buttonText": "Ver Recursos",
     "bookPracticalCS_name": "Computación Práctica",
     "bookPracticalCS_description": "Haciendo que la tecnología sea fácil de entender para cualquier persona.",
     "bookPracticalCS_buttonText": "Descargar Gratis",

@@ -1,7 +1,124 @@
-
 import type { CV } from './types';
 
 export const cvData: CV[] = [
+  {
+    slug: 'kaiser',
+    name: 'Efraín González Bermúdez',
+    title: 'ENTERPRISE ARCHITECT | SR. IT CONSULTANT',
+    summary: 'Senior technology professional with 15 years of experience architecting complex digital ecosystems, cloud solutions, and strategic IT frameworks. Expert in bridging the gap between business objectives and technical execution for organizations like ULACIT, Kohl’s, and the public sector. Specialized in solution scalability, AI implementation, and high-level stakeholder orchestration. MBA candidate in Technology Management with a proven track record of driving operational efficiency through modern architecture (Next.js, Firebase, GCP).',
+    contact: {
+      phone: { text: '+506 8693 9737', url: 'tel:+50686939737' },
+      email: { text: 'hiefraingb@gmail.com', url: 'mailto:hiefraingb@gmail.com?subject=Strategic%20Opportunity' },
+      website: { text: 'EfrainGB.org', url: '/en?mode=kaiser' },
+      linkedin: { text: 'linkedin.com/in/efraingb', url: 'https://www.linkedin.com/in/efraingb/' },
+    },
+    sections: [
+      {
+        id: 'core_competencies',
+        title: 'Core Competencies',
+        isTwoColumns: true,
+        items: [
+          {
+            id: 'architecture',
+            title: 'Enterprise Architecture',
+            description: [
+              'Solution Design', 'Cloud Infrastructure (GCP/Firebase)', 'Full-Stack Development', 'API Orchestration', 'Database Design (SQL/NoSQL)', 'Scalable Web Ecosystems', 'Technical Documentation'
+            ]
+          },
+          {
+            id: 'strategy',
+            title: 'Strategic Leadership',
+            description: [
+              'IT Consulting', 'Stakeholder Management', 'Agile Methodologies', 'Change Management', 'Project Governance', 'Business Intelligence'
+            ]
+          }
+        ]
+      },
+      {
+        id: 'professional_experience',
+        title: 'Professional Experience',
+        items: [
+          {
+            id: 'exp_ulacit',
+            title: 'Web Master & IT Strategy | ULACIT',
+            date: '2025 - 2026',
+            description: [
+              'Architected and deployed a multi-site institutional ecosystem, integrating e-commerce and centralized CMS on WordPress.',
+              'Engineered an AI-powered landing page engine to automate marketing operations and enhance lead capture efficiency.',
+              'Orchestrated cross-functional teams and stakeholders to ensure system stability and strategic alignment with growth goals.'
+            ]
+          },
+          {
+            id: 'exp_consultant',
+            title: 'Sr. IT Consultant & Lead Developer',
+            date: '2017 - Present',
+            description: [
+              'Provide end-to-end technical leadership for enterprise clients, focusing on digital transformation and system modernization.',
+              'Designed scalable web solutions using Next.js and Firebase, reducing operational overhead and improving user retention.',
+              'Lead the technical lifecycle of digital products from discovery to deployment for international organizations (Dubai, USA, LatAm).'
+            ]
+          },
+          {
+            id: 'exp_sm',
+            title: 'Tech Lead | SM Group',
+            date: '2015 - 2017',
+            description: [
+              'Managed the development of high-impact digital solutions for public and educational sectors.',
+              'Optimized User Experience (UX) and system performance across large-scale platforms, ensuring high availability and compliance.'
+            ]
+          },
+          {
+            id: 'exp_early',
+            title: 'Technical Roles | Capilleira & DCC',
+            date: '2011 - 2013',
+            description: 'Executed performance optimization and troubleshooting for 300+ web instances, establishing foundational expertise in system reliability and digital content management.'
+          }
+        ]
+      },
+      {
+        id: 'leadership_edu',
+        title: 'Leadership & Innovation',
+        items: [
+          {
+            id: 'leader_ircu',
+            title: 'Vice-rector of Technology | IRCU',
+            date: '2019 - 2021',
+            description: 'Led digital transformation initiatives and curriculum design for technical programs, overseeing institutional IT strategy.'
+          },
+          {
+            id: 'leader_menta',
+            title: 'Founder | Menta IA',
+            date: '2025 - Present',
+            description: 'Architecting an AI-driven educational engine to scale personalized learning through Generative AI.'
+          }
+        ]
+      },
+      {
+        id: 'education',
+        title: 'Education & Certifications',
+        items: [
+          {
+            id: 'edu_mba',
+            title: 'MBA, Technology Management emphasis — ULACIT',
+            date: '2025 - 2027',
+            description: ''
+          },
+          {
+            id: 'edu_masters',
+            title: "Masters in 'Big Data & Business Intelligence' & 'Project Management' — ENEB",
+            date: '2023 - 2025',
+            description: ''
+          },
+          {
+            id: 'edu_spec',
+            title: 'Advanced Training in AI, Blockchain, SQL, and Agile Governance — Multiple Institutions',
+            date: 'Ongoing',
+            description: 'Continuous professional development in cloud architecture and data systems.'
+          }
+        ]
+      }
+    ]
+  },
   {
     slug: 'en',
     name: 'Efraín González Bermúdez',
@@ -10,7 +127,7 @@ export const cvData: CV[] = [
     contact: {
       phone: { text: '+506 8693 9737', url: 'tel:+50686939737' },
       email: { text: 'hiefraingb@gmail.com', url: 'mailto:hiefraingb@gmail.com?subject=Job%20Opportunity&body=Hello%20Efra%C3%ADn,' },
-      website: { text: 'EfrainGB.org', url: '/?mode=ai' },
+      website: { text: 'EfrainGB.org', url: '/en?mode=ai' },
       linkedin: { text: 'linkedin.com/in/efraingb', url: 'https://www.linkedin.com/in/efraingb/' },
     },
     sections: [
@@ -137,7 +254,7 @@ export const cvData: CV[] = [
     contact: {
       phone: { text: '+506 8693 9737', url: 'tel:+50686939737' },
       email: { text: 'hiefraingb@gmail.com', url: 'mailto:hiefraingb@gmail.com?subject=Oportunidad%20Laboral&body=Hola%20Efra%C3%ADn,' },
-      website: { text: 'EfrainGB.org', url: '/?mode=ai' },
+      website: { text: 'EfrainGB.org', url: '/es?mode=ai' },
       linkedin: { text: 'linkedin.com/in/efraingb', url: 'https://www.linkedin.com/in/efraingb/' },
     },
     sections: [
