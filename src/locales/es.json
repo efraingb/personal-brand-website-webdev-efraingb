@@ -5,6 +5,7 @@
   },
   "nav": {
     "home": "Inicio",
+    "solutions": "Soluciones",
     "projects": "Impacto",
     "credentials": "Experiencia",
     "booksAndResources": "Conocimiento",
@@ -230,5 +231,32 @@
     "changeLanguage": "Idioma",
     "english": "English",
     "spanish": "Español"
+  },
+  "solutionsPage": {
+    "heroTitle": "Orquestación Estratégica de IA y EdTech",
+    "heroSubtitle": "Transformando la complejidad en ventaja competitiva mediante sistemas inteligentes y modelos educativos de alto impacto.",
+    "heroCta": "Agendar Sesión de Descubrimiento",
+    "whoIsThisFor": "¿A quién ayudo?",
+    "clientType1": "CEOs y Fundadores",
+    "clientDesc1": "Que buscan integrar IA Generativa en su producto core o automatizar operaciones complejas.",
+    "clientType2": "Instituciones Educativas",
+    "clientDesc2": "Que aspiran a modernizar la entrega de aprendizaje y escalar mediante motores digitales personalizados.",
+    "clientType3": "Equipos Corporativos",
+    "clientDesc3": "Que requieren ingeniería de crecimiento y modernización digital para aumentar eficiencia y ventas.",
+    "servicesTitle": "Mis Servicios Core",
+    "service1Title": "Estrategia de Implementación de IA",
+    "service1Desc": "Diseño la arquitectura neuronal de tu negocio. Desde integración de LLMs hasta flujos de agentes que generan ROI real.",
+    "service2Title": "Orquestación de Productos EdTech",
+    "service2Desc": "Lidero el ciclo técnico de plataformas de aprendizaje, enfocándome en retención, escalabilidad y UX.",
+    "service3Title": "Growth Engineering",
+    "service3Desc": "Cerrando la brecha entre marketing y tecnología. Construyo sistemas que convierten, miden y escalan.",
+    "service4Title": "Mentoría Técnica y Cursos",
+    "service4Desc": "Capacitación de equipos y líderes en el stack moderno (React, Next.js, Firebase) y fundamentos de IA.",
+    "methodTitle": "El Método Estratégico",
+    "method1": "Diagnóstico y Arquitectura",
+    "method2": "Prototipado Rápido",
+    "method3": "Orquestación y Escala",
+    "finalCtaTitle": "¿Listo para Empezar?",
+    "finalCtaDesc": "Hablemos sobre cómo podemos elevar tu proyecto al siguiente nivel."
   }
 }

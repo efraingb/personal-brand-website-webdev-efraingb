@@ -5,6 +5,7 @@
   },
   "nav": {
     "home": "Home",
+    "solutions": "Solutions",
     "projects": "Impact Projects",
     "credentials": "Expertise",
     "booksAndResources": "Books & Knowledge",
@@ -117,7 +118,7 @@
     "recommendedBadge": "Must Read"
   },
   "contactSection": {
-    "title": "Colaboremos Strategically",
+    "title": "Collaborate Strategically",
     "description": "Ready to orchestrate your next AI transition or scale an EdTech ecosystem? Let's bridge the gap between technology and business excellence.",
     "lookingForward": "Available for Board Advising, Strategic Consulting, and AI Core Development.",
     "servicesTitle": "Strategic Areas",
@@ -230,5 +231,32 @@
     "changeLanguage": "Language",
     "english": "English",
     "spanish": "Español"
+  },
+  "solutionsPage": {
+    "heroTitle": "Strategic AI & EdTech Orchestration",
+    "heroSubtitle": "Transforming complexity into competitive advantage through intelligent systems and high-impact educational models.",
+    "heroCta": "Book a Discovery Call",
+    "whoIsThisFor": "Who I help",
+    "clientType1": "CEOs & Founders",
+    "clientDesc1": "Looking to integrate Generative AI into their core product or automate complex operations.",
+    "clientType2": "Educational Institutions",
+    "clientDesc2": "Aiming to modernize learning delivery and scale through personalized digital engines.",
+    "clientType3": "Corporate Teams",
+    "clientDesc3": "Seeking growth engineering and digital modernization to increase efficiency and revenue.",
+    "servicesTitle": "My Core Offerings",
+    "service1Title": "AI Implementation Strategy",
+    "service1Desc": "I design the neural architecture of your business. From LLM integration to agentic workflows that actually drive ROI.",
+    "service2Title": "EdTech Product Orchestration",
+    "service2Desc": "I lead the technical lifecycle of digital learning platforms, focusing on retention, scalability, and UX.",
+    "service3Title": "Growth Engineering",
+    "service3Desc": "Bridging the gap between marketing and tech. I build systems that convert, measure, and scale.",
+    "service4Title": "Technical Mentoring & Courses",
+    "service4Desc": "Upskilling teams and leaders in modern stack (React, Next.js, Firebase) and AI fundamentals.",
+    "methodTitle": "The Strategic Method",
+    "method1": "Diagnosis & Architecture",
+    "method2": "Rapid Prototyping",
+    "method3": "Orchestration & Scale",
+    "finalCtaTitle": "Ready to Start?",
+    "finalCtaDesc": "Let's discuss how we can elevate your project to the next level."
   }
 }
