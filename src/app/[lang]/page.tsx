@@ -36,7 +36,6 @@ const translateCredentialColumns = (columns: CredentialColumn[], dict: Dictionar
   }));
 };
 
-
 export default async function Home({ params }: HomePageProps) {
   const { lang } = await params;
   const dict = await getDictionary(lang);

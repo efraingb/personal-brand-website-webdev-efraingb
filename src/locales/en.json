@@ -10,7 +10,7 @@
     "credentials": "Expertise",
     "booksAndResources": "Books & Knowledge",
     "cv": "Resume / CV",
-    "contact": "Work Together"
+    "contact": "Collaborate"
   },
   "header": {
     "logoText": "Efraín G.B.",
@@ -103,8 +103,13 @@
   },
   "contactSection": {
     "title": "Let's Collaborate",
-    "description": "Ready to integrate AI into your ecosystem or build the next EdTech innovation?",
-    "lookingForward": "I'm available for strategic consulting and core development."
+    "description": "Ready to orchestrate your next AI transition or scale an EdTech ecosystem? Let's bridge the gap between technology and excellence.",
+    "lookingForward": "Available for Board Advising, Strategic Consulting, and AI Core Development.",
+    "servicesTitle": "Strategic Areas",
+    "service1": "AI Implementation Strategy",
+    "service2": "EdTech Product Orchestration",
+    "service3": "Growth Engineering",
+    "service4": "Technical Mentoring"
   },
   "footer": {
     "personalPhotoAlt": "Efraín G.B.",

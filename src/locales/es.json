@@ -102,9 +102,14 @@
     "recommendedBadge": "Lectura Recomendada"
   },
   "contactSection": {
-    "title": "Vamos a Colaborar",
-    "description": "¿Listo para integrar IA en tu ecosistema o construir la próxima innovación EdTech?",
-    "lookingForward": "Disponible para consultoría estratégica y desarrollo core."
+    "title": "Colaboremos",
+    "description": "¿Listo para orquestar tu transición a la IA o escalar un ecosistema EdTech? Vamos a cerrar la brecha entre tecnología y excelencia.",
+    "lookingForward": "Disponible para Asesoría de Juntas, Consultoría Estratégica y Desarrollo Core de IA.",
+    "servicesTitle": "Áreas Estratégicas",
+    "service1": "Estrategia de Implementación de IA",
+    "service2": "Orquestación de Productos EdTech",
+    "service3": "Growth Engineering",
+    "service4": "Mentoría Técnica"
   },
   "footer": {
     "personalPhotoAlt": "Efraín G.B.",
