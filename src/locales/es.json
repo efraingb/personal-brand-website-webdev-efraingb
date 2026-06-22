@@ -36,7 +36,7 @@
       "description": "Diseñando soluciones inteligentes y ecosistemas neuronales para impulsar la eficiencia y la innovación empresarial."
     },
     "it": {
-      "subtitle": "Profesional Senior IT y Profesor",
+      "subtitle": "Profesional Senior TI y Profesor",
       "description": "15 años de excelencia en desarrollo full-stack, arquitectura de sistemas y educación técnica."
     }
   },
@@ -139,6 +139,8 @@
     "saveAsPdf": "Descargar PDF"
   },
   "projectsData": {
+    "proj-zusivqy_name": "Zusivqy",
+    "proj-zusivqy_description": "Ecosistema de Apoyo Educativo: Plataforma potenciada con IA para el soporte en el aprendizaje personalizado, co-creada como una iniciativa familiar para la excelencia educativa.",
     "proj-agroia_name": "AgroIA",
     "proj-agroia_description": "Prototipo de inteligencia de mercados agrícolas. Concepto Lab IA.",
     "proj-progressia_name": "Progressia (Dubai)",

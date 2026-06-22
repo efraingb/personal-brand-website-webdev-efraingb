@@ -16,14 +16,24 @@ export const projectsData: Project[] = [
     isFeaturedAi: true, 
   },
   {
+    id: 'proj-zusivqy',
+    name: 'proj-zusivqy_name',
+    url: 'https://zusivqy.efraingb.org/',
+    description: 'proj-zusivqy_description',
+    thumbnailUrl: 'https://picsum.photos/seed/zusivqy/800/600', 
+    dataAiHint: 'educational technology ai',
+    tags: ['EdTech', 'AI Support', 'Family Initiative'],
+    isFeaturedAi: true,
+  },
+  {
     id: 'proj-progressia',
     name: 'proj-progressia_name',
     url: 'https://www.progressia.me/learn?ref=pioneros-tiquicia',
     description: 'proj-progressia_description',
-    thumbnailUrl: '', 
+    thumbnailUrl: 'https://picsum.photos/seed/progressia/800/600', 
     dataAiHint: 'fintech ai progressia',
     tags: ['Country Lead', 'Dubai Startup', 'FinTech', 'Strategy'],
-    isCollaborationLogo: true, 
+    thumbnailIsLogo: true,
   },
   {
     id: 'proj-bless',
@@ -40,10 +50,9 @@ export const projectsData: Project[] = [
     name: 'collab-ulacit_name',
     url: 'https://www.ulacit.ac.cr/',
     description: 'collab-ulacit_description',
-    thumbnailUrl: '',
-    dataAiHint: 'university logo ulacit',
+    thumbnailUrl: 'https://picsum.photos/seed/ulacit/800/600',
+    dataAiHint: 'university branding innovation',
     tags: ['AI Strategy', 'EdTech', 'Landing Engine'],
-    isCollaborationLogo: true, // Elevamos a tarjeta grande por importancia
   },
   {
     id: 'proj-imagine-motiva',
@@ -109,7 +118,6 @@ export const projectsData: Project[] = [
     thumbnailUrl: 'https://i.imgur.com/cU0e19I.png',
     dataAiHint: 'community logo CRDigital',
     tags: ['Community', 'Tech Talent'],
-    isCollaborationLogo: true,
   },
   {
     id: 'collab-vita',
@@ -119,7 +127,6 @@ export const projectsData: Project[] = [
     thumbnailUrl: 'https://i.imgur.com/6VbVVsL.png',
     dataAiHint: 'startup logo Vita',
     tags: ['Web 4.0', 'Dubai Startup'],
-    isCollaborationLogo: true,
   },
   {
     id: 'collab-poder-judicial',

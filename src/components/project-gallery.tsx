@@ -17,11 +17,11 @@ interface ProjectGalleryProps {
 }
 
 export default function ProjectGallery({ dict, projectsData, onProjectSelect, projectCardDict }: ProjectGalleryProps) {
-  // 1. Proyectos Principales (Top Impact & Focus)
-  const mainActiveProjectIds = ['proj-menta-ai', 'proj-progressia', 'proj-bless'];
+  // 1. Core Priority Projects (Focused EdTech & High Impact AI)
+  const mainActiveProjectIds = ['proj-menta-ai', 'proj-zusivqy', 'proj-progressia', 'proj-bless'];
   
-  // 2. Alianzas Estratégicas (Impacto Corporativo e Institucional)
-  // Promovemos ULACIT a esta sección por su relevancia estratégica
+  // 2. Strategic Collaborations (Corporate & Institutional Impact)
+  // We prioritize those with a visual thumbnail for this section.
   const strategicPartnershipIds = [
     'collab-ulacit',
     'proj-imagine-motiva', 
@@ -30,10 +30,10 @@ export default function ProjectGallery({ dict, projectsData, onProjectSelect, pr
     'proj-agro-y-mas'
   ];
 
-  // 3. Laboratorio de IA (Conceptos y Prototipos - Depriorizados)
+  // 3. AI Lab (Concepts & Prototypes - Deprioritized)
   const aiLabProjectIds = ['proj-agroia', 'proj-negotia'];
 
-  // 4. Otras Colaboraciones
+  // 4. Other Contributions (Slightly more subtle list)
   const otherCollabIds = [
     'collab-crdigital', 
     'collab-vita', 
@@ -41,21 +41,24 @@ export default function ProjectGallery({ dict, projectsData, onProjectSelect, pr
     'collab-libreria-internacional'
   ];
 
+  // Filtering logic: 
+  // For the first two sections, we prefer showing projects WITH images.
   const mainActiveProjects = projectsData
     .filter(project => mainActiveProjectIds.includes(project.id))
     .sort((a, b) => mainActiveProjectIds.indexOf(a.id) - mainActiveProjectIds.indexOf(b.id));
 
   const strategicPartnerships = projectsData
-    .filter(project => strategicPartnershipIds.includes(project.id))
+    .filter(project => strategicPartnershipIds.includes(project.id) && !!project.thumbnailUrl)
     .sort((a, b) => strategicPartnershipIds.indexOf(a.id) - strategicPartnershipIds.indexOf(b.id));
 
   const aiLabProjects = projectsData
     .filter(project => aiLabProjectIds.includes(project.id))
     .sort((a, b) => aiLabProjectIds.indexOf(a.id) - aiLabProjectIds.indexOf(b.id));
 
-  const otherCollabs = projectsData
-    .filter(project => otherCollabIds.includes(project.id))
-    .sort((a, b) => otherCollabIds.indexOf(a.id) - otherCollabIds.indexOf(b.id));
+  // Combine remaining strategic partnerships without images into "Other Contributions"
+  const remainingStrategic = projectsData.filter(p => strategicPartnershipIds.includes(p.id) && !p.thumbnailUrl);
+  const otherCollabs = [...projectsData.filter(p => otherCollabIds.includes(p.id)), ...remainingStrategic]
+    .sort((a, b) => a.name.localeCompare(b.name));
 
   return (
     <section id="projects" className="py-16 md:py-24 bg-background animate-in fade-in-0 slide-in-from-bottom-12 duration-500 ease-out">
@@ -70,13 +73,13 @@ export default function ProjectGallery({ dict, projectsData, onProjectSelect, pr
           </p>
         </div>
         
-        {/* SECCIÓN 1: PROYECTOS PRINCIPALES Y ACTIVOS */}
+        {/* SECTION 1: CORE FEATURED SOLUTIONS */}
         {mainActiveProjects.length > 0 && (
           <div className="mb-20">
             <h3 className="text-3xl font-semibold tracking-tight text-primary mb-10 text-center border-b pb-4">
               {dict.mainActiveProjectsTitle}
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-8 max-w-6xl mx-auto">
               {mainActiveProjects.map((project) => (
                 <ProjectCard 
                   key={project.id} 
@@ -89,7 +92,7 @@ export default function ProjectGallery({ dict, projectsData, onProjectSelect, pr
           </div>
         )}
 
-        {/* SECCIÓN 2: ALIANZAS ESTRATÉGICAS (Incluyendo ULACIT) */}
+        {/* SECTION 2: STRATEGIC PARTNERSHIPS */}
         {strategicPartnerships.length > 0 && (
           <div className="mb-20">
             <h3 className="text-3xl font-semibold tracking-tight text-primary mb-10 text-center border-b pb-4">
@@ -108,7 +111,7 @@ export default function ProjectGallery({ dict, projectsData, onProjectSelect, pr
           </div>
         )}
 
-        {/* SECCIÓN 3: LABORATORIO DE IA Y CONCEPTOS (Depriorizados) */}
+        {/* SECTION 3: INNOVATION LAB (Concepts) */}
         {aiLabProjects.length > 0 && (
           <div className="mb-20 opacity-80 hover:opacity-100 transition-opacity">
             <h3 className="text-2xl font-semibold tracking-tight text-primary/70 mb-10 text-center border-b pb-4">
@@ -127,7 +130,7 @@ export default function ProjectGallery({ dict, projectsData, onProjectSelect, pr
           </div>
         )}
 
-        {/* SECCIÓN 4: OTRAS CONTRIBUCIONES (Texto sutil) */}
+        {/* SECTION 4: INSTITUTIONAL IMPACT */}
         {otherCollabs.length > 0 && (
             <div className="mb-16">
                 <h3 className="text-2xl font-semibold tracking-tight text-primary/70 mb-8 text-center sm:text-left">
