@@ -1,4 +1,3 @@
-
 // src/lib/data.ts
 import type { Project, LinkItem, NavLink, CredentialColumn } from './types';
 
@@ -16,11 +15,11 @@ export const projectsData: Project[] = [
     isFeaturedAi: true, 
   },
   {
-    id: 'proj-zusivqy',
-    name: 'proj-zusivqy_name',
+    id: 'proj-ser',
+    name: 'proj-ser_name',
     url: 'https://zusivqy.efraingb.org/',
-    description: 'proj-zusivqy_description',
-    thumbnailUrl: 'https://picsum.photos/seed/zusivqy/800/600', 
+    description: 'proj-ser_description',
+    thumbnailUrl: 'https://picsum.photos/seed/ser-project/800/600', 
     dataAiHint: 'educational technology ai',
     tags: ['EdTech', 'AI Support', 'Family Initiative'],
     isFeaturedAi: true,

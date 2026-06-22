@@ -1,4 +1,3 @@
-
 {
   "layout": {
     "title": "Efraín G.B. | Arquitecto de IA e Innovación EdTech",
@@ -29,7 +28,7 @@
     },
     "progressia": {
       "subtitle": "Lead Country Representative @ Progressia",
-      "description": "Orquestando la educación financiera con IA y el crecimiento estratégico del ecosistema desde Dubai hacia Latinoamérica."
+      "description": "Orchestrating la educación financiera con IA y el crecimiento estratégico del ecosistema desde Dubai hacia Latinoamérica."
     },
     "ai": {
       "subtitle": "Arquitecto Estratégico de IA",
@@ -79,7 +78,7 @@
     "statusCheckingTooltip": "Verificando disponibilidad del servicio...",
     "statusOnline": "Online",
     "statusOnlineTooltip": "Proyecto activo y accesible.",
-    "statusOfflineTooltip": "Temporalmente en mantenimiento o laboratorio de innovación.",
+    "statusOfflineTooltip": "Temporarily en mantenimiento o laboratorio de innovación.",
     "viewVideoDemo": "Ver Demo",
     "featuredAiBadgeText": "Soluciones IA"
   },
@@ -139,8 +138,8 @@
     "saveAsPdf": "Descargar PDF"
   },
   "projectsData": {
-    "proj-zusivqy_name": "Zusivqy",
-    "proj-zusivqy_description": "Ecosistema de Apoyo Educativo: Plataforma potenciada con IA para el soporte en el aprendizaje personalizado, co-creada como una iniciativa familiar para la excelencia educativa.",
+    "proj-ser_name": "SER",
+    "proj-ser_description": "Ecosistema de Apoyo Educativo: Plataforma potenciada con IA para el soporte en el aprendizaje personalizado, conocida como 'Efecto SER' en redes sociales. Iniciativa familiar para la excelencia educativa.",
     "proj-agroia_name": "AgroIA",
     "proj-agroia_description": "Prototipo de inteligencia de mercados agrícolas. Concepto Lab IA.",
     "proj-progressia_name": "Progressia (Dubai)",

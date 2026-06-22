@@ -18,7 +18,7 @@ interface ProjectGalleryProps {
 
 export default function ProjectGallery({ dict, projectsData, onProjectSelect, projectCardDict }: ProjectGalleryProps) {
   // 1. Core Priority Projects (Focused EdTech & High Impact AI)
-  const mainActiveProjectIds = ['proj-menta-ai', 'proj-zusivqy', 'proj-progressia', 'proj-bless'];
+  const mainActiveProjectIds = ['proj-menta-ai', 'proj-ser', 'proj-progressia', 'proj-bless'];
   
   // 2. Strategic Collaborations (Corporate & Institutional Impact)
   // We prioritize those with a visual thumbnail for this section.
