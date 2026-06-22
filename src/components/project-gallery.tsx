@@ -5,10 +5,9 @@
 import type { Project } from "@/lib/types";
 import ProjectCard from "./project-card";
 import type { Dictionary } from "@/lib/i18n";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardDescription, CardTitle } from "@/components/ui/card";
 import { Button } from "./ui/button";
 import { Eye } from "lucide-react";
-import { Badge } from "./ui/badge";
 
 interface ProjectGalleryProps {
   dict: Dictionary; 
@@ -49,9 +48,9 @@ export default function ProjectGallery({ dict, projectsData, onProjectSelect, pr
     .filter(project => collaborationIds.includes(project.id))
     .sort((a, b) => collaborationIds.indexOf(a.id) - collaborationIds.indexOf(b.id));
     
-  // CRÍTICO: Solo mostrar en tarjetas grandes si tienen imagen real para no romper la estética
-  const collabsWithImages = collaborations.filter(p => !!p.thumbnailUrl);
-  const collabsTextOnly = collaborations.filter(p => !p.thumbnailUrl);
+  // CRÍTICO: Solo mostrar en tarjetas grandes si tienen imagen real para no romper la estética comercial
+  const collabsWithImages = collaborations.filter(p => !!p.thumbnailUrl && p.thumbnailUrl.trim() !== '');
+  const collabsTextOnly = collaborations.filter(p => !p.thumbnailUrl || p.thumbnailUrl.trim() === '');
 
   return (
     <section id="projects" className="py-16 md:py-24 bg-background animate-in fade-in-0 slide-in-from-bottom-12 duration-500 ease-out">
@@ -70,7 +69,7 @@ export default function ProjectGallery({ dict, projectsData, onProjectSelect, pr
         {mainActiveProjects.length > 0 && (
           <div className="mb-20">
             <h3 className="text-3xl font-semibold tracking-tight text-primary mb-10 text-center border-b pb-4">
-              {dict.mainActiveProjectsTitle || "Featured Projects & AI Solutions"}
+              {dict.mainActiveProjectsTitle}
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {mainActiveProjects.map((project) => (
@@ -89,7 +88,7 @@ export default function ProjectGallery({ dict, projectsData, onProjectSelect, pr
         {aiLabProjects.length > 0 && (
           <div className="mb-20">
             <h3 className="text-3xl font-semibold tracking-tight text-primary mb-10 text-center border-b pb-4">
-              {dict.aiLabTitle || "AI Innovations & Lab"}
+              {dict.aiLabTitle}
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
               {aiLabProjects.map((project) => (
@@ -108,7 +107,7 @@ export default function ProjectGallery({ dict, projectsData, onProjectSelect, pr
         {collabsWithImages.length > 0 && (
           <div className="mb-20">
             <h3 className="text-3xl font-semibold tracking-tight text-primary mb-10 text-center border-b pb-4">
-              {dict.strategicCollaborationsTitle || "Strategic Collaborations"}
+              {dict.strategicCollaborationsTitle}
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {collabsWithImages.map((project) => (
@@ -123,15 +122,15 @@ export default function ProjectGallery({ dict, projectsData, onProjectSelect, pr
           </div>
         )}
 
-        {/* SECCIÓN 4: OTRAS COLABORACIONES E IMPACTO (TEXTO) */}
+        {/* SECCIÓN 4: OTRAS COLABORACIONES E IMPACTO (TEXTO - ESTILO SUTIL) */}
         {collabsTextOnly.length > 0 && (
             <div className="mb-16">
                 <h3 className="text-2xl font-semibold tracking-tight text-primary/70 mb-8 text-center sm:text-left">
-                  {dict.otherImpactTitle || "Professional Contributions & Collaborations"}
+                  {dict.otherImpactTitle}
                 </h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {collabsTextOnly.map((project) => (
-                    <Card key={project.id} className="shadow-sm hover:shadow-md transition-shadow duration-300 rounded-xl border-dashed">
+                    <Card key={project.id} className="shadow-sm hover:shadow-md transition-shadow duration-300 rounded-xl border-dashed bg-muted/20">
                         <div className="p-4 flex justify-between items-center gap-4">
                             <div className="flex-grow">
                                 <CardTitle className="text-lg font-semibold text-primary">{project.name}</CardTitle>
