@@ -1,3 +1,4 @@
+
 // src/app/[lang]/cv/[slug]/page.tsx
 import { notFound } from 'next/navigation';
 import { cvData } from '@/lib/cv-data';
@@ -17,7 +18,7 @@ interface CVPageProps {
 }
 
 export async function generateMetadata({ params }: CVPageProps): Promise<Metadata> {
-  const { slug } = await params;
+  const { slug, lang } = await params;
   const cv = cvData.find((cv) => cv.slug === slug);
 
   if (!cv) {
@@ -70,18 +71,23 @@ export default async function CVPage({ params }: CVPageProps) {
     notFound();
   }
 
+  // Determine the personalized home link from CV data or fallback to default
+  const homeLink = cv.contact.website?.url ? `/${lang}${cv.contact.website.url}` : `/${lang}`;
+
   return (
     <div className="bg-background text-foreground font-sans print:bg-white">
       <div className="max-w-4xl mx-auto p-4 sm:p-8 lg:p-12 print-container">
         
         {/* CV Header */}
         <header className="flex flex-col items-center text-center mb-8 print:mb-6 border-b border-border pb-6 print:pb-4">
-          <h1 className="text-4xl font-bold text-primary tracking-tight">{cv.name}</h1>
+          <Link href={homeLink} className="group transition-all hover:scale-105 active:scale-95">
+             <h1 className="text-4xl font-bold text-primary tracking-tight group-hover:text-accent transition-colors">{cv.name}</h1>
+          </Link>
           <h2 className="text-lg font-medium text-accent mt-1">{cv.title}</h2>
           <div className="flex flex-wrap justify-center gap-x-4 gap-y-1 mt-3 text-sm text-muted-foreground">
             {cv.contact.phone && <a href={cv.contact.phone.url} className="hover:text-primary flex items-center gap-1.5"><Icon name="Phone" className="w-3 h-3"/>{cv.contact.phone.text}</a>}
             {cv.contact.email && <a href={cv.contact.email.url} className="hover:text-primary flex items-center gap-1.5"><Icon name="Mail" className="w-3 h-3"/>{cv.contact.email.text}</a>}
-            {cv.contact.website && <Link href={`/${lang}`} className="hover:text-primary flex items-center gap-1.5"><Icon name="Globe" className="w-3 h-3"/>{cv.contact.website.text}</Link>}
+            {cv.contact.website && <Link href={homeLink} className="hover:text-primary flex items-center gap-1.5"><Icon name="Globe" className="w-3 h-3"/>{cv.contact.website.text}</Link>}
             {cv.contact.linkedin && <a href={cv.contact.linkedin.url} target="_blank" rel="noopener noreferrer" className="hover:text-primary flex items-center gap-1.5"><Icon name="Linkedin" className="w-3 h-3"/>{cv.contact.linkedin.text}</a>}
           </div>
         </header>

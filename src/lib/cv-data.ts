@@ -10,7 +10,7 @@ export const cvData: CV[] = [
     contact: {
       phone: { text: '+506 8693 9737', url: 'tel:+50686939737' },
       email: { text: 'hiefraingb@gmail.com', url: 'mailto:hiefraingb@gmail.com?subject=Job%20Opportunity&body=Hello%20Efra%C3%ADn,' },
-      website: { text: 'EfrainGB.org', url: '/' },
+      website: { text: 'EfrainGB.org', url: '/?mode=ai' },
       linkedin: { text: 'linkedin.com/in/efraingb', url: 'https://www.linkedin.com/in/efraingb/' },
     },
     sections: [
@@ -137,7 +137,7 @@ export const cvData: CV[] = [
     contact: {
       phone: { text: '+506 8693 9737', url: 'tel:+50686939737' },
       email: { text: 'hiefraingb@gmail.com', url: 'mailto:hiefraingb@gmail.com?subject=Oportunidad%20Laboral&body=Hola%20Efra%C3%ADn,' },
-      website: { text: 'EfrainGB.org', url: '/' },
+      website: { text: 'EfrainGB.org', url: '/?mode=ai' },
       linkedin: { text: 'linkedin.com/in/efraingb', url: 'https://www.linkedin.com/in/efraingb/' },
     },
     sections: [
