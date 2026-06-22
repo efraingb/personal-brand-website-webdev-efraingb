@@ -13,6 +13,7 @@ interface HomePageProps {
   params: Promise<{
     lang: string;
   }>;
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }
 
 // Helper function to translate project data
@@ -35,9 +36,21 @@ const translateCredentialColumns = (columns: CredentialColumn[], dict: Dictionar
   }));
 };
 
-export default async function Home({ params }: HomePageProps) {
-  const { lang } = await params;
+export default async function Home(props: HomePageProps) {
+  // Await params and searchParams as required by Next.js 15
+  const params = await props.params;
+  const searchParams = await props.searchParams;
+  const lang = params.lang;
   const dict = await getDictionary(lang);
+  
+  const mode = searchParams.mode as string | undefined;
+
+  // Select Hero Dictionary based on mode
+  let heroDict = { ...dict.hero };
+  if (mode && dict.hero[mode]) {
+    heroDict.subtitle = dict.hero[mode].subtitle;
+    heroDict.description = dict.hero[mode].description;
+  }
 
   // Translate dynamic data
   const translatedProjectsData = getRawProjectsData.map(p => translateProject(p, dict));
@@ -66,7 +79,7 @@ export default async function Home({ params }: HomePageProps) {
     <div className="flex flex-col min-h-screen bg-background text-foreground antialiased">
       <Header dict={dict.header} navLinks={translatedNavLinksData} lang={lang} langSwitcherDict={dict.languageSwitcher} />
       <main className="flex-grow">
-        <HeroSection dict={dict.hero} />
+        <HeroSection dict={heroDict} />
         <PageClientWrapper
           projectsData={translatedProjectsData}
           projectGalleryDict={dict.projectGallery}

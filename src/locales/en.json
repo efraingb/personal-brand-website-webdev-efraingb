@@ -21,7 +21,23 @@
     "subtitle": "Architect of AI Solutions & Educational Innovation",
     "description": "Transforming the future of learning and business growth through intelligent ecosystems. 15 years bridging the gap between Full-Stack development, digital strategy, and high-impact teaching.",
     "viewMyWork": "View Case Studies",
-    "getInTouch": "Start a Project"
+    "getInTouch": "Start a Project",
+    "menta": {
+      "subtitle": "CEO & Founder of Menta AI",
+      "description": "Scaling the future of personalized education with Generative AI tutoring engines."
+    },
+    "progressia": {
+      "subtitle": "Lead Country Representative @ Progressia",
+      "description": "Orchestrating AI Financial Literacy and strategic ecosystem growth from Dubai to Latin America."
+    },
+    "ai": {
+      "subtitle": "Strategic AI Architect",
+      "description": "Designing intelligent solutions and neural ecosystems to drive business efficiency and innovation."
+    },
+    "it": {
+      "subtitle": "Senior IT Professional & Professor",
+      "description": "15 years of excellence in full-stack development, systems architecture, and technical education."
+    }
   },
   "credentialsSection": {
     "title": "Expertise & Trust",

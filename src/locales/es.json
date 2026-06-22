@@ -21,7 +21,23 @@
     "subtitle": "Arquitecto de Soluciones de IA e Innovación Educativa",
     "description": "Transformando el futuro del aprendizaje y el crecimiento empresarial mediante ecosistemas inteligentes. 15 años uniendo desarrollo Full-Stack, estrategia digital y docencia de alto impacto.",
     "viewMyWork": "Ver Casos de Éxito",
-    "getInTouch": "Iniciar Proyecto"
+    "getInTouch": "Iniciar Proyecto",
+    "menta": {
+      "subtitle": "CEO y Fundador de Menta AI",
+      "description": "Escalando el futuro de la educación personalizada con motores de tutoría de IA Generativa."
+    },
+    "progressia": {
+      "subtitle": "Lead Country Representative @ Progressia",
+      "description": "Orquestando la educación financiera con IA y el crecimiento estratégico del ecosistema desde Dubai hacia Latinoamérica."
+    },
+    "ai": {
+      "subtitle": "Arquitecto Estratégico de IA",
+      "description": "Diseñando soluciones inteligentes y ecosistemas neuronales para impulsar la eficiencia y la innovación empresarial."
+    },
+    "it": {
+      "subtitle": "Profesional Senior IT y Profesor",
+      "description": "15 años de excelencia en desarrollo full-stack, arquitectura de sistemas y educación técnica."
+    }
   },
   "credentialsSection": {
     "title": "Confianza y Maestría",
