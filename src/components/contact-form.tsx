@@ -5,7 +5,7 @@ import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
-import { useFormspree } from '@formspree/react';
+import { useForm as useFormspree } from '@formspree/react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CheckCircle2, Loader2, Send, ShieldCheck, Sparkles, Brain, GraduationCap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -36,6 +36,7 @@ const INSPIRATIONAL_QUOTES = [
 ];
 
 export default function ContactForm({ dict }: { dict: any }) {
+  // Use the alias to avoid collision with react-hook-form's useForm
   const [state, handleSubmitFormspree] = useFormspree("mgojeqgo");
   const [currentStep, setCurrentStep] = useState<'idle' | 'email' | 'sync' | 'success'>('idle');
   const [quoteIndex, setQuoteIndex] = useState(0);
