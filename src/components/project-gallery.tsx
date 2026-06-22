@@ -17,19 +17,24 @@ interface ProjectGalleryProps {
 }
 
 export default function ProjectGallery({ dict, projectsData, onProjectSelect, projectCardDict }: ProjectGalleryProps) {
-  // 1. Proyectos Principales (Tu Top 3 de alta importancia)
+  // 1. Proyectos Principales (Top Impact & Focus)
   const mainActiveProjectIds = ['proj-menta-ai', 'proj-progressia', 'proj-bless'];
   
-  // 2. Laboratorio de IA (Conceptos potentes)
-  const aiLabProjectIds = ['proj-agroia', 'proj-negotia'];
-
-  // 3. Colaboraciones Estratégicas (Marcas e Instituciones)
-  const collaborationIds = [
-    'collab-ulacit', 
+  // 2. Alianzas Estratégicas (Impacto Corporativo e Institucional)
+  // Promovemos ULACIT a esta sección por su relevancia estratégica
+  const strategicPartnershipIds = [
+    'collab-ulacit',
     'proj-imagine-motiva', 
-    'proj-agro-y-mas', 
     'proj-epa-en-linea', 
     'proj-kohls', 
+    'proj-agro-y-mas'
+  ];
+
+  // 3. Laboratorio de IA (Conceptos y Prototipos - Depriorizados)
+  const aiLabProjectIds = ['proj-agroia', 'proj-negotia'];
+
+  // 4. Otras Colaboraciones
+  const otherCollabIds = [
     'collab-crdigital', 
     'collab-vita', 
     'collab-poder-judicial', 
@@ -40,17 +45,17 @@ export default function ProjectGallery({ dict, projectsData, onProjectSelect, pr
     .filter(project => mainActiveProjectIds.includes(project.id))
     .sort((a, b) => mainActiveProjectIds.indexOf(a.id) - mainActiveProjectIds.indexOf(b.id));
 
+  const strategicPartnerships = projectsData
+    .filter(project => strategicPartnershipIds.includes(project.id))
+    .sort((a, b) => strategicPartnershipIds.indexOf(a.id) - strategicPartnershipIds.indexOf(b.id));
+
   const aiLabProjects = projectsData
     .filter(project => aiLabProjectIds.includes(project.id))
     .sort((a, b) => aiLabProjectIds.indexOf(a.id) - aiLabProjectIds.indexOf(b.id));
 
-  const collaborations = projectsData
-    .filter(project => collaborationIds.includes(project.id))
-    .sort((a, b) => collaborationIds.indexOf(a.id) - collaborationIds.indexOf(b.id));
-    
-  // CRÍTICO: Solo mostrar en tarjetas grandes si tienen imagen real para no romper la estética comercial
-  const collabsWithImages = collaborations.filter(p => !!p.thumbnailUrl && p.thumbnailUrl.trim() !== '');
-  const collabsTextOnly = collaborations.filter(p => !p.thumbnailUrl || p.thumbnailUrl.trim() === '');
+  const otherCollabs = projectsData
+    .filter(project => otherCollabIds.includes(project.id))
+    .sort((a, b) => otherCollabIds.indexOf(a.id) - otherCollabIds.indexOf(b.id));
 
   return (
     <section id="projects" className="py-16 md:py-24 bg-background animate-in fade-in-0 slide-in-from-bottom-12 duration-500 ease-out">
@@ -84,10 +89,29 @@ export default function ProjectGallery({ dict, projectsData, onProjectSelect, pr
           </div>
         )}
 
-        {/* SECCIÓN 2: LABORATORIO DE IA Y CONCEPTOS */}
-        {aiLabProjects.length > 0 && (
+        {/* SECCIÓN 2: ALIANZAS ESTRATÉGICAS (Incluyendo ULACIT) */}
+        {strategicPartnerships.length > 0 && (
           <div className="mb-20">
             <h3 className="text-3xl font-semibold tracking-tight text-primary mb-10 text-center border-b pb-4">
+              {dict.strategicCollaborationsTitle}
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {strategicPartnerships.map((project) => (
+                <ProjectCard 
+                  key={project.id} 
+                  project={project} 
+                  onViewProject={onProjectSelect}
+                  dict={projectCardDict} 
+                />
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* SECCIÓN 3: LABORATORIO DE IA Y CONCEPTOS (Depriorizados) */}
+        {aiLabProjects.length > 0 && (
+          <div className="mb-20 opacity-80 hover:opacity-100 transition-opacity">
+            <h3 className="text-2xl font-semibold tracking-tight text-primary/70 mb-10 text-center border-b pb-4">
               {dict.aiLabTitle}
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
@@ -103,33 +127,14 @@ export default function ProjectGallery({ dict, projectsData, onProjectSelect, pr
           </div>
         )}
 
-        {/* SECCIÓN 3: COLABORACIONES ESTRATÉGICAS CON IMAGEN */}
-        {collabsWithImages.length > 0 && (
-          <div className="mb-20">
-            <h3 className="text-3xl font-semibold tracking-tight text-primary mb-10 text-center border-b pb-4">
-              {dict.strategicCollaborationsTitle}
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {collabsWithImages.map((project) => (
-                <ProjectCard 
-                  key={project.id} 
-                  project={project} 
-                  onViewProject={onProjectSelect}
-                  dict={projectCardDict} 
-                />
-              ))}
-            </div>
-          </div>
-        )}
-
-        {/* SECCIÓN 4: OTRAS COLABORACIONES E IMPACTO (TEXTO - ESTILO SUTIL) */}
-        {collabsTextOnly.length > 0 && (
+        {/* SECCIÓN 4: OTRAS CONTRIBUCIONES (Texto sutil) */}
+        {otherCollabs.length > 0 && (
             <div className="mb-16">
                 <h3 className="text-2xl font-semibold tracking-tight text-primary/70 mb-8 text-center sm:text-left">
                   {dict.otherImpactTitle}
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                {collabsTextOnly.map((project) => (
+                {otherCollabs.map((project) => (
                     <Card key={project.id} className="shadow-sm hover:shadow-md transition-shadow duration-300 rounded-xl border-dashed bg-muted/20">
                         <div className="p-4 flex justify-between items-center gap-4">
                             <div className="flex-grow">

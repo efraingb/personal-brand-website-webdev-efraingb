@@ -1,3 +1,4 @@
+
 {
   "layout": {
     "title": "Efraín G.B. | Arquitecto de IA e Innovación EdTech",
@@ -23,7 +24,7 @@
     "viewMyWork": "Ver Casos de Éxito",
     "getInTouch": "Iniciar Proyecto",
     "menta": {
-      "subtitle": "CEO y Fundador de Menta AI",
+      "subtitle": "CEO y Fundador de Menta IA",
       "description": "Escalando el futuro de la educación personalizada con motores de tutoría de IA Generativa."
     },
     "progressia": {
@@ -139,29 +140,29 @@
   },
   "projectsData": {
     "proj-agroia_name": "AgroIA",
-    "proj-agroia_description": "Conectando productores agrícolas con mercados globales mediante matching inteligente de datos. Concepto Lab IA.",
+    "proj-agroia_description": "Prototipo de inteligencia de mercados agrícolas. Concepto Lab IA.",
     "proj-progressia_name": "Progressia (Dubai)",
-    "proj-progressia_description": "Educación Financiera con IA: Liderazgo de la expansión estratégica y crecimiento del ecosistema para una startup EdTech de Dubai.",
+    "proj-progressia_description": "Educación Financiera con IA: Orquestación de la expansión estratégica y crecimiento del ecosistema para una startup EdTech de Dubai.",
     "proj-menta-ai_name": "Menta IA",
-    "proj-menta-ai_description": "Escalando la Educación Personalizada: Motor de tutoría inteligente impulsado por IA Generativa para transformar cualquier tema en un viaje interactivo.",
+    "proj-menta-ai_description": "CEO y Fundador: Escalando la Educación Personalizada. Motor de tutoría inteligente impulsado por IA Generativa para transformar cualquier tema en un viaje interactivo.",
     "proj-negotia_name": "NEGOTIA",
-    "proj-negotia_description": "IA de Negociación Estratégica: Simulador avanzado diseñado para optimizar acuerdos mediante datos de comportamiento.",
+    "proj-negotia_description": "IA de Negociación Estratégica: Prototipo avanzado de simulador de acuerdos.",
     "proj-bless_name": "Bless Contigo",
-    "proj-bless_description": "Plataforma Social Colaborativa: Conectando comunidades con recursos de apoyo de alto valor mediante orquestación digital.",
+    "proj-bless_description": "Plataforma Social Colaborativa: Conectando comunidades mediante orquestación digital y estrategias de impacto social.",
     "proj-imagine-motiva_name": "Imagine Motiva (Establishment Labs)",
     "proj-imagine-motiva_description": "Innovación digital para un líder global en tecnología médica listado en NASDAQ.",
     "proj-agro-y-mas_name": "Agro Y Más",
-    "proj-agro-y-mas_description": "Ecosistema Agritech y Fintech: Empoderando al sector agrícola mediante información y accesibilidad financiera.",
+    "proj-agro-y-mas_description": "Ecosistema Agritech y Fintech: Empoderando al sector agrícola mediante accesibilidad digital.",
     "proj-epa-en-linea_name": "EPA en Línea",
     "proj-epa-en-linea_description": "Optimización de E-commerce: Escalando las ventas digitales para el gigante del retail ferretero de Costa Rica.",
     "proj-kohls_name": "Kohl's E-commerce",
     "proj-kohls_description": "Soluciones Enterprise: Desarrollo estratégico para la plataforma digital de la gran cadena de tiendas de EE. UU.",
     "collab-ulacit_name": "Universidad ULACIT",
-    "collab-ulacit_description": "Estrategia EdTech: Creación de motor de landing pages con IA y modernización del ecosistema web institucional.",
+    "collab-ulacit_description": "Estrategia de IA y Modernización Digital: Creación de motor de landing pages con IA y modernización del ecosistema web institucional.",
     "collab-crdigital_name": "CRDigital",
     "collab-crdigital_description": "Construcción de Ecosistema: Fomentando la innovación dentro de la comunidad tecnológica líder de Costa Rica.",
     "collab-vita_name": "Vita",
-    "collab-vita_description": "Exploración Web 4.0: Alianza estratégica con startup de Dubai empujando los límites de la internet de próxima generación.",
+    "collab-vita_description": "Exploración Web 4.0: Alianza estratégica con startup de Dubai.",
     "collab-poder-judicial_name": "Poder Judicial de CR",
     "collab-poder-judicial_description": "Consultoría Sector Público: Modernización de iniciativas digitales para el sistema judicial nacional.",
     "collab-libreria-internacional_name": "Librería Internacional",

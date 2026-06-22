@@ -1,3 +1,4 @@
+
 {
   "layout": {
     "title": "Efraín G.B. | AI Architect & EdTech Innovator",
@@ -23,7 +24,7 @@
     "viewMyWork": "View Case Studies",
     "getInTouch": "Start a Project",
     "menta": {
-      "subtitle": "CEO & Founder of Menta AI",
+      "subtitle": "CEO & Founder of Menta IA",
       "description": "Scaling the future of personalized education with Generative AI tutoring engines."
     },
     "progressia": {
@@ -139,29 +140,29 @@
   },
   "projectsData": {
     "proj-agroia_name": "AgroIA",
-    "proj-agroia_description": "Connecting agricultural producers with global markets through intelligent data matching. AI Concept Lab.",
+    "proj-agroia_description": "Agricultural market intelligence prototype. AI Concept Lab.",
     "proj-progressia_name": "Progressia (Dubai)",
     "proj-progressia_description": "AI Financial Literacy: Orchestrating the strategic expansion and ecosystem growth for a Dubai-based AI EdTech startup.",
     "proj-menta-ai_name": "Menta IA",
-    "proj-menta-ai_description": "Scaling Personalized Education: An intelligent tutoring engine powered by Generative AI to transform any subject into an interactive journey.",
+    "proj-menta-ai_description": "CEO & Founder: Scaling Personalized Education. An intelligent tutoring engine powered by Generative AI to transform any subject into an interactive journey.",
     "proj-negotia_name": "NEGOTIA",
-    "proj-negotia_description": "Strategic Win-Win AI: Advanced negotiation simulator designed to optimize outcomes through behavioral data.",
+    "proj-negotia_description": "Strategic Win-Win AI: Advanced negotiation simulator prototype.",
     "proj-bless_name": "Bless Contigo",
-    "proj-bless_description": "Collaborative Social Platform: Connecting communities with high-value support resources through digital orchestration.",
+    "proj-bless_description": "Collaborative Social Platform: Connecting communities through digital orchestration and social impact strategies.",
     "proj-imagine-motiva_name": "Imagine Motiva (Establishment Labs)",
     "proj-imagine-motiva_description": "Digital innovation for a NASDAQ-listed global leader in medical technology.",
     "proj-agro-y-mas_name": "Agro Y Más",
-    "proj-agro-y-mas_description": "Agritech & Fintech Ecosystem: Empowering the agricultural sector through information and financial accessibility.",
+    "proj-agro-y-mas_description": "Agritech & Fintech Ecosystem: Empowering the agricultural sector through digital accessibility.",
     "proj-epa-en-linea_name": "EPA Online",
     "proj-epa-en-linea_description": "E-commerce Optimization: Scaling digital sales for Costa Rica's hardware retail giant.",
     "proj-kohls_name": "Kohl's E-commerce",
-    "proj-kohls_description": "Enterprise Solutions: Strategic development for the digital platform of the major US department store.",
+    "proj-kohls_description": "Enterprise Solutions: Strategic development for the US department store's digital platform.",
     "collab-ulacit_name": "ULACIT University",
-    "collab-ulacit_description": "EdTech Strategy: Engineered an AI-powered landing page engine and modernized the institutional web ecosystem.",
+    "collab-ulacit_description": "AI Strategy & Digital Modernization: Engineered an AI-powered landing page engine and modernized the institutional web ecosystem.",
     "collab-crdigital_name": "CRDigital",
     "collab-crdigital_description": "Ecosystem Building: Fostering innovation within Costa Rica's leading tech community.",
     "collab-vita_name": "Vita",
-    "collab-vita_description": "Web 4.0 Exploration: Strategic partnership with a Dubai-based startup pushing next-gen internet boundaries.",
+    "collab-vita_description": "Web 4.0 Exploration: Strategic partnership with a Dubai-based startup.",
     "collab-poder-judicial_name": "Judicial Branch of CR",
     "collab-poder-judicial_description": "Public Sector Consulting: Modernizing digital initiatives for the national judicial system.",
     "collab-libreria-internacional_name": "Librería Internacional",
