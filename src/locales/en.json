@@ -40,9 +40,9 @@
       "subtitle": "IT Consultant & Professor",
       "description": "15 years of excellence in systems architecture and high-level technical education."
     },
-    "kaiser": {
+    "enterprise": {
       "subtitle": "Senior Solutions Architect & IT Consultant",
-      "description": "15 years orchestrating complex enterprise ecosystems, cloud infrastructure, and AI governance."
+      "description": "15 years orchestrating complex enterprise ecosystems, cloud infrastructure, and IT governance."
     }
   },
   "credentialsSection": {
@@ -81,7 +81,7 @@
     "statusOnlineDev": "In Testing",
     "statusOnlineDevTooltip": "Active staging environment.",
     "statusChecking": "Verifying...",
-    "statusCheckingTooltip": "Checking availability...",
+    "statusCheckingTooltip": "Verifying project status...",
     "statusOnline": "Live",
     "statusOnlineTooltip": "Fully functional project.",
     "statusOfflineTooltip": "Temporary maintenance.",

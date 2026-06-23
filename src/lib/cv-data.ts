@@ -2,14 +2,14 @@ import type { CV } from './types';
 
 export const cvData: CV[] = [
   {
-    slug: 'kaiser',
+    slug: 'enterprise',
     name: 'Efraín González Bermúdez',
     title: 'ENTERPRISE ARCHITECT | SR. IT CONSULTANT',
     summary: 'Senior technology professional with 15 years of experience architecting complex digital ecosystems, cloud solutions, and strategic IT frameworks. Expert in bridging the gap between business objectives and technical execution for organizations like ULACIT, Kohl’s, and the public sector. Specialized in solution scalability, AI implementation, and high-level stakeholder orchestration. MBA candidate in Technology Management with a proven track record of driving operational efficiency through modern architecture (Next.js, Firebase, GCP).',
     contact: {
       phone: { text: '+506 8693 9737', url: 'tel:+50686939737' },
       email: { text: 'hiefraingb@gmail.com', url: 'mailto:hiefraingb@gmail.com?subject=Strategic%20Opportunity' },
-      website: { text: 'EfrainGB.org', url: '/en?mode=kaiser' },
+      website: { text: 'EfrainGB.org', url: '/en?mode=enterprise' },
       linkedin: { text: 'linkedin.com/in/efraingb', url: 'https://www.linkedin.com/in/efraingb/' },
     },
     sections: [

@@ -40,7 +40,7 @@
       "subtitle": "Consultor IT & Profesor",
       "description": "Especialista en arquitectura de sistemas y educación técnica de alto nivel."
     },
-    "kaiser": {
+    "enterprise": {
       "subtitle": "Arquitecto de Soluciones Senior & Consultor IT",
       "description": "15 años orquestando ecosistemas empresariales complejos, infraestructura cloud y gobernanza de IA."
     }
@@ -114,13 +114,6 @@
     "iaToolOfflineDescription": "Herramienta disponible solo para socios.",
     "videoOfflineDescriptionAlternative": "Demo disponible abajo.",
     "buttonRequestAccess": "Pedir Acceso"
-  },
-  "documentsSection": {
-    "title": "Libros y Recursos",
-    "description": "Publicaciones y guías prácticas para entender la IA y la tecnología sin complicaciones.",
-    "defaultViewDetails": "Leer más",
-    "defaultVisitProfile": "Ver Perfil",
-    "recommendedBadge": "Destacado"
   },
   "contactSection": {
     "title": "Hablemos de tu proyecto",
