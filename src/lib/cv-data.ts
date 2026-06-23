@@ -57,7 +57,7 @@ export const cvData: CV[] = [
           {
             id: 'exp_kutwit',
             title: 'Innovation & Technology Strategist | Kutwit',
-            date: '2017 - 2026',
+            date: '2017 - 2025',
             description: [
               'Led the full technical lifecycle and digital strategy for diverse enterprise clients, driving long-term growth and operational efficiency.',
               'Designed scalable software solutions and digital marketing infrastructures for international markets (USA, LatAm).',
