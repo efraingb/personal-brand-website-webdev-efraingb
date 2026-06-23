@@ -1,12 +1,12 @@
 
 {
   "layout": {
-    "title": "Efraín G.B. | AI that works & Education that scales",
+    "title": "Efraín G.B. | AI Architect & EdTech Innovator",
     "description": "Strategic portfolio of Efraín G.B., Specialist in AI Solutions, Educational Innovation, and Digital Growth."
   },
   "nav": {
     "home": "Home",
-    "solutions": "Services",
+    "solutions": "Solutions",
     "projects": "Impact",
     "credentials": "Expertise",
     "booksAndResources": "Books",
@@ -23,22 +23,22 @@
     "subtitle": "AI that works. Education that scales.",
     "description": "Less theory, more results. 15 years implementing real AI and EdTech solutions for companies and leaders.",
     "viewMyWork": "View Case Studies",
-    "getInTouch": "Let's talk",
+    "getInTouch": "Start a Project",
     "menta": {
-      "subtitle": "Founder of Menta IA",
-      "description": "Scaling education with intelligent tutoring engines powered by Generative AI."
+      "subtitle": "CEO & Founder of Menta IA",
+      "description": "Scaling the future of personalized education with Generative AI tutoring engines."
     },
     "progressia": {
-      "subtitle": "Strategy Lead @ Progressia",
-      "description": "Driving Financial Literacy through AI from Dubai to Latin America."
+      "subtitle": "Lead Country Representative @ Progressia",
+      "description": "Orchestrating AI Financial Literacy and strategic ecosystem growth from Dubai to Latin America."
     },
     "ai": {
-      "subtitle": "Strategic AI Specialist",
-      "description": "I design intelligent systems that automate processes and save real time."
+      "subtitle": "Strategic AI Architect",
+      "description": "Designing intelligent solutions and neural ecosystems to drive business efficiency and innovation."
     },
     "it": {
-      "subtitle": "IT Consultant & Professor",
-      "description": "15 years of excellence in systems architecture and high-level technical education."
+      "subtitle": "Senior IT Professional & Professor",
+      "description": "15 years of excellence in full-stack development, systems architecture, and technical education."
     },
     "enterprise": {
       "subtitle": "Senior Solutions Architect & IT Consultant",
@@ -150,8 +150,8 @@
   },
   "footer": {
     "personalPhotoAlt": "Efraín G.B.",
-    "copyright": "© {currentYear} Efraín G.B. Tech with Purpose.",
-    "credits": "Built with Next.js & plenty of AI.",
+    "copyright": "© {currentYear} Efraín G.B. AI Architecture & Strategy.",
+    "credits": "Engineered with Next.js & Firebase.",
     "openCvMenu": "View Resume",
     "cvEnglish": "Resume (English)",
     "cvSpanish": "Resume (Spanish)"

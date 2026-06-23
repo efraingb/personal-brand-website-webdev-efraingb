@@ -5,7 +5,7 @@ export const cvData: CV[] = [
     slug: 'enterprise',
     name: 'Efraín González Bermúdez',
     title: 'ENTERPRISE ARCHITECT | SR. IT CONSULTANT',
-    summary: 'Senior technology professional with 15 years of experience architecting complex digital ecosystems, cloud solutions, and strategic IT frameworks. Expert in bridging the gap between business objectives and technical execution for organizations like ULACIT, Kohl’s, and the public sector. Specialized in solution scalability, AI implementation, and high-level stakeholder orchestration. MBA candidate in Technology Management with a proven track record of driving operational efficiency through modern architecture (Next.js, Firebase, GCP).',
+    summary: 'Senior technology professional with 15 years of experience architecting complex digital ecosystems, cloud solutions, and strategic IT frameworks. Proven track record leading digital transformation and R&D for organizations such as Kohl’s, EPA, Establishment Labs, and ULACIT. Expert in bridging the gap between business objectives and technical execution, specialized in solution scalability, AI implementation, and high-level stakeholder orchestration. MBA candidate in Technology Management with 30+ technical publications.',
     contact: {
       phone: { text: '+506 8693 9737', url: 'tel:+50686939737' },
       email: { text: 'hiefraingb@gmail.com', url: 'mailto:hiefraingb@gmail.com?subject=Strategic%20Opportunity' },
@@ -20,16 +20,16 @@ export const cvData: CV[] = [
         items: [
           {
             id: 'architecture',
-            title: 'Enterprise Architecture',
+            title: 'Technical Architecture',
             description: [
-              'Solution Design', 'Cloud Infrastructure (GCP/Firebase)', 'Full-Stack Development', 'API Orchestration', 'Database Design (SQL/NoSQL)', 'Scalable Web Ecosystems', 'Technical Documentation'
+              'Enterprise Solution Design', 'Cloud Infrastructure (GCP/Firebase)', 'Full-Stack Development (Next.js/React)', 'AI Implementation & R&D', 'Database Orchestration (SQL/NoSQL)', 'API Strategy', 'Technical Governance'
             ]
           },
           {
             id: 'strategy',
             title: 'Strategic Leadership',
             description: [
-              'IT Consulting', 'Stakeholder Management', 'Agile Methodologies', 'Change Management', 'Project Governance', 'Business Intelligence'
+              'IT Consulting', 'Stakeholder Management', 'Agile/Scrum Methodologies', 'Change Management', 'Project Lifecycle Management', 'Business Intelligence'
             ]
           }
         ]
@@ -39,23 +39,29 @@ export const cvData: CV[] = [
         title: 'Professional Experience',
         items: [
           {
+            id: 'exp_progressia',
+            title: 'Lead Country Representative | Progressia (Dubai Startup)',
+            date: '2026 - Present',
+            description: 'Leading the strategic integration and deployment of AI-powered financial education solutions for the Costa Rican market, orchestrating partnerships and local ecosystem growth.'
+          },
+          {
             id: 'exp_ulacit',
             title: 'Web Master & IT Strategy | ULACIT',
             date: '2025 - 2026',
             description: [
-              'Architected and deployed a multi-site institutional ecosystem, integrating e-commerce and centralized CMS on WordPress.',
-              'Engineered an AI-powered landing page engine to automate marketing operations and enhance lead capture efficiency.',
-              'Orchestrated cross-functional teams and stakeholders to ensure system stability and strategic alignment with growth goals.'
+              'Architected a multi-site institutional ecosystem integrating e-commerce and centralized CMS on WordPress.',
+              'Engineered an AI-powered landing page engine to automate marketing operations and enhance lead capture efficiency by 30%.',
+              'Managed cross-functional technical teams and external vendors to ensure high availability and strategic alignment.'
             ]
           },
           {
-            id: 'exp_consultant',
-            title: 'Sr. IT Consultant & Lead Developer',
-            date: '2017 - Present',
+            id: 'exp_kutwit',
+            title: 'Innovation & Technology Strategist | Kutwit',
+            date: '2017 - 2026',
             description: [
-              'Provide end-to-end technical leadership for enterprise clients, focusing on digital transformation and system modernization.',
-              'Designed scalable web solutions using Next.js and Firebase, reducing operational overhead and improving user retention.',
-              'Lead the technical lifecycle of digital products from discovery to deployment for international organizations (Dubai, USA, LatAm).'
+              'Led the full technical lifecycle and digital strategy for diverse enterprise clients, driving long-term growth and operational efficiency.',
+              'Designed scalable software solutions and digital marketing infrastructures for international markets (USA, LatAm).',
+              'Provided strategic consulting on systems modernization and technical debt reduction.'
             ]
           },
           {
@@ -63,57 +69,57 @@ export const cvData: CV[] = [
             title: 'Tech Lead | SM Group',
             date: '2015 - 2017',
             description: [
-              'Managed the development of high-impact digital solutions for public and educational sectors.',
-              'Optimized User Experience (UX) and system performance across large-scale platforms, ensuring high availability and compliance.'
+              'Managed software development and digital strategies for high-impact public and educational sector platforms.',
+              'Significantly improved User Experience (UX) and performance metrics through data-driven optimization.'
             ]
           },
           {
             id: 'exp_early',
-            title: 'Technical Roles | Capilleira & DCC',
+            title: 'Web Developer & Content Manager | Capilleira & DCC',
             date: '2011 - 2013',
-            description: 'Executed performance optimization and troubleshooting for 300+ web instances, establishing foundational expertise in system reliability and digital content management.'
+            description: 'Troubleshot and optimized 300+ US-based websites, establishing foundational expertise in system reliability and SEO/UX performance.'
           }
         ]
       },
       {
         id: 'leadership_edu',
-        title: 'Leadership & Innovation',
+        title: 'Leadership & R&D',
         items: [
           {
             id: 'leader_ircu',
             title: 'Vice-rector of Technology | IRCU',
             date: '2019 - 2021',
-            description: 'Led digital transformation initiatives and curriculum design for technical programs, overseeing institutional IT strategy.'
+            description: 'Directed digital transformation initiatives and institutional IT strategy, overseeing curriculum design for technical programs.'
           },
           {
             id: 'leader_menta',
-            title: 'Founder | Menta IA',
+            title: 'R&D Initiative: MentaIA.org',
             date: '2025 - Present',
-            description: 'Architecting an AI-driven educational engine to scale personalized learning through Generative AI.'
+            description: 'Researching and developing an AI-powered personalized education platform exploring adaptive learning architectures.'
           }
         ]
       },
       {
         id: 'education',
-        title: 'Education & Certifications',
+        title: 'Education & Training',
         items: [
           {
             id: 'edu_mba',
             title: 'MBA, Technology Management emphasis — ULACIT',
             date: '2025 - 2027',
-            description: ''
+            description: 'Advanced studies in strategic IT governance and business scaling.'
           },
           {
             id: 'edu_masters',
-            title: "Masters in 'Big Data & Business Intelligence' & 'Project Management' — ENEB",
+            title: "MSc in 'Big Data & BI' & MSc in 'Project Management' — ENEB",
             date: '2023 - 2025',
             description: ''
           },
           {
             id: 'edu_spec',
-            title: 'Advanced Training in AI, Blockchain, SQL, and Agile Governance — Multiple Institutions',
-            date: 'Ongoing',
-            description: 'Continuous professional development in cloud architecture and data systems.'
+            title: 'Specialized Training in JS, PHP, AI, Blockchain, and Agile — Multiple Institutions',
+            date: '2011 - Present',
+            description: 'Continuous development in modern stack and strategic negotiation.'
           }
         ]
       }
