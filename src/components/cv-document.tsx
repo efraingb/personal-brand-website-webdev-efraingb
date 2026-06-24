@@ -127,7 +127,7 @@ const styles = StyleSheet.create({
   }
 });
 
-const CVDescription = ({ text }: { text: string | string[] }) => {
+const CVDescription = ({ text }: { text?: string | string[] }) => {
   if (!text) return null;
   if (Array.isArray(text)) {
     return (
@@ -141,29 +141,30 @@ const CVDescription = ({ text }: { text: string | string[] }) => {
       </View>
     );
   }
-  return <Text style={styles.descriptionText}>{text}</Text>;
+  return <Text style={styles.descriptionText}>{text || ''}</Text>;
 };
 
 const CVDocument = ({ cv }: { cv: CV }) => {
-  if (!cv) return null;
+  // Never return null to avoid react-pdf internal crashes
+  const safeCv = cv || { name: '', title: '', summary: '', contact: {}, sections: [] };
   
   return (
-    <Document title={`${cv.name || 'CV'} - CV`} author={cv.name || 'Efrain'} creator="EfrainGB.org">
+    <Document title={`${safeCv.name || 'CV'} - CV`} author={safeCv.name || 'Efrain'} creator="EfrainGB.org">
       <Page size="A4" style={styles.page}>
         <View style={styles.header}>
-          <Text style={styles.name}>{cv.name || ''}</Text>
-          <Text style={styles.title}>{cv.title || ''}</Text>
+          <Text style={styles.name}>{safeCv.name || ''}</Text>
+          <Text style={styles.title}>{safeCv.title || ''}</Text>
           <View style={styles.contactInfo}>
-            {cv.contact?.phone && <Text>{cv.contact.phone.text}</Text>}
-            {cv.contact?.email && <Text>{cv.contact.email.text}</Text>}
-            {cv.contact?.website && <Text>{cv.contact.website.text}</Text>}
-            {cv.contact?.linkedin && <Text>{cv.contact.linkedin.text}</Text>}
+            {safeCv.contact?.phone && <Text>{safeCv.contact.phone.text || ''}</Text>}
+            {safeCv.contact?.email && <Text>{safeCv.contact.email.text || ''}</Text>}
+            {safeCv.contact?.website && <Text>{safeCv.contact.website.text || ''}</Text>}
+            {safeCv.contact?.linkedin && <Text>{safeCv.contact.linkedin.text || ''}</Text>}
           </View>
         </View>
 
-        <Text style={styles.summary}>{cv.summary || ''}</Text>
+        <Text style={styles.summary}>{safeCv.summary || ''}</Text>
 
-        {(cv.sections || []).map((section) => (
+        {(safeCv.sections || []).map((section) => (
           <View key={section.id} style={styles.section} wrap={false}>
             <Text style={styles.sectionTitle}>{section.title || ''}</Text>
             
@@ -199,7 +200,7 @@ const CVDocument = ({ cv }: { cv: CV }) => {
                         <Text style={styles.itemTitle}>{item.title || ''}</Text>
                         {item.subtitle && <Text style={styles.itemSubtitle}> | {item.subtitle}</Text>}
                       </View>
-                      {item.date && <Text style={styles.itemDate}>{item.date}</Text>}
+                      {item.date && <Text style={styles.itemDate}>{item.date || ''}</Text>}
                     </View>
                     <CVDescription text={item.description} />
                   </View>
