@@ -1,12 +1,10 @@
 'use client';
 
 import React from 'react';
-import { Page, Text, View, Document, StyleSheet, Link, Font } from '@react-pdf/renderer';
+import { Page, Text, View, Document, StyleSheet, Font } from '@react-pdf/renderer';
 import type { CV, CVItem } from '@/lib/types';
 
-// Opcional: Registrar fuentes si se desea un diseño más específico. 
-// Por ahora usamos Helvetica que es estándar y segura para texto vectorial.
-
+// Registramos fuentes estándar para asegurar que el PDF sea siempre vectorial y seleccionable
 const styles = StyleSheet.create({
   page: {
     fontFamily: 'Helvetica',
@@ -43,10 +41,6 @@ const styles = StyleSheet.create({
     fontSize: 9,
     color: '#64748b',
     gap: 12,
-  },
-  contactItem: {
-    textDecoration: 'none',
-    color: '#64748b',
   },
   summary: {
     marginBottom: 20,
@@ -151,26 +145,23 @@ const CVDescription = ({ text }: { text: string | string[] }) => {
 };
 
 const CVDocument = ({ cv }: { cv: CV }) => (
-  <Document title={`${cv.name} - CV`} author={cv.name}>
+  <Document title={`${cv.name} - CV`} author={cv.name} creator="EfrainGB.org">
     <Page size="A4" style={styles.page}>
-      {/* Header */}
       <View style={styles.header}>
         <Text style={styles.name}>{cv.name}</Text>
         <Text style={styles.title}>{cv.title}</Text>
         <View style={styles.contactInfo}>
-          {cv.contact.phone && <Text style={styles.contactItem}>{cv.contact.phone.text}</Text>}
-          {cv.contact.email && <Text style={styles.contactItem}>{cv.contact.email.text}</Text>}
-          {cv.contact.website && <Text style={styles.contactItem}>{cv.contact.website.text}</Text>}
-          {cv.contact.linkedin && <Text style={styles.contactItem}>{cv.contact.linkedin.text}</Text>}
+          {cv.contact.phone && <Text>{cv.contact.phone.text}</Text>}
+          {cv.contact.email && <Text>{cv.contact.email.text}</Text>}
+          {cv.contact.website && <Text>{cv.contact.website.text}</Text>}
+          {cv.contact.linkedin && <Text>{cv.contact.linkedin.text}</Text>}
         </View>
       </View>
 
-      {/* Summary */}
       <Text style={styles.summary}>{cv.summary}</Text>
 
-      {/* Sections */}
       {cv.sections.map((section) => (
-        <View key={section.id} style={styles.section}>
+        <View key={section.id} style={styles.section} wrap={false}>
           <Text style={styles.sectionTitle}>{section.title}</Text>
           
           {section.isTwoColumns ? (
@@ -199,7 +190,7 @@ const CVDocument = ({ cv }: { cv: CV }) => (
           ) : (
             <View>
               {section.items.map((item) => (
-                <View key={item.id} style={styles.item}>
+                <View key={item.id} style={styles.item} wrap={false}>
                   <View style={styles.itemHeader}>
                     <View style={styles.itemTitleContainer}>
                       <Text style={styles.itemTitle}>{item.title}</Text>

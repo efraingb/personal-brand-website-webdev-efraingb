@@ -8,15 +8,15 @@ const styles = StyleSheet.create({
   page: {
     fontFamily: 'Helvetica',
     fontSize: 11,
-    padding: 50,
+    padding: 60,
     backgroundColor: '#ffffff',
     color: '#1e293b',
   },
   header: {
-    marginBottom: 30,
+    marginBottom: 35,
     borderBottomWidth: 1,
     borderBottomColor: '#f1f5f9',
-    paddingBottom: 20,
+    paddingBottom: 25,
   },
   name: {
     fontSize: 22,
@@ -35,15 +35,15 @@ const styles = StyleSheet.create({
     fontSize: 9,
     color: '#94a3b8',
     flexDirection: 'row',
-    gap: 15,
+    gap: 20,
   },
   date: {
-    marginTop: 30,
+    marginTop: 35,
     marginBottom: 20,
     fontFamily: 'Helvetica-Bold',
   },
   recipient: {
-    marginBottom: 25,
+    marginBottom: 30,
   },
   recipientName: {
     fontFamily: 'Helvetica-Bold',
@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
   subject: {
     fontFamily: 'Helvetica-Bold',
     fontSize: 11,
-    marginBottom: 20,
+    marginBottom: 25,
     color: '#003049',
   },
   content: {
@@ -69,21 +69,21 @@ const styles = StyleSheet.create({
     textAlign: 'justify',
   },
   paragraph: {
-    marginBottom: 12,
+    marginBottom: 15,
   },
   footer: {
-    marginTop: 40,
+    marginTop: 50,
     fontSize: 9,
     color: '#cbd5e1',
     textAlign: 'center',
     borderTopWidth: 1,
     borderTopColor: '#f1f5f9',
-    paddingTop: 10,
+    paddingTop: 15,
   }
 });
 
 const CoverLetterDocument = ({ letter }: { letter: CoverLetter }) => (
-  <Document title={`Cover Letter - ${letter.jobTitle}`} author="Efraín González Bermúdez">
+  <Document title={`Cover Letter - ${letter.jobTitle}`} author="Efraín González Bermúdez" creator="EfrainGB.org">
     <Page size="A4" style={styles.page}>
       <View style={styles.header}>
         <Text style={styles.name}>Efraín González Bermúdez</Text>
