@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Page, Text, View, Document, StyleSheet } from '@react-pdf/renderer';
+import { Document, Page, Text, View, StyleSheet } from '@react-pdf/renderer';
 import type { CV } from '@/lib/types';
 
 const styles = StyleSheet.create({
@@ -24,7 +24,6 @@ const styles = StyleSheet.create({
     fontFamily: 'Helvetica-Bold',
     color: '#003049',
     textTransform: 'uppercase',
-    letterSpacing: 1,
   },
   title: {
     fontSize: 12,
@@ -131,47 +130,47 @@ const CVDocument = ({ cv }: { cv: CV }) => {
   const safeCv = cv || { name: '', title: '', summary: '', contact: {}, sections: [] };
   
   return (
-    <Document title={`${(safeCv.name || 'CV').toString()} - CV`} author="EfrainGB.org">
+    <Document title={String(safeCv.name || 'CV')} author="EfrainGB.org">
       <Page size="A4" style={styles.page}>
         <View style={styles.header}>
-          <Text style={styles.name}>{(safeCv.name || '').toString()}</Text>
-          <Text style={styles.title}>{(safeCv.title || '').toString()}</Text>
+          <Text style={styles.name}>{String(safeCv.name || '')}</Text>
+          <Text style={styles.title}>{String(safeCv.title || '')}</Text>
           <View style={styles.contactInfo}>
-            {safeCv.contact?.phone && <Text>{(safeCv.contact.phone.text || '').toString()}</Text>}
-            {safeCv.contact?.email && <Text>{(safeCv.contact.email.text || '').toString()}</Text>}
-            {safeCv.contact?.website && <Text>{(safeCv.contact.website.text || '').toString()}</Text>}
-            {safeCv.contact?.linkedin && <Text>{(safeCv.contact.linkedin.text || '').toString()}</Text>}
+            {safeCv.contact?.phone && <Text>{String(safeCv.contact.phone.text || '')}</Text>}
+            {safeCv.contact?.email && <Text>{String(safeCv.contact.email.text || '')}</Text>}
+            {safeCv.contact?.website && <Text>{String(safeCv.contact.website.text || '')}</Text>}
+            {safeCv.contact?.linkedin && <Text>{String(safeCv.contact.linkedin.text || '')}</Text>}
           </View>
         </View>
 
-        <Text style={styles.summary}>{(safeCv.summary || '').toString()}</Text>
+        <Text style={styles.summary}>{String(safeCv.summary || '')}</Text>
 
         {(safeCv.sections || []).map((section) => (
-          <View key={section.id} style={styles.section} wrap={false}>
-            <Text style={styles.sectionTitle}>{(section.title || '').toString()}</Text>
+          <View key={String(section.id)} style={styles.section} wrap={false}>
+            <Text style={styles.sectionTitle}>{String(section.title || '')}</Text>
             
             {section.isTwoColumns ? (
               <View style={styles.twoColumnContainer}>
                 <View style={styles.column}>
                   {(section.items || []).filter((_, i) => i % 2 === 0).map(item => (
-                    <View key={item.id} style={styles.skillItem}>
-                      <Text style={styles.skillTitle}>{(item.title || '').toString()}</Text>
+                    <View key={String(item.id)} style={styles.skillItem}>
+                      <Text style={styles.skillTitle}>{String(item.title || '')}</Text>
                       <Text style={styles.skillDesc}>
                         {Array.isArray(item.description) 
-                          ? item.description.join(' · ').toString() 
-                          : (item.description || '').toString()}
+                          ? String(item.description.join(' · ')) 
+                          : String(item.description || '')}
                       </Text>
                     </View>
                   ))}
                 </View>
                 <View style={styles.column}>
                   {(section.items || []).filter((_, i) => i % 2 !== 0).map(item => (
-                    <View key={item.id} style={styles.skillItem}>
-                      <Text style={styles.skillTitle}>{(item.title || '').toString()}</Text>
+                    <View key={String(item.id)} style={styles.skillItem}>
+                      <Text style={styles.skillTitle}>{String(item.title || '')}</Text>
                       <Text style={styles.skillDesc}>
                         {Array.isArray(item.description) 
-                          ? item.description.join(' · ').toString() 
-                          : (item.description || '').toString()}
+                          ? String(item.description.join(' · ')) 
+                          : String(item.description || '')}
                       </Text>
                     </View>
                   ))}
@@ -180,26 +179,28 @@ const CVDocument = ({ cv }: { cv: CV }) => {
             ) : (
               <View>
                 {(section.items || []).map((item) => (
-                  <View key={item.id} style={styles.item} wrap={false}>
+                  <View key={String(item.id)} style={styles.item} wrap={false}>
                     <View style={styles.itemHeader}>
                       <View style={styles.itemTitleContainer}>
-                        <Text style={styles.itemTitle}>{(item.title || '').toString()}</Text>
-                        {item.subtitle && <Text style={styles.itemSubtitle}> | {(item.subtitle).toString()}</Text>}
+                        <Text style={styles.itemTitle}>{String(item.title || '')}</Text>
+                        {item.subtitle && <Text style={styles.itemSubtitle}> | {String(item.subtitle || '')}</Text>}
                       </View>
-                      {item.date && <Text style={styles.itemDate}>{(item.date).toString()}</Text>}
+                      {item.date && <Text style={styles.itemDate}>{String(item.date || '')}</Text>}
                     </View>
                     
                     {item.description && (
                       <View>
                         {Array.isArray(item.description) ? (
                           item.description.map((desc, idx) => (
-                            <View key={idx} style={styles.descriptionItem}>
+                            <View key={String(idx)} style={styles.descriptionItem}>
                               <Text style={styles.bullet}>•</Text>
-                              <Text style={styles.descriptionText}>{(desc || '').toString()}</Text>
+                              <Text style={styles.descriptionText}>{String(desc || '')}</Text>
                             </View>
                           ))
                         ) : (
-                          <Text style={styles.descriptionText}>{(item.description || '').toString()}</Text>
+                          <View style={styles.descriptionItem}>
+                            <Text style={styles.descriptionText}>{String(item.description || '')}</Text>
+                          </View>
                         )}
                       </View>
                     )}

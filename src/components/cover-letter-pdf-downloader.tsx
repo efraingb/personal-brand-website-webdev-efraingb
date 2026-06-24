@@ -21,17 +21,17 @@ export default function CoverLetterPdfDownloader({ letter, text }: CoverLetterPd
   }, []);
 
   const handleDownload = async () => {
-    if (!letter) return;
+    if (!letter || isGenerating) return;
     setIsGenerating(true);
     
     try {
-      // Generación programática
-      const blob = await pdf(<CoverLetterDocument letter={letter} />).toBlob();
-      const url = URL.createObjectURL(blob);
+      const doc = <CoverLetterDocument letter={letter} />;
+      const blob = await pdf(doc).toBlob();
       
+      const url = URL.createObjectURL(blob);
       const link = document.createElement('a');
       link.href = url;
-      link.download = `Cover_Letter_${(letter.jobTitle || 'Application').replace(/ /g, '_')}.pdf`;
+      link.download = `Cover_Letter_${String(letter.jobTitle || 'Application').replace(/ /g, '_')}.pdf`;
       document.body.appendChild(link);
       link.click();
       

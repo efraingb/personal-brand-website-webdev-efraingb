@@ -21,22 +21,22 @@ export default function CvPdfDownloader({ cv, text }: CvPdfDownloaderProps) {
   }, []);
 
   const handleDownload = async () => {
-    if (!cv) return;
+    if (!cv || isGenerating) return;
     setIsGenerating(true);
     
     try {
       // Generación programática del PDF como Blob
-      const blob = await pdf(<CVDocument cv={cv} />).toBlob();
-      const url = URL.createObjectURL(blob);
+      // Usamos el componente como un elemento de React puro
+      const doc = <CVDocument cv={cv} />;
+      const blob = await pdf(doc).toBlob();
       
-      // Creación de un enlace temporal para la descarga
+      const url = URL.createObjectURL(blob);
       const link = document.createElement('a');
       link.href = url;
-      link.download = `${(cv.name || 'CV').replace(/ /g, '_')}_CV.pdf`;
+      link.download = `${String(cv.name || 'CV').replace(/ /g, '_')}_CV.pdf`;
       document.body.appendChild(link);
       link.click();
       
-      // Limpieza
       document.body.removeChild(link);
       URL.revokeObjectURL(url);
     } catch (error) {

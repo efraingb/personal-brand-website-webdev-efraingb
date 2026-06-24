@@ -86,7 +86,7 @@ const CoverLetterDocument = ({ letter }: { letter: CoverLetter }) => {
   const safeLetter = letter || { jobTitle: '', date: '', recipientName: '', companyName: '', content: [] };
   
   return (
-    <Document title={`Cover Letter - ${(safeLetter.jobTitle || 'Application').toString()}`} author="Efraín González Bermúdez">
+    <Document title={String(safeLetter.jobTitle || 'Application')} author="Efraín González Bermúdez">
       <Page size="A4" style={styles.page}>
         <View style={styles.header}>
           <Text style={styles.name}>Efraín González Bermúdez</Text>
@@ -98,19 +98,19 @@ const CoverLetterDocument = ({ letter }: { letter: CoverLetter }) => {
           </View>
         </View>
 
-        <Text style={styles.date}>{(safeLetter.date || '').toString()}</Text>
+        <Text style={styles.date}>{String(safeLetter.date || '')}</Text>
 
         <View style={styles.recipient}>
-          <Text style={styles.recipientName}>{(safeLetter.recipientName || '').toString()}</Text>
-          <Text style={styles.companyName}>{(safeLetter.companyName || '').toString()}</Text>
-          {safeLetter.jobId && <Text style={styles.jobRef}>Ref: Job ID {(safeLetter.jobId).toString()}</Text>}
+          <Text style={styles.recipientName}>{String(safeLetter.recipientName || '')}</Text>
+          <Text style={styles.companyName}>{String(safeLetter.companyName || '')}</Text>
+          {safeLetter.jobId && <Text style={styles.jobRef}>Ref: Job ID {String(safeLetter.jobId || '')}</Text>}
         </View>
 
-        <Text style={styles.subject}>Re: Application for {(safeLetter.jobTitle || '').toString()}</Text>
+        <Text style={styles.subject}>Re: Application for {String(safeLetter.jobTitle || '')}</Text>
 
         <View style={styles.content}>
           {(safeLetter.content || []).map((p, i) => (
-            <Text key={i} style={styles.paragraph}>{(p || '').toString()}</Text>
+            <Text key={String(i)} style={styles.paragraph}>{String(p || '')}</Text>
           ))}
         </View>
 
