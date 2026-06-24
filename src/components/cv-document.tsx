@@ -126,34 +126,42 @@ const styles = StyleSheet.create({
   }
 });
 
-const CVDocument = ({ cv }: { cv: CV }) => {
-  const safeCv = cv || { name: '', title: '', summary: '', contact: {}, sections: [] };
-  
+const CVDocument = ({ cv }: { cv: any }) => {
+  // Garantizar que todos los datos sean strings para evitar el error hasOwnProperty
+  const safeName = String(cv?.name || '');
+  const safeTitle = String(cv?.title || '');
+  const safeSummary = String(cv?.summary || '');
+  const safePhone = String(cv?.contact?.phone?.text || '');
+  const safeEmail = String(cv?.contact?.email?.text || '');
+  const safeWebsite = String(cv?.contact?.website?.text || '');
+  const safeLinkedin = String(cv?.contact?.linkedin?.text || '');
+  const safeSections = Array.isArray(cv?.sections) ? cv.sections : [];
+
   return (
-    <Document title={String(safeCv.name || 'CV')} author="EfrainGB.org">
+    <Document title={safeName} author="EfrainGB.org">
       <Page size="A4" style={styles.page}>
         <View style={styles.header}>
-          <Text style={styles.name}>{String(safeCv.name || '')}</Text>
-          <Text style={styles.title}>{String(safeCv.title || '')}</Text>
+          <Text style={styles.name}>{safeName}</Text>
+          <Text style={styles.title}>{safeTitle}</Text>
           <View style={styles.contactInfo}>
-            {safeCv.contact?.phone && <Text>{String(safeCv.contact.phone.text || '')}</Text>}
-            {safeCv.contact?.email && <Text>{String(safeCv.contact.email.text || '')}</Text>}
-            {safeCv.contact?.website && <Text>{String(safeCv.contact.website.text || '')}</Text>}
-            {safeCv.contact?.linkedin && <Text>{String(safeCv.contact.linkedin.text || '')}</Text>}
+            {safePhone !== '' && <Text>{safePhone}</Text>}
+            {safeEmail !== '' && <Text>{safeEmail}</Text>}
+            {safeWebsite !== '' && <Text>{safeWebsite}</Text>}
+            {safeLinkedin !== '' && <Text>{safeLinkedin}</Text>}
           </View>
         </View>
 
-        <Text style={styles.summary}>{String(safeCv.summary || '')}</Text>
+        <Text style={styles.summary}>{safeSummary}</Text>
 
-        {(safeCv.sections || []).map((section) => (
-          <View key={String(section.id)} style={styles.section} wrap={false}>
+        {safeSections.map((section: any, sIdx: number) => (
+          <View key={`section-${sIdx}`} style={styles.section} wrap={false}>
             <Text style={styles.sectionTitle}>{String(section.title || '')}</Text>
             
             {section.isTwoColumns ? (
               <View style={styles.twoColumnContainer}>
                 <View style={styles.column}>
-                  {(section.items || []).filter((_, i) => i % 2 === 0).map(item => (
-                    <View key={String(item.id)} style={styles.skillItem}>
+                  {(section.items || []).filter((_: any, i: number) => i % 2 === 0).map((item: any, iIdx: number) => (
+                    <View key={`item-left-${iIdx}`} style={styles.skillItem}>
                       <Text style={styles.skillTitle}>{String(item.title || '')}</Text>
                       <Text style={styles.skillDesc}>
                         {Array.isArray(item.description) 
@@ -164,8 +172,8 @@ const CVDocument = ({ cv }: { cv: CV }) => {
                   ))}
                 </View>
                 <View style={styles.column}>
-                  {(section.items || []).filter((_, i) => i % 2 !== 0).map(item => (
-                    <View key={String(item.id)} style={styles.skillItem}>
+                  {(section.items || []).filter((_: any, i: number) => i % 2 !== 0).map((item: any, iIdx: number) => (
+                    <View key={`item-right-${iIdx}`} style={styles.skillItem}>
                       <Text style={styles.skillTitle}>{String(item.title || '')}</Text>
                       <Text style={styles.skillDesc}>
                         {Array.isArray(item.description) 
@@ -178,8 +186,8 @@ const CVDocument = ({ cv }: { cv: CV }) => {
               </View>
             ) : (
               <View>
-                {(section.items || []).map((item) => (
-                  <View key={String(item.id)} style={styles.item} wrap={false}>
+                {(section.items || []).map((item: any, iIdx: number) => (
+                  <View key={`item-${iIdx}`} style={styles.item} wrap={false}>
                     <View style={styles.itemHeader}>
                       <View style={styles.itemTitleContainer}>
                         <Text style={styles.itemTitle}>{String(item.title || '')}</Text>
@@ -191,8 +199,8 @@ const CVDocument = ({ cv }: { cv: CV }) => {
                     {item.description && (
                       <View>
                         {Array.isArray(item.description) ? (
-                          item.description.map((desc, idx) => (
-                            <View key={String(idx)} style={styles.descriptionItem}>
+                          item.description.map((desc: any, dIdx: number) => (
+                            <View key={`desc-${dIdx}`} style={styles.descriptionItem}>
                               <Text style={styles.bullet}>•</Text>
                               <Text style={styles.descriptionText}>{String(desc || '')}</Text>
                             </View>

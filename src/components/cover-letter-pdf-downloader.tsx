@@ -1,18 +1,11 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { pdf } from '@react-pdf/renderer';
-import CoverLetterDocument from './cover-letter-document';
 import type { CoverLetter } from '@/lib/types';
 import { Button } from '@/components/ui/button';
 import { Download, Loader2, FileText } from 'lucide-react';
 
-interface CoverLetterPdfDownloaderProps {
-  letter: CoverLetter;
-  text?: string;
-}
-
-export default function CoverLetterPdfDownloader({ letter, text }: CoverLetterPdfDownloaderProps) {
+export default function CoverLetterPdfDownloader({ letter, text }: { letter: CoverLetter; text?: string }) {
   const [isClient, setIsClient] = useState(false);
   const [isGenerating, setIsGenerating] = useState(false);
 
@@ -25,13 +18,26 @@ export default function CoverLetterPdfDownloader({ letter, text }: CoverLetterPd
     setIsGenerating(true);
     
     try {
-      const doc = <CoverLetterDocument letter={letter} />;
+      const { pdf } = await import('@react-pdf/renderer');
+      const CoverLetterDocument = (await import('./cover-letter-document')).default;
+
+      // Sanitizar datos para el contrato estricto del PDF
+      const safeLetter = {
+        jobTitle: String(letter.jobTitle || ''),
+        date: String(letter.date || ''),
+        recipientName: String(letter.recipientName || ''),
+        companyName: String(letter.companyName || ''),
+        jobId: String(letter.jobId || ''),
+        content: (letter.content || []).map(p => String(p || ''))
+      };
+
+      const doc = <CoverLetterDocument letter={safeLetter} />;
       const blob = await pdf(doc).toBlob();
       
       const url = URL.createObjectURL(blob);
       const link = document.createElement('a');
       link.href = url;
-      link.download = `Cover_Letter_${String(letter.jobTitle || 'Application').replace(/ /g, '_')}.pdf`;
+      link.download = `Cover_Letter_${safeLetter.jobTitle.replace(/ /g, '_')}.pdf`;
       document.body.appendChild(link);
       link.click();
       
@@ -39,6 +45,7 @@ export default function CoverLetterPdfDownloader({ letter, text }: CoverLetterPd
       URL.revokeObjectURL(url);
     } catch (error) {
       console.error('Error generating PDF:', error);
+      alert('Error generating PDF. Please try again.');
     } finally {
       setIsGenerating(false);
     }
@@ -63,7 +70,7 @@ export default function CoverLetterPdfDownloader({ letter, text }: CoverLetterPd
       {isGenerating ? (
         <>
           <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-          Preparing...
+          Generating...
         </>
       ) : (
         <>

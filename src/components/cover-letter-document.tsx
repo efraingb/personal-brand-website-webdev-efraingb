@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { Page, Text, View, Document, StyleSheet } from '@react-pdf/renderer';
-import type { CoverLetter } from '@/lib/types';
 
 const styles = StyleSheet.create({
   page: {
@@ -82,11 +81,16 @@ const styles = StyleSheet.create({
   }
 });
 
-const CoverLetterDocument = ({ letter }: { letter: CoverLetter }) => {
-  const safeLetter = letter || { jobTitle: '', date: '', recipientName: '', companyName: '', content: [] };
-  
+const CoverLetterDocument = ({ letter }: { letter: any }) => {
+  const safeJobTitle = String(letter?.jobTitle || '');
+  const safeDate = String(letter?.date || '');
+  const safeRecipientName = String(letter?.recipientName || '');
+  const safeCompanyName = String(letter?.companyName || '');
+  const safeJobId = String(letter?.jobId || '');
+  const safeContent = Array.isArray(letter?.content) ? letter.content : [];
+
   return (
-    <Document title={String(safeLetter.jobTitle || 'Application')} author="Efraín González Bermúdez">
+    <Document title={safeJobTitle} author="Efraín González Bermúdez">
       <Page size="A4" style={styles.page}>
         <View style={styles.header}>
           <Text style={styles.name}>Efraín González Bermúdez</Text>
@@ -98,19 +102,19 @@ const CoverLetterDocument = ({ letter }: { letter: CoverLetter }) => {
           </View>
         </View>
 
-        <Text style={styles.date}>{String(safeLetter.date || '')}</Text>
+        <Text style={styles.date}>{safeDate}</Text>
 
         <View style={styles.recipient}>
-          <Text style={styles.recipientName}>{String(safeLetter.recipientName || '')}</Text>
-          <Text style={styles.companyName}>{String(safeLetter.companyName || '')}</Text>
-          {safeLetter.jobId && <Text style={styles.jobRef}>Ref: Job ID {String(safeLetter.jobId || '')}</Text>}
+          <Text style={styles.recipientName}>{safeRecipientName}</Text>
+          <Text style={styles.companyName}>{safeCompanyName}</Text>
+          {safeJobId !== '' && <Text style={styles.jobRef}>Ref: Job ID {safeJobId}</Text>}
         </View>
 
-        <Text style={styles.subject}>Re: Application for {String(safeLetter.jobTitle || '')}</Text>
+        <Text style={styles.subject}>Re: Application for {safeJobTitle}</Text>
 
         <View style={styles.content}>
-          {(safeLetter.content || []).map((p, i) => (
-            <Text key={String(i)} style={styles.paragraph}>{String(p || '')}</Text>
+          {safeContent.map((p: any, i: number) => (
+            <Text key={`para-${i}`} style={styles.paragraph}>{String(p || '')}</Text>
           ))}
         </View>
 
