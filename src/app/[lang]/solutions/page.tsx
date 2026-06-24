@@ -1,13 +1,12 @@
-
 // src/app/[lang]/solutions/page.tsx
 import React from 'react';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
 import { getDictionary } from '@/lib/i18n';
-import { navLinksData as getRawNavLinksData, contactLinksData as getRawContactLinksData } from '@/lib/data';
+import { navLinksData as getRawNavLinksData } from '@/lib/data';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { ArrowRight, Brain, GraduationCap, Zap, TrendingUp, Users, ShieldCheck, Mail, MessageSquare } from 'lucide-react';
+import { ArrowRight, Brain, GraduationCap, Zap, TrendingUp, Users, ShieldCheck, Mail, MessageSquare, Sparkles, Rocket } from 'lucide-react';
 import Link from 'next/link';
 import ContactForm from '@/components/contact-form';
 import type { Metadata } from 'next';
@@ -61,7 +60,7 @@ export default async function SolutionsPage({ params }: SolutionsPageProps) {
       <Header dict={dict.header} navLinks={translatedNavLinksData} lang={lang} langSwitcherDict={dict.languageSwitcher} />
       
       <main className="flex-grow">
-        {/* HERO SECTION - Direct and punchy */}
+        {/* HERO SECTION */}
         <section className="relative py-20 md:py-32 overflow-hidden bg-gradient-to-br from-primary via-primary to-accent text-primary-foreground">
            <div className="absolute inset-0 opacity-10 [background-image:radial-gradient(white_1px,transparent_1px)] [background-size:40px_40px]"></div>
            <div className="container relative z-10 px-4 text-center max-w-4xl mx-auto">
@@ -76,13 +75,44 @@ export default async function SolutionsPage({ params }: SolutionsPageProps) {
                   <Link href="#contact-solutions">{solDict.heroCta}</Link>
                 </Button>
                 <Button asChild variant="outline" size="lg" className="h-14 px-10 text-lg border-white text-white hover:bg-white/10 rounded-xl">
-                  <Link href="/es/cv/es">{dict.footer?.openCvMenu}</Link>
+                  <Link href={`/${lang}/ai-drafting`}>
+                    <Sparkles className="mr-2 h-5 w-5" /> 
+                    Roadmap IA
+                  </Link>
                 </Button>
               </div>
            </div>
         </section>
 
-        {/* PROMINENT FORM SECTION - High visibility for conversion */}
+        {/* ROADMAP / INNOVATION PREVIEW */}
+        <section className="py-16 bg-accent/5">
+           <div className="container px-4">
+              <div className="max-w-4xl mx-auto bg-card border border-accent/20 rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden">
+                 <div className="absolute top-0 right-0 p-8 opacity-5">
+                    <Brain className="w-40 h-40" />
+                 </div>
+                 <div className="relative z-10">
+                    <span className="inline-block px-3 py-1 rounded-full bg-accent/10 text-accent text-xs font-bold uppercase tracking-widest mb-4">
+                       Coming Soon
+                    </span>
+                    <h2 className="text-3xl font-bold text-primary mb-6 flex items-center gap-3">
+                       <Rocket className="w-8 h-8 text-accent" /> 
+                       Siguiente Nivel: Estrategia IA Aumentada
+                    </h2>
+                    <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+                       Estamos desarrollando un motor de <strong>Arquitectura de Soluciones</strong> bajo demanda. Podrás generar propuestas técnicas, cartas de presentación y hojas de ruta para socios en EE.UU. y el Golfo directamente desde mi plataforma, asegurando coherencia total con mi ADN técnico y el de mi equipo.
+                    </p>
+                    <div className="flex flex-wrap gap-3">
+                       <span className="px-3 py-1 bg-muted rounded-full text-xs font-medium">#AI_Tailoring</span>
+                       <span className="px-3 py-1 bg-muted rounded-full text-xs font-medium">#Strategic_Backlog</span>
+                       <span className="px-3 py-1 bg-muted rounded-full text-xs font-medium">#Global_Partnerships</span>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </section>
+
+        {/* PROMINENT FORM SECTION */}
         <section id="contact-solutions" className="py-20 bg-secondary/10 border-y border-border">
           <div className="container px-4">
              <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 max-w-6xl mx-auto items-center">

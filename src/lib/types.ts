@@ -45,6 +45,8 @@ export type IconName =
   | 'FileText'
   | 'CheckCircle'
   | 'User'
+  | 'Sparkles'
+  | 'Wand2'
   | 'MapPin';
 
 export interface NavLink {
