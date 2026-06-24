@@ -2,7 +2,7 @@ import { notFound } from 'next/navigation';
 import { coverLettersData } from '@/lib/cover-letters-data';
 import { Icon } from '@/components/icons';
 import { Button } from '@/components/ui/button';
-import CvPrintButton from '@/components/cv-print-button';
+import CoverLetterPdfDownloader from '@/components/cover-letter-pdf-downloader';
 import Link from 'next/link';
 import { getDictionary } from '@/lib/i18n';
 import type { Metadata } from 'next';
@@ -85,11 +85,11 @@ export default async function CoverLetterPage({ params }: CoverLetterPageProps) 
         </footer>
 
         {/* Floating Controls */}
-        <div className="fixed bottom-6 right-6 print-hidden flex gap-3">
-            <Button variant="outline" asChild>
+        <div className="fixed bottom-6 right-6 print-hidden flex gap-3 items-center">
+            <Button variant="outline" asChild className="shadow-lg h-11">
                 <Link href={`/${lang}/cv/enterprise`}>Back to CV</Link>
             </Button>
-            <CvPrintButton text={dict.cv?.saveAsPdf || 'Save as PDF'} />
+            <CoverLetterPdfDownloader letter={letter} text={dict.cv?.saveAsPdf || 'Save as PDF'} />
         </div>
       </div>
     </div>

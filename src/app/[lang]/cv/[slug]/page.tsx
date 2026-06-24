@@ -1,11 +1,10 @@
-
 // src/app/[lang]/cv/[slug]/page.tsx
 import { notFound } from 'next/navigation';
 import { cvData } from '@/lib/cv-data';
 import type { CVItem, CV } from '@/lib/types';
 import { Icon } from '@/components/icons';
 import { Button } from '@/components/ui/button';
-import CvPrintButton from '@/components/cv-print-button';
+import CvPdfDownloader from '@/components/cv-pdf-downloader';
 import Link from 'next/link';
 import { getDictionary } from '@/lib/i18n';
 import type { Metadata } from 'next';
@@ -71,7 +70,6 @@ export default async function CVPage({ params }: CVPageProps) {
     notFound();
   }
 
-  // Determine the personalized home link from CV data or fallback to default
   const homeLink = cv.contact.website?.url ? `/${lang}${cv.contact.website.url}` : `/${lang}`;
 
   return (
@@ -92,11 +90,10 @@ export default async function CVPage({ params }: CVPageProps) {
           </div>
         </header>
 
-        {/* Floating Print Button */}
+        {/* Floating Download Button (Generates Vector PDF) */}
         <div className="fixed bottom-6 right-6 print-hidden">
-            <CvPrintButton text={dict.cv?.saveAsPdf || 'Save as PDF'} />
+            <CvPdfDownloader cv={cv} text={dict.cv?.saveAsPdf || 'Save as PDF'} />
         </div>
-
 
         {/* Main Content */}
         <main>

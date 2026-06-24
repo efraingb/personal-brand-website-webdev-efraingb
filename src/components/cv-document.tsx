@@ -1,196 +1,216 @@
-// src/components/cv-document.tsx
 'use client';
 
 import React from 'react';
-import { Page, Text, View, Document, StyleSheet, Link } from '@react-pdf/renderer';
+import { Page, Text, View, Document, StyleSheet, Link, Font } from '@react-pdf/renderer';
 import type { CV, CVItem } from '@/lib/types';
+
+// Opcional: Registrar fuentes si se desea un diseño más específico. 
+// Por ahora usamos Helvetica que es estándar y segura para texto vectorial.
 
 const styles = StyleSheet.create({
   page: {
     fontFamily: 'Helvetica',
     fontSize: 10,
-    padding: 40,
-    backgroundColor: '#fff',
-    color: '#000',
+    padding: 45,
+    backgroundColor: '#ffffff',
+    color: '#1a202c',
   },
   header: {
-    textAlign: 'center',
     marginBottom: 20,
-    borderBottom: 1,
-    borderBottomColor: '#ccc',
-    paddingBottom: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: '#e2e8f0',
+    paddingBottom: 15,
+    textAlign: 'center',
   },
   name: {
     fontSize: 24,
     fontFamily: 'Helvetica-Bold',
+    color: '#003049',
+    textTransform: 'uppercase',
+    letterSpacing: 1,
   },
   title: {
     fontSize: 12,
-    marginTop: 2,
-    fontFamily: 'Helvetica-Oblique',
+    marginTop: 4,
+    color: '#40A2D8',
+    fontFamily: 'Helvetica-Bold',
   },
   contactInfo: {
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'center',
-    marginTop: 8,
+    marginTop: 10,
     fontSize: 9,
+    color: '#64748b',
+    gap: 12,
   },
   contactItem: {
-    marginHorizontal: 8,
     textDecoration: 'none',
-    color: '#000',
+    color: '#64748b',
   },
   summary: {
-    textAlign: 'center',
-    marginVertical: 15,
-    fontFamily: 'Helvetica',
-    lineHeight: 1.4,
+    marginBottom: 20,
+    lineHeight: 1.5,
+    textAlign: 'justify',
+    color: '#334155',
   },
   section: {
     marginBottom: 15,
   },
   sectionTitle: {
-    fontSize: 14,
+    fontSize: 12,
     fontFamily: 'Helvetica-Bold',
-    borderBottom: 1,
-    borderBottomColor: '#000',
-    paddingBottom: 2,
-    marginBottom: 8,
+    color: '#003049',
+    borderBottomWidth: 2,
+    borderBottomColor: '#40A2D8',
+    paddingBottom: 3,
+    marginBottom: 10,
+    textTransform: 'uppercase',
   },
   item: {
-    marginBottom: 10,
+    marginBottom: 12,
   },
   itemHeader: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'baseline',
-    marginBottom: 2,
+    marginBottom: 3,
+  },
+  itemTitleContainer: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    maxWidth: '80%',
   },
   itemTitle: {
     fontSize: 11,
     fontFamily: 'Helvetica-Bold',
-    maxWidth: '80%',
+    color: '#1e293b',
   },
   itemSubtitle: {
+    fontSize: 10,
     fontFamily: 'Helvetica-Oblique',
+    color: '#64748b',
   },
   itemDate: {
     fontSize: 9,
     fontFamily: 'Helvetica',
+    color: '#94a3b8',
   },
-  description: {
-    fontSize: 10,
-    lineHeight: 1.3,
-  },
-  descriptionList: {
-    paddingLeft: 10,
-  },
-  descriptionListItem: {
+  descriptionItem: {
     flexDirection: 'row',
+    marginBottom: 2,
+    paddingLeft: 8,
   },
-  bulletPoint: {
+  bullet: {
     width: 10,
     fontSize: 10,
-    lineHeight: 1.3,
+    color: '#40A2D8',
   },
-  listItemText: {
+  descriptionText: {
     flex: 1,
-    fontSize: 10,
-    lineHeight: 1.3,
+    fontSize: 9.5,
+    lineHeight: 1.4,
+    color: '#475569',
   },
   twoColumnContainer: {
     flexDirection: 'row',
     gap: 20,
   },
   column: {
-    width: '50%',
+    flex: 1,
   },
   skillItem: {
     marginBottom: 8,
   },
   skillTitle: {
-    fontSize: 11,
-    fontFamily: 'Helvetica-Bold',
-  },
-  skillDescription: {
     fontSize: 10,
+    fontFamily: 'Helvetica-Bold',
+    color: '#003049',
+    marginBottom: 2,
+  },
+  skillDesc: {
+    fontSize: 9,
+    color: '#64748b',
   }
 });
 
-const Description = ({ text }: { text: string | string[] }) => {
+const CVDescription = ({ text }: { text: string | string[] }) => {
   if (Array.isArray(text)) {
     return (
-      <View style={styles.descriptionList}>
+      <View>
         {text.map((item, index) => (
-          <View key={index} style={styles.descriptionListItem}>
-            <Text style={styles.bulletPoint}>• </Text>
-            <Text style={styles.listItemText}>{item}</Text>
+          <View key={index} style={styles.descriptionItem}>
+            <Text style={styles.bullet}>•</Text>
+            <Text style={styles.descriptionText}>{item}</Text>
           </View>
         ))}
       </View>
     );
   }
-  return <Text style={styles.description}>{text}</Text>;
+  return <Text style={styles.descriptionText}>{text}</Text>;
 };
 
 const CVDocument = ({ cv }: { cv: CV }) => (
-  <Document
-    title={`${cv.name} CV`}
-    author={cv.name}
-    subject={`CV of ${cv.name}`}
-  >
+  <Document title={`${cv.name} - CV`} author={cv.name}>
     <Page size="A4" style={styles.page}>
+      {/* Header */}
       <View style={styles.header}>
         <Text style={styles.name}>{cv.name}</Text>
         <Text style={styles.title}>{cv.title}</Text>
         <View style={styles.contactInfo}>
-          {cv.contact.phone && <Link style={styles.contactItem} src={cv.contact.phone.url}>{cv.contact.phone.text}</Link>}
-          {cv.contact.email && <Link style={styles.contactItem} src={cv.contact.email.url}>{cv.contact.email.text}</Link>}
-          {cv.contact.website && <Link style={styles.contactItem} src={cv.contact.website.url}>{cv.contact.website.text}</Link>}
-          {cv.contact.linkedin && <Link style={styles.contactItem} src={cv.contact.linkedin.url}>{cv.contact.linkedin.text}</Link>}
+          {cv.contact.phone && <Text style={styles.contactItem}>{cv.contact.phone.text}</Text>}
+          {cv.contact.email && <Text style={styles.contactItem}>{cv.contact.email.text}</Text>}
+          {cv.contact.website && <Text style={styles.contactItem}>{cv.contact.website.text}</Text>}
+          {cv.contact.linkedin && <Text style={styles.contactItem}>{cv.contact.linkedin.text}</Text>}
         </View>
       </View>
 
+      {/* Summary */}
       <Text style={styles.summary}>{cv.summary}</Text>
 
+      {/* Sections */}
       {cv.sections.map((section) => (
         <View key={section.id} style={styles.section}>
           <Text style={styles.sectionTitle}>{section.title}</Text>
+          
           {section.isTwoColumns ? (
             <View style={styles.twoColumnContainer}>
-              {/* This assumes skills are split into two columns somehow. The data has two items. */}
               <View style={styles.column}>
                 {section.items.filter((_, i) => i % 2 === 0).map(item => (
                   <View key={item.id} style={styles.skillItem}>
                     <Text style={styles.skillTitle}>{item.title}</Text>
-                    <Text style={styles.skillDescription}>{Array.isArray(item.description) ? item.description.join(' · ') : item.description}</Text>
+                    <Text style={styles.skillDesc}>
+                      {Array.isArray(item.description) ? item.description.join(' · ') : item.description}
+                    </Text>
                   </View>
                 ))}
               </View>
-               <View style={styles.column}>
+              <View style={styles.column}>
                 {section.items.filter((_, i) => i % 2 !== 0).map(item => (
                   <View key={item.id} style={styles.skillItem}>
                     <Text style={styles.skillTitle}>{item.title}</Text>
-                    <Text style={styles.skillDescription}>{Array.isArray(item.description) ? item.description.join(' · ') : item.description}</Text>
+                    <Text style={styles.skillDesc}>
+                      {Array.isArray(item.description) ? item.description.join(' · ') : item.description}
+                    </Text>
                   </View>
                 ))}
               </View>
             </View>
           ) : (
-            section.items.map((item: CVItem) => (
-              <View key={item.id} style={styles.item}>
-                <View style={styles.itemHeader}>
-                  <Text style={styles.itemTitle}>
-                    {item.title}
-                    {item.titleLink && <Link src={item.titleLink.url}> {item.titleLink.text}</Link>}
-                    {item.subtitle && <Text style={styles.itemSubtitle}> | {item.subtitle}</Text>}
-                  </Text>
-                  {item.date && <Text style={styles.itemDate}>{item.date}</Text>}
+            <View>
+              {section.items.map((item) => (
+                <View key={item.id} style={styles.item}>
+                  <View style={styles.itemHeader}>
+                    <View style={styles.itemTitleContainer}>
+                      <Text style={styles.itemTitle}>{item.title}</Text>
+                      {item.subtitle && <Text style={styles.itemSubtitle}> | {item.subtitle}</Text>}
+                    </View>
+                    {item.date && <Text style={styles.itemDate}>{item.date}</Text>}
+                  </View>
+                  <CVDescription text={item.description} />
                 </View>
-                <Description text={item.description} />
-              </View>
-            ))
+              ))}
+            </View>
           )}
         </View>
       ))}
