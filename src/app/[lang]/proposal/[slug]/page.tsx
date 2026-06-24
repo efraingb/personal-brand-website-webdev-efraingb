@@ -3,9 +3,9 @@ import { proposalsData } from '@/lib/proposals-data';
 import { getDictionary } from '@/lib/i18n';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { Icon } from '@/components/icons';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { CheckCircle2, ArrowLeft, Download, FileText, Calendar, Wallet } from 'lucide-react';
+import { CheckCircle2, ArrowLeft, FileText, Calendar, Wallet } from 'lucide-react';
+import ProposalPdfDownloader from '@/components/proposal-pdf-downloader';
 import type { Metadata } from 'next';
 
 interface ProposalPageProps {
@@ -40,10 +40,7 @@ export default async function ProposalPage({ params }: ProposalPageProps) {
             <ArrowLeft className="mr-2 h-4 w-4" />
             {dict.proposalPage?.backHome || 'Back to Home'}
           </Link>
-          <Button size="sm" className="shadow-md">
-            <Download className="mr-2 h-4 w-4" />
-            {dict.proposalPage?.downloadPdf || 'Download PDF'}
-          </Button>
+          <ProposalPdfDownloader proposal={proposal} text={dict.proposalPage?.downloadPdf || 'Download PDF'} />
         </div>
       </header>
 

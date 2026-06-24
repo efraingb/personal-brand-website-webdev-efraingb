@@ -25,14 +25,14 @@ const styles = StyleSheet.create({
   },
   subtitle: {
     fontSize: 10,
-    color: '#64748b',
+    color: '#40A2D8',
     marginTop: 4,
     fontFamily: 'Helvetica-Bold',
   },
   metaInfo: {
     marginTop: 15,
     fontSize: 9,
-    color: '#94a3b8',
+    color: '#64748b',
     flexDirection: 'row',
     gap: 20,
   },
@@ -69,25 +69,20 @@ const styles = StyleSheet.create({
   },
   paragraph: {
     marginBottom: 15,
-  },
-  footer: {
-    marginTop: 50,
-    fontSize: 9,
-    color: '#cbd5e1',
-    textAlign: 'center',
-    borderTopWidth: 1,
-    borderTopColor: '#f1f5f9',
-    paddingTop: 15,
   }
 });
 
+/**
+ * CoverLetterDocument - Versión Limpia y Profesional
+ * Se eliminó el pie de página promocional para mayor sobriedad corporativa.
+ */
 const CoverLetterDocument = ({ letter }: { letter: any }) => {
   return (
     <Document title={String(letter?.jobTitle || 'Cover Letter')} author="Efraín González Bermúdez">
       <Page size="A4" style={styles.page}>
         <View style={styles.header}>
           <Text style={styles.name}>Efraín González Bermúdez</Text>
-          <Text style={styles.subtitle}>Enterprise Architect | Sr. IT Consultant</Text>
+          <Text style={styles.subtitle}>Enterprise Architect | Senior IT Consultant</Text>
           <View style={styles.metaInfo}>
             <Text>San José, Costa Rica</Text>
             <Text>hiefraingb@gmail.com</Text>
@@ -112,8 +107,6 @@ const CoverLetterDocument = ({ letter }: { letter: any }) => {
             <Text key={`para-${i}`} style={styles.paragraph}>{String(p || '')}</Text>
           ))}
         </View>
-
-        <Text style={styles.footer}>Document generated via EfrainGB.org</Text>
       </Page>
     </Document>
   );
