@@ -127,55 +127,40 @@ const styles = StyleSheet.create({
   }
 });
 
-const CVDescription = ({ text }: { text?: string | string[] }) => {
-  if (!text) return null;
-  if (Array.isArray(text)) {
-    return (
-      <View>
-        {text.map((item, index) => (
-          <View key={index} style={styles.descriptionItem}>
-            <Text style={styles.bullet}>•</Text>
-            <Text style={styles.descriptionText}>{item || ''}</Text>
-          </View>
-        ))}
-      </View>
-    );
-  }
-  return <Text style={styles.descriptionText}>{text || ''}</Text>;
-};
-
 const CVDocument = ({ cv }: { cv: CV }) => {
-  // Never return null to avoid react-pdf internal crashes
+  // Defensive check to avoid react-pdf internal crashes
   const safeCv = cv || { name: '', title: '', summary: '', contact: {}, sections: [] };
   
   return (
-    <Document title={`${safeCv.name || 'CV'} - CV`} author={safeCv.name || 'Efrain'} creator="EfrainGB.org">
+    <Document title={`${(safeCv.name || 'CV').toString()} - CV`} author="EfrainGB.org">
       <Page size="A4" style={styles.page}>
         <View style={styles.header}>
-          <Text style={styles.name}>{safeCv.name || ''}</Text>
-          <Text style={styles.title}>{safeCv.title || ''}</Text>
+          <Text style={styles.name}>{(safeCv.name || '').toString()}</Text>
+          <Text style={styles.title}>{(safeCv.title || '').toString()}</Text>
           <View style={styles.contactInfo}>
-            {safeCv.contact?.phone && <Text>{safeCv.contact.phone.text || ''}</Text>}
-            {safeCv.contact?.email && <Text>{safeCv.contact.email.text || ''}</Text>}
-            {safeCv.contact?.website && <Text>{safeCv.contact.website.text || ''}</Text>}
-            {safeCv.contact?.linkedin && <Text>{safeCv.contact.linkedin.text || ''}</Text>}
+            {safeCv.contact?.phone && <Text>{(safeCv.contact.phone.text || '').toString()}</Text>}
+            {safeCv.contact?.email && <Text>{(safeCv.contact.email.text || '').toString()}</Text>}
+            {safeCv.contact?.website && <Text>{(safeCv.contact.website.text || '').toString()}</Text>}
+            {safeCv.contact?.linkedin && <Text>{(safeCv.contact.linkedin.text || '').toString()}</Text>}
           </View>
         </View>
 
-        <Text style={styles.summary}>{safeCv.summary || ''}</Text>
+        <Text style={styles.summary}>{(safeCv.summary || '').toString()}</Text>
 
         {(safeCv.sections || []).map((section) => (
           <View key={section.id} style={styles.section} wrap={false}>
-            <Text style={styles.sectionTitle}>{section.title || ''}</Text>
+            <Text style={styles.sectionTitle}>{(section.title || '').toString()}</Text>
             
             {section.isTwoColumns ? (
               <View style={styles.twoColumnContainer}>
                 <View style={styles.column}>
                   {(section.items || []).filter((_, i) => i % 2 === 0).map(item => (
                     <View key={item.id} style={styles.skillItem}>
-                      <Text style={styles.skillTitle}>{item.title || ''}</Text>
+                      <Text style={styles.skillTitle}>{(item.title || '').toString()}</Text>
                       <Text style={styles.skillDesc}>
-                        {Array.isArray(item.description) ? item.description.join(' · ') : (item.description || '')}
+                        {Array.isArray(item.description) 
+                          ? item.description.join(' · ').toString() 
+                          : (item.description || '').toString()}
                       </Text>
                     </View>
                   ))}
@@ -183,9 +168,11 @@ const CVDocument = ({ cv }: { cv: CV }) => {
                 <View style={styles.column}>
                   {(section.items || []).filter((_, i) => i % 2 !== 0).map(item => (
                     <View key={item.id} style={styles.skillItem}>
-                      <Text style={styles.skillTitle}>{item.title || ''}</Text>
+                      <Text style={styles.skillTitle}>{(item.title || '').toString()}</Text>
                       <Text style={styles.skillDesc}>
-                        {Array.isArray(item.description) ? item.description.join(' · ') : (item.description || '')}
+                        {Array.isArray(item.description) 
+                          ? item.description.join(' · ').toString() 
+                          : (item.description || '').toString()}
                       </Text>
                     </View>
                   ))}
@@ -197,12 +184,26 @@ const CVDocument = ({ cv }: { cv: CV }) => {
                   <View key={item.id} style={styles.item} wrap={false}>
                     <View style={styles.itemHeader}>
                       <View style={styles.itemTitleContainer}>
-                        <Text style={styles.itemTitle}>{item.title || ''}</Text>
-                        {item.subtitle && <Text style={styles.itemSubtitle}> | {item.subtitle}</Text>}
+                        <Text style={styles.itemTitle}>{(item.title || '').toString()}</Text>
+                        {item.subtitle && <Text style={styles.itemSubtitle}> | {(item.subtitle).toString()}</Text>}
                       </View>
-                      {item.date && <Text style={styles.itemDate}>{item.date || ''}</Text>}
+                      {item.date && <Text style={styles.itemDate}>{(item.date).toString()}</Text>}
                     </View>
-                    <CVDescription text={item.description} />
+                    
+                    {item.description && (
+                      <View>
+                        {Array.isArray(item.description) ? (
+                          item.description.map((desc, idx) => (
+                            <View key={idx} style={styles.descriptionItem}>
+                              <Text style={styles.bullet}>•</Text>
+                              <Text style={styles.descriptionText}>{(desc || '').toString()}</Text>
+                            </View>
+                          ))
+                        ) : (
+                          <Text style={styles.descriptionText}>{(item.description || '').toString()}</Text>
+                        )}
+                      </View>
+                    )}
                   </View>
                 ))}
               </View>

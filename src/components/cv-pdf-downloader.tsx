@@ -43,6 +43,7 @@ export default function CvPdfDownloader({ cv, text }: CvPdfDownloaderProps) {
     );
   }
 
+  // Once shouldRender is true, we display the PDFDownloadLink
   return (
     <PDFDownloadLink
       document={<CVDocument cv={cv} />}
@@ -53,10 +54,10 @@ export default function CvPdfDownloader({ cv, text }: CvPdfDownloaderProps) {
           {loading ? (
             <>
               <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-              Generating...
+              Preparing...
             </>
           ) : error ? (
-            <>Error generating PDF</>
+            <>Error in PDF</>
           ) : (
             <>
               <Download className="mr-2 h-5 w-5" />

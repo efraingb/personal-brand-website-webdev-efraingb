@@ -83,11 +83,10 @@ const styles = StyleSheet.create({
 });
 
 const CoverLetterDocument = ({ letter }: { letter: CoverLetter }) => {
-  // Never return null to avoid react-pdf crashes
   const safeLetter = letter || { jobTitle: '', date: '', recipientName: '', companyName: '', content: [] };
   
   return (
-    <Document title={`Cover Letter - ${safeLetter.jobTitle || 'Application'}`} author="Efraín González Bermúdez" creator="EfrainGB.org">
+    <Document title={`Cover Letter - ${(safeLetter.jobTitle || 'Application').toString()}`} author="Efraín González Bermúdez">
       <Page size="A4" style={styles.page}>
         <View style={styles.header}>
           <Text style={styles.name}>Efraín González Bermúdez</Text>
@@ -99,23 +98,23 @@ const CoverLetterDocument = ({ letter }: { letter: CoverLetter }) => {
           </View>
         </View>
 
-        <Text style={styles.date}>{safeLetter.date || ''}</Text>
+        <Text style={styles.date}>{(safeLetter.date || '').toString()}</Text>
 
         <View style={styles.recipient}>
-          <Text style={styles.recipientName}>{safeLetter.recipientName || ''}</Text>
-          <Text style={styles.companyName}>{safeLetter.companyName || ''}</Text>
-          {safeLetter.jobId && <Text style={styles.jobRef}>Ref: Job ID {safeLetter.jobId || ''}</Text>}
+          <Text style={styles.recipientName}>{(safeLetter.recipientName || '').toString()}</Text>
+          <Text style={styles.companyName}>{(safeLetter.companyName || '').toString()}</Text>
+          {safeLetter.jobId && <Text style={styles.jobRef}>Ref: Job ID {(safeLetter.jobId).toString()}</Text>}
         </View>
 
-        <Text style={styles.subject}>Re: Application for {safeLetter.jobTitle || ''}</Text>
+        <Text style={styles.subject}>Re: Application for {(safeLetter.jobTitle || '').toString()}</Text>
 
         <View style={styles.content}>
           {(safeLetter.content || []).map((p, i) => (
-            <Text key={i} style={styles.paragraph}>{p || ''}</Text>
+            <Text key={i} style={styles.paragraph}>{(p || '').toString()}</Text>
           ))}
         </View>
 
-        <Text style={styles.footer}>Document generated via EfrainGB.org/en/cv/enterprise</Text>
+        <Text style={styles.footer}>Document generated via EfrainGB.org</Text>
       </Page>
     </Document>
   );

@@ -29,7 +29,6 @@ export default function CoverLetterPdfDownloader({ letter, text }: CoverLetterPd
     );
   }
 
-  // If we haven't clicked to generate, show a trigger button
   if (!shouldRender) {
     return (
       <Button 
