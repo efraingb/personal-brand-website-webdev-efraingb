@@ -43,7 +43,9 @@ export type IconName =
   | 'Phone'
   | 'Globe'
   | 'FileText'
-  | 'CheckCircle';
+  | 'CheckCircle'
+  | 'User'
+  | 'MapPin';
 
 export interface NavLink {
   href: string;
@@ -93,6 +95,17 @@ export interface CV {
   summary: string;
   contact: CVContact;
   sections: CVSection[];
+}
+
+// Cover Letter specific types
+export interface CoverLetter {
+  slug: string;
+  recipientName: string;
+  companyName: string;
+  jobTitle: string;
+  jobId?: string;
+  date: string;
+  content: string[];
 }
 
 // Proposal-specific types

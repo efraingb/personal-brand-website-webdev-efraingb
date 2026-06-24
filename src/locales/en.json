@@ -1,4 +1,3 @@
-
 {
   "layout": {
     "title": "Efraín G.B. | AI Architect & EdTech Innovator",
@@ -174,14 +173,14 @@
     "saveAsPdf": "Download PDF"
   },
   "projectsData": {
-    "proj-ser_name": "Efecto SER",
-    "proj-ser_description": "AI-powered educational support: A family-designed platform making personalized learning accessible to everyone.",
+    "proj-ser_name": "SER Ecosystem",
+    "proj-ser_description": "AI-powered educational support: A resilient platform making personalized learning accessible through enterprise-grade architecture.",
     "proj-agroia_name": "AgroIA",
     "proj-agroia_description": "Intelligence for the field. Agricultural market analysis prototype.",
     "proj-progressia_name": "Progressia (Dubai)",
-    "proj-progressia_description": "Financial Education: Leading the expansion of an AI startup from Dubai to Latin America.",
+    "proj-progressia_description": "Financial Education: Leading the strategic expansion of an AI startup from Dubai to Latin America.",
     "proj-menta-ai_name": "Menta IA",
-    "proj-menta-ai_description": "CEO & Founder: Transforming any topic into an interactive course using Generative AI.",
+    "proj-menta-ai_description": "CEO & Founder: Transforming any topic into an interactive course using Generative AI engines.",
     "proj-negotia_name": "NEGOTIA",
     "proj-negotia_description": "Negotiation Simulator: Train your deal-making skills with a strategic AI.",
     "proj-bless_name": "Bless Contigo",
