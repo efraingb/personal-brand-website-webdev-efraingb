@@ -1,5 +1,5 @@
 import type { LucideProps } from 'lucide-react';
-import { BookOpen, Linkedin, Github, Mail, ExternalLink, ServerCrash, CircleDot, Smartphone, Laptop, Database, GraduationCap, Briefcase, BarChart3, Phone, Globe } from 'lucide-react';
+import { BookOpen, Linkedin, Github, Mail, ExternalLink, ServerCrash, CircleDot, Smartphone, Laptop, Database, GraduationCap, Briefcase, BarChart3, Phone, Globe, MapPin, FileText, CheckCircle2, User } from 'lucide-react';
 import type { FC } from 'react';
 import type { IconName } from '@/lib/types';
 
@@ -36,20 +36,25 @@ export const Icon: FC<IconProps> = ({ name, ...props }) => {
       return <Phone {...props} />;
     case 'Globe':
       return <Globe {...props} />;
+    case 'MapPin':
+      return <MapPin {...props} />;
+    case 'FileText':
+      return <FileText {...props} />;
+    case 'CheckCircle':
+      return <CheckCircle2 {...props} />;
+    case 'User':
+      return <User {...props} />;
     default:
-      // Fallback for icons not explicitly handled, or return a default icon
-      // For example, if tags like 'React', 'AI' are passed as icon names by mistake
       const iconMap: Record<string, React.ElementType> = {
         react: Laptop,
         ai: Database,
         nextjs: Laptop,
         ecommerce: Smartphone,
-        // Add more mappings as needed
       };
       const MappedIcon = iconMap[name.toLowerCase()];
       if (MappedIcon) {
         return <MappedIcon {...props} />;
       }
-      return <CircleDot {...props} />; // Default fallback icon
+      return <CircleDot {...props} />;
   }
 };
