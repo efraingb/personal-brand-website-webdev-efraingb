@@ -82,15 +82,8 @@ const styles = StyleSheet.create({
 });
 
 const CoverLetterDocument = ({ letter }: { letter: any }) => {
-  const safeJobTitle = String(letter?.jobTitle || '');
-  const safeDate = String(letter?.date || '');
-  const safeRecipientName = String(letter?.recipientName || '');
-  const safeCompanyName = String(letter?.companyName || '');
-  const safeJobId = String(letter?.jobId || '');
-  const safeContent = Array.isArray(letter?.content) ? letter.content : [];
-
   return (
-    <Document title={safeJobTitle} author="Efraín González Bermúdez">
+    <Document title={String(letter?.jobTitle || 'Cover Letter')} author="Efraín González Bermúdez">
       <Page size="A4" style={styles.page}>
         <View style={styles.header}>
           <Text style={styles.name}>Efraín González Bermúdez</Text>
@@ -102,18 +95,20 @@ const CoverLetterDocument = ({ letter }: { letter: any }) => {
           </View>
         </View>
 
-        <Text style={styles.date}>{safeDate}</Text>
+        <Text style={styles.date}>{String(letter?.date || '')}</Text>
 
         <View style={styles.recipient}>
-          <Text style={styles.recipientName}>{safeRecipientName}</Text>
-          <Text style={styles.companyName}>{safeCompanyName}</Text>
-          {safeJobId !== '' && <Text style={styles.jobRef}>Ref: Job ID {safeJobId}</Text>}
+          <Text style={styles.recipientName}>{String(letter?.recipientName || '')}</Text>
+          <Text style={styles.companyName}>{String(letter?.companyName || '')}</Text>
+          {String(letter?.jobId || '') !== '' && (
+            <Text style={styles.jobRef}>Ref: Job ID {String(letter?.jobId || '')}</Text>
+          )}
         </View>
 
-        <Text style={styles.subject}>Re: Application for {safeJobTitle}</Text>
+        <Text style={styles.subject}>Re: Application for {String(letter?.jobTitle || '')}</Text>
 
         <View style={styles.content}>
-          {safeContent.map((p: any, i: number) => (
+          {(letter?.content || []).map((p: any, i: number) => (
             <Text key={`para-${i}`} style={styles.paragraph}>{String(p || '')}</Text>
           ))}
         </View>

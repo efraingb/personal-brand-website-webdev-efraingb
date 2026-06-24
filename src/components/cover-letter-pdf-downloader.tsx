@@ -21,7 +21,7 @@ export default function CoverLetterPdfDownloader({ letter, text }: { letter: Cov
       const { pdf } = await import('@react-pdf/renderer');
       const CoverLetterDocument = (await import('./cover-letter-document')).default;
 
-      // Sanitizar datos para el contrato estricto del PDF
+      // Sanitizar datos - Convertir todo a strings
       const safeLetter = {
         jobTitle: String(letter.jobTitle || ''),
         date: String(letter.date || ''),

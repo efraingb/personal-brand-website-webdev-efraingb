@@ -125,60 +125,47 @@ const styles = StyleSheet.create({
   }
 });
 
+/**
+ * CVDocument - Ultra-Safe Implementation
+ * This component only uses native react-pdf components and strictly sanitized string data.
+ * No nested logic or UI components are allowed here.
+ */
 const CVDocument = ({ cv }: { cv: any }) => {
-  // Garantizar que todos los datos sean strings para evitar el error hasOwnProperty
-  const safeName = String(cv?.name || '');
-  const safeTitle = String(cv?.title || '');
-  const safeSummary = String(cv?.summary || '');
-  const safePhone = String(cv?.contact?.phone?.text || '');
-  const safeEmail = String(cv?.contact?.email?.text || '');
-  const safeWebsite = String(cv?.contact?.website?.text || '');
-  const safeLinkedin = String(cv?.contact?.linkedin?.text || '');
-  const safeSections = Array.isArray(cv?.sections) ? cv.sections : [];
-
   return (
-    <Document title={safeName} author="EfrainGB.org">
+    <Document title={String(cv?.name || 'CV')} author="EfrainGB.org">
       <Page size="A4" style={styles.page}>
+        {/* Header Section */}
         <View style={styles.header}>
-          <Text style={styles.name}>{safeName}</Text>
-          <Text style={styles.title}>{safeTitle}</Text>
+          <Text style={styles.name}>{String(cv?.name || '')}</Text>
+          <Text style={styles.title}>{String(cv?.title || '')}</Text>
           <View style={styles.contactInfo}>
-            {safePhone !== '' && <Text>{safePhone}</Text>}
-            {safeEmail !== '' && <Text>{safeEmail}</Text>}
-            {safeWebsite !== '' && <Text>{safeWebsite}</Text>}
-            {safeLinkedin !== '' && <Text>{safeLinkedin}</Text>}
+            <Text>{String(cv?.contactText || '')}</Text>
           </View>
         </View>
 
-        <Text style={styles.summary}>{safeSummary}</Text>
+        {/* Professional Summary */}
+        <Text style={styles.summary}>{String(cv?.summary || '')}</Text>
 
-        {safeSections.map((section: any, sIdx: number) => (
+        {/* Dynamic Sections */}
+        {(cv?.sections || []).map((section: any, sIdx: number) => (
           <View key={`section-${sIdx}`} style={styles.section} wrap={false}>
             <Text style={styles.sectionTitle}>{String(section.title || '')}</Text>
             
             {section.isTwoColumns ? (
               <View style={styles.twoColumnContainer}>
                 <View style={styles.column}>
-                  {(section.items || []).filter((_: any, i: number) => i % 2 === 0).map((item: any, iIdx: number) => (
+                  {(section.col1 || []).map((item: any, iIdx: number) => (
                     <View key={`item-left-${iIdx}`} style={styles.skillItem}>
                       <Text style={styles.skillTitle}>{String(item.title || '')}</Text>
-                      <Text style={styles.skillDesc}>
-                        {Array.isArray(item.description) 
-                          ? String(item.description.join(' · ')) 
-                          : String(item.description || '')}
-                      </Text>
+                      <Text style={styles.skillDesc}>{String(item.descriptionText || '')}</Text>
                     </View>
                   ))}
                 </View>
                 <View style={styles.column}>
-                  {(section.items || []).filter((_: any, i: number) => i % 2 !== 0).map((item: any, iIdx: number) => (
+                  {(section.col2 || []).map((item: any, iIdx: number) => (
                     <View key={`item-right-${iIdx}`} style={styles.skillItem}>
                       <Text style={styles.skillTitle}>{String(item.title || '')}</Text>
-                      <Text style={styles.skillDesc}>
-                        {Array.isArray(item.description) 
-                          ? String(item.description.join(' · ')) 
-                          : String(item.description || '')}
-                      </Text>
+                      <Text style={styles.skillDesc}>{String(item.descriptionText || '')}</Text>
                     </View>
                   ))}
                 </View>
@@ -195,22 +182,12 @@ const CVDocument = ({ cv }: { cv: any }) => {
                       {item.date && <Text style={styles.itemDate}>{String(item.date || '')}</Text>}
                     </View>
                     
-                    {item.description && (
-                      <View>
-                        {Array.isArray(item.description) ? (
-                          item.description.map((desc: any, dIdx: number) => (
-                            <View key={`desc-${dIdx}`} style={styles.descriptionItem}>
-                              <Text style={styles.bullet}>•</Text>
-                              <Text style={styles.descriptionText}>{String(desc || '')}</Text>
-                            </View>
-                          ))
-                        ) : (
-                          <View style={styles.descriptionItem}>
-                            <Text style={styles.descriptionText}>{String(item.description || '')}</Text>
-                          </View>
-                        )}
+                    {(item.descriptions || []).map((desc: any, dIdx: number) => (
+                      <View key={`desc-${dIdx}`} style={styles.descriptionItem}>
+                        <Text style={styles.bullet}>•</Text>
+                        <Text style={styles.descriptionText}>{String(desc || '')}</Text>
                       </View>
-                    )}
+                    ))}
                   </View>
                 ))}
               </View>

@@ -18,38 +18,63 @@ export default function CvPdfDownloader({ cv, text }: { cv: CV; text?: string })
     setIsGenerating(true);
     
     try {
-      // Importación dinámica para asegurar que solo se ejecute en el cliente
+      // 1. DYNAMIC IMPORTS - Ensure absolute client-side execution
       const { pdf } = await import('@react-pdf/renderer');
       const CVDocument = (await import('./cv-document')).default;
 
-      // Sanitizar datos para el contrato estricto del PDF
-      const safeCv = {
-        name: String(cv.name || ''),
-        title: String(cv.title || ''),
-        summary: String(cv.summary || ''),
-        contact: {
-          phone: { text: String(cv.contact?.phone?.text || '') },
-          email: { text: String(cv.contact?.email?.text || '') },
-          website: { text: String(cv.contact?.website?.text || '') },
-          linkedin: { text: String(cv.contact?.linkedin?.text || '') }
-        },
-        sections: (cv.sections || []).map(s => ({
-          title: String(s.title || ''),
-          isTwoColumns: !!s.isTwoColumns,
-          items: (s.items || []).map(i => ({
-            title: String(i.title || ''),
-            subtitle: String(i.subtitle || ''),
-            date: String(i.date || ''),
-            description: Array.isArray(i.description) 
-              ? i.description.map(d => String(d || ''))
-              : String(i.description || '')
-          }))
-        }))
+      // 2. DATA SANITIZATION - Convert EVERYTHING to flat, primitive strings
+      const sanitizeData = (cvData: CV) => {
+        const contactArr = [
+          cvData.contact?.phone?.text,
+          cvData.contact?.email?.text,
+          cvData.contact?.website?.text,
+          cvData.contact?.linkedin?.text
+        ].filter(Boolean);
+
+        return {
+          name: String(cvData.name || ''),
+          title: String(cvData.title || ''),
+          summary: String(cvData.summary || ''),
+          contactText: contactArr.join('  |  '),
+          sections: (cvData.sections || []).map(s => {
+            const isTwoCols = !!s.isTwoColumns;
+            const items = (s.items || []).map(i => ({
+              title: String(i.title || ''),
+              subtitle: String(i.subtitle || ''),
+              date: String(i.date || ''),
+              descriptions: Array.isArray(i.description) 
+                ? i.description.map(d => String(d || ''))
+                : [String(i.description || '')],
+              descriptionText: Array.isArray(i.description) 
+                ? i.description.join(' · ')
+                : String(i.description || '')
+            }));
+
+            if (isTwoCols) {
+              return {
+                title: String(s.title || ''),
+                isTwoColumns: true,
+                col1: items.filter((_, idx) => idx % 2 === 0),
+                col2: items.filter((_, idx) => idx % 2 !== 0)
+              };
+            }
+
+            return {
+              title: String(s.title || ''),
+              isTwoColumns: false,
+              items
+            };
+          })
+        };
       };
 
+      const safeCv = sanitizeData(cv);
+
+      // 3. GENERATION - Call pdf().toBlob() with the pre-instantiated document
       const doc = <CVDocument cv={safeCv} />;
       const blob = await pdf(doc).toBlob();
       
+      // 4. DOWNLOAD TRIGGER
       const url = URL.createObjectURL(blob);
       const link = document.createElement('a');
       link.href = url;
@@ -60,8 +85,8 @@ export default function CvPdfDownloader({ cv, text }: { cv: CV; text?: string })
       document.body.removeChild(link);
       URL.revokeObjectURL(url);
     } catch (error) {
-      console.error('Error generating PDF:', error);
-      alert('Error generating PDF. Please try again.');
+      console.error('CRITICAL PDF ERROR:', error);
+      alert('Error generating PDF. This might be a browser compatibility issue.');
     } finally {
       setIsGenerating(false);
     }
