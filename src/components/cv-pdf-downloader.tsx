@@ -5,7 +5,7 @@ import { PDFDownloadLink } from '@react-pdf/renderer';
 import CVDocument from './cv-document';
 import type { CV } from '@/lib/types';
 import { Button } from '@/components/ui/button';
-import { Download, Loader2 } from 'lucide-react';
+import { Download, Loader2, FileText } from 'lucide-react';
 
 interface CvPdfDownloaderProps {
   cv: CV;
@@ -14,6 +14,7 @@ interface CvPdfDownloaderProps {
 
 export default function CvPdfDownloader({ cv, text }: CvPdfDownloaderProps) {
   const [isClient, setIsClient] = useState(false);
+  const [shouldRender, setShouldRender] = useState(false);
 
   useEffect(() => {
     setIsClient(true);
@@ -22,8 +23,22 @@ export default function CvPdfDownloader({ cv, text }: CvPdfDownloaderProps) {
   if (!isClient) {
     return (
       <Button size="lg" disabled className="shadow-lg min-w-[160px]">
-        <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-        Preparing...
+        <FileText className="mr-2 h-5 w-5" />
+        {text || 'Save as PDF'}
+      </Button>
+    );
+  }
+
+  // If we haven't clicked to generate, show a button that triggers the rendering
+  if (!shouldRender) {
+    return (
+      <Button 
+        size="lg" 
+        className="shadow-lg min-w-[160px]" 
+        onClick={() => setShouldRender(true)}
+      >
+        <Download className="mr-2 h-5 w-5" />
+        {text || 'Save as PDF'}
       </Button>
     );
   }
@@ -31,19 +46,21 @@ export default function CvPdfDownloader({ cv, text }: CvPdfDownloaderProps) {
   return (
     <PDFDownloadLink
       document={<CVDocument cv={cv} />}
-      fileName={`${cv.name.replace(/ /g, '_')}_CV.pdf`}
+      fileName={`${(cv.name || 'CV').replace(/ /g, '_')}_CV.pdf`}
     >
-      {({ loading }) => (
+      {({ loading, error }) => (
         <Button size="lg" disabled={loading} className="shadow-lg min-w-[160px]">
           {loading ? (
             <>
               <Loader2 className="mr-2 h-5 w-5 animate-spin" />
               Generating...
             </>
+          ) : error ? (
+            <>Error generating PDF</>
           ) : (
             <>
               <Download className="mr-2 h-5 w-5" />
-              {text || 'Save as PDF'}
+              {text || 'Download PDF'}
             </>
           )}
         </Button>
