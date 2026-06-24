@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { PDFDownloadLink } from '@react-pdf/renderer';
+import { pdf } from '@react-pdf/renderer';
 import CoverLetterDocument from './cover-letter-document';
 import type { CoverLetter } from '@/lib/types';
 import { Button } from '@/components/ui/button';
@@ -14,11 +14,35 @@ interface CoverLetterPdfDownloaderProps {
 
 export default function CoverLetterPdfDownloader({ letter, text }: CoverLetterPdfDownloaderProps) {
   const [isClient, setIsClient] = useState(false);
-  const [shouldRender, setShouldRender] = useState(false);
+  const [isGenerating, setIsGenerating] = useState(false);
 
   useEffect(() => {
     setIsClient(true);
   }, []);
+
+  const handleDownload = async () => {
+    if (!letter) return;
+    setIsGenerating(true);
+    
+    try {
+      // Generación programática
+      const blob = await pdf(<CoverLetterDocument letter={letter} />).toBlob();
+      const url = URL.createObjectURL(blob);
+      
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = `Cover_Letter_${(letter.jobTitle || 'Application').replace(/ /g, '_')}.pdf`;
+      document.body.appendChild(link);
+      link.click();
+      
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error('Error generating PDF:', error);
+    } finally {
+      setIsGenerating(false);
+    }
+  };
 
   if (!isClient) {
     return (
@@ -29,41 +53,24 @@ export default function CoverLetterPdfDownloader({ letter, text }: CoverLetterPd
     );
   }
 
-  if (!shouldRender) {
-    return (
-      <Button 
-        size="lg" 
-        className="shadow-lg min-w-[160px]" 
-        onClick={() => setShouldRender(true)}
-      >
-        <Download className="mr-2 h-5 w-5" />
-        {text || 'Download PDF'}
-      </Button>
-    );
-  }
-
   return (
-    <PDFDownloadLink
-      document={<CoverLetterDocument letter={letter} />}
-      fileName={`Cover_Letter_${(letter.jobTitle || 'Application').replace(/ /g, '_')}.pdf`}
+    <Button 
+      size="lg" 
+      className="shadow-lg min-w-[160px]" 
+      onClick={handleDownload}
+      disabled={isGenerating}
     >
-      {({ loading, error }) => (
-        <Button size="lg" disabled={loading} className="shadow-lg min-w-[160px]">
-          {loading ? (
-            <>
-              <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-              Preparing...
-            </>
-          ) : error ? (
-            <>Error in PDF</>
-          ) : (
-            <>
-              <Download className="mr-2 h-5 w-5" />
-              {text || 'Download PDF'}
-            </>
-          )}
-        </Button>
+      {isGenerating ? (
+        <>
+          <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+          Preparing...
+        </>
+      ) : (
+        <>
+          <Download className="mr-2 h-5 w-5" />
+          {text || 'Download PDF'}
+        </>
       )}
-    </PDFDownloadLink>
+    </Button>
   );
 }

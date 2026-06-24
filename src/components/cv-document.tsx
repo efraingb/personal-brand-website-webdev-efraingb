@@ -128,7 +128,6 @@ const styles = StyleSheet.create({
 });
 
 const CVDocument = ({ cv }: { cv: CV }) => {
-  // Defensive check to avoid react-pdf internal crashes
   const safeCv = cv || { name: '', title: '', summary: '', contact: {}, sections: [] };
   
   return (

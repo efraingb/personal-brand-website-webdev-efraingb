@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { PDFDownloadLink } from '@react-pdf/renderer';
+import { pdf } from '@react-pdf/renderer';
 import CVDocument from './cv-document';
 import type { CV } from '@/lib/types';
 import { Button } from '@/components/ui/button';
@@ -14,11 +14,37 @@ interface CvPdfDownloaderProps {
 
 export default function CvPdfDownloader({ cv, text }: CvPdfDownloaderProps) {
   const [isClient, setIsClient] = useState(false);
-  const [shouldRender, setShouldRender] = useState(false);
+  const [isGenerating, setIsGenerating] = useState(false);
 
   useEffect(() => {
     setIsClient(true);
   }, []);
+
+  const handleDownload = async () => {
+    if (!cv) return;
+    setIsGenerating(true);
+    
+    try {
+      // Generación programática del PDF como Blob
+      const blob = await pdf(<CVDocument cv={cv} />).toBlob();
+      const url = URL.createObjectURL(blob);
+      
+      // Creación de un enlace temporal para la descarga
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = `${(cv.name || 'CV').replace(/ /g, '_')}_CV.pdf`;
+      document.body.appendChild(link);
+      link.click();
+      
+      // Limpieza
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error('Error generating PDF:', error);
+    } finally {
+      setIsGenerating(false);
+    }
+  };
 
   if (!isClient) {
     return (
@@ -29,43 +55,24 @@ export default function CvPdfDownloader({ cv, text }: CvPdfDownloaderProps) {
     );
   }
 
-  // If we haven't clicked to generate, show a button that triggers the rendering
-  if (!shouldRender) {
-    return (
-      <Button 
-        size="lg" 
-        className="shadow-lg min-w-[160px]" 
-        onClick={() => setShouldRender(true)}
-      >
-        <Download className="mr-2 h-5 w-5" />
-        {text || 'Save as PDF'}
-      </Button>
-    );
-  }
-
-  // Once shouldRender is true, we display the PDFDownloadLink
   return (
-    <PDFDownloadLink
-      document={<CVDocument cv={cv} />}
-      fileName={`${(cv.name || 'CV').replace(/ /g, '_')}_CV.pdf`}
+    <Button 
+      size="lg" 
+      className="shadow-lg min-w-[160px]" 
+      onClick={handleDownload}
+      disabled={isGenerating}
     >
-      {({ loading, error }) => (
-        <Button size="lg" disabled={loading} className="shadow-lg min-w-[160px]">
-          {loading ? (
-            <>
-              <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-              Preparing...
-            </>
-          ) : error ? (
-            <>Error in PDF</>
-          ) : (
-            <>
-              <Download className="mr-2 h-5 w-5" />
-              {text || 'Download PDF'}
-            </>
-          )}
-        </Button>
+      {isGenerating ? (
+        <>
+          <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+          Preparing...
+        </>
+      ) : (
+        <>
+          <Download className="mr-2 h-5 w-5" />
+          {text || 'Save as PDF'}
+        </>
       )}
-    </PDFDownloadLink>
+    </Button>
   );
 }
