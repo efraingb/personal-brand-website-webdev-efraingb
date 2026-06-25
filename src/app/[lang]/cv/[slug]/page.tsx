@@ -70,10 +70,12 @@ export default async function CVPage({ params }: CVPageProps) {
     notFound();
   }
 
-  // Corregimos la construcción del homeLink para evitar /en/en
+  // Robust homeLink construction to avoid /en/en issues
   const baseUrl = `/${lang}`;
   const relativeUrl = cv.contact.website?.url || '';
-  const homeLink = relativeUrl.startsWith('/') ? relativeUrl : `${baseUrl}${relativeUrl}`;
+  // If the relativeUrl already includes the lang prefix (e.g. starting with /en), we use it as is.
+  // Otherwise, we prepend the baseUrl.
+  const homeLink = relativeUrl.startsWith(`/${lang}`) ? relativeUrl : `${baseUrl}${relativeUrl.startsWith('/') ? '' : '/'}${relativeUrl}`;
 
   return (
     <div className="bg-background text-foreground font-sans print:bg-white">
