@@ -9,7 +9,7 @@ export const cvData: CV[] = [
     contact: {
       phone: { text: '+506 8693 9737', url: 'tel:+50686939737' },
       email: { text: 'hiefraingb@gmail.com', url: 'mailto:hiefraingb@gmail.com?subject=Strategic%20Opportunity' },
-      website: { text: 'EfrainGB.org', url: '/en?mode=enterprise' },
+      website: { text: 'EfrainGB.org', url: '?mode=enterprise' },
       linkedin: { text: 'linkedin.com/in/efraingb', url: 'https://www.linkedin.com/in/efraingb/' },
     },
     sections: [
@@ -129,11 +129,11 @@ export const cvData: CV[] = [
     slug: 'en',
     name: 'Efraín González Bermúdez',
     title: 'ANALYST & IT SPECIALIST | PROFESSOR',
-    summary: 'Technology professional and professor with 15 years of experience in software development and digital strategy, working with organizations such as Kohl’s, EPA, Establishment Labs, public sector institutions, ULACIT and CostaRica.org (+30% sales lift). I have combined this technical work with teaching and community initiatives in technology and entrepreneurship, authoring 30+ articles and two books on computing and AI. Currently an MBA candidate in Technology Management, with ongoing involvement in startup and innovation ecosystems in Costa Rica and beyond.',
+    summary: 'Technology professional and professor with 15 years of experience in software development and digital strategy, working with organizations such as Kohl’s, EPA, Establishment Labs, public sector institutions, ULACIT and CostaRica.org (+30% sales lift). I have combined this technical work with teaching and community initiatives in technology and entrepreneurship, authoring 30+ articles and dos libros sobre computación e IA. Currently an MBA candidate in Technology Management, with ongoing involvement in startup and innovation ecosystems in Costa Rica and beyond.',
     contact: {
       phone: { text: '+506 8693 9737', url: 'tel:+50686939737' },
       email: { text: 'hiefraingb@gmail.com', url: 'mailto:hiefraingb@gmail.com?subject=Job%20Opportunity&body=Hello%20Efra%C3%ADn,' },
-      website: { text: 'EfrainGB.org', url: '/en?mode=ai' },
+      website: { text: 'EfrainGB.org', url: '?mode=ai' },
       linkedin: { text: 'linkedin.com/in/efraingb', url: 'https://www.linkedin.com/in/efraingb/' },
     },
     sections: [
@@ -260,7 +260,7 @@ export const cvData: CV[] = [
     contact: {
       phone: { text: '+506 8693 9737', url: 'tel:+50686939737' },
       email: { text: 'hiefraingb@gmail.com', url: 'mailto:hiefraingb@gmail.com?subject=Oportunidad%20Laboral&body=Hola%20Efra%C3%ADn,' },
-      website: { text: 'EfrainGB.org', url: '/es?mode=ai' },
+      website: { text: 'EfrainGB.org', url: '?mode=ai' },
       linkedin: { text: 'linkedin.com/in/efraingb', url: 'https://www.linkedin.com/in/efraingb/' },
     },
     sections: [

@@ -70,7 +70,10 @@ export default async function CVPage({ params }: CVPageProps) {
     notFound();
   }
 
-  const homeLink = cv.contact.website?.url ? `/${lang}${cv.contact.website.url}` : `/${lang}`;
+  // Corregimos la construcción del homeLink para evitar /en/en
+  const baseUrl = `/${lang}`;
+  const relativeUrl = cv.contact.website?.url || '';
+  const homeLink = relativeUrl.startsWith('/') ? relativeUrl : `${baseUrl}${relativeUrl}`;
 
   return (
     <div className="bg-background text-foreground font-sans print:bg-white">
