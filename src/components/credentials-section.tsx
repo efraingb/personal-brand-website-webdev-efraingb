@@ -1,3 +1,4 @@
+
 // src/components/credentials-section.tsx
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Icon } from "@/components/icons";
@@ -7,17 +8,20 @@ import type { CredentialColumn } from '@/lib/types';
 import { cn } from "@/lib/utils";
 
 interface CredentialsSectionProps {
-  dict: Dictionary; // Expects dict.credentialsSection
+  dict: any; // Expects dict.credentialsSection
   columns: CredentialColumn[];
 }
 
 export default function CredentialsSection({ dict, columns }: CredentialsSectionProps) {
+  // Anti-crash safety check
+  if (!dict || !columns) return null;
+
   return (
     <section id="credentials" className="py-16 md:py-24 bg-secondary/10 animate-in fade-in-0 slide-in-from-bottom-12 duration-500 ease-out delay-150">
       <div className="container px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold tracking-tight text-primary sm:text-5xl">
-            {dict.title}
+            {dict.title || "Experience"}
           </h2>
           <div className="mt-3 mb-8 h-1 w-24 bg-accent rounded-full mx-auto"></div>
         </div>
@@ -33,7 +37,7 @@ export default function CredentialsSection({ dict, columns }: CredentialsSection
               </CardHeader>
               <CardContent className="p-6 pt-0">
                 <ul className="space-y-4">
-                  {column.credentials.map((item) => (
+                  {(column.credentials || []).map((item) => (
                     <li key={item.id} className="flex items-start">
                       <CheckCircle2 className="h-5 w-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
                       <span className="text-foreground/80">{item.text}</span>
