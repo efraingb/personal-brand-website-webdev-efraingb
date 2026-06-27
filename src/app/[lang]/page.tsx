@@ -1,4 +1,3 @@
-
 // src/app/[lang]/page.tsx
 import React from 'react';
 import Header from '@/components/header';
@@ -17,7 +16,6 @@ interface HomePageProps {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }
 
-// Helper function to translate project data with safety checks
 const translateProject = (project: Project, dict: Dictionary): Project => {
   const projectsDict = dict?.projectsData || {};
   return {
@@ -40,27 +38,25 @@ const translateCredentialColumns = (columns: CredentialColumn[], dict: Dictionar
 };
 
 export default async function Home(props: HomePageProps) {
-  // Await params and searchParams as required by Next.js 15
   const params = await props.params;
   const searchParams = await props.searchParams;
   const lang = params.lang || 'en';
   const dict = await getDictionary(lang);
   
-  // Basic safety check for dictionary
   if (!dict) return null;
 
   const modeParam = searchParams.mode;
   const mode = Array.isArray(modeParam) ? modeParam[0] : modeParam;
 
-  // Select Hero Dictionary based on mode with extreme safety
   const heroBase = dict.hero || {};
   let heroDict = { ...heroBase };
-  if (mode && typeof mode === 'string' && heroBase[mode]) {
+  
+  // Strict safety check for mode-based hero content
+  if (mode && typeof mode === 'string' && heroBase[mode] && typeof heroBase[mode] === 'object') {
     heroDict.subtitle = heroBase[mode].subtitle || heroDict.subtitle;
     heroDict.description = heroBase[mode].description || heroDict.description;
   }
 
-  // Translate dynamic data with fallback to empty arrays/objects
   const translatedProjectsData = (getRawProjectsData || []).map(p => translateProject(p, dict));
   
   const docLinksDict = dict.documentLinksData || {};
