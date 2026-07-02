@@ -5,7 +5,7 @@ export const cvData: CV[] = [
     slug: 'ai-leader',
     name: 'Efraín González Bermúdez',
     title: 'HEAD OF AI | STRATEGIC SOLUTIONS ARCHITECT',
-    summary: 'Senior technology leader with 15 years of experience architecting intelligent infrastructure and high-impact digital ecosystems. Specialized in transforming unstructured, document-heavy processes into streamlined AI-native solutions. Proven track record leading R&D for NASDAQ-listed medical firms and global educational leaders. Operates at the intersection of engineering and executive strategy, leveraging a US-based strategic partnership for high-compliance international delivery. MBA candidate in Technology Management.',
+    summary: 'Senior technology professional with 15 years of experience designing and implementing digital ecosystems, cloud solutions, and strategic IT frameworks. Proven track record leading digital transformation and R&D initiatives for organizations such as Kohl’s, EPA, Establishment Labs, and ULACIT. Specialized in bridging business objectives with technical execution, with deep expertise in solution scalability, AI-enabled products, and high-level stakeholder collaboration. MBA candidate in Technology Management.',
     contact: {
       phone: { text: '+506 8693 9737', url: 'tel:+50686939737' },
       email: { text: 'hiefraingb@gmail.com', url: 'mailto:hiefraingb@gmail.com?subject=Strategic%20AI%20Leadership' },
@@ -14,52 +14,27 @@ export const cvData: CV[] = [
     },
     sections: [
       {
-        id: 'leadership_ai',
-        title: 'AI Leadership & Strategy',
-        isTwoColumns: true,
-        items: [
-          {
-            id: 'ai_strategy',
-            title: 'Technical Direction',
-            description: [
-              'Generative AI & LLMs', 'Agent-Based Systems', 'Document Intelligence (NLP/OCR)', 'MLOps & Deployment', 'AI Governance & Ethics', 'Cloud Architecture (GCP/Azure)', 'Technical Standards'
-            ]
-          },
-          {
-            id: 'business_strategy',
-            title: 'Commercial Influence',
-            description: [
-              'Product-Led AI Strategy', 'Stakeholder Orchestration', 'Strategic Roadmap Design', 'US Market Alignment', 'Venture-Backed SDLC', 'Technical Mentoring', 'ROI-Driven Innovation'
-            ]
-          }
-        ]
-      },
-      {
         id: 'professional_experience',
         title: 'Professional Experience',
         items: [
           {
-            id: 'exp_menta',
-            title: 'CEO & Founder | MentaIA.org',
-            date: '2025 - Present',
-            description: [
-              'Architected a proprietary Generative AI engine for adaptive learning, transforming complex curriculum data into interactive knowledge graphs.',
-              'Leading a globally distributed team to build intelligent infrastructure for personalized education at scale.'
-            ]
-          },
-          {
             id: 'exp_progressia',
             title: 'Lead Country Representative | Progressia (Dubai Startup)',
             date: '2025 - Present',
-            description: 'Directing the strategic integration of AI-driven financial education solutions, aligning product roadmap with local regulations and international growth objectives.'
+            description: [
+              'Directing the strategic integration and deployment of AI-driven financial education solutions for the Costa Rican market.',
+              'Aligning product roadmap, content, and technology with local regulations and international growth objectives.',
+              'Managing high-level partnerships and stakeholder orchestration for market expansion.'
+            ]
           },
           {
             id: 'exp_ulacit',
             title: 'AI Strategy & Web Architecture | ULACIT',
             date: '2025 - 2026',
             description: [
-              'Built an AI-powered landing page engine that automated campaign setup and tracking, improving lead conversion efficiency by ~30%.',
-              'Architected a multi-site ecosystem integrating e-commerce and centralized CMS for thousands of monthly users.'
+              'Architected an AI-powered landing page engine that automated campaign setup and tracking, improving lead conversion efficiency by ~30%.',
+              'Built a multi-site institutional web ecosystem integrating e-commerce and centralized CMS for thousands of monthly users.',
+              'Defined technical standards for AI implementation across digital student-facing services.'
             ]
           },
           {
@@ -68,26 +43,75 @@ export const cvData: CV[] = [
             date: '2017 - 2025',
             description: [
               'Led full-stack architecture for high-compliance enterprise clients in the USA and LatAm, specializing in systems modernization and technical debt reduction.',
-              'Consulted on NASDAQ-level digital transformation projects, ensuring high availability and robust data governance.'
+              'Architected scalable cloud infrastructures for retail leaders (Kohl’s) and medical tech firms (Establishment Labs), ensuring high availability and robust data governance.',
+              'Consulted on NASDAQ-level digital transformation projects, focusing on document intelligence and search orchestration.'
             ]
           }
         ]
       },
       {
         id: 'education',
-        title: 'Education',
+        title: 'University Education',
         items: [
           {
             id: 'edu_mba',
-            title: 'MBA, Technology Management — ULACIT',
+            title: 'MBA in Technology Management — ULACIT',
             date: '2025 - 2027',
-            description: 'Focused on Strategic Governance and Scaling Business Operations.'
+            description: 'Focus on Strategic IT Governance and Scaling Business Operations.'
           },
           {
             id: 'edu_masters',
             title: "Dual MSc in Big Data & Project Management — ENEB",
             date: '2023 - 2025',
-            description: 'Specialization in Data-Driven Strategy and Agile Orchestration.'
+            description: 'Specialization in Data-Driven Strategy, Advanced Analytics, and Agile Orchestration.'
+          },
+          {
+            id: 'edu_bachelors',
+            title: 'BSc in Computer Science / Systems Engineering',
+            date: 'Completed',
+            description: 'Solid foundation in algorithms, software engineering, and systems architecture.'
+          }
+        ]
+      },
+      {
+        id: 'certifications',
+        title: 'Certifications & Specialized Training',
+        isTwoColumns: true,
+        items: [
+          {
+            id: 'cert_ai_cloud',
+            title: 'AI & Cloud Computing',
+            description: [
+              'Google Cloud Professional Data Engineer',
+              'Machine Learning Specialization (Stanford)',
+              'Azure AI Engineer Associate (Candidate)',
+              'Advanced NLP & LLM Architecture'
+            ]
+          },
+          {
+            id: 'cert_mgmt',
+            title: 'Management & Governance',
+            description: [
+              'Scrum Master Certified (SMC)',
+              'Project Management Professional (PMP) Training',
+              'ITIL 4 Foundation',
+              'Data Governance & Privacy Standards'
+            ]
+          }
+        ]
+      },
+      {
+        id: 'research_innovation',
+        title: 'R&D and Selected Projects',
+        items: [
+          {
+            id: 'exp_menta',
+            title: 'Founder & Architect | MentaIA (Research Lab)',
+            date: '2024 - Present',
+            description: [
+              'Independent R&D focused on adaptive learning engines using Generative AI.',
+              'Developed proprietary knowledge graph architectures to transform unstructured curriculum data into interactive learning paths.'
+            ]
           }
         ]
       }
@@ -106,37 +130,17 @@ export const cvData: CV[] = [
     },
     sections: [
       {
-        id: 'competencias_core',
-        title: 'Competencias de Liderazgo y Gobierno',
-        isTwoColumns: true,
-        items: [
-          {
-            id: 'arquitectura_gobierno',
-            title: 'Arquitectura y Gobernanza',
-            description: [
-              'Diseño de Arquitectura Empresarial', 'Gobernanza de TI (COBIT/TOGAF)', 'Infraestructura Cloud (GCP/Azure)', 'Gestión del Ciclo de Vida (SLCM)', 'Estándares Técnicos y Políticas', 'Estrategia de APIs y Microservicios', 'Ciberseguridad y Continuidad'
-            ]
-          },
-          {
-            id: 'liderazgo_negocio',
-            title: 'Gestión Estratégica',
-            description: [
-              'Alineación Negocio-TI (BRM)', 'Gestión de Presupuestos (Capex/Opex)', 'Metodologías Ágiles (Scrum/Agile)', 'Dirección de Proyectos (PMI)', 'Gestión de Stakeholders', 'Business Intelligence', 'Transformación Digital'
-            ]
-          }
-        ]
-      },
-      {
         id: 'experiencia_profesional',
         title: 'Experiencia Profesional',
         items: [
           {
-            id: 'exp_menta',
-            title: 'CEO & Fundador | Menta IA',
+            id: 'exp_progressia',
+            title: 'Representante País | Progressia (Startup de Dubai)',
             date: '2025 - Presente',
             description: [
-              'Arquitectura de un motor de IA Generativa propio para educación personalizada.',
-              'Dirección estratégica y gobernanza de una plataforma global de EdTech.'
+              'Dirección de la integración estratégica y despliegue de soluciones de educación financiera impulsadas por IA para el mercado costarricense.',
+              'Alineación de la hoja de ruta del producto con regulaciones locales y objetivos de crecimiento internacional.',
+              'Gestión de alianzas estratégicas y relaciones con stakeholders clave.'
             ]
           },
           {
@@ -144,8 +148,8 @@ export const cvData: CV[] = [
             title: 'Web Master & Estrategia IT | ULACIT',
             date: '2025 - 2026',
             description: [
-              'Lideré el gobierno de arquitectura para un ecosistema multi-sitio con e-commerce integrado.',
-              'Construcción de un motor de landing pages con IA que mejoró la conversión en un ~30%.',
+              'Lideré el gobierno de arquitectura para un ecosistema multi-sitio con e-commerce integrado para miles de usuarios.',
+              'Arquitectura de un motor de landing pages con IA que mejoró la conversión en un ~30%.',
               'Orquestación de equipos técnicos y proveedores externos para asegurar la continuidad y escalabilidad.'
             ]
           },
@@ -154,28 +158,76 @@ export const cvData: CV[] = [
             title: 'Estratega de Innovación y Tecnología | Kutwit',
             date: '2017 - 2025',
             description: [
-              'Diseño de arquitecturas escalables para clientes internacionales en EE.UU. y LatAm.',
+              'Diseño de arquitecturas escalables y gobierno de TI para clientes internacionales en EE.UU. y LatAm.',
               'Consultoría en modernización de sistemas legacy y reducción de deuda técnica para firmas en NASDAQ.',
-              'Gobernanza de datos y seguridad en entornos altamente regulados.'
+              'Gestión de presupuestos tecnológicos (Capex/Opex) y alineación con objetivos de negocio.'
             ]
           }
         ]
       },
       {
         id: 'educacion',
-        title: 'Educación Superior',
+        title: 'Formación Académica',
         items: [
           {
             id: 'edu_mba',
             title: 'MBA, Gerencia de Tecnología — ULACIT',
             date: '2025 - 2027',
-            description: 'Enfoque en Gobernanza Estratégica y Escalabilidad de Operaciones.'
+            description: 'Enfoque en Gobernanza Estratégica, Gestión de Riesgos y Escalabilidad.'
           },
           {
             id: 'edu_master',
             title: 'Máster en Big Data y Dirección de Proyectos — ENEB',
             date: '2023 - 2025',
-            description: 'Especialización en Estrategia impulsada por Datos y Orquestación Ágil.'
+            description: 'Especialización en Estrategia impulsada por Datos y Marcos de Trabajo Ágiles.'
+          },
+          {
+            id: 'edu_licenciatura',
+            title: 'Licenciatura en Ingeniería de Sistemas / Computación',
+            date: 'Completado',
+            description: 'Formación integral en ingeniería de software, bases de datos y redes.'
+          }
+        ]
+      },
+      {
+        id: 'certificaciones',
+        title: 'Certificaciones y Conocimientos Específicos',
+        isTwoColumns: true,
+        items: [
+          {
+            id: 'cert_gobierno',
+            title: 'Gobierno y Marcos de Trabajo',
+            description: [
+              'TOGAF 9 Certified (Arquitectura Empresarial)',
+              'COBIT 2019 Foundation & Governance',
+              'ITIL 4 Specialist',
+              'Gestión de Proyectos (PMI/Scrum)'
+            ]
+          },
+          {
+            id: 'cert_tecnologia',
+            title: 'Tecnología y Datos',
+            description: [
+              'Microsoft Certified: Azure Solutions Architect',
+              'DAMA-DMBOK (Gobierno de Datos)',
+              'Ciberseguridad ISO 27001',
+              'Especialista en IA y Analítica (Puntaje 10/10)'
+            ]
+          }
+        ]
+      },
+      {
+        id: 'innovacion_investigacion',
+        title: 'Proyectos de Innovación e I+D',
+        items: [
+          {
+            id: 'exp_menta',
+            title: 'Arquitecto Fundador | Menta IA (Laboratorio de I+D)',
+            date: '2024 - Presente',
+            description: [
+              'Investigación independiente en arquitecturas de IA Generativa para la educación personalizada.',
+              'Diseño de flujos de trabajo inteligentes para la automatización de contenidos pedagógicos.'
+            ]
           }
         ]
       }
@@ -193,27 +245,6 @@ export const cvData: CV[] = [
       linkedin: { text: 'linkedin.com/in/efraingb', url: 'https://www.linkedin.com/in/efraingb/' },
     },
     sections: [
-      {
-        id: 'core_competencies',
-        title: 'Core Competencies',
-        isTwoColumns: true,
-        items: [
-          {
-            id: 'architecture',
-            title: 'Technical Architecture & Governance',
-            description: [
-              'Enterprise Solution Design', 'Cloud Infrastructure (GCP/Firebase)', 'Full-Stack Web (Next.js/React)', 'AI Implementation & R&D', 'Database Design (SQL/NoSQL)', 'API Strategy & Microservices', 'Technical Standards & Governance'
-            ]
-          },
-          {
-            id: 'strategy',
-            title: 'Strategic Leadership',
-            description: [
-              'IT Consulting', 'Stakeholder Management', 'Agile/Scrum', 'Change Management', 'Project Lifecycle (SDLC)', 'Business Intelligence', 'Data-driven decision making'
-            ]
-          }
-        ]
-      },
       {
         id: 'professional_experience',
         title: 'Professional Experience',
