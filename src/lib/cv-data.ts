@@ -28,30 +28,29 @@ export const cvData: CV[] = [
             ]
           },
           {
-            id: 'exp_ulacit',
-            title: 'AI Strategy & Web Architecture | ULACIT',
-            date: '2025 - 2026',
-            description: [
-              'Architected an AI-powered landing page engine that automated campaign setup and tracking, improving lead conversion efficiency by ~30%.',
-              'Built a multi-site institutional web ecosystem integrating e-commerce and centralized CMS for thousands of monthly users.',
-              'Defined technical standards for AI implementation across digital student-facing services.'
-            ]
-          },
-          {
             id: 'exp_enterprise',
             title: 'Senior Solutions Architect | Kutwit',
             date: '2017 - 2025',
             description: [
-              'Led full-stack architecture for high-compliance enterprise clients in the USA and LatAm, specializing in systems modernization and technical debt reduction.',
-              'Architected scalable cloud infrastructures for retail leaders (Kohl’s) and medical tech firms (Establishment Labs), ensuring high availability and robust data governance.',
+              'Led full-stack architecture for high-compliance enterprise clients (Kohl’s, Establishment Labs, EPA), specializing in systems modernization.',
+              'Architected scalable cloud infrastructures (GCP/Firebase) and defined technical standards for multi-site institutional ecosystems.',
               'Consulted on NASDAQ-level digital transformation projects, focusing on document intelligence and search orchestration.'
+            ]
+          },
+          {
+            id: 'exp_smgroup',
+            title: 'Tech Lead | SM Group',
+            date: '2015 - 2017',
+            description: [
+              'Managed software development and digital strategies, significantly improving the User Experience (UX) of public and education platforms.',
+              'Led cross-functional teams in the delivery of complex web architectures.'
             ]
           }
         ]
       },
       {
         id: 'education',
-        title: 'University Education',
+        title: 'Education',
         items: [
           {
             id: 'edu_mba',
@@ -60,58 +59,57 @@ export const cvData: CV[] = [
             description: 'Focus on Strategic IT Governance and Scaling Business Operations.'
           },
           {
-            id: 'edu_masters',
-            title: "Dual MSc in Big Data & Project Management — ENEB",
+            id: 'edu_eneb',
+            title: "MSc in Big Data & MSc in Project Management — ENEB",
             date: '2023 - 2025',
-            description: 'Specialization in Data-Driven Strategy, Advanced Analytics, and Agile Orchestration.'
+            description: 'Specialization in Data-Driven Strategy and Agile Orchestration.'
           },
           {
-            id: 'edu_bachelors',
-            title: 'BSc in Computer Science / Systems Engineering',
-            date: 'Completed',
+            id: 'edu_ircu_msc',
+            title: 'MSc in Web Design & Development — IRCU',
+            date: '2019',
+            description: 'Advanced studies in systems architecture and digital product design.'
+          },
+          {
+            id: 'edu_ircu_bsc',
+            title: 'BSc in Web Design & Development — IRCU',
+            date: '2017',
             description: 'Solid foundation in algorithms, software engineering, and systems architecture.'
           }
         ]
       },
       {
         id: 'certifications',
-        title: 'Certifications & Specialized Training',
+        title: 'Certifications & Training',
         isTwoColumns: true,
         items: [
           {
-            id: 'cert_ai_cloud',
-            title: 'AI & Cloud Computing',
-            description: [
-              'Google Cloud Professional Data Engineer',
-              'Machine Learning Specialization (Stanford)',
-              'Azure AI Engineer Associate (Candidate)',
-              'Advanced NLP & LLM Architecture'
-            ]
+            id: 'cert_ai',
+            title: 'AI & Data',
+            description: ['Google Cloud Data Engineer', 'Stanford Machine Learning', 'Big Data Analytics', 'Advanced NLP']
           },
           {
-            id: 'cert_mgmt',
-            title: 'Management & Governance',
-            description: [
-              'Scrum Master Certified (SMC)',
-              'Project Management Professional (PMP) Training',
-              'ITIL 4 Foundation',
-              'Data Governance & Privacy Standards'
-            ]
+            id: 'cert_gov',
+            title: 'Governance',
+            description: ['Agile/Scrum', 'Project Management', 'IT Governance', 'Business Intelligence']
           }
         ]
       },
       {
-        id: 'research_innovation',
-        title: 'R&D and Selected Projects',
+        id: 'research',
+        title: 'R&D and Innovation',
         items: [
           {
+            id: 'exp_ircu_vpt',
+            title: 'Vice-rector of Technology | IRCU',
+            date: '2019 - 2021',
+            description: 'Led digital transformation and online education initiatives, designing technical curricula and delivery frameworks.'
+          },
+          {
             id: 'exp_menta',
-            title: 'Founder & Architect | MentaIA (Research Lab)',
-            date: '2024 - Present',
-            description: [
-              'Independent R&D focused on adaptive learning engines using Generative AI.',
-              'Developed proprietary knowledge graph architectures to transform unstructured curriculum data into interactive learning paths.'
-            ]
+            title: 'Founder & Architect | MentaIA.org (Research Lab)',
+            date: 'Present',
+            description: 'Independent R&D focused on adaptive learning engines using Generative AI and document intelligence.'
           }
         ]
       }
@@ -121,7 +119,7 @@ export const cvData: CV[] = [
     slug: 'arquitecto-senior',
     name: 'Efraín González Bermúdez',
     title: 'JEFE DE ARQUITECTURA EMPRESARIAL | ESTRATEGA DE TI',
-    summary: 'Profesional senior con 15 años de trayectoria diseñando e implementando ecosistemas digitales, soluciones cloud y marcos de gobernanza tecnológica. Especialista en conectar los objetivos de negocio con la ejecución técnica, liderando iniciativas de transformación digital para organizaciones como Kohl’s, EPA, Establishment Labs y ULACIT. Experto en escalabilidad de soluciones, presupuestos tecnológicos (Capex/Opex) y alineación estratégica de TI. Candidato a MBA en Gerencia de Tecnología y autor de más de 30 publicaciones técnicas.',
+    summary: 'Profesional senior con 15 años de trayectoria diseñando e implementando ecosistemas digitales, soluciones cloud y marcos de gobernanza tecnológica. Trayectoria liderando transformación digital e I+D para organizaciones como Kohl’s, EPA, Establishment Labs y ULACIT. Experto en conectar objetivos de negocio con ejecución técnica y gestión de presupuestos tecnológicos. Candidato a MBA en Gerencia de Tecnología y autor de más de 30 publicaciones técnicas.',
     contact: {
       phone: { text: '+506 8693 9737', url: 'tel:+50686939737' },
       email: { text: 'hiefraingb@gmail.com', url: 'mailto:hiefraingb@gmail.com?subject=Oportunidad%20Liderazgo%20TI' },
@@ -138,19 +136,8 @@ export const cvData: CV[] = [
             title: 'Representante País | Progressia (Startup de Dubai)',
             date: '2025 - Presente',
             description: [
-              'Dirección de la integración estratégica y despliegue de soluciones de educación financiera impulsadas por IA para el mercado costarricense.',
-              'Alineación de la hoja de ruta del producto con regulaciones locales y objetivos de crecimiento internacional.',
-              'Gestión de alianzas estratégicas y relaciones con stakeholders clave.'
-            ]
-          },
-          {
-            id: 'exp_ulacit',
-            title: 'Web Master & Estrategia IT | ULACIT',
-            date: '2025 - 2026',
-            description: [
-              'Lideré el gobierno de arquitectura para un ecosistema multi-sitio con e-commerce integrado para miles de usuarios.',
-              'Arquitectura de un motor de landing pages con IA que mejoró la conversión en un ~30%.',
-              'Orquestación de equipos técnicos y proveedores externos para asegurar la continuidad y escalabilidad.'
+              'Dirección de la integración estratégica y despliegue de soluciones de educación financiera impulsadas por IA.',
+              'Alineación del roadmap con regulaciones locales y objetivos de crecimiento internacional.'
             ]
           },
           {
@@ -158,9 +145,16 @@ export const cvData: CV[] = [
             title: 'Estratega de Innovación y Tecnología | Kutwit',
             date: '2017 - 2025',
             description: [
-              'Diseño de arquitecturas escalables y gobierno de TI para clientes internacionales en EE.UU. y LatAm.',
-              'Consultoría en modernización de sistemas legacy y reducción de deuda técnica para firmas en NASDAQ.',
-              'Gestión de presupuestos tecnológicos (Capex/Opex) y alineación con objetivos de negocio.'
+              'Diseño de arquitecturas escalables y gobierno de TI para clientes como Kohl’s, EPA y Establishment Labs.',
+              'Gestión del ciclo de vida técnico y reducción de deuda técnica en plataformas de alta disponibilidad.'
+            ]
+          },
+          {
+            id: 'exp_smgroup',
+            title: 'Tech Lead | SM Group',
+            date: '2015 - 2017',
+            description: [
+              'Gestión de desarrollo de software y estrategias digitales, mejorando significativamente la UX en plataformas públicas y educativas.'
             ]
           }
         ]
@@ -173,133 +167,74 @@ export const cvData: CV[] = [
             id: 'edu_mba',
             title: 'MBA, Gerencia de Tecnología — ULACIT',
             date: '2025 - 2027',
-            description: 'Enfoque en Gobernanza Estratégica, Gestión de Riesgos y Escalabilidad.'
+            description: 'Enfoque en Gobernanza Estratégica y Escalabilidad de Operaciones.'
           },
           {
-            id: 'edu_master',
-            title: 'Máster en Big Data y Dirección de Proyectos — ENEB',
+            id: 'edu_eneb',
+            title: 'Máster en Big Data y Máster en Dirección de Proyectos — ENEB',
             date: '2023 - 2025',
-            description: 'Especialización en Estrategia impulsada por Datos y Marcos de Trabajo Ágiles.'
+            description: 'Especialización en Estrategia impulsada por Datos y Marcos Ágiles.'
           },
           {
-            id: 'edu_licenciatura',
-            title: 'Licenciatura en Ingeniería de Sistemas / Computación',
-            date: 'Completado',
-            description: 'Formación integral en ingeniería de software, bases de datos y redes.'
+            id: 'edu_ircu_msc',
+            title: 'Máster en Diseño y Desarrollo Web — IRCU',
+            date: '2019',
+            description: 'Estudios avanzados en arquitectura de sistemas y diseño de productos digitales.'
+          },
+          {
+            id: 'edu_ircu_lic',
+            title: 'Licenciatura en Diseño y Desarrollo Web — IRCU',
+            date: '2017',
+            description: 'Fundamentos sólidos en ingeniería de software y arquitectura de sistemas.'
           }
         ]
       },
       {
         id: 'certificaciones',
-        title: 'Certificaciones y Conocimientos Específicos',
+        title: 'Certificaciones y Marcos de Trabajo',
         isTwoColumns: true,
         items: [
           {
             id: 'cert_gobierno',
-            title: 'Gobierno y Marcos de Trabajo',
-            description: [
-              'TOGAF 9 Certified (Arquitectura Empresarial)',
-              'COBIT 2019 Foundation & Governance',
-              'ITIL 4 Specialist',
-              'Gestión de Proyectos (PMI/Scrum)'
-            ]
+            title: 'Gobierno y Proyectos',
+            description: ['TOGAF', 'COBIT', 'ITIL 4', 'Scrum Master', 'PMP Training', 'Gobernanza de Datos']
           },
           {
-            id: 'cert_tecnologia',
-            title: 'Tecnología y Datos',
-            description: [
-              'Microsoft Certified: Azure Solutions Architect',
-              'DAMA-DMBOK (Gobierno de Datos)',
-              'Ciberseguridad ISO 27001',
-              'Especialista en IA y Analítica (Puntaje 10/10)'
-            ]
+            id: 'cert_tech',
+            title: 'Tecnología',
+            description: ['Azure Architect', 'Data Analytics', 'ISO 27001 Foundation', 'IA Builder']
           }
         ]
       },
       {
-        id: 'innovacion_investigacion',
-        title: 'Proyectos de Innovación e I+D',
+        id: 'investigacion',
+        title: 'Liderazgo e Investigación',
         items: [
+          {
+            id: 'exp_ircu_vpt',
+            title: 'Vicerrector de Tecnología | IRCU',
+            date: '2019 - 2021',
+            description: 'Liderazgo de transformación digital e iniciativas de educación en línea a nivel institucional.'
+          },
           {
             id: 'exp_menta',
-            title: 'Arquitecto Fundador | Menta IA (Laboratorio de I+D)',
-            date: '2024 - Presente',
-            description: [
-              'Investigación independiente en arquitecturas de IA Generativa para la educación personalizada.',
-              'Diseño de flujos de trabajo inteligentes para la automatización de contenidos pedagógicos.'
-            ]
+            title: 'Arquitecto Fundador | MentaIA.org (I+D)',
+            date: 'Presente',
+            description: 'Investigación independiente en motores de aprendizaje adaptativo y arquitecturas de IA Generativa.'
           }
         ]
       }
     ]
   },
   {
-    slug: 'enterprise',
+    slug: 'innovation',
     name: 'Efraín González Bermúdez',
-    title: 'ENTERPRISE ARCHITECT | SR. IT SOLUTIONS CONSULTANT',
-    summary: 'Senior technology professional with 15 years of experience designing and implementing digital ecosystems, cloud solutions, and strategic IT frameworks. Proven track record leading digital transformation and R&D initiatives for organizations such as Kohl’s, EPA, Establishment Labs, and ULACIT. Strong ability to bridge business objectives with technical execution, with expertise in solution scalability, AI-enabled products, and stakeholder collaboration across teams. MBA candidate in Technology Management and author of 30+ technical publications.',
+    title: 'INNOVATION SPECIALIST',
+    summary: 'Technology professional and professor with 15 years of experience in R&D, software development, and digital strategy. Proven track record leading digital transformation for organizations such as Kohl’s, EPA, Establishment Labs, ULACIT and CostaRica.org (+30% sales lift). Expertise in bridging technical execution with strategic innovation, authoring 30+ articles and two books on computing and AI. Currently an MBA candidate in Technology Management, focusing on scaling innovation and startup ecosystems.',
     contact: {
       phone: { text: '+506 8693 9737', url: 'tel:+50686939737' },
-      email: { text: 'hiefraingb@gmail.com', url: 'mailto:hiefraingb@gmail.com?subject=Strategic%20Opportunity' },
-      website: { text: 'EfrainGB.org', url: '/en/cv/enterprise' },
-      linkedin: { text: 'linkedin.com/in/efraingb', url: 'https://www.linkedin.com/in/efraingb/' },
-    },
-    sections: [
-      {
-        id: 'professional_experience',
-        title: 'Professional Experience',
-        items: [
-          {
-            id: 'exp_progressia',
-            title: 'Lead Country Representative | Progressia (Dubai Startup)',
-            date: '2025 - Present',
-            description: 'Leading the strategic integration and deployment of AI-driven financial education solutions for the Costa Rican market, aligning partnerships, content, and technology with local regulations and growth objectives.'
-          },
-          {
-            id: 'exp_ulacit',
-            title: 'Web Master & IT Strategy | ULACIT',
-            date: '2025 - 2026',
-            description: [
-              'Architected a multi-site institutional web ecosystem integrating e-commerce and centralized WordPress CMS.',
-              'Built an AI-powered landing page engine that automated campaign setup and tracking, improving lead conversion efficiency by ~30%.',
-              'Coordinated cross-functional technical teams and external vendors to ensure high availability and strategic IT alignment.'
-            ]
-          },
-          {
-            id: 'exp_kutwit',
-            title: 'Innovation & Technology Strategist | Kutwit',
-            date: '2017 - 2025',
-            description: [
-              'Led the full technical lifecycle and digital strategy for enterprise clients, optimizing operational efficiency and system reliability.',
-              'Designed scalable cloud infrastructures and software architectures for international markets (USA, LatAm).',
-              'Consulted on systems modernization, legacy migration, and technical debt reduction for large-scale platforms.'
-            ]
-          }
-        ]
-      },
-      {
-        id: 'education',
-        title: 'Education',
-        items: [
-          {
-            id: 'edu_mba',
-            title: 'MBA, Technology Management — ULACIT',
-            date: '2025 - 2027',
-            description: ''
-          }
-        ]
-      }
-    ]
-  },
-  {
-    slug: 'en',
-    name: 'Efraín González Bermúdez',
-    title: 'ANALYST & IT SPECIALIST | PROFESSOR',
-    summary: 'Technology professional and professor with 15 years of experience in software development and digital strategy. Proven track record working with organizations such as Kohl’s, EPA, Establishment Labs, and ULACIT. Specialized in combining technical execution with educational innovation. MBA candidate in Technology Management and author of multiple technical publications on computing and AI.',
-    contact: {
-      phone: { text: '+506 8693 9737', url: 'tel:+50686939737' },
-      email: { text: 'hiefraingb@gmail.com', url: 'mailto:hiefraingb@gmail.com?subject=Job%20Opportunity' },
-      website: { text: 'EfrainGB.org', url: '/en/cv/en' },
+      email: { text: 'hiefraingb@gmail.com', url: 'mailto:hiefraingb@gmail.com' },
+      website: { text: 'EfrainGB.org', url: '/en/cv/innovation' },
       linkedin: { text: 'linkedin.com/in/efraingb', url: 'https://www.linkedin.com/in/efraingb/' },
     },
     sections: [
@@ -309,11 +244,14 @@ export const cvData: CV[] = [
         isTwoColumns: true,
         items: [
           {
-            id: 'tech',
-            title: 'Technical Development',
-            description: [
-              'Web UX', 'WordPress', 'React', 'Next.js', 'SQL', 'Git', 'Agile', 'AI Implementation', 'Firebase', 'Cloud Infrastructure', 'Technical Writing'
-            ]
+            id: 'skill_mgmt',
+            title: 'Project & Innovation Management',
+            description: ['R&D Lifecycle', 'Agile/Scrum', 'Strategic Planning', 'Stakeholder Coordination', 'Business Intelligence', 'Change Management']
+          },
+          {
+            id: 'skill_tech',
+            title: 'Technical Architecture',
+            description: ['AI Development', 'Web UX', 'Cloud Infrastructure', 'SQL', 'React', 'Next.js', 'Git', 'Odoo']
           }
         ]
       },
@@ -323,49 +261,51 @@ export const cvData: CV[] = [
         items: [
           {
             id: 'exp_progressia',
-            title: 'Country Representative | Progressia (Dubai)',
+            title: 'Lead Country Representative | Progressia (Dubai-based Startup)',
             date: '2025 - Present',
-            description: 'Leading strategic expansion and partnerships for an AI startup focused on financial education in the Costa Rican market.'
-          }
-        ]
-      }
-    ]
-  },
-  {
-    slug: 'es',
-    name: 'Efraín González Bermúdez',
-    title: 'ANALISTA TECNOLÓGICO | PROFESOR',
-    summary: 'Profesional en tecnología con 15 años de experiencia en diseño de ecosistemas digitales, soluciones cloud y marcos estratégicos de TI. Trayectoria liderando iniciativas de transformación digital e I+D para organizaciones como Kohl’s, EPA, Establishment Labs y ULACIT. Experto en conectar objetivos de negocio con ejecución técnica, con enfoque en escalabilidad, productos basados en IA y colaboración con stakeholders. Candidato a MBA en Gerencia de Tecnología.',
-    contact: {
-      phone: { text: '+506 8693 9737', url: 'tel:+50686939737' },
-      email: { text: 'hiefraingb@gmail.com', url: 'mailto:hiefraingb@gmail.com?subject=Oportunidad%20Laboral' },
-      website: { text: 'EfrainGB.org', url: '/es/cv/es' },
-      linkedin: { text: 'linkedin.com/in/efraingb', url: 'https://www.linkedin.com/in/efraingb/' },
-    },
-    sections: [
-      {
-        id: 'habilidades',
-        title: 'Habilidades',
-        isTwoColumns: true,
-        items: [
+            description: 'Leading the strategic integration and deployment of AI-powered solutions for the Costa Rican market.'
+          },
           {
-            id: 'habilidades_tech',
-            title: 'Desarrollo Técnico',
-            description: [
-              'Web UX', 'WordPress', 'React', 'Next.js', 'SQL', 'Git', 'Agile', 'Implementación de IA', 'Firebase', 'Infraestructura Cloud'
-            ]
+            id: 'exp_kutwit',
+            title: 'Innovation & Technology Strategist | Kutwit',
+            date: '2017 - 2025',
+            description: 'Leading the technical lifecycle and digital strategy for software solutions, driving long-term growth and operational efficiency.'
+          },
+          {
+            id: 'exp_ircu',
+            title: 'Vice-rector of Technology | IRCU',
+            date: '2019 - 2021',
+            description: 'Led digital transformation & online education initiatives. Curriculum Design & Delivery (Technical Topics).'
+          },
+          {
+            id: 'exp_sm',
+            title: 'Tech Lead | SM Group',
+            date: '2015 - 2017',
+            description: 'Managed software development and digital strategies, improving UX of public & education platforms.'
           }
         ]
       },
       {
-        id: 'experiencia',
-        title: 'Experiencia',
+        id: 'education',
+        title: 'Education',
         items: [
           {
-            id: 'exp_progressia',
-            title: 'Representante País | Progressia (Dubai)',
-            date: '2025 - Presente',
-            description: 'Liderando la expansión estratégica y alianzas de una startup de IA enfocada en educación financiera en el mercado costarricense.'
+            id: 'edu_mba',
+            title: 'MBA, Technology Management emphasis — ULACIT',
+            date: '2025 - 2027',
+            description: 'In progress.'
+          },
+          {
+            id: 'edu_eneb',
+            title: 'MSc in Big Data & MSc in Project Management — ENEB',
+            date: '2023 - 2025',
+            description: ''
+          },
+          {
+            id: 'edu_ircu',
+            title: 'MSc (2019) & BSc (2017) in Web Design & Dev — IRCU',
+            date: '2017 - 2019',
+            description: ''
           }
         ]
       }
