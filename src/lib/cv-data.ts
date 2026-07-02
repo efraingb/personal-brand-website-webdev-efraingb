@@ -45,6 +45,15 @@ export const cvData: CV[] = [
               'Managed software development and digital strategies, improving User Experience (UX) of public and education platforms.',
               'Led cross-functional teams in the delivery of complex web architectures.'
             ]
+          },
+          {
+            id: 'exp_legacy',
+            title: 'Content Manager & Web Developer',
+            date: '2011 - 2013',
+            description: [
+              'Optimized 300+ US-based websites at Capilleira (2013) ensuring technical performance and content integrity.',
+              'Fostered digital growth through strategic content management at DCC (2011).'
+            ]
           }
         ]
       },
@@ -56,7 +65,7 @@ export const cvData: CV[] = [
           {
             id: 'skill_ai_dev',
             title: 'AI & Advanced Development',
-            description: ['Generative AI · NLP · Blockchain · Fintech · JavaScript · PHP · MySQL · Cloud Infrastructure (GCP)']
+            description: ['Generative AI · NLP · Document Intelligence · Python · Cloud Infrastructure (GCP/Firebase) · Next.js · React']
           },
           {
             id: 'skill_strategy',
@@ -66,12 +75,12 @@ export const cvData: CV[] = [
           {
             id: 'skill_inst',
             title: 'Partner Institutions',
-            description: ['INCAE · ULACIT · UNA · IBITEC · Platzi · Marketing 4 Ecommerce']
+            description: ['INCAE · ULACIT · UNA · IBITEC · Platzi · Marketing 4 Ecommerce · CTP Calle Blancos']
           },
           {
             id: 'skill_certs',
-            title: 'Continuous Education',
-            description: ['Google Analytics · Digital Journalism · Sales Strategy · Project Lifecycle (SDLC)']
+            title: 'Specialized Training',
+            description: ['Big Data · Project Management (Agile) · Blockchain · Fintech · Google Analytics · Digital Journalism']
           }
         ]
       },
@@ -101,25 +110,25 @@ export const cvData: CV[] = [
             id: 'edu_ircu_bsc',
             title: 'BSc in Web Design & Development — IRCU',
             date: '2017',
-            description: 'Solid foundation in algorithms, software engineering, and systems architecture.'
+            description: 'Solid foundation in software engineering and systems architecture.'
           }
         ]
       },
       {
         id: 'innovation',
-        title: 'R&D and Innovation',
+        title: 'Social & R&D Leadership',
         items: [
-          {
-            id: 'exp_menta',
-            title: 'Founder & Architect | MentaIA.org (Research Lab)',
-            date: 'Present',
-            description: 'Independent R&D focused on adaptive learning engines using Generative AI and document intelligence architectures.'
-          },
           {
             id: 'exp_ircu_vpt',
             title: 'Vice-rector of Technology | IRCU',
             date: '2019 - 2021',
             description: 'Led digital transformation and online education initiatives, designing technical curricula and delivery frameworks.'
+          },
+          {
+            id: 'exp_menta',
+            title: 'Founder & Architect | MentaIA.org (R&D Lab)',
+            date: 'Present',
+            description: 'Research and development of an AI-powered personalized education platform, exploring the intersection of AI and adaptive learning architectures.'
           }
         ]
       }
@@ -129,7 +138,7 @@ export const cvData: CV[] = [
     slug: 'arquitecto-senior',
     name: 'Efraín González Bermúdez',
     title: 'JEFE DE ARQUITECTURA EMPRESARIAL | ESTRATEGA DE TI',
-    summary: 'Profesional senior con 15 años de trayectoria diseñando e implementando ecosistemas digitales, soluciones cloud y marcos de gobernanza tecnológica. Trayectoria liderando transformación digital e I+D para organizaciones como Kohl’s, EPA, Establishment Labs y ULACIT. Experto en conectar objetivos de negocio con ejecución técnica y gestión de proyectos de alta complejidad. Candidato a MBA en Gerencia de Tecnología.',
+    summary: 'Profesional senior con 15 años de trayectoria diseñando e implementando ecosistemas digitales, soluciones cloud y marcos de gobernanza tecnológica. Trayectoria liderando transformación digital e I+D para organizaciones como Kohl’s, EPA, Establishment Labs y ULACIT. Experto en conectar objetivos de negocio con ejecución técnica y gestión de presupuestos (Capex/Opex). Candidato a MBA en Gerencia de Tecnología.',
     contact: {
       phone: { text: '+506 8693 9737', url: 'tel:+50686939737' },
       email: { text: 'hiefraingb@gmail.com', url: 'mailto:hiefraingb@gmail.com?subject=Oportunidad%20Liderazgo%20TI' },
@@ -166,6 +175,14 @@ export const cvData: CV[] = [
             description: [
               'Gestión de desarrollo de software y estrategias digitales, mejorando significativamente la UX en plataformas públicas y educativas.'
             ]
+          },
+          {
+            id: 'exp_legacy_es',
+            title: 'Gestor de Contenido y Desarrollador Web',
+            date: '2011 - 2013',
+            description: [
+              'Optimización de más de 300 sitios web en EE.UU. en Capilleira (2013) y gestión de crecimiento digital en DCC (2011).'
+            ]
           }
         ]
       },
@@ -177,12 +194,12 @@ export const cvData: CV[] = [
           {
             id: 'skill_gov',
             title: 'Gobierno y Estrategia',
-            description: ['Arquitectura Empresarial · Valuación de Proyectos · Negociación · Administración de Negocios · Liderazgo de Equipos']
+            description: ['Arquitectura Empresarial · Valuación de Proyectos (Capex/Opex) · Negociación · Administración de Negocios · Liderazgo de Equipos']
           },
           {
             id: 'skill_tech',
             title: 'Infraestructura y Datos',
-            description: ['Gobernanza de Datos · Cloud (Azure/GCP) · IA Generativa · Devops · Seguridad y Continuidad']
+            description: ['Gobernanza de Datos · Cloud (GCP/Azure) · IA Generativa · Devops · Seguridad y Continuidad']
           },
           {
             id: 'skill_inst_es',
@@ -192,7 +209,7 @@ export const cvData: CV[] = [
           {
             id: 'skill_certs_es',
             title: 'Especializaciones',
-            description: ['Gerencia de Proyectos (PMI) · Scrum · Blockchain · Fintech · Marketing Digital']
+            description: ['Máster Big Data · Dirección de Proyectos · Blockchain · Fintech · Marketing Digital']
           }
         ]
       },
@@ -250,7 +267,7 @@ export const cvData: CV[] = [
     slug: 'innovation',
     name: 'Efraín González Bermúdez',
     title: 'INNOVATION SPECIALIST',
-    summary: 'Technology professional and professor with 15 years of experience in R&D, software development, and digital strategy. Proven track record leading digital transformation for organizations such as Kohl’s, EPA, Establishment Labs, ULACIT and CostaRica.org (+30% sales lift). Expertise in bridging technical execution with strategic innovation, authoring 30+ articles and two books on computing and AI. Currently an MBA candidate in Technology Management.',
+    summary: 'Technology professional and professor with 15 years of experience in R&D, software development, and digital strategy. Proven track record leading digital transformation for organizations such as Kohl’s, EPA, Establishment Labs, ULACIT and CostaRica.org (+30% sales lift). Expertise in bridging technical execution with strategic innovation, authoring 30+ articles and two books on computing and AI. Currently an MBA candidate in Technology Management, focusing on scaling innovation and startup ecosystems.',
     contact: {
       phone: { text: '+506 8693 9737', url: 'tel:+50686939737' },
       email: { text: 'hiefraingb@gmail.com', url: 'mailto:hiefraingb@gmail.com' },
@@ -284,7 +301,7 @@ export const cvData: CV[] = [
             id: 'exp_capilleira',
             title: 'Content Manager & Web Developer',
             date: '2011 - 2013',
-            description: 'Optimized 300+ websites at Capilleira (2013) and fostered digital growth at DCC (2011).'
+            description: 'Troubleshot and optimized 300 US Websites at Capilleira (2013) and fostered digital growth at DCC (2011).'
           }
         ]
       },
