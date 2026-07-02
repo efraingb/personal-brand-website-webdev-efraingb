@@ -79,23 +79,6 @@ export const cvData: CV[] = [
         ]
       },
       {
-        id: 'certifications',
-        title: 'Certifications & Training',
-        isTwoColumns: true,
-        items: [
-          {
-            id: 'cert_ai',
-            title: 'AI & Data',
-            description: ['Google Cloud Data Engineer', 'Stanford Machine Learning', 'Big Data Analytics', 'Advanced NLP']
-          },
-          {
-            id: 'cert_gov',
-            title: 'Governance',
-            description: ['Agile/Scrum', 'Project Management', 'IT Governance', 'Business Intelligence']
-          }
-        ]
-      },
-      {
         id: 'research',
         title: 'R&D and Innovation',
         items: [
@@ -190,23 +173,6 @@ export const cvData: CV[] = [
         ]
       },
       {
-        id: 'certificaciones',
-        title: 'Certificaciones y Marcos de Trabajo',
-        isTwoColumns: true,
-        items: [
-          {
-            id: 'cert_gobierno',
-            title: 'Gobierno y Proyectos',
-            description: ['TOGAF', 'COBIT', 'ITIL 4', 'Scrum Master', 'PMP Training', 'Gobernanza de Datos']
-          },
-          {
-            id: 'cert_tech',
-            title: 'Tecnología',
-            description: ['Azure Architect', 'Data Analytics', 'ISO 27001 Foundation', 'IA Builder']
-          }
-        ]
-      },
-      {
         id: 'investigacion',
         title: 'Liderazgo e Investigación',
         items: [
@@ -239,23 +205,6 @@ export const cvData: CV[] = [
     },
     sections: [
       {
-        id: 'skills',
-        title: 'Skills',
-        isTwoColumns: true,
-        items: [
-          {
-            id: 'skill_mgmt',
-            title: 'Project & Innovation Management',
-            description: ['R&D Lifecycle', 'Agile/Scrum', 'Strategic Planning', 'Stakeholder Coordination', 'Business Intelligence', 'Change Management']
-          },
-          {
-            id: 'skill_tech',
-            title: 'Technical Architecture',
-            description: ['AI Development', 'Web UX', 'Cloud Infrastructure', 'SQL', 'React', 'Next.js', 'Git', 'Odoo']
-          }
-        ]
-      },
-      {
         id: 'experience',
         title: 'Experience',
         items: [
@@ -272,16 +221,34 @@ export const cvData: CV[] = [
             description: 'Leading the technical lifecycle and digital strategy for software solutions, driving long-term growth and operational efficiency.'
           },
           {
-            id: 'exp_ircu',
+            id: 'exp_sm',
+            title: 'Tech Lead | SM Group',
+            date: '2015 - 2017',
+            description: 'Managed software development and digital strategies, improving UX of public & education platforms.'
+          },
+          {
+            id: 'exp_capilleira',
+            title: 'Content Manager & Web Developer',
+            date: '2011 - 2013',
+            description: 'Optimized 300+ websites at Capilleira (2013) and fostered digital growth through content management at DCC (2011).'
+          }
+        ]
+      },
+      {
+        id: 'leadership',
+        title: 'Social & Educational Leadership',
+        items: [
+          {
+            id: 'exp_ircu_vpt',
             title: 'Vice-rector of Technology | IRCU',
             date: '2019 - 2021',
             description: 'Led digital transformation & online education initiatives. Curriculum Design & Delivery (Technical Topics).'
           },
           {
-            id: 'exp_sm',
-            title: 'Tech Lead | SM Group',
-            date: '2015 - 2017',
-            description: 'Managed software development and digital strategies, improving UX of public & education platforms.'
+            id: 'exp_communities',
+            title: 'Strategic Community Engagement',
+            date: '2010 - Present',
+            description: 'Professor & Speaker at CyberU, EDUCATEC, Saint Thomas & CRDigital. Focus on youth, digital & social services.'
           }
         ]
       },
@@ -293,19 +260,37 @@ export const cvData: CV[] = [
             id: 'edu_mba',
             title: 'MBA, Technology Management emphasis — ULACIT',
             date: '2025 - 2027',
-            description: 'In progress.'
+            description: 'Focus on scaling innovation and startup ecosystems.'
           },
           {
             id: 'edu_eneb',
             title: 'MSc in Big Data & MSc in Project Management — ENEB',
             date: '2023 - 2025',
+            description: 'Specialization in Data-Driven Strategy and Agile Orchestration.'
+          },
+          {
+            id: 'edu_ircu_msc',
+            title: 'MSc in Web Design & Dev — IRCU',
+            date: '2019',
             description: ''
           },
           {
-            id: 'edu_ircu',
-            title: 'MSc (2019) & BSc (2017) in Web Design & Dev — IRCU',
-            date: '2017 - 2019',
+            id: 'edu_ircu_bsc',
+            title: 'BSc in Web Design & Dev — IRCU',
+            date: '2017',
             description: ''
+          }
+        ]
+      },
+      {
+        id: 'innovation',
+        title: 'R&D Initiative',
+        items: [
+          {
+            id: 'exp_menta',
+            title: 'Founder | MentaIA.org',
+            date: 'Present',
+            description: 'Research and development of an AI-powered personalized education platform, exploring the intersection of AI and adaptive learning architectures.'
           }
         ]
       }
