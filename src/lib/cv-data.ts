@@ -5,7 +5,7 @@ export const cvData: CV[] = [
     slug: 'ai-leader',
     name: 'Efraín González Bermúdez',
     title: 'HEAD OF AI | STRATEGIC SOLUTIONS ARCHITECT',
-    summary: 'Senior technology professional with 15 years of experience designing and implementing digital ecosystems, cloud solutions, and strategic IT frameworks. Proven track record leading digital transformation and R&D initiatives for organizations such as Kohl’s, EPA, Establishment Labs, and ULACIT. Specialized in bridging business objectives with technical execution, with deep expertise in solution scalability, AI-enabled products, and high-level stakeholder collaboration. MBA candidate in Technology Management.',
+    summary: 'Senior technology professional with 15 years of experience designing and implementing digital ecosystems, cloud solutions, and strategic IT frameworks. Proven track record leading digital transformation and R&D initiatives for organizations such as Kohl’s, EPA, Establishment Labs, and ULACIT. Specialized in bridging business objectives with technical execution, with deep expertise in solution scalability and AI-enabled products. MBA candidate in Technology Management with 30+ technical publications.',
     contact: {
       phone: { text: '+506 8693 9737', url: 'tel:+50686939737' },
       email: { text: 'hiefraingb@gmail.com', url: 'mailto:hiefraingb@gmail.com?subject=Strategic%20AI%20Leadership' },
@@ -32,9 +32,9 @@ export const cvData: CV[] = [
             title: 'Senior Solutions Architect | Kutwit',
             date: '2017 - 2025',
             description: [
-              'Led full-stack architecture for high-compliance enterprise clients (Kohl’s, Establishment Labs, EPA), specializing in systems modernization.',
+              'Led technical lifecycle and digital strategy for enterprise clients (Kohl’s, Establishment Labs, EPA).',
               'Architected scalable cloud infrastructures (GCP/Firebase) and defined technical standards for multi-site institutional ecosystems.',
-              'Consulted on NASDAQ-level digital transformation projects, focusing on document intelligence and search orchestration.'
+              'Consulted on high-level digital transformation projects, focusing on document intelligence and search automation.'
             ]
           },
           {
@@ -42,9 +42,36 @@ export const cvData: CV[] = [
             title: 'Tech Lead | SM Group',
             date: '2015 - 2017',
             description: [
-              'Managed software development and digital strategies, significantly improving the User Experience (UX) of public and education platforms.',
+              'Managed software development and digital strategies, improving User Experience (UX) of public and education platforms.',
               'Led cross-functional teams in the delivery of complex web architectures.'
             ]
+          }
+        ]
+      },
+      {
+        id: 'skills_and_training',
+        title: 'Expertise & Professional Training',
+        isTwoColumns: true,
+        items: [
+          {
+            id: 'skill_ai_dev',
+            title: 'AI & Advanced Development',
+            description: ['Generative AI · NLP · Blockchain · Fintech · JavaScript · PHP · MySQL · Cloud Infrastructure (GCP)']
+          },
+          {
+            id: 'skill_strategy',
+            title: 'Strategy & Leadership',
+            description: ['Business Acceleration · Strategic Planning · Innovation Management · Technical Writing · Public Speaking']
+          },
+          {
+            id: 'skill_inst',
+            title: 'Partner Institutions',
+            description: ['INCAE · ULACIT · UNA · IBITEC · Platzi · Marketing 4 Ecommerce']
+          },
+          {
+            id: 'skill_certs',
+            title: 'Continuous Education',
+            description: ['Google Analytics · Digital Journalism · Sales Strategy · Project Lifecycle (SDLC)']
           }
         ]
       },
@@ -79,20 +106,20 @@ export const cvData: CV[] = [
         ]
       },
       {
-        id: 'research',
+        id: 'innovation',
         title: 'R&D and Innovation',
         items: [
+          {
+            id: 'exp_menta',
+            title: 'Founder & Architect | MentaIA.org (Research Lab)',
+            date: 'Present',
+            description: 'Independent R&D focused on adaptive learning engines using Generative AI and document intelligence architectures.'
+          },
           {
             id: 'exp_ircu_vpt',
             title: 'Vice-rector of Technology | IRCU',
             date: '2019 - 2021',
             description: 'Led digital transformation and online education initiatives, designing technical curricula and delivery frameworks.'
-          },
-          {
-            id: 'exp_menta',
-            title: 'Founder & Architect | MentaIA.org (Research Lab)',
-            date: 'Present',
-            description: 'Independent R&D focused on adaptive learning engines using Generative AI and document intelligence.'
           }
         ]
       }
@@ -102,7 +129,7 @@ export const cvData: CV[] = [
     slug: 'arquitecto-senior',
     name: 'Efraín González Bermúdez',
     title: 'JEFE DE ARQUITECTURA EMPRESARIAL | ESTRATEGA DE TI',
-    summary: 'Profesional senior con 15 años de trayectoria diseñando e implementando ecosistemas digitales, soluciones cloud y marcos de gobernanza tecnológica. Trayectoria liderando transformación digital e I+D para organizaciones como Kohl’s, EPA, Establishment Labs y ULACIT. Experto en conectar objetivos de negocio con ejecución técnica y gestión de presupuestos tecnológicos. Candidato a MBA en Gerencia de Tecnología y autor de más de 30 publicaciones técnicas.',
+    summary: 'Profesional senior con 15 años de trayectoria diseñando e implementando ecosistemas digitales, soluciones cloud y marcos de gobernanza tecnológica. Trayectoria liderando transformación digital e I+D para organizaciones como Kohl’s, EPA, Establishment Labs y ULACIT. Experto en conectar objetivos de negocio con ejecución técnica y gestión de proyectos de alta complejidad. Candidato a MBA en Gerencia de Tecnología.',
     contact: {
       phone: { text: '+506 8693 9737', url: 'tel:+50686939737' },
       email: { text: 'hiefraingb@gmail.com', url: 'mailto:hiefraingb@gmail.com?subject=Oportunidad%20Liderazgo%20TI' },
@@ -143,6 +170,33 @@ export const cvData: CV[] = [
         ]
       },
       {
+        id: 'habilidades_formacion',
+        title: 'Competencias y Formación Continua',
+        isTwoColumns: true,
+        items: [
+          {
+            id: 'skill_gov',
+            title: 'Gobierno y Estrategia',
+            description: ['Arquitectura Empresarial · Valuación de Proyectos · Negociación · Administración de Negocios · Liderazgo de Equipos']
+          },
+          {
+            id: 'skill_tech',
+            title: 'Infraestructura y Datos',
+            description: ['Gobernanza de Datos · Cloud (Azure/GCP) · IA Generativa · Devops · Seguridad y Continuidad']
+          },
+          {
+            id: 'skill_inst_es',
+            title: 'Instituciones de Formación',
+            description: ['INCAE · ULACIT · UNA · IBITEC · CTP Calle Blancos · CNC']
+          },
+          {
+            id: 'skill_certs_es',
+            title: 'Especializaciones',
+            description: ['Gerencia de Proyectos (PMI) · Scrum · Blockchain · Fintech · Marketing Digital']
+          }
+        ]
+      },
+      {
         id: 'educacion',
         title: 'Formación Académica',
         items: [
@@ -168,13 +222,13 @@ export const cvData: CV[] = [
             id: 'edu_ircu_lic',
             title: 'Licenciatura en Diseño y Desarrollo Web — IRCU',
             date: '2017',
-            description: 'Fundamentos sólidos en ingeniería de software y arquitectura de sistemas.'
+            description: 'Ingeniería de software y arquitectura de sistemas.'
           }
         ]
       },
       {
-        id: 'investigacion',
-        title: 'Liderazgo e Investigación',
+        id: 'liderazgo_investigacion',
+        title: 'Liderazgo e Innovación',
         items: [
           {
             id: 'exp_ircu_vpt',
@@ -196,7 +250,7 @@ export const cvData: CV[] = [
     slug: 'innovation',
     name: 'Efraín González Bermúdez',
     title: 'INNOVATION SPECIALIST',
-    summary: 'Technology professional and professor with 15 years of experience in R&D, software development, and digital strategy. Proven track record leading digital transformation for organizations such as Kohl’s, EPA, Establishment Labs, ULACIT and CostaRica.org (+30% sales lift). Expertise in bridging technical execution with strategic innovation, authoring 30+ articles and two books on computing and AI. Currently an MBA candidate in Technology Management, focusing on scaling innovation and startup ecosystems.',
+    summary: 'Technology professional and professor with 15 years of experience in R&D, software development, and digital strategy. Proven track record leading digital transformation for organizations such as Kohl’s, EPA, Establishment Labs, ULACIT and CostaRica.org (+30% sales lift). Expertise in bridging technical execution with strategic innovation, authoring 30+ articles and two books on computing and AI. Currently an MBA candidate in Technology Management.',
     contact: {
       phone: { text: '+506 8693 9737', url: 'tel:+50686939737' },
       email: { text: 'hiefraingb@gmail.com', url: 'mailto:hiefraingb@gmail.com' },
@@ -210,7 +264,7 @@ export const cvData: CV[] = [
         items: [
           {
             id: 'exp_progressia',
-            title: 'Lead Country Representative | Progressia (Dubai-based Startup)',
+            title: 'Lead Country Representative | Progressia (Dubai Startup)',
             date: '2025 - Present',
             description: 'Leading the strategic integration and deployment of AI-powered solutions for the Costa Rican market.'
           },
@@ -218,7 +272,7 @@ export const cvData: CV[] = [
             id: 'exp_kutwit',
             title: 'Innovation & Technology Strategist | Kutwit',
             date: '2017 - 2025',
-            description: 'Leading the technical lifecycle and digital strategy for software solutions, driving long-term growth and operational efficiency.'
+            description: 'Leading the technical lifecycle and digital strategy for software solutions, driving growth and operational efficiency.'
           },
           {
             id: 'exp_sm',
@@ -230,7 +284,7 @@ export const cvData: CV[] = [
             id: 'exp_capilleira',
             title: 'Content Manager & Web Developer',
             date: '2011 - 2013',
-            description: 'Optimized 300+ websites at Capilleira (2013) and fostered digital growth through content management at DCC (2011).'
+            description: 'Optimized 300+ websites at Capilleira (2013) and fostered digital growth at DCC (2011).'
           }
         ]
       },
@@ -248,7 +302,34 @@ export const cvData: CV[] = [
             id: 'exp_communities',
             title: 'Strategic Community Engagement',
             date: '2010 - Present',
-            description: 'Professor & Speaker at CyberU, EDUCATEC, Saint Thomas & CRDigital. Focus on youth, digital & social services.'
+            description: 'Professor & Speaker at CyberU, EDUCATEC, Saint Thomas & CRDigital. Focus on youth and digital services.'
+          }
+        ]
+      },
+      {
+        id: 'skills_and_training_base',
+        title: 'Professional Training & Certifications',
+        isTwoColumns: true,
+        items: [
+          {
+            id: 'skill_tech_base',
+            title: 'Technical Stack',
+            description: ['AI · JavaScript · PHP · MySQL · Blockchain · Fintech · Cloud · UX Design · Odoo']
+          },
+          {
+            id: 'skill_biz_base',
+            title: 'Business & Management',
+            description: ['Agile/Scrum · Strategic Planning · Negotiation · Digital Marketing · Sales · Journalism']
+          },
+          {
+            id: 'skill_inst_base',
+            title: 'Partner Institutions',
+            description: ['INCAE · ULACIT · UNA · CTP Calle Blancos · CNC · UPI · IBITEC · Platzi · Udemy']
+          },
+          {
+            id: 'skill_res_base',
+            title: 'Key Results',
+            description: ['30+ Technical Articles · 2 Books on AI/Computing · +30% Sales Lift (CostaRica.org)']
           }
         ]
       },
@@ -272,25 +353,25 @@ export const cvData: CV[] = [
             id: 'edu_ircu_msc',
             title: 'MSc in Web Design & Dev — IRCU',
             date: '2019',
-            description: ''
+            description: 'Advanced systems architecture.'
           },
           {
             id: 'edu_ircu_bsc',
             title: 'BSc in Web Design & Dev — IRCU',
             date: '2017',
-            description: ''
+            description: 'Foundations of software engineering.'
           }
         ]
       },
       {
-        id: 'innovation',
+        id: 'innovation_init',
         title: 'R&D Initiative',
         items: [
           {
             id: 'exp_menta',
             title: 'Founder | MentaIA.org',
             date: 'Present',
-            description: 'Research and development of an AI-powered personalized education platform, exploring the intersection of AI and adaptive learning architectures.'
+            description: 'Research and development of an AI-powered personalized education platform.'
           }
         ]
       }
