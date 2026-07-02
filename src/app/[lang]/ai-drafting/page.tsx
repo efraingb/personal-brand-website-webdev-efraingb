@@ -6,7 +6,7 @@ import { getDictionary } from '@/lib/i18n';
 import { navLinksData as getRawNavLinksData } from '@/lib/data';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Wand2, Sparkles, FileText, Layout, Rocket, MessageSquare, ArrowRight } from 'lucide-react';
+import { Wand2, Sparkles, FileText, Layout, Rocket, MessageSquare, ArrowRight, ShieldCheck } from 'lucide-react';
 import Link from 'next/link';
 
 interface AiDraftingPageProps {
@@ -37,7 +37,7 @@ export default async function AiDraftingPage({ params }: AiDraftingPageProps) {
             </div>
             <h1 className="text-4xl md:text-5xl font-bold text-primary mb-4">AI Drafting Room</h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Próximamente: Tu centro de mando estratégico donde la IA genera propuestas y adaptaciones basadas en tu ADN profesional.
+              Generador estratégico de documentos optimizados para vacantes de alto nivel en EE.UU. e instituciones globales.
             </p>
           </div>
 
@@ -47,13 +47,17 @@ export default async function AiDraftingPage({ params }: AiDraftingPageProps) {
               <Card className="border-dashed border-2">
                 <CardHeader>
                   <CardTitle className="text-sm uppercase tracking-wider text-muted-foreground flex items-center gap-2">
-                    <Layout className="w-4 h-4" /> Contexto Maestro
+                    <Layout className="w-4 h-4" /> ADN Profesional (Contexto)
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <p className="text-xs text-muted-foreground italic">
-                    Aquí la IA leerá automáticamente tus versiones maestras para asegurar coherencia total.
+                    La IA utilizará estas versiones maestras para redactar propuestas coherentes.
                   </p>
+                  <div className="p-3 bg-muted rounded-lg flex items-center justify-between text-xs">
+                    <span className="flex items-center gap-2"><FileText className="w-3 h-3" /> CV AI Leadership (US)</span>
+                    <span className="text-green-500 font-bold uppercase">Maestro</span>
+                  </div>
                   <div className="p-3 bg-muted rounded-lg flex items-center justify-between text-xs">
                     <span className="flex items-center gap-2"><FileText className="w-3 h-3" /> CV Enterprise (EN)</span>
                     <span className="text-green-500 font-bold uppercase">Listo</span>
@@ -67,12 +71,12 @@ export default async function AiDraftingPage({ params }: AiDraftingPageProps) {
 
               <Card className="bg-primary text-primary-foreground overflow-hidden relative">
                 <div className="absolute top-0 right-0 p-4 opacity-10">
-                   <Rocket className="w-24 h-24 rotate-12" />
+                   <ShieldCheck className="w-24 h-24 rotate-12" />
                 </div>
                 <CardContent className="p-6">
-                  <h3 className="font-bold text-lg mb-2">Visión de Equipo</h3>
+                  <h3 className="font-bold text-lg mb-2">US Compliance</h3>
                   <p className="text-sm opacity-80 leading-relaxed">
-                    Soporte para incluir a tus socios estratégicos de EE.UU. y Dubai en propuestas modulares automáticamente.
+                    Módulo activado para destacar colaboración con socios estratégicos en EE.UU. (Boston/East Coast) para temas de visa y ejecución local.
                   </p>
                 </CardContent>
               </Card>
@@ -84,24 +88,24 @@ export default async function AiDraftingPage({ params }: AiDraftingPageProps) {
                 <div className="p-4 bg-accent/10 rounded-full mb-6">
                   <Wand2 className="w-12 h-12 text-accent" />
                 </div>
-                <h3 className="text-2xl font-bold text-primary mb-3">Generador de Documentos</h3>
+                <h3 className="text-2xl font-bold text-primary mb-3">Tailoring Engine (IA)</h3>
                 <p className="text-muted-foreground mb-8 max-w-md">
-                  Pega aquí una descripción de puesto o un resumen de proyecto. La IA redactará una versión inicial optimizada para ATS y humanos.
+                  Pega una descripción de puesto (Job ID) o requerimientos técnicos. La IA redactará una Carta de Presentación y adaptará tu CV al perfil específico.
                 </p>
                 
                 <div className="w-full max-w-md p-4 bg-background border border-border rounded-xl shadow-inner mb-6 opacity-50 cursor-not-allowed">
                   <div className="flex items-center gap-2 text-muted-foreground text-sm mb-2">
-                    <MessageSquare className="w-4 h-4" /> Escribe o pega el requerimiento...
+                    <MessageSquare className="w-4 h-4" /> Escribe o pega el requerimiento de LinkedIn...
                   </div>
                   <div className="h-20 bg-muted/50 rounded"></div>
                 </div>
 
                 <Button disabled size="lg" className="rounded-xl">
-                  Iniciar Redacción Estratégica
+                  Generar Adaptación Estratégica
                 </Button>
                 
                 <div className="mt-8 flex items-center gap-2 text-xs text-muted-foreground">
-                  <ArrowRight className="w-3 h-3" /> Próxima actualización en fase de pruebas internas.
+                  <ArrowRight className="w-3 h-3" /> Fase de entrenamiento: Integrando modelos de NLP para "Document Intelligence".
                 </div>
               </Card>
             </div>

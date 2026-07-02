@@ -8,7 +8,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
-import { FileText } from "lucide-react";
+import { FileText, Sparkles } from "lucide-react";
 import Link from "next/link";
 
 
@@ -41,19 +41,24 @@ export default function Footer({ dict }: FooterProps) {
         </p>
 
       </div>
-       <div className="absolute bottom-4 right-4">
+       <div className="absolute bottom-4 right-4 flex gap-2">
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="ghost" size="icon" aria-label={dict.openCvMenu || "Open CV menu"}>
               <FileText className="h-4 w-4 text-muted-foreground" />
             </Button>
           </DropdownMenuTrigger>
-          <DropdownMenuContent align="end" side="top" className="w-40">
+          <DropdownMenuContent align="end" side="top" className="w-48">
             <DropdownMenuItem asChild>
-              <Link href="/en/cv/en" className="w-full text-left">{dict.cvEnglish || "CV (English)"}</Link>
+              <Link href="/en/cv/ai-leader" className="w-full text-left font-bold flex items-center gap-2">
+                <Sparkles className="w-3 h-3 text-accent" /> AI Leadership (US)
+              </Link>
             </DropdownMenuItem>
             <DropdownMenuItem asChild>
-              <Link href="/es/cv/es" className="w-full text-left">{dict.cvSpanish || "CV (Español)"}</Link>
+              <Link href="/en/cv/enterprise" className="w-full text-left">Enterprise Architect (EN)</Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem asChild>
+              <Link href="/es/cv/es" className="w-full text-left">Especialista TI (ES)</Link>
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
