@@ -58,7 +58,7 @@ export const cvData: CV[] = [
             title: 'AI Strategy & Web Architecture | ULACIT',
             date: '2025 - 2026',
             description: [
-              'Engineered an AI-powered document interpretation and landing engine, automating large-scale digital operations and improving conversion efficiency by 30%.',
+              'Built an AI-powered landing page engine that automated campaign setup and tracking, improving lead conversion efficiency by ~30%.',
               'Architected a multi-site ecosystem integrating e-commerce and centralized CMS for thousands of monthly users.'
             ]
           },
@@ -88,6 +88,94 @@ export const cvData: CV[] = [
             title: "Dual MSc in Big Data & Project Management — ENEB",
             date: '2023 - 2025',
             description: 'Specialization in Data-Driven Strategy and Agile Orchestration.'
+          }
+        ]
+      }
+    ]
+  },
+  {
+    slug: 'arquitecto-senior',
+    name: 'Efraín González Bermúdez',
+    title: 'JEFE DE ARQUITECTURA EMPRESARIAL | ESTRATEGA DE TI',
+    summary: 'Profesional senior con 15 años de trayectoria diseñando e implementando ecosistemas digitales, soluciones cloud y marcos de gobernanza tecnológica. Especialista en conectar los objetivos de negocio con la ejecución técnica, liderando iniciativas de transformación digital para organizaciones como Kohl’s, EPA, Establishment Labs y ULACIT. Experto en escalabilidad de soluciones, presupuestos tecnológicos (Capex/Opex) y alineación estratégica de TI. Candidato a MBA en Gerencia de Tecnología y autor de más de 30 publicaciones técnicas.',
+    contact: {
+      phone: { text: '+506 8693 9737', url: 'tel:+50686939737' },
+      email: { text: 'hiefraingb@gmail.com', url: 'mailto:hiefraingb@gmail.com?subject=Oportunidad%20Liderazgo%20TI' },
+      website: { text: 'EfrainGB.org', url: '/es/cv/arquitecto-senior' },
+      linkedin: { text: 'linkedin.com/in/efraingb', url: 'https://www.linkedin.com/in/efraingb/' },
+    },
+    sections: [
+      {
+        id: 'competencias_core',
+        title: 'Competencias de Liderazgo y Gobierno',
+        isTwoColumns: true,
+        items: [
+          {
+            id: 'arquitectura_gobierno',
+            title: 'Arquitectura y Gobernanza',
+            description: [
+              'Diseño de Arquitectura Empresarial', 'Gobernanza de TI (COBIT/TOGAF)', 'Infraestructura Cloud (GCP/Azure)', 'Gestión del Ciclo de Vida (SLCM)', 'Estándares Técnicos y Políticas', 'Estrategia de APIs y Microservicios', 'Ciberseguridad y Continuidad'
+            ]
+          },
+          {
+            id: 'liderazgo_negocio',
+            title: 'Gestión Estratégica',
+            description: [
+              'Alineación Negocio-TI (BRM)', 'Gestión de Presupuestos (Capex/Opex)', 'Metodologías Ágiles (Scrum/Agile)', 'Dirección de Proyectos (PMI)', 'Gestión de Stakeholders', 'Business Intelligence', 'Transformación Digital'
+            ]
+          }
+        ]
+      },
+      {
+        id: 'experiencia_profesional',
+        title: 'Experiencia Profesional',
+        items: [
+          {
+            id: 'exp_menta',
+            title: 'CEO & Fundador | Menta IA',
+            date: '2025 - Presente',
+            description: [
+              'Arquitectura de un motor de IA Generativa propio para educación personalizada.',
+              'Dirección estratégica y gobernanza de una plataforma global de EdTech.'
+            ]
+          },
+          {
+            id: 'exp_ulacit',
+            title: 'Web Master & Estrategia IT | ULACIT',
+            date: '2025 - 2026',
+            description: [
+              'Lideré el gobierno de arquitectura para un ecosistema multi-sitio con e-commerce integrado.',
+              'Construcción de un motor de landing pages con IA que mejoró la conversión en un ~30%.',
+              'Orquestación de equipos técnicos y proveedores externos para asegurar la continuidad y escalabilidad.'
+            ]
+          },
+          {
+            id: 'exp_kutwit',
+            title: 'Estratega de Innovación y Tecnología | Kutwit',
+            date: '2017 - 2025',
+            description: [
+              'Diseño de arquitecturas escalables para clientes internacionales en EE.UU. y LatAm.',
+              'Consultoría en modernización de sistemas legacy y reducción de deuda técnica para firmas en NASDAQ.',
+              'Gobernanza de datos y seguridad en entornos altamente regulados.'
+            ]
+          }
+        ]
+      },
+      {
+        id: 'educacion',
+        title: 'Educación Superior',
+        items: [
+          {
+            id: 'edu_mba',
+            title: 'MBA, Gerencia de Tecnología — ULACIT',
+            date: '2025 - 2027',
+            description: 'Enfoque en Gobernanza Estratégica y Escalabilidad de Operaciones.'
+          },
+          {
+            id: 'edu_master',
+            title: 'Máster en Big Data y Dirección de Proyectos — ENEB',
+            date: '2023 - 2025',
+            description: 'Especialización en Estrategia impulsada por Datos y Orquestación Ágil.'
           }
         ]
       }

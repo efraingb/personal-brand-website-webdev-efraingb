@@ -8,7 +8,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
-import { FileText, Sparkles } from "lucide-react";
+import { FileText, Sparkles, ShieldCheck } from "lucide-react";
 import Link from "next/link";
 
 
@@ -48,10 +48,15 @@ export default function Footer({ dict }: FooterProps) {
               <FileText className="h-4 w-4 text-muted-foreground" />
             </Button>
           </DropdownMenuTrigger>
-          <DropdownMenuContent align="end" side="top" className="w-48">
-            <DropdownMenuItem asChild>
+          <DropdownMenuContent align="end" side="top" className="w-56">
+             <DropdownMenuItem asChild>
               <Link href="/en/cv/ai-leader" className="w-full text-left font-bold flex items-center gap-2">
                 <Sparkles className="w-3 h-3 text-accent" /> AI Leadership (US)
+              </Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem asChild>
+              <Link href="/es/cv/arquitecto-senior" className="w-full text-left font-bold flex items-center gap-2">
+                <ShieldCheck className="w-3 h-3 text-primary" /> Arq. Empresarial (ES)
               </Link>
             </DropdownMenuItem>
             <DropdownMenuItem asChild>
