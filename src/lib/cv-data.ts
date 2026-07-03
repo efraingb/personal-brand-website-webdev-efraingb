@@ -9,7 +9,7 @@ export const cvData: CV[] = [
     contact: {
       phone: { text: '+506 8693 9737', url: 'tel:+50686939737' },
       email: { text: 'hiefraingb@gmail.com', url: 'mailto:hiefraingb@gmail.com?subject=Strategic%20AI%20Leadership' },
-      website: { text: 'EfrainGB.org', url: '/en/cv/ai-leader' },
+      website: { text: 'EfrainGB.org', url: '/?mode=ai' },
       linkedin: { text: 'linkedin.com/in/efraingb', url: 'https://www.linkedin.com/in/efraingb/' },
     },
     sections: [
@@ -24,7 +24,7 @@ export const cvData: CV[] = [
             description: [
               'Directing the strategic integration and deployment of AI-driven financial education solutions for the Costa Rican market.',
               'Aligning product roadmap, content, and technology with local regulations and international growth objectives.',
-              'Managing high-level partnerships and stakeholder orchestration for market expansion.'
+              'Managing high-level partnerships and stakeholder coordination for market expansion.'
             ]
           },
           {
@@ -115,8 +115,8 @@ export const cvData: CV[] = [
         ]
       },
       {
-        id: 'innovation',
-        title: 'Social & R&D Leadership',
+        id: 'innovation_rd',
+        title: 'Research & Innovation',
         items: [
           {
             id: 'exp_ircu_vpt',
@@ -142,7 +142,7 @@ export const cvData: CV[] = [
     contact: {
       phone: { text: '+506 8693 9737', url: 'tel:+50686939737' },
       email: { text: 'hiefraingb@gmail.com', url: 'mailto:hiefraingb@gmail.com?subject=Oportunidad%20Liderazgo%20TI' },
-      website: { text: 'EfrainGB.org', url: '/es/cv/arquitecto-senior' },
+      website: { text: 'EfrainGB.org', url: '/es?mode=enterprise' },
       linkedin: { text: 'linkedin.com/in/efraingb', url: 'https://www.linkedin.com/in/efraingb/' },
     },
     sections: [
@@ -245,7 +245,7 @@ export const cvData: CV[] = [
       },
       {
         id: 'liderazgo_investigacion',
-        title: 'Liderazgo e Innovación',
+        title: 'Investigación e Innovación',
         items: [
           {
             id: 'exp_ircu_vpt',
@@ -271,7 +271,7 @@ export const cvData: CV[] = [
     contact: {
       phone: { text: '+506 8693 9737', url: 'tel:+50686939737' },
       email: { text: 'hiefraingb@gmail.com', url: 'mailto:hiefraingb@gmail.com' },
-      website: { text: 'EfrainGB.org', url: '/en/cv/innovation' },
+      website: { text: 'EfrainGB.org', url: '/' },
       linkedin: { text: 'linkedin.com/in/efraingb', url: 'https://www.linkedin.com/in/efraingb/' },
     },
     sections: [
@@ -281,7 +281,7 @@ export const cvData: CV[] = [
         items: [
           {
             id: 'exp_progressia',
-            title: 'Lead Country Representative | Progressia (Dubai Startup)',
+            title: 'Lead Country Representative | Progressia (Dubai-based Startup)',
             date: '2025 - Present',
             description: 'Leading the strategic integration and deployment of AI-powered solutions for the Costa Rican market.'
           },
@@ -289,7 +289,7 @@ export const cvData: CV[] = [
             id: 'exp_kutwit',
             title: 'Innovation & Technology Strategist | Kutwit',
             date: '2017 - 2025',
-            description: 'Leading the technical lifecycle and digital strategy for software solutions, driving growth and operational efficiency.'
+            description: 'Leading the technical lifecycle and digital strategy for software solutions, driving long-term growth and operational efficiency.'
           },
           {
             id: 'exp_sm',
