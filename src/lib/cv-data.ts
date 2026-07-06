@@ -5,7 +5,7 @@ export const cvData: CV[] = [
     slug: 'ai-leader',
     name: 'Efraín González Bermúdez',
     title: 'STRATEGIC SOLUTIONS ARCHITECT | HEAD OF AI',
-    summary: 'Senior technology professional with 15 years of experience designing and implementing digital ecosystems, cloud solutions, and security architecture frameworks. Proven track record leading digital transformation and R&D for organizations such as Kohl’s, EPA, and ULACIT. Expert in bridging business objectives with technical execution, with deep expertise in hybrid cloud governance (GCP/Azure), AI-enabled product scalability, and security compliance (NIST/ISO standards). MBA candidate in Technology Management.',
+    summary: 'Senior technology professional with 15 years of experience designing and implementing digital ecosystems, cloud solutions, and security architecture frameworks. Proven track record leading digital transformation and R&D for organizations such as Kohl’s, EPA, and ULACIT. Expert in bridging business objectives with technical execution, with deep expertise in hybrid cloud governance (GCP/Azure), AI-enabled product scalability, and security compliance (CIS/NIST standards). MSc in Big Data & MSc in Project Management.',
     contact: {
       phone: { text: '+506 8693 9737', url: 'tel:+50686939737' },
       email: { text: 'hiefraingb@gmail.com', url: 'mailto:hiefraingb@gmail.com?subject=Architect%20Lead%20Inquiry' },
@@ -64,7 +64,7 @@ export const cvData: CV[] = [
           {
             id: 'skill_ai_dev',
             title: 'Solutions & Security Architecture',
-            description: ['Security Architecture · Hybrid Cloud (GCP/Azure) · IAM & Identity Governance · CIS Benchmarks · NIST Compliance · API Strategy']
+            description: ['Security Architecture · Hybrid Cloud (GCP/Azure) · Access Control & Data Protection · CIS Benchmarks · NIST Compliance · API Strategy']
           },
           {
             id: 'skill_strategy',
@@ -199,7 +199,7 @@ export const cvData: CV[] = [
           {
             id: 'skill_tech',
             title: 'Infraestructura y Cumplimiento',
-            description: ['Nube Híbrida (Azure/GCP) · Seguridad de Datos · Continuidad de Negocio · Devops · Estrategia de APIs']
+            description: ['Nube Híbrida (Azure/GCP) · Seguridad de Datos · Continuidad de Negocio · DevOps · Estrategia de APIs']
           },
           {
             id: 'skill_inst_es',
