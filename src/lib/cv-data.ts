@@ -4,11 +4,11 @@ export const cvData: CV[] = [
   {
     slug: 'ai-leader',
     name: 'Efraín González Bermúdez',
-    title: 'HEAD OF AI | STRATEGIC SOLUTIONS ARCHITECT',
-    summary: 'Senior technology professional with 15 years of experience designing and implementing digital ecosystems, cloud solutions, and strategic IT frameworks. Proven track record leading digital transformation and R&D initiatives for organizations such as Kohl’s, EPA, Establishment Labs, and ULACIT. Specialized in bridging business objectives with technical execution, with deep expertise in solution scalability and AI-enabled products. MBA candidate in Technology Management with 30+ technical publications.',
+    title: 'STRATEGIC SOLUTIONS ARCHITECT | HEAD OF AI',
+    summary: 'Senior technology professional with 15 years of experience designing and implementing digital ecosystems, cloud solutions, and security architecture frameworks. Proven track record leading digital transformation and R&D for organizations such as Kohl’s, EPA, and ULACIT. Expert in bridging business objectives with technical execution, with deep expertise in hybrid cloud governance (GCP/Azure), AI-enabled product scalability, and security compliance (NIST/ISO standards). MBA candidate in Technology Management.',
     contact: {
       phone: { text: '+506 8693 9737', url: 'tel:+50686939737' },
-      email: { text: 'hiefraingb@gmail.com', url: 'mailto:hiefraingb@gmail.com?subject=Strategic%20AI%20Leadership' },
+      email: { text: 'hiefraingb@gmail.com', url: 'mailto:hiefraingb@gmail.com?subject=Architect%20Lead%20Inquiry' },
       website: { text: 'EfrainGB.org', url: '/?mode=ai' },
       linkedin: { text: 'linkedin.com/in/efraingb', url: 'https://www.linkedin.com/in/efraingb/' },
     },
@@ -23,8 +23,7 @@ export const cvData: CV[] = [
             date: '2025 - Present',
             description: [
               'Directing the strategic integration and deployment of AI-driven financial education solutions for the Costa Rican market.',
-              'Aligning product roadmap, content, and technology with local regulations and international growth objectives.',
-              'Managing high-level partnerships and stakeholder coordination for market expansion.'
+              'Aligning product roadmap, security standards, and technology with local regulations and international growth objectives.'
             ]
           },
           {
@@ -33,8 +32,8 @@ export const cvData: CV[] = [
             date: '2017 - 2025',
             description: [
               'Led technical lifecycle and digital strategy for enterprise clients (Kohl’s, Establishment Labs, EPA).',
-              'Architected scalable cloud infrastructures (GCP/Firebase) and defined technical standards for multi-site institutional ecosystems.',
-              'Consulted on high-level digital transformation projects, focusing on document intelligence and search automation.'
+              'Architected scalable cloud infrastructures (GCP/Firebase/Azure) and defined security governance standards for multi-site institutional ecosystems.',
+              'Consulted on high-level digital transformation, focusing on document intelligence and search automation.'
             ]
           },
           {
@@ -59,18 +58,18 @@ export const cvData: CV[] = [
       },
       {
         id: 'skills_and_training',
-        title: 'Expertise & Professional Training',
+        title: 'Architecture & Governance Expertise',
         isTwoColumns: true,
         items: [
           {
             id: 'skill_ai_dev',
-            title: 'AI & Advanced Development',
-            description: ['Generative AI · NLP · Document Intelligence · Python · Cloud Infrastructure (GCP/Firebase) · Next.js · React']
+            title: 'Solutions & Security Architecture',
+            description: ['Security Architecture · Hybrid Cloud (GCP/Azure) · IAM & Identity Governance · CIS Benchmarks · NIST Compliance · API Strategy']
           },
           {
             id: 'skill_strategy',
-            title: 'Strategy & Leadership',
-            description: ['Business Acceleration · Strategic Planning · Innovation Management · Technical Writing · Public Speaking']
+            title: 'Strategy & Engineering',
+            description: ['AI & ML Implementation · Next.js · React · Python · Agile Orchestration · Technical Writing · Strategic IT Planning']
           },
           {
             id: 'skill_inst',
@@ -80,7 +79,7 @@ export const cvData: CV[] = [
           {
             id: 'skill_certs',
             title: 'Specialized Training',
-            description: ['Big Data · Project Management (Agile) · Blockchain · Fintech · Google Analytics · Digital Journalism']
+            description: ['Big Data · Project Management · Cloud Security · Fintech · Google Analytics · Digital Journalism']
           }
         ]
       },
@@ -128,7 +127,7 @@ export const cvData: CV[] = [
             id: 'exp_menta',
             title: 'Founder & Architect | MentaIA.org (R&D Lab)',
             date: 'Present',
-            description: 'Research and development of an AI-powered personalized education platform, exploring the intersection of AI and adaptive learning architectures.'
+            description: 'Research and development of AI-powered personalized education architectures (Generative AI & Adaptive Learning).'
           }
         ]
       }
@@ -137,11 +136,11 @@ export const cvData: CV[] = [
   {
     slug: 'arquitecto-senior',
     name: 'Efraín González Bermúdez',
-    title: 'JEFE DE ARQUITECTURA EMPRESARIAL | ESTRATEGA DE TI',
-    summary: 'Profesional senior con 15 años de trayectoria diseñando e implementando ecosistemas digitales, soluciones cloud y marcos de gobernanza tecnológica. Trayectoria liderando transformación digital e I+D para organizaciones como Kohl’s, EPA, Establishment Labs y ULACIT. Experto en conectar objetivos de negocio con ejecución técnica y gestión de presupuestos (Capex/Opex). Candidato a MBA en Gerencia de Tecnología.',
+    title: 'JEFE DE ARQUITECTURA EMPRESARIAL | CONSULTOR ESTRATÉGICO TI',
+    summary: 'Profesional senior con 15 años de trayectoria en diseño de ecosistemas digitales y gobernanza de TI. Experto en alinear tecnología con objetivos de negocio mediante el desarrollo de requerimientos complejos, análisis de inversión (ROI/TCO) y liderazgo de equipos técnicos en entornos regulados. Trayectoria con clientes globales como Kohl’s y EPA. Candidato a MBA en Gerencia de Tecnología.',
     contact: {
       phone: { text: '+506 8693 9737', url: 'tel:+50686939737' },
-      email: { text: 'hiefraingb@gmail.com', url: 'mailto:hiefraingb@gmail.com?subject=Oportunidad%20Liderazgo%20TI' },
+      email: { text: 'hiefraingb@gmail.com', url: 'mailto:hiefraingb@gmail.com?subject=Consulta%20Estrat%C3%A9gica%20TI' },
       website: { text: 'EfrainGB.org', url: '/es?mode=enterprise' },
       linkedin: { text: 'linkedin.com/in/efraingb', url: 'https://www.linkedin.com/in/efraingb/' },
     },
@@ -165,7 +164,8 @@ export const cvData: CV[] = [
             date: '2017 - 2025',
             description: [
               'Diseño de arquitecturas escalables y gobierno de TI para clientes como Kohl’s, EPA y Establishment Labs.',
-              'Gestión del ciclo de vida técnico y reducción de deuda técnica en plataformas de alta disponibilidad.'
+              'Gestión de presupuestos (Capex/Opex), análisis de TCO y reducción de deuda técnica en plataformas críticas.',
+              'Liderazgo en la traducción de necesidades de negocio a arquitecturas técnicas robustas.'
             ]
           },
           {
@@ -181,25 +181,25 @@ export const cvData: CV[] = [
             title: 'Gestor de Contenido y Desarrollador Web',
             date: '2011 - 2013',
             description: [
-              'Optimización de más de 300 sitios web en EE.UU. en Capilleira (2013) y gestión de crecimiento digital en DCC (2011).'
+              'Optimización de sitios web de alto tráfico en EE.UU. (Capilleira) y gestión de crecimiento digital (DCC).'
             ]
           }
         ]
       },
       {
         id: 'habilidades_formacion',
-        title: 'Competencias y Formación Continua',
+        title: 'Gobernanza y Estrategia de Negocio',
         isTwoColumns: true,
         items: [
           {
             id: 'skill_gov',
-            title: 'Gobierno y Estrategia',
-            description: ['Arquitectura Empresarial · Valuación de Proyectos (Capex/Opex) · Negociación · Administración de Negocios · Liderazgo de Equipos']
+            title: 'Gobierno y Arquitectura',
+            description: ['Arquitectura Empresarial · Marcos TOGAF/COBIT · Análisis ROI/TCO · Gestión de Requerimientos (SMART) · Mejora de Procesos']
           },
           {
             id: 'skill_tech',
-            title: 'Infraestructura y Datos',
-            description: ['Gobernanza de Datos · Cloud (GCP/Azure) · IA Generativa · Devops · Seguridad y Continuidad']
+            title: 'Infraestructura y Cumplimiento',
+            description: ['Nube Híbrida (Azure/GCP) · Seguridad de Datos · Continuidad de Negocio · Devops · Estrategia de APIs']
           },
           {
             id: 'skill_inst_es',
@@ -209,7 +209,7 @@ export const cvData: CV[] = [
           {
             id: 'skill_certs_es',
             title: 'Especializaciones',
-            description: ['Máster Big Data · Dirección de Proyectos · Blockchain · Fintech · Marketing Digital']
+            description: ['Máster Big Data · Dirección de Proyectos · Gestión Estratégica · Fintech · Marketing Digital']
           }
         ]
       },

@@ -17,5 +17,22 @@ export const coverLettersData: CoverLetter[] = [
       "Sincerely,",
       "Efraín González Bermúdez"
     ]
+  },
+  {
+    slug: 'kaiser-1565',
+    recipientName: 'Shivani M. Gharat / Recruitment Team',
+    companyName: 'Kaiser Permanente',
+    jobTitle: 'Architect Lead',
+    jobId: '1565',
+    date: new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
+    content: [
+      "Dear Recruitment Team,",
+      "I am writing to express my interest in the Architect Lead position (Job ID: 1565) at Kaiser Permanente, as referred by Alexandre Lozada. With 15 years of IT experience and a strong background in security architecture and cloud governance, I am eager to contribute to Kaiser Permanente’s mission of providing secure, high-quality healthcare solutions.",
+      "In my recent roles, I have specialized in designing resilient cloud architectures (Azure and GCP) while ensuring strict adherence to security benchmarks (CIS, NIST). I have a deep understanding of application domains across web and mobile platforms, and I am experienced in establishing architectural standards that balance innovation with production reliability.",
+      "My approach to security architecture is data-driven and outcome-oriented. I have successfully led cross-functional teams through complex digital transformations, navigating regulated frameworks such as ISO 27000. I am particularly interested in how Kaiser Permanente leverages cloud networking and IAM to protect critical healthcare data.",
+      "I am confident that my technical leadership and my ability to communicate complex findings to both executive and technical audiences will make me a valuable asset to your architecture team. Thank you for your time and consideration.",
+      "Sincerely,",
+      "Efraín González Bermúdez"
+    ]
   }
 ];
