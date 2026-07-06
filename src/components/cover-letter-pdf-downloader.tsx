@@ -21,7 +21,6 @@ export default function CoverLetterPdfDownloader({ letter, text }: { letter: Cov
       const { pdf } = await import('@react-pdf/renderer');
       const CoverLetterDocument = (await import('./cover-letter-document')).default;
 
-      // Sanitizar datos - Convertir todo a strings
       const safeLetter = {
         jobTitle: String(letter.jobTitle || ''),
         date: String(letter.date || ''),
@@ -37,15 +36,18 @@ export default function CoverLetterPdfDownloader({ letter, text }: { letter: Cov
       const url = URL.createObjectURL(blob);
       const link = document.createElement('a');
       link.href = url;
-      link.download = `Cover_Letter_${safeLetter.jobTitle.replace(/ /g, '_')}.pdf`;
+      
+      // Filename: Cover_Letter_Efrain_Gonzalez_JobTitle.pdf
+      const sanitizedJobTitle = safeLetter.jobTitle.replace(/ /g, '_').replace(/[^a-zA-Z0-9_]/g, '');
+      link.download = `Cover_Letter_Efrain_Gonzalez_${sanitizedJobTitle}.pdf`;
+      
       document.body.appendChild(link);
       link.click();
-      
       document.body.removeChild(link);
       URL.revokeObjectURL(url);
     } catch (error) {
       console.error('Error generating PDF:', error);
-      alert('Error generating PDF. Please try again.');
+      alert('Error generating PDF.');
     } finally {
       setIsGenerating(false);
     }

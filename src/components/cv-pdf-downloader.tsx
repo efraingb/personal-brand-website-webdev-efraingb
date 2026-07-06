@@ -18,11 +18,9 @@ export default function CvPdfDownloader({ cv, text }: { cv: CV; text?: string })
     setIsGenerating(true);
     
     try {
-      // 1. DYNAMIC IMPORTS - Ensure absolute client-side execution
       const { pdf } = await import('@react-pdf/renderer');
       const CVDocument = (await import('./cv-document')).default;
 
-      // 2. DATA SANITIZATION - Convert EVERYTHING to flat, primitive strings
       const sanitizeData = (cvData: CV) => {
         const contactArr = [
           cvData.contact?.phone?.text,
@@ -69,24 +67,24 @@ export default function CvPdfDownloader({ cv, text }: { cv: CV; text?: string })
       };
 
       const safeCv = sanitizeData(cv);
-
-      // 3. GENERATION - Call pdf().toBlob() with the pre-instantiated document
       const doc = <CVDocument cv={safeCv} />;
       const blob = await pdf(doc).toBlob();
       
-      // 4. DOWNLOAD TRIGGER
       const url = URL.createObjectURL(blob);
       const link = document.createElement('a');
       link.href = url;
-      link.download = `${safeCv.name.replace(/ /g, '_')}_CV.pdf`;
+      
+      // Filename: CV_Efrain_Gonzalez_Title.pdf (Sanitized)
+      const sanitizedTitle = safeCv.title.split('|')[0].trim().replace(/ /g, '_').replace(/[^a-zA-Z0-9_]/g, '');
+      link.download = `CV_Efrain_Gonzalez_${sanitizedTitle}.pdf`;
+      
       document.body.appendChild(link);
       link.click();
-      
       document.body.removeChild(link);
       URL.revokeObjectURL(url);
     } catch (error) {
       console.error('CRITICAL PDF ERROR:', error);
-      alert('Error generating PDF. This might be a browser compatibility issue.');
+      alert('Error generating PDF.');
     } finally {
       setIsGenerating(false);
     }
