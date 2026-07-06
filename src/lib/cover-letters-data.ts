@@ -34,5 +34,22 @@ export const coverLettersData: CoverLetter[] = [
       "Sincerely,",
       "Efraín González Bermúdez"
     ]
+  },
+  {
+    slug: 'kaiser-1584',
+    recipientName: 'Shivani M. Gharat / Recruitment Team',
+    companyName: 'Kaiser Permanente',
+    jobTitle: 'IDP - IT Consultant V',
+    jobId: '1584',
+    date: new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
+    content: [
+      "Dear Recruitment Team,",
+      "I am writing to express my interest in the IDP - IT Consultant V position (Job ID: 1584) at Kaiser Permanente, as referred by Alexandre Lozada. With 15 years of experience in enterprise technology and a strong background in business process optimization, I am well-prepared to serve as a lead technical expert for your strategic initiatives.",
+      "In my tenure at organizations like Kutwit and ULACIT, I have specialized in developing complex system requirements using frameworks like SMART, and leading the creation of comprehensive business cases. I have a proven track record of assessing TCO (Total Cost of Ownership) and ROI for high-impact solution proposals, ensuring that technical investments align perfectly with long-term business value.",
+      "My approach to IT consulting is rooted in deep technical expertise combined with a strategic understanding of business operations. I am adept at mapping current state versus future state processes and coordinating cross-functional stakeholders to bridge gaps in current capabilities.",
+      "I am confident that my experience in technical leadership and my ability to drive continuous process improvement will make me a valuable asset to Kaiser Permanente. Thank you for your time and consideration.",
+      "Sincerely,",
+      "Efraín González Bermúdez"
+    ]
   }
 ];
