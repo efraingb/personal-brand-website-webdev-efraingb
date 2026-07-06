@@ -22,8 +22,9 @@ export async function generateMetadata({ params }: CoverLetterPageProps): Promis
     return { title: 'Cover Letter Not Found' };
   }
 
+  // Privacy focus: Do not expose the company name in the browser tab title
   return {
-    title: `Cover Letter | ${letter.jobTitle} - ${letter.companyName}`,
+    title: `Cover Letter | ${letter.jobTitle}`,
   };
 }
 
@@ -81,13 +82,13 @@ export default async function CoverLetterPage({ params }: CoverLetterPageProps) 
 
         {/* Footer Signature (Print Only) */}
         <footer className="mt-16 pt-8 border-t border-slate-100 hidden print:block">
-            <p className="text-sm text-slate-400">Application submitted via EfrainGB.org/en/cv/enterprise</p>
+            <p className="text-sm text-slate-400">Application submitted via EfrainGB.org</p>
         </footer>
 
         {/* Floating Controls */}
         <div className="fixed bottom-6 right-6 print-hidden flex gap-3 items-center">
             <Button variant="outline" asChild className="shadow-lg h-11">
-                <Link href={`/${lang}/cv/enterprise`}>Back to CV</Link>
+                <Link href={`/${lang}`}>Back to Home</Link>
             </Button>
             <CoverLetterPdfDownloader letter={letter} text={dict.cv?.saveAsPdf || 'Save as PDF'} />
         </div>

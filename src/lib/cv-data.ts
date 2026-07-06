@@ -9,7 +9,7 @@ export const cvData: CV[] = [
     contact: {
       phone: { text: '+506 8693 9737', url: 'tel:+50686939737' },
       email: { text: 'hiefraingb@gmail.com', url: 'mailto:hiefraingb@gmail.com?subject=Architect%20Lead%20Inquiry' },
-      website: { text: 'EfrainGB.org', url: '/?mode=ai' },
+      website: { text: 'EfrainGB.org', url: '/en?mode=ai' },
       linkedin: { text: 'linkedin.com/in/efraingb', url: 'https://www.linkedin.com/in/efraingb/' },
     },
     sections: [
@@ -23,7 +23,7 @@ export const cvData: CV[] = [
             date: '2025 - Present',
             description: [
               'Directing the strategic integration and deployment of AI-driven financial education solutions for the Costa Rican market.',
-              'Aligning product roadmap, security standards, and technology with local regulations and international growth objectives.'
+              'Aligning product roadmap, security standards, and technology with local regulations and growth objectives.'
             ]
           },
           {
@@ -134,6 +134,105 @@ export const cvData: CV[] = [
     ]
   },
   {
+    slug: 'senior-architect',
+    name: 'Efraín González Bermúdez',
+    title: 'SENIOR SOLUTIONS ARCHITECT | ENTERPRISE IT CONSULTANT',
+    summary: 'Senior technology professional with 15 years of experience in enterprise architecture, cloud governance, and IT strategy. Proven expertise in aligning technical execution with high-level business objectives (ROI/TCO analysis). Led digital transformation for global clients including Kohl’s and EPA. Specialized in scalable institutional ecosystems and secure technical roadmaps.',
+    contact: {
+      phone: { text: '+506 8693 9737', url: 'tel:+50686939737' },
+      email: { text: 'hiefraingb@gmail.com', url: 'mailto:hiefraingb@gmail.com?subject=Senior%20Consultant%20Inquiry' },
+      website: { text: 'EfrainGB.org', url: '/en?mode=enterprise' },
+      linkedin: { text: 'linkedin.com/in/efraingb', url: 'https://www.linkedin.com/in/efraingb/' },
+    },
+    sections: [
+      {
+        id: 'professional_experience',
+        title: 'Professional Experience',
+        items: [
+          {
+            id: 'exp_progressia',
+            title: 'Lead Country Representative | Progressia (Dubai Startup)',
+            date: '2025 - Present',
+            description: [
+              'Leading the strategic integration of AI-driven financial solutions for the regional market.',
+              'Ensuring alignment between technology roadmap and local institutional regulations.'
+            ]
+          },
+          {
+            id: 'exp_enterprise',
+            title: 'Senior Solutions Architect | Kutwit',
+            date: '2017 - 2025',
+            description: [
+              'Led technical lifecycle and digital strategy for enterprise clients (Kohl’s, EPA, Establishment Labs).',
+              'Managed IT budgets (Capex/Opex) and performed TCO analysis for large-scale cloud migrations.',
+              'Defined architectural standards to reduce technical debt and ensure system integrity.'
+            ]
+          },
+          {
+            id: 'exp_smgroup',
+            title: 'Tech Lead | SM Group',
+            date: '2015 - 2017',
+            description: [
+              'Managed software development lifecycles (SDLC) for public and educational platforms.',
+              'Improved operational efficiency through strategic UX and architectural redesign.'
+            ]
+          }
+        ]
+      },
+      {
+        id: 'skills_and_training',
+        title: 'Governance & Strategic Mastery',
+        isTwoColumns: true,
+        items: [
+          {
+            id: 'skill_gov',
+            title: 'Enterprise Governance',
+            description: ['Enterprise Architecture · TOGAF/COBIT Frameworks · ROI/TCO Analysis · SMART Requirements · Business Intelligence']
+          },
+          {
+            id: 'skill_tech',
+            title: 'Cloud & Compliance',
+            description: ['Hybrid Cloud (Azure/GCP) · Security Controls · Business Continuity · API Strategy · Agile Orchestration']
+          },
+          {
+            id: 'skill_inst',
+            title: 'Partner Institutions',
+            description: ['INCAE · ULACIT · UNA · IBITEC · CTP Calle Blancos · CNC']
+          },
+          {
+            id: 'skill_certs',
+            title: 'Specialized Training',
+            description: ['MSc Big Data · Project Management · Strategic IT Planning · Fintech · Digital Journalism']
+          }
+        ]
+      },
+      {
+        id: 'education',
+        title: 'Education',
+        items: [
+          {
+            id: 'edu_mba',
+            title: 'MBA in Technology Management — ULACIT',
+            date: '2025 - 2027',
+            description: 'Focus on Strategic IT Governance and Scaling Business Operations.'
+          },
+          {
+            id: 'edu_eneb',
+            title: "MSc in Big Data & MSc in Project Management — ENEB",
+            date: '2023 - 2025',
+            description: 'Specialization in Data-Driven Strategy and Agile Orchestration.'
+          },
+          {
+            id: 'edu_ircu_msc',
+            title: 'MSc in Web Design & Development — IRCU',
+            date: '2019',
+            description: 'Advanced studies in systems architecture and digital product design.'
+          }
+        ]
+      }
+    ]
+  },
+  {
     slug: 'arquitecto-senior',
     name: 'Efraín González Bermúdez',
     title: 'JEFE DE ARQUITECTURA EMPRESARIAL | CONSULTOR ESTRATÉGICO TI',
@@ -174,14 +273,6 @@ export const cvData: CV[] = [
             date: '2015 - 2017',
             description: [
               'Gestión de desarrollo de software y estrategias digitales, mejorando significativamente la UX en plataformas públicas y educativas.'
-            ]
-          },
-          {
-            id: 'exp_legacy_es',
-            title: 'Gestor de Contenido y Desarrollador Web',
-            date: '2011 - 2013',
-            description: [
-              'Optimización de sitios web de alto tráfico en EE.UU. (Capilleira) y gestión de crecimiento digital (DCC).'
             ]
           }
         ]
@@ -234,161 +325,6 @@ export const cvData: CV[] = [
             title: 'Máster en Diseño y Desarrollo Web — IRCU',
             date: '2019',
             description: 'Estudios avanzados en arquitectura de sistemas y diseño de productos digitales.'
-          },
-          {
-            id: 'edu_ircu_lic',
-            title: 'Licenciatura en Diseño y Desarrollo Web — IRCU',
-            date: '2017',
-            description: 'Ingeniería de software y arquitectura de sistemas.'
-          }
-        ]
-      },
-      {
-        id: 'liderazgo_investigacion',
-        title: 'Investigación e Innovación',
-        items: [
-          {
-            id: 'exp_ircu_vpt',
-            title: 'Vicerrector de Tecnología | IRCU',
-            date: '2019 - 2021',
-            description: 'Liderazgo de transformación digital e iniciativas de educación en línea a nivel institucional.'
-          },
-          {
-            id: 'exp_menta',
-            title: 'Arquitecto Fundador | MentaIA.org (I+D)',
-            date: 'Presente',
-            description: 'Investigación independiente en motores de aprendizaje adaptativo y arquitecturas de IA Generativa.'
-          }
-        ]
-      }
-    ]
-  },
-  {
-    slug: 'innovation',
-    name: 'Efraín González Bermúdez',
-    title: 'INNOVATION SPECIALIST',
-    summary: 'Technology professional and professor with 15 years of experience in R&D, software development, and digital strategy. Proven track record leading digital transformation for organizations such as Kohl’s, EPA, Establishment Labs, ULACIT and CostaRica.org (+30% sales lift). Expertise in bridging technical execution with strategic innovation, authoring 30+ articles and two books on computing and AI. Currently an MBA candidate in Technology Management, focusing on scaling innovation and startup ecosystems.',
-    contact: {
-      phone: { text: '+506 8693 9737', url: 'tel:+50686939737' },
-      email: { text: 'hiefraingb@gmail.com', url: 'mailto:hiefraingb@gmail.com' },
-      website: { text: 'EfrainGB.org', url: '/' },
-      linkedin: { text: 'linkedin.com/in/efraingb', url: 'https://www.linkedin.com/in/efraingb/' },
-    },
-    sections: [
-      {
-        id: 'experience',
-        title: 'Experience',
-        items: [
-          {
-            id: 'exp_progressia',
-            title: 'Lead Country Representative | Progressia (Dubai-based Startup)',
-            date: '2025 - Present',
-            description: 'Leading the strategic integration and deployment of AI-powered solutions for the Costa Rican market.'
-          },
-          {
-            id: 'exp_kutwit',
-            title: 'Innovation & Technology Strategist | Kutwit',
-            date: '2017 - 2025',
-            description: 'Leading the technical lifecycle and digital strategy for software solutions, driving long-term growth and operational efficiency.'
-          },
-          {
-            id: 'exp_sm',
-            title: 'Tech Lead | SM Group',
-            date: '2015 - 2017',
-            description: 'Managed software development and digital strategies, improving UX of public & education platforms.'
-          },
-          {
-            id: 'exp_capilleira',
-            title: 'Content Manager & Web Developer',
-            date: '2011 - 2013',
-            description: 'Troubleshot and optimized 300 US Websites at Capilleira (2013) and fostered digital growth at DCC (2011).'
-          }
-        ]
-      },
-      {
-        id: 'leadership',
-        title: 'Social & Educational Leadership',
-        items: [
-          {
-            id: 'exp_ircu_vpt',
-            title: 'Vice-rector of Technology | IRCU',
-            date: '2019 - 2021',
-            description: 'Led digital transformation & online education initiatives. Curriculum Design & Delivery (Technical Topics).'
-          },
-          {
-            id: 'exp_communities',
-            title: 'Strategic Community Engagement',
-            date: '2010 - Present',
-            description: 'Professor & Speaker at CyberU, EDUCATEC, Saint Thomas & CRDigital. Focus on youth and digital services.'
-          }
-        ]
-      },
-      {
-        id: 'skills_and_training_base',
-        title: 'Professional Training & Certifications',
-        isTwoColumns: true,
-        items: [
-          {
-            id: 'skill_tech_base',
-            title: 'Technical Stack',
-            description: ['AI · JavaScript · PHP · MySQL · Blockchain · Fintech · Cloud · UX Design · Odoo']
-          },
-          {
-            id: 'skill_biz_base',
-            title: 'Business & Management',
-            description: ['Agile/Scrum · Strategic Planning · Negotiation · Digital Marketing · Sales · Journalism']
-          },
-          {
-            id: 'skill_inst_base',
-            title: 'Partner Institutions',
-            description: ['INCAE · ULACIT · UNA · CTP Calle Blancos · CNC · UPI · IBITEC · Platzi · Udemy']
-          },
-          {
-            id: 'skill_res_base',
-            title: 'Key Results',
-            description: ['30+ Technical Articles · 2 Books on AI/Computing · +30% Sales Lift (CostaRica.org)']
-          }
-        ]
-      },
-      {
-        id: 'education',
-        title: 'Education',
-        items: [
-          {
-            id: 'edu_mba',
-            title: 'MBA, Technology Management emphasis — ULACIT',
-            date: '2025 - 2027',
-            description: 'Focus on scaling innovation and startup ecosystems.'
-          },
-          {
-            id: 'edu_eneb',
-            title: 'MSc in Big Data & MSc in Project Management — ENEB',
-            date: '2023 - 2025',
-            description: 'Specialization in Data-Driven Strategy and Agile Orchestration.'
-          },
-          {
-            id: 'edu_ircu_msc',
-            title: 'MSc in Web Design & Dev — IRCU',
-            date: '2019',
-            description: 'Advanced systems architecture.'
-          },
-          {
-            id: 'edu_ircu_bsc',
-            title: 'BSc in Web Design & Dev — IRCU',
-            date: '2017',
-            description: 'Foundations of software engineering.'
-          }
-        ]
-      },
-      {
-        id: 'innovation_init',
-        title: 'R&D Initiative',
-        items: [
-          {
-            id: 'exp_menta',
-            title: 'Founder | MentaIA.org',
-            date: 'Present',
-            description: 'Research and development of an AI-powered personalized education platform.'
           }
         ]
       }
