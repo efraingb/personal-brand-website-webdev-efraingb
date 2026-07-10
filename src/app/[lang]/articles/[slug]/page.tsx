@@ -1,3 +1,4 @@
+// src/app/[lang]/articles/[slug]/page.tsx
 import { notFound } from 'next/navigation';
 import { articlesData } from '@/lib/articles-data';
 import Header from '@/components/header';
@@ -9,12 +10,31 @@ import { Calendar, Clock, User, ArrowLeft, Share2 } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
+import type { Metadata } from 'next';
 
 interface ArticlePageProps {
   params: Promise<{
     slug: string;
     lang: string;
   }>;
+}
+
+export async function generateMetadata({ params }: ArticlePageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const article = articlesData.find((a) => a.slug === slug);
+  if (!article) return { title: 'Article Not Found' };
+
+  return {
+    title: article.title,
+    description: article.description,
+    openGraph: {
+      title: article.title,
+      description: article.description,
+      type: 'article',
+      publishedTime: article.date,
+      authors: [article.author],
+    }
+  };
 }
 
 export default async function ArticlePage({ params }: ArticlePageProps) {
@@ -29,8 +49,29 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
     label: dict.nav?.[link.labelKey] || link.labelKey,
   }));
 
+  // Article JSON-LD for Search Engines
+  const articleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": article.title,
+    "description": article.description,
+    "datePublished": article.date,
+    "author": {
+      "@type": "Person",
+      "name": article.author
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Efraín G.B."
+    }
+  };
+
   return (
     <div className="flex flex-col min-h-screen bg-background text-foreground antialiased">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
       <Header dict={dict.header} navLinks={translatedNavLinksData} lang={lang} langSwitcherDict={dict.languageSwitcher} />
       
       <main className="flex-grow py-12 md:py-20">
@@ -127,12 +168,12 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                    <Share2 className="w-32 h-32 rotate-12" />
                 </div>
                 <div className="relative z-10">
-                   <h3 className="text-2xl font-bold mb-4">¿Te interesa el framework GEO?</h3>
+                   <h3 className="text-2xl font-bold mb-4">¿Te interesa el framework Criterio & Scale?</h3>
                    <p className="text-primary-foreground/80 mb-8 max-w-lg leading-relaxed">
                      Ayudo a organizaciones a optimizar su infraestructura digital para ser citadas y recomendadas por modelos de IA avanzados.
                    </p>
                    <Button asChild variant="secondary" className="rounded-xl">
-                      <Link href={`/${lang}#contact`}>Solicitar Auditoría de Citabilidad</Link>
+                      <Link href={`/${lang}/solutions#contact-solutions`}>Solicitar Auditoría de Citabilidad</Link>
                    </Button>
                 </div>
              </div>

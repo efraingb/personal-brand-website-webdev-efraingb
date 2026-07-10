@@ -6,7 +6,7 @@ import { getDictionary } from '@/lib/i18n';
 import { navLinksData as getRawNavLinksData } from '@/lib/data';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { ArrowRight, Brain, GraduationCap, Zap, TrendingUp, Users, ShieldCheck, Mail, MessageSquare, Sparkles, Rocket, Lock, FileText, Globe } from 'lucide-react';
+import { ArrowRight, Brain, Zap, TrendingUp, Users, ShieldCheck, MessageSquare, FileText, Globe, Lock } from 'lucide-react';
 import Link from 'next/link';
 import ContactForm from '@/components/contact-form';
 import AiRiskEstimator from '@/components/ai-risk-estimator';
@@ -22,8 +22,13 @@ export async function generateMetadata({ params }: SolutionsPageProps): Promise<
   const { lang } = await params;
   const dict = await getDictionary(lang);
   return {
-    title: `Criterio & Scale | Enterprise AI Infrastructure & ROI`,
-    description: `High-level AI consulting for global decision-makers. Estimating Risk, ROI, and Zero-Trust Architectures.`,
+    title: `Criterio & Scale | Enterprise AI Infrastructure & Risk Management`,
+    description: `Qualified Friction: Strategic AI consulting for global leaders. Estimating ROI, Data Sovereignty, and Zero-Trust Architectures.`,
+    openGraph: {
+      title: 'Criterio & Scale Hub',
+      description: 'Strategic Framework for Enterprise AI Implementation.',
+      images: ['https://picsum.photos/seed/criterio/1200/630'],
+    }
   };
 }
 
