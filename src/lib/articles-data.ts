@@ -149,9 +149,9 @@ export const articlesData: Article[] = [
       {
         type: 'list',
         items: [
-          'Docs-as-Code: La documentación crítica debe vivir junto al código. Gestionada mediante Pull Requests e integrada en pipelines de CI/CD. Si no puedes auditar quién cambió qué y por qué, tu conocimiento no está gobernado.',
-          'Puente entre Legado y Nube: Mientras la nube exige velocidad, los sistemas legados exigen orden y recuperación de conocimiento tribal. Un modelo híbrido robusto asegura que el conocimiento permanezca intacto durante la transición.',
-          'Cumplimiento por Diseño: Bajo marcos estrictos de protección de datos, el mapeo de flujos sensibles debe imponer el principio de menor privilegio. La trazabilidad y la auditabilidad no son opcionales; son la línea base.'
+          'Docs-as-Code: La documentación crítica debe vivir junto al código. Gestionada mediante Pull Requests e integrada en pipelines de CI/CD.',
+          'Puente entre Legado y Nube: Un modelo híbrido robusto asegura que el conocimiento permanezca intacto durante la transición.',
+          'Cumplimiento por Diseño: La trazabilidad y la auditabilidad no son opcionales; son la línea base.'
         ]
       },
       {
@@ -159,13 +159,66 @@ export const articlesData: Article[] = [
         text: 'La salud operativa no se mide por el volumen de manuales escritos, sino por el "Change-to-doc lag" y la capacidad de respuesta ante auditorías.'
       },
       {
+        type: 'paragraph',
+        text: 'Un líder moderno de tecnología no es solo un gestor de sistemas, es un arquitecto del conocimiento. Su función es asegurar que la documentación técnica sirva como un conductor central del control operativo.'
+      }
+    ]
+  },
+  {
+    slug: 'deuda-tecnica-era-ia-2025',
+    title: 'Deuda Técnica 2.0: Gestionando el Riesgo en la Era de la IA',
+    description: 'Cómo la explosión de código generado por IA está creando un nuevo tipo de pasivo tecnológico y cómo los líderes deben enfrentarlo.',
+    date: '2 de marzo, 2025',
+    category: 'Liderazgo & Ingeniería',
+    author: 'Efraín González Bermúdez',
+    readTime: '7 min',
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Estamos viviendo la mayor explosión de productividad en la historia del software gracias a los LLMs. Sin embargo, esta velocidad tiene un costo oculto: una nueva generación de deuda técnica que llamo "Deuda de Entropía Generativa".'
+      },
+      {
         type: 'heading',
         level: 2,
-        text: '2. El Rol del Arquitecto del Conocimiento'
+        text: '1. La Alucinación de la Productividad'
       },
       {
         type: 'paragraph',
-        text: 'Un líder moderno de tecnología no es solo un gestor de sistemas, es un arquitecto del conocimiento. Su función es asegurar que la documentación técnica sirva como un conductor central del control operativo, el cumplimiento normativo y la resiliencia del negocio ante cambios disruptivos.'
+        text: 'El hecho de que un desarrollador pueda generar mil líneas de código en segundos no significa que esas líneas sean correctas, seguras o mantenibles. El riesgo reside en la pérdida de contexto: la IA propone soluciones locales, pero a menudo ignora las implicaciones sistémicas globales.'
+      },
+      {
+        type: 'list',
+        items: [
+          'Acoplamiento invisible entre componentes generados.',
+          'Degradación de la coherencia arquitectónica.',
+          'Propagación de patrones de seguridad obsoletos.'
+        ]
+      },
+      {
+        type: 'heading',
+        level: 2,
+        text: '2. Estrategias de Gobernanza para el Ingeniero Aumentado'
+      },
+      {
+        type: 'paragraph',
+        text: 'Para evitar que la IA convierta nuestras arquitecturas en trampas de legado instantáneas, debemos implementar controles de calidad asistidos también por máquinas, pero gobernados por humanos.'
+      },
+      {
+        type: 'quote',
+        text: 'El rol del arquitecto ha pasado de ser el que dibuja el plano a ser el que valida la integridad estructural de una construcción que se levanta sola.'
+      },
+      {
+        type: 'table',
+        headers: ['Métrica', 'Era Pre-IA', 'Era IA (2025+)'],
+        rows: [
+          ['Velocidad de Despliegue', 'Limitada por el humano', 'Limitada por el Pipeline de QA'],
+          ['Costo de Mantenimiento', 'Proporcional a la complejidad', 'Exponencial si no hay gobernanza'],
+          ['Rol del Desarrollador', 'Creador de sintaxis', 'Curador de arquitectura y lógica']
+        ]
+      },
+      {
+        type: 'paragraph',
+        text: 'La verdadera ventaja competitiva no será quién genera más código con IA, sino quién logra mantener una arquitectura limpia y resiliente mientras lo hace.'
       }
     ]
   }
