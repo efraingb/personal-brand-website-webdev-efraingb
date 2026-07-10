@@ -47,6 +47,7 @@ export type IconName =
   | 'User'
   | 'Sparkles'
   | 'Wand2'
+  | 'Newspaper'
   | 'MapPin';
 
 export interface NavLink {
@@ -136,4 +137,23 @@ export interface Proposal {
   investment: ProposalInvestment[];
   currency: string;
   total: string;
+}
+
+// Article-specific types
+export interface Article {
+  slug: string;
+  title: string;
+  description: string;
+  date: string;
+  category: string;
+  author: string;
+  readTime: string;
+  content: {
+    type: 'paragraph' | 'heading' | 'list' | 'table' | 'quote' | 'image';
+    text?: string;
+    level?: 1 | 2 | 3;
+    items?: string[];
+    rows?: string[][];
+    headers?: string[];
+  }[];
 }

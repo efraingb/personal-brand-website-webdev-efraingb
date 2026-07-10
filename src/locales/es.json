@@ -1,4 +1,3 @@
-
 {
   "layout": {
     "title": "Efraín G.B. | IA que funciona y Educación que escala",
@@ -7,6 +6,7 @@
   "nav": {
     "home": "Inicio",
     "solutions": "Servicios",
+    "articles": "Conocimiento",
     "projects": "Proyectos",
     "credentials": "Experiencia",
     "booksAndResources": "Libros",
@@ -127,6 +127,7 @@
     "service3": "Ingeniería de Crecimiento Digital",
     "service4": "Mentoría y Capacitación Técnica",
     "form": {
+      "count": 0,
       "step1Label": "Enviando mensaje...",
       "step2Label": "Guardando en plataforma SER...",
       "labelName": "Tu Nombre",
@@ -178,7 +179,7 @@
     "proj-negotia_name": "NEGOTIA",
     "proj-negotia_description": "Simulador de Negociación: Entrena tus habilidades de acuerdos con una IA estratégica.",
     "proj-bless_name": "Bless Contigo",
-    "proj-bless_description": "Impacto Social: Conectando comunidades mediante herramientas digitales y estrategias de crecimiento.",
+    "proj-bless_description": "Social Impact: Conectando comunidades mediante herramientas digitales y estrategias de crecimiento.",
     "proj-imagine-motiva_name": "Imagine Motiva",
     "proj-imagine-motiva_description": "Innovación para un líder en tecnología médica que cotiza en NASDAQ.",
     "proj-agro-y-mas_name": "Agro Y Más",
