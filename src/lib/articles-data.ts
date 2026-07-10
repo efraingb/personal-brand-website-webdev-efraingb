@@ -123,5 +123,50 @@ export const articlesData: Article[] = [
         text: 'Para las organizaciones que cotizan en mercados exigentes o manejan datos de salud y finanzas, la arquitectura no es solo una cuestión de ingeniería, es una cuestión de confianza y viabilidad de negocio.'
       }
     ]
+  },
+  {
+    slug: 'gobernanza-conocimiento-it-enterprise',
+    title: 'Gobernanza del Conocimiento: El Activo Invisible de la Arquitectura Enterprise',
+    description: 'La documentación técnica no es solo "contenido"; es la diferencia estructural entre una arquitectura escalable y una trampa de legado.',
+    date: '28 de febrero, 2025',
+    category: 'Gestión Estratégica',
+    author: 'Efraín González Bermúdez',
+    readTime: '6 min',
+    content: [
+      {
+        type: 'paragraph',
+        text: 'En entornos altamente regulados y de gran escala, tratar el conocimiento técnico como una tarea secundaria es un riesgo operativo masivo. La documentación debe ser gobernada como un activo crítico, con ciclos de vida definidos, controles de acceso y trazabilidad absoluta.'
+      },
+      {
+        type: 'heading',
+        level: 2,
+        text: '1. Los Pilares de la Gobernanza del Conocimiento'
+      },
+      {
+        type: 'paragraph',
+        text: 'Para que la información sirva como motor de resiliencia y no como un repositorio estático de datos obsoletos, la arquitectura de conocimiento debe basarse en tres principios fundamentales:'
+      },
+      {
+        type: 'list',
+        items: [
+          'Docs-as-Code: La documentación crítica debe vivir junto al código. Gestionada mediante Pull Requests e integrada en pipelines de CI/CD. Si no puedes auditar quién cambió qué y por qué, tu conocimiento no está gobernado.',
+          'Puente entre Legado y Nube: Mientras la nube exige velocidad, los sistemas legados exigen orden y recuperación de conocimiento tribal. Un modelo híbrido robusto asegura que el conocimiento permanezca intacto durante la transición.',
+          'Cumplimiento por Diseño: Bajo marcos estrictos de protección de datos, el mapeo de flujos sensibles debe imponer el principio de menor privilegio. La trazabilidad y la auditabilidad no son opcionales; son la línea base.'
+        ]
+      },
+      {
+        type: 'quote',
+        text: 'La salud operativa no se mide por el volumen de manuales escritos, sino por el "Change-to-doc lag" y la capacidad de respuesta ante auditorías.'
+      },
+      {
+        type: 'heading',
+        level: 2,
+        text: '2. El Rol del Arquitecto del Conocimiento'
+      },
+      {
+        type: 'paragraph',
+        text: 'Un líder moderno de tecnología no es solo un gestor de sistemas, es un arquitecto del conocimiento. Su función es asegurar que la documentación técnica sirva como un conductor central del control operativo, el cumplimiento normativo y la resiliencia del negocio ante cambios disruptivos.'
+      }
+    ]
   }
 ];
