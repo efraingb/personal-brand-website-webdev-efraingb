@@ -2,6 +2,117 @@ import type { Article } from './types';
 
 export const articlesData: Article[] = [
   {
+    slug: 'knowledge-engineering-manifesto',
+    title: 'The Knowledge Engineering Manifesto',
+    description: 'A synchronous knowledge framework for humans and autonomous agents in the era of AI and Cloud-native architectures.',
+    date: 'March 6, 2025',
+    category: 'Technical Leadership',
+    author: 'Efraín González Bermúdez',
+    readTime: '12 min',
+    content: [
+      {
+        type: 'paragraph',
+        text: 'In complex software ecosystems, traditional static documentation suffers from accelerated entropy; it becomes an obsolete artifact the exact moment it is written. In the era of AI-assisted development and cloud-native architectures, documentation can no longer be treated as a descriptive accessory: documentation is the data infrastructure that governs the code.'
+      },
+      {
+        type: 'quote',
+        text: 'True scalability is achieved when knowledge governance is treated with the same engineering rigor as the software itself.'
+      },
+      {
+        type: 'heading',
+        level: 2,
+        text: '1. The "Docs as Code" (DaC) Principle'
+      },
+      {
+        type: 'paragraph',
+        text: 'All technical knowledge must be treated with the same rigor and quality control as executable software. This shift from "writing content" to "engineering knowledge" requires three non-negotiable rules:'
+      },
+      {
+        type: 'list',
+        items: [
+          'Strict Co-location: Documentation lives in the same Git repository as the source code. External manual wikis are prohibited for active architecture.',
+          'Atomicity of Change: No feature or schema change is "Done" unless the corresponding documentation is modified in the same commit.',
+          'Peer Governance: Pull Requests must be rejected if technical documentation does not faithfully describe the modified logic.'
+        ]
+      },
+      {
+        type: 'heading',
+        level: 2,
+        text: '2. Atomic File Architecture'
+      },
+      {
+        type: 'paragraph',
+        text: 'Every module or repository must be structured through four immutable root files, designed for optimal semantic chunking in RAG (Retrieval-Augmented Generation) systems:'
+      },
+      {
+        type: 'table',
+        headers: ['File', 'Purpose', 'Primary Audience'],
+        rows: [
+          ['README.md', 'Onboarding & Local Initialization', 'Developers & AI Agents'],
+          ['ARCHITECTURE.md', 'Context, Data Flow & Logic Constraints', 'Architects & Lead Engineers'],
+          ['INDEX.md', 'API Contracts & Interface Definitions', 'Integration Services'],
+          ['SCHEMA.md', 'Data Models & Security Rules (NoSQL/SQL)', 'Compliance & Database Admins']
+        ]
+      },
+      {
+        type: 'heading',
+        level: 2,
+        text: '3. The Documentation Tombstone (Genetic Memory)'
+      },
+      {
+        type: 'paragraph',
+        text: 'Institutional amnesia destroys operational efficiency. Documenting what we delete is just as critical as documenting what we build. When a feature is retired, its documentation is moved to a /decisions folder with three mandatory metadata fields:'
+      },
+      {
+        type: 'list',
+        items: [
+          'Reason for Removal: Data-driven analysis (e.g., token cost, performance bottlenecks).',
+          'Impact & Date: Exact moment the service was deprecated.',
+          'Decision Ownership: Who approved the change.'
+        ]
+      },
+      {
+        type: 'heading',
+        level: 2,
+        text: '4. AI-First Optimization Guidelines'
+      },
+      {
+        type: 'paragraph',
+        text: 'To minimize hallucinations and allow AI tools to inherit a clean context, technical writing must follow these mathematical pautas of clarity:'
+      },
+      {
+        type: 'list',
+        items: [
+          'YAML Front-Matter: Every .md file must start with structured metadata for syntactic indexing.',
+          'Explicit Entities: No vague headings like "Setup". Use "Next.js Environment Configuration".',
+          'The llms.txt Protocol: A high-density information index formatted specifically for autonomous LLM agents.'
+        ]
+      },
+      {
+        type: 'heading',
+        level: 2,
+        text: '5. Compliance & Expiration by Design'
+      },
+      {
+        type: 'paragraph',
+        text: 'Every architectural document must have a strict review_by expiration date (e.g., 6 months). Once expired, the CI/CD pipeline flags it, alerting the ecosystem that the reliability of that information can no longer be trusted blindly.'
+      },
+      {
+        type: 'heading',
+        level: 3,
+        text: 'Academic Foundations'
+      },
+      {
+        type: 'list',
+        items: [
+          'Forward & Lethbridge (2002): The relevance of software documentation in agile development.',
+          'Nygard (2011): Documenting Architecture Decisions (ADR Pattern).',
+          'Spinellis (2016): Evaluating the Docs-as-Code approach in high-velocity organizations.'
+        ]
+      }
+    ]
+  },
+  {
     slug: 'fin-del-clic-nacimiento-geo',
     title: 'El Fin del Clic y el Nacimiento del GEO',
     description: 'El framework académico para dominar la era de los motores de respuesta generativos.',
