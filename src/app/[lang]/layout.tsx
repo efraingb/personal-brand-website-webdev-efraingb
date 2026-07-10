@@ -28,6 +28,12 @@ export async function generateMetadata({ params }: RootLayoutProps): Promise<Met
     icons: {
       icon: faviconDataUrl,
     },
+    // Prevent automated indexing of private areas or specific patterns
+    robots: {
+      index: true,
+      follow: true,
+      nocache: true,
+    }
   };
 }
 
@@ -43,8 +49,43 @@ export default async function RootLayout({
   params,
 }: RootLayoutProps) {
   const { lang } = await params;
+
+  // JSON-LD for AI Search & GEO Optimization
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Efraín González Bermúdez",
+    "jobTitle": "Strategic Solutions Architect",
+    "knowsAbout": ["Artificial Intelligence", "Enterprise Architecture", "Cloud Security", "EdTech", "Big Data"],
+    "url": "https://efraingb.org",
+    "hasCredential": [
+      { "@type": "EducationalOccupationalCredential", "name": "MBA in Technology Management" },
+      { "@type": "EducationalOccupationalCredential", "name": "MSc in Big Data & AI" }
+    ],
+    "description": "Enterprise Solutions Architect specializing in Strategic AI Implementation and EdTech for global organizations."
+  };
+
+  const serviceJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Efraín G.B. AI Consulting",
+    "url": "https://efraingb.org",
+    "address": { "@type": "PostalAddress", "addressLocality": "San José", "addressCountry": "CR" },
+    "description": "Architectural governance, Cloud Security audit, and Strategic AI roadmap design for enterprise leaders."
+  };
+
   return (
     <html lang={lang} className={`${GeistSans.variable} ${GeistMono.variable}`} suppressHydrationWarning>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+        />
+      </head>
       <body className="antialiased" suppressHydrationWarning>
         {children}
       </body>
