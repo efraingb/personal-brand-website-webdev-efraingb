@@ -221,5 +221,63 @@ export const articlesData: Article[] = [
         text: 'La verdadera ventaja competitiva no será quién genera más código con IA, sino quién logra mantener una arquitectura limpia y resiliente mientras lo hace.'
       }
     ]
+  },
+  {
+    slug: 'arquitectura-alta-velocidad-nextjs-tailwind',
+    title: 'Arquitectura de Alta Velocidad: Por qué Next.js y Tailwind son el Estándar Enterprise en 2025',
+    description: 'Análisis del stack tecnológico que permite escalar productos digitales con agilidad, rendimiento extremo y seguridad por diseño.',
+    date: '4 de marzo, 2025',
+    category: 'Arquitectura Web',
+    author: 'Efraín González Bermúdez',
+    readTime: '9 min',
+    content: [
+      {
+        type: 'paragraph',
+        text: 'La construcción de aplicaciones web empresariales ha pasado de ser una cuestión de "hacer que funcione" a "hacer que escale bajo presión". En 2025, la elección de Next.js y Tailwind CSS no es una moda, es una decisión de arquitectura estratégica.'
+      },
+      {
+        type: 'heading',
+        level: 2,
+        text: '1. Next.js 15: El Sistema Operativo de la Web Moderna'
+      },
+      {
+        type: 'paragraph',
+        text: 'Next.js ha redefinido el rendimiento mediante el uso de Server Components. Al procesar la lógica pesada en el servidor, reducimos drásticamente el JavaScript enviado al cliente, lo que resulta en tiempos de carga casi instantáneos (LCP < 1.2s).'
+      },
+      {
+        type: 'list',
+        items: [
+          'Renderizado Híbrido: Combinación de Static Site Generation (SSG) y Server-Side Rendering (SSR).',
+          'Seguridad Nativa: Manejo de datos sensibles fuera del alcance del navegador del usuario.',
+          'Escalabilidad en el Edge: Distribución global de contenido para latencia mínima.'
+        ]
+      },
+      {
+        type: 'heading',
+        level: 2,
+        text: '2. Tailwind CSS: Estilizado Atómico sin Deuda Técnica'
+      },
+      {
+        type: 'paragraph',
+        text: 'El gran problema del CSS tradicional es la entropía: a medida que el proyecto crece, el archivo CSS se vuelve inmanejable. Tailwind resuelve esto mediante una arquitectura atómica que garantiza que el tamaño del estilo se mantenga constante sin importar cuántas páginas añadamos.'
+      },
+      {
+        type: 'quote',
+        text: 'Tailwind CSS no es sobre "escribir clases", es sobre crear un lenguaje de diseño compartido que elimina la fricción entre el prototipo y la producción.'
+      },
+      {
+        type: 'table',
+        headers: ['Característica', 'Enfoque Tradicional', 'Next.js + Tailwind'],
+        rows: [
+          ['Velocidad de Carga', 'Dependiente del cliente', 'Optimizada en el servidor'],
+          ['Mantenibilidad', 'Deuda técnica creciente', 'Arquitectura modular limpia'],
+          ['Costo de Desarrollo', 'Alto (silos de diseño)', 'Bajo (sistema de diseño atómico)']
+        ]
+      },
+      {
+        type: 'paragraph',
+        text: 'Adoptar este stack permite que organizaciones de cualquier tamaño operen con la agilidad de una startup y la robustez de una corporación NASDAQ. Es la infraestructura que sustenta este mismo portafolio y los proyectos de mis clientes.'
+      }
+    ]
   }
 ];
