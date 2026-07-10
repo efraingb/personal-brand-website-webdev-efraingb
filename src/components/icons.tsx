@@ -1,5 +1,34 @@
 import type { LucideProps } from 'lucide-react';
-import { BookOpen, Linkedin, Github, Mail, ExternalLink, ServerCrash, CircleDot, Smartphone, Laptop, Database, GraduationCap, Briefcase, BarChart3, Phone, Globe, MapPin, FileText, CheckCircle2, User } from 'lucide-react';
+import { 
+  BookOpen, 
+  Linkedin, 
+  Github, 
+  Mail, 
+  ExternalLink, 
+  ServerCrash, 
+  CircleDot, 
+  Smartphone, 
+  Laptop, 
+  Database, 
+  GraduationCap, 
+  Briefcase, 
+  BarChart3, 
+  Phone, 
+  Globe, 
+  MapPin, 
+  FileText, 
+  CheckCircle2, 
+  User,
+  ShieldCheck,
+  Lock,
+  Zap,
+  TrendingUp,
+  Users,
+  MessageSquare,
+  Sparkles,
+  Wand2,
+  Newspaper
+} from 'lucide-react';
 import type { FC } from 'react';
 import type { IconName } from '@/lib/types';
 
@@ -44,6 +73,24 @@ export const Icon: FC<IconProps> = ({ name, ...props }) => {
       return <CheckCircle2 {...props} />;
     case 'User':
       return <User {...props} />;
+    case 'ShieldCheck':
+      return <ShieldCheck {...props} />;
+    case 'Lock':
+      return <Lock {...props} />;
+    case 'Zap':
+      return <Zap {...props} />;
+    case 'TrendingUp':
+      return <TrendingUp {...props} />;
+    case 'Users':
+      return <Users {...props} />;
+    case 'MessageSquare':
+      return <MessageSquare {...props} />;
+    case 'Sparkles':
+      return <Sparkles {...props} />;
+    case 'Wand2':
+      return <Wand2 {...props} />;
+    case 'Newspaper':
+      return <Newspaper {...props} />;
     default:
       const iconMap: Record<string, React.ElementType> = {
         react: Laptop,

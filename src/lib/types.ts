@@ -48,6 +48,12 @@ export type IconName =
   | 'Sparkles'
   | 'Wand2'
   | 'Newspaper'
+  | 'ShieldCheck'
+  | 'Lock'
+  | 'Zap'
+  | 'TrendingUp'
+  | 'Users'
+  | 'MessageSquare'
   | 'MapPin';
 
 export interface NavLink {
