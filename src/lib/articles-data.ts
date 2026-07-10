@@ -57,7 +57,70 @@ export const articlesData: Article[] = [
       },
       {
         type: 'paragraph',
-        text: 'El posicionamiento orgánico dentro de los LLMs requiere una reingeniería profunda del código, de la narrativa de marca y de las relaciones públicas digitales. Aquellas organizaciones que logren dominar la inyección de entidades y el Information Gain se consolidarán como las respuestas por defecto.'
+        text: 'El posicionamiento orgánico dentro de los LLMs requiere una reingeniería profunda del código, de la narrativa de marca y de las relaciones públicas digitales.'
+      }
+    ]
+  },
+  {
+    slug: 'seguridad-por-diseno-cloud-architecture',
+    title: 'Seguridad por Diseño: El Nuevo Estándar de la Arquitectura Cloud',
+    description: 'Por qué la infraestructura moderna requiere un enfoque basado en Zero Trust y cumplimiento normativo desde el código.',
+    date: '26 de febrero, 2025',
+    category: 'Arquitectura Enterprise',
+    author: 'Efraín González Bermúdez',
+    readTime: '10 min',
+    content: [
+      {
+        type: 'paragraph',
+        text: 'En el actual panorama de amenazas digitales, la seguridad ya no puede ser una capa añadida al final del ciclo de desarrollo. La "Seguridad por Diseño" (Security by Design) es ahora el imperativo categórico para cualquier Arquitecto de Soluciones que maneje datos institucionales sensibles.'
+      },
+      {
+        type: 'heading',
+        level: 2,
+        text: '1. El Framework Zero Trust: Nunca Confiar, Siempre Verificar'
+      },
+      {
+        type: 'paragraph',
+        text: 'El modelo tradicional de "castillo y foso" ha muerto. En entornos de nube híbrida, el perímetro es dinámico. Implementar una arquitectura Zero Trust significa que cada solicitud de acceso, sin importar de dónde provenga, debe ser autenticada, autorizada y cifrada.'
+      },
+      {
+        type: 'list',
+        items: [
+          'Micro-segmentación de red para aislar cargas de trabajo críticas.',
+          'Principio de Menor Privilegio (PoLP) aplicado a cada identidad.',
+          'Monitoreo adaptativo basado en el comportamiento del usuario.'
+        ]
+      },
+      {
+        type: 'heading',
+        level: 2,
+        text: '2. Cumplimiento como Código (NIST & CIS)'
+      },
+      {
+        type: 'paragraph',
+        text: 'La adopción de marcos como el NIST 800-series o los benchmarks de CIS no debe ser una tarea manual de auditoría. La arquitectura moderna integra el cumplimiento dentro del pipeline de CI/CD, asegurando que ninguna infraestructura sea desplegada si no cumple con los estándares de endurecimiento (hardening) definidos.'
+      },
+      {
+        type: 'quote',
+        text: 'La deuda técnica en seguridad es el interés más caro que una empresa puede pagar. Un error en la configuración de IAM hoy es una brecha de datos mañana.'
+      },
+      {
+        type: 'heading',
+        level: 3,
+        text: 'Análisis de Valor: TCO vs Resiliencia'
+      },
+      {
+        type: 'table',
+        headers: ['Componente', 'Arquitectura Tradicional', 'Arquitectura Resiliente'],
+        rows: [
+          ['Gestión de Identidad', 'Basada en perímetros fijos', 'Basada en identidades federadas y MFA'],
+          ['Hardening', 'Reactivo post-incidente', 'Proactivo vía infraestructura como código'],
+          ['Escalabilidad', 'Limitada por silos de hardware', 'Elástica con gobernanza centralizada']
+        ]
+      },
+      {
+        type: 'paragraph',
+        text: 'Para las organizaciones que cotizan en mercados exigentes o manejan datos de salud y finanzas, la arquitectura no es solo una cuestión de ingeniería, es una cuestión de confianza y viabilidad de negocio.'
       }
     ]
   }
